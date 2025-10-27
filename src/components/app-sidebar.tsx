@@ -36,8 +36,8 @@ import {
   MoreHorizontal,
   Plane,
   MoonStar,
-  Grid2x2,
   Blend,
+  Component,
 } from "lucide-react";
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
@@ -254,6 +254,7 @@ const data = {
     { title: "Spacer", url: "/spacer", badge: "new", icon: SpaceIcon },
     { title: "Calendar", url: "/calendar", badge: "new", icon: Calendar1Icon },
     { title: "Popover", url: "/popover", badge: "new", icon: Blend },
+    { title: "Modals", url: "/modal", badge: "new", icon: Component },
   ],
 };
 
