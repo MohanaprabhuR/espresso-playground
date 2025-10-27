@@ -33,9 +33,9 @@ import {
   SquareChevronRightIcon,
   SpaceIcon,
   Calendar1Icon,
-  Zap,
   MoreHorizontal,
   Plane,
+  MoonStar,
 } from "lucide-react";
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
@@ -89,7 +89,17 @@ const data = {
     {
       title: "Form Components",
       icon: FolderMinusIcon,
-      isActive: true,
+      items: [
+        { title: "General", url: "#" },
+        { title: "Standups", url: "#" },
+        { title: "Training", url: "#" },
+        { title: "Update", url: "#" },
+      ],
+    },
+    {
+      title: "Product",
+      icon: MoonStar,
+      badge: "5",
       items: [
         { title: "General", url: "#" },
         { title: "Standups", url: "#" },

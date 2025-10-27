@@ -51,7 +51,7 @@ export function NavUser({
                 </SidebarMenuButton>
               </div>
 
-              <SidebarMenuButton asChild>
+              <SidebarMenuButton asChild className="w-auto">
                 <SidebarTrigger>
                   <PanelLeftClose className="size-4" />
                 </SidebarTrigger>
@@ -61,7 +61,7 @@ export function NavUser({
         )}
 
         {isCollapsed && (
-          <SidebarMenuButton asChild>
+          <SidebarMenuButton asChild className="w-auto">
             <SidebarTrigger>
               <PanelLeft className="size-4" />
             </SidebarTrigger>
