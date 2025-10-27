@@ -5,6 +5,7 @@ import {
   PanelLeftClose,
   MessageCircleQuestionMark,
   Zap,
+  ArrowRightFromLine,
 } from "lucide-react";
 
 import {
@@ -51,20 +52,21 @@ export function NavUser({
                 </SidebarMenuButton>
               </div>
 
+              {/* 👇 Dynamic trigger icon */}
               <SidebarMenuButton asChild className="w-auto">
-                <SidebarTrigger>
-                  <PanelLeftClose className="size-4" />
-                </SidebarTrigger>
+                <SidebarTrigger
+                  icon={isCollapsed ? ArrowRightFromLine : PanelLeft}
+                />
               </SidebarMenuButton>
             </div>
           </>
         )}
 
         {isCollapsed && (
-          <SidebarMenuButton asChild className="w-auto">
-            <SidebarTrigger>
-              <PanelLeft className="size-4" />
-            </SidebarTrigger>
+          <SidebarMenuButton asChild className="w-auto mx-auto">
+            <SidebarTrigger
+              icon={isCollapsed ? ArrowRightFromLine : PanelLeft}
+            />
           </SidebarMenuButton>
         )}
       </SidebarMenuItem>

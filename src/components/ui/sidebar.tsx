@@ -252,11 +252,16 @@ function Sidebar({
   );
 }
 
+interface SidebarTriggerProps extends React.ComponentProps<typeof Button> {
+  icon?: React.ElementType; // allows passing a custom icon component
+}
+
 function SidebarTrigger({
   className,
   onClick,
+  icon: Icon = PanelLeftIcon, // 👈 default icon fallback
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: SidebarTriggerProps) {
   const { toggleSidebar } = useSidebar();
 
   return (
@@ -264,7 +269,6 @@ function SidebarTrigger({
       data-sidebar="trigger"
       data-slot="sidebar-trigger"
       variant="ghost"
-      size="icon"
       className={cn("size-7", className)}
       onClick={(event) => {
         onClick?.(event);
@@ -272,7 +276,8 @@ function SidebarTrigger({
       }}
       {...props}
     >
-      <PanelLeftIcon />
+      {/* 👇 Render the icon component */}
+      <Icon className="size-4" />
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   );
