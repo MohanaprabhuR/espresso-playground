@@ -69,9 +69,9 @@ const data = {
   },
   teams: [
     {
-      name: "Frappe",
+      name: "Gameplan",
       logo: LogoIcon,
-      plan: "Frappe Inc.",
+      plan: "Sally Potter",
     },
   ],
   navPrimary: [
@@ -311,7 +311,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarSeparator />
         <SidebarGroupLabel>
           Teams
-          <SidebarMenuButton>
+          <SidebarMenuButton className="w-auto">
             <Plus className="size-4" />
           </SidebarMenuButton>
         </SidebarGroupLabel>

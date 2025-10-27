@@ -250,7 +250,7 @@
   --color-light-gray-800: #383838;
   --color-light-gray-900: #171717;
   --color-light-gray-950: #1e1e1e;
-  --color-light-gray-1000: #c9c9c9e6;
+  --color-light-gray-1000: #c9c9c9;
 
   /* Dark Gray Shades */
   --color-dark-gray-50: #0f0f0f;
@@ -620,7 +620,7 @@
   --sidebar-accent: var(--color-light-gray-200);
   --sidebar-accent-foreground: var(--color-light-gray-900);
   --sidebar-border: var(--color-light-gray-200);
-  --sidebar-ring: var(--color-light-gray-500);
+  --sidebar-ring: var(--color-light-gray-1000);
   --chart-1: var(--color-light-blue-400);
   --chart-2: var(--color-light-blue-500);
   --chart-3: var(--color-light-blue-600);
@@ -755,7 +755,7 @@
   --sidebar-accent: var(--color-dark-gray-300);
   --sidebar-accent-foreground: var(--color-dark-gray-950);
   --sidebar-border: var(--color-dark-gray-200);
-  --sidebar-ring: var(--color-light-gray-500);
+  --sidebar-ring: var(--color-light-gray-1000);
   --chart-1: var(--color-light-blue-900);
   --chart-2: var(--color-light-blue-800);
   --chart-3: var(--color-light-blue-700);
