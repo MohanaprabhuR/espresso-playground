@@ -36,6 +36,7 @@ import {
   MoreHorizontal,
   Plane,
   MoonStar,
+  Grid2x2,
 } from "lucide-react";
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
@@ -251,6 +252,7 @@ const data = {
     },
     { title: "Spacer", url: "/spacer", badge: "new", icon: SpaceIcon },
     { title: "Calendar", url: "/calendar", badge: "new", icon: Calendar1Icon },
+    // { title: "Table", url: "/table", badge: "new", icon: Grid2x2 },
   ],
 };
 
