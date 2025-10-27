@@ -43,9 +43,9 @@ export function TeamSwitcher({
       <SidebarMenuItem>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <SidebarHeader className="cursor-pointer">
-              <activeTeam.logo className="size-8" />
-              <div className="flex flex-col flex-1 text-left text-sm">
+            <SidebarHeader className="cursor-pointer p-0">
+              <activeTeam.logo className="size-7" />
+              <div className="flex flex-col flex-1 text-left text-sm group-data-[collapsible=icon]:hidden">
                 <span className="truncate font-medium text-base">
                   {activeTeam.name}
                 </span>
@@ -53,7 +53,7 @@ export function TeamSwitcher({
                   {activeTeam.plan}
                 </span>
               </div>
-              <ChevronsUpDown className="ml-auto size-4" />
+              <ChevronsUpDown className="ml-auto size-4 group-data-[collapsible=icon]:hidden" />
             </SidebarHeader>
           </DropdownMenuTrigger>
 

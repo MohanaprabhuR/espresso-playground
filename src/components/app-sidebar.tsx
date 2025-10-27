@@ -34,8 +34,8 @@ import {
   SpaceIcon,
   Calendar1Icon,
   Zap,
-  MessageCircleQuestionMark,
-  CloudIcon,
+  MoreHorizontal,
+  Plane,
 } from "lucide-react";
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
@@ -47,10 +47,18 @@ import {
   SidebarFooter,
   SidebarGroupLabel,
   SidebarHeader,
+  SidebarMenuAction,
   SidebarMenuButton,
+  SidebarMenuItem,
   SidebarRail,
   SidebarSeparator,
 } from "@/components/ui/sidebar";
+import {
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenu,
+} from "./ui/dropdown-menu";
 
 // This is sample data.
 const data = {
@@ -244,6 +252,52 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navPrimary} />
+        <SidebarMenuItem>
+          <SidebarMenuButton asChild size="sm">
+            <a href="#">
+              <Home />
+              <span>Home</span>
+            </a>
+          </SidebarMenuButton>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <SidebarMenuAction>
+                <MoreHorizontal />
+              </SidebarMenuAction>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent side="right" align="start">
+              <DropdownMenuItem>
+                <span>Edit Project</span>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <span>Delete Project</span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </SidebarMenuItem>
+        <SidebarMenuItem>
+          <SidebarMenuButton asChild size="sm">
+            <a href="#">
+              <Plane />
+              <span>Travel</span>
+            </a>
+          </SidebarMenuButton>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <SidebarMenuAction>
+                <MoreHorizontal />
+              </SidebarMenuAction>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent side="right" align="start">
+              <DropdownMenuItem>
+                <span>Edit Project</span>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <span>Delete Project</span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </SidebarMenuItem>
         <SidebarSeparator />
         <SidebarGroupLabel>
           Teams

@@ -1,5 +1,4 @@
 "use client";
-
 import * as React from "react";
 import { type LucideIcon, ChevronRight } from "lucide-react";
 import Link from "next/link";
@@ -12,11 +11,13 @@ import {
 import {
   SidebarGroup,
   SidebarMenu,
+  SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
+  useSidebar,
 } from "@/components/ui/sidebar";
 
 export function NavMain({
@@ -35,6 +36,9 @@ export function NavMain({
     }[];
   }[];
 }) {
+  const { state } = useSidebar();
+  const isCollapsed = state === "collapsed";
+
   return (
     <SidebarGroup>
       <SidebarMenu>
@@ -52,20 +56,23 @@ export function NavMain({
                   {/* Trigger */}
                   <CollapsibleTrigger asChild>
                     <SidebarMenuButton tooltip={item.title}>
-                      <ChevronRight className=" w-4 h-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                      {!isCollapsed && (
+                        <ChevronRight className="w-4 h-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                      )}
                       <div className="flex items-center gap-2 flex-1">
                         {item.icon && <item.icon className="w-4 h-4" />}
                         <span className="truncate">{item.title}</span>
                       </div>
-
                       {item.badge && (
-                        <span className="ml-auto ">{item.badge}</span>
+                        <SidebarMenuBadge className="ml-auto">
+                          {item.badge}
+                        </SidebarMenuBadge>
                       )}
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
 
                   {/* Collapsible content */}
-                  <CollapsibleContent className="">
+                  <CollapsibleContent>
                     <SidebarMenuSub>
                       {item.items.map((subItem) => (
                         <SidebarMenuSubItem key={subItem.title}>
@@ -76,9 +83,9 @@ export function NavMain({
                             >
                               <span className="truncate">{subItem.title}</span>
                               {subItem.badge && (
-                                <span className="ml-auto ">
+                                <SidebarMenuBadge className="ml-auto">
                                   {subItem.badge}
-                                </span>
+                                </SidebarMenuBadge>
                               )}
                             </Link>
                           </SidebarMenuSubButton>
@@ -101,7 +108,11 @@ export function NavMain({
                 >
                   {item.icon && <item.icon className="w-4 h-4" />}
                   <span className="flex-1 truncate">{item.title}</span>
-                  {item.badge && <span className="ml-auto ">{item.badge}</span>}
+                  {item.badge && (
+                    <SidebarMenuBadge className="ml-auto">
+                      {item.badge}
+                    </SidebarMenuBadge>
+                  )}
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>

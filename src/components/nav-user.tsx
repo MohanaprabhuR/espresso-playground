@@ -1,25 +1,12 @@
 "use client";
 import {
-  BadgeCheck,
-  Bell,
-  ChevronsUpDown,
   CloudIcon,
-  CreditCard,
-  LogOut,
+  PanelLeft,
+  PanelLeftClose,
   MessageCircleQuestionMark,
-  Sparkles,
   Zap,
 } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import {
   SidebarMenu,
   SidebarMenuButton,
@@ -29,6 +16,7 @@ import {
 } from "@/components/ui/sidebar";
 import { Progress } from "./ui/progress";
 import { Label } from "./ui/label";
+
 export function NavUser({
   user,
 }: {
@@ -38,29 +26,47 @@ export function NavUser({
     avatar: string;
   };
 }) {
-  const { isMobile } = useSidebar();
+  const { state } = useSidebar();
+  const isCollapsed = state === "collapsed";
+
   return (
     <SidebarMenu>
       <SidebarMenuItem className="gap-2.5 flex flex-col">
-        <Progress value={40} size="xs" showLabel>
-          <Label>
-            <CloudIcon className="size-4" />
-            Label
-          </Label>
-        </Progress>
-        <div className="flex  gap-1 justify-between w-full">
-          <div className="flex items-center gap-1">
-            <SidebarMenuButton>
-              <Zap className="size-4" />
-            </SidebarMenuButton>
-            <SidebarMenuButton>
-              <MessageCircleQuestionMark className="size-4" />
-            </SidebarMenuButton>
-          </div>
-          <SidebarMenuButton className="w-auto">
-            <SidebarTrigger className="size-4" />
+        {!isCollapsed && (
+          <>
+            <Progress value={40} size="xs" showLabel>
+              <Label>
+                <CloudIcon className="size-4" />
+                Label
+              </Label>
+            </Progress>
+
+            <div className="flex gap-1 justify-between w-full">
+              <div className="flex items-center gap-1">
+                <SidebarMenuButton>
+                  <Zap className="size-4" />
+                </SidebarMenuButton>
+                <SidebarMenuButton>
+                  <MessageCircleQuestionMark className="size-4" />
+                </SidebarMenuButton>
+              </div>
+
+              <SidebarMenuButton asChild>
+                <SidebarTrigger>
+                  <PanelLeftClose className="size-4" />
+                </SidebarTrigger>
+              </SidebarMenuButton>
+            </div>
+          </>
+        )}
+
+        {isCollapsed && (
+          <SidebarMenuButton asChild>
+            <SidebarTrigger>
+              <PanelLeft className="size-4" />
+            </SidebarTrigger>
           </SidebarMenuButton>
-        </div>
+        )}
       </SidebarMenuItem>
     </SidebarMenu>
   );
