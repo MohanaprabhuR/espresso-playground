@@ -37,6 +37,7 @@ import {
   Plane,
   MoonStar,
   Grid2x2,
+  Blend,
 } from "lucide-react";
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
@@ -252,7 +253,7 @@ const data = {
     },
     { title: "Spacer", url: "/spacer", badge: "new", icon: SpaceIcon },
     { title: "Calendar", url: "/calendar", badge: "new", icon: Calendar1Icon },
-    // { title: "Table", url: "/table", badge: "new", icon: Grid2x2 },
+    { title: "Popover", url: "/popover", badge: "new", icon: Blend },
   ],
 };
 

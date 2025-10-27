@@ -32,7 +32,7 @@ export const Divider: React.FC<DividerProps> = ({
 
   const wrapperClasses = cn(
     "relative",
-    isHorizontal ? "w-full h-fit" : "h-full w-fit",
+    isHorizontal ? "w-full h-fit" : "h-auto w-fit",
     padded && paddingMap[paddingSize],
     className
   );
@@ -48,13 +48,13 @@ export const Divider: React.FC<DividerProps> = ({
       ? align === "start"
         ? "left-4 -translate-y-1/2 top-1/2"
         : align === "end"
-        ? "right-4 -translate-y-1/2 top-1/2"
-        : "left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2"
+          ? "right-4 -translate-y-1/2 top-1/2"
+          : "left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2"
       : align === "start"
-      ? "top-4 -translate-x-1/2 left-1/2"
-      : align === "end"
-      ? "bottom-4 -translate-x-1/2 left-1/2"
-      : "top-1/2 -translate-x-1/2 -translate-y-1/2 left-1/2"
+        ? "top-4 -translate-x-1/2 left-1/2"
+        : align === "end"
+          ? "bottom-4 -translate-x-1/2 left-1/2"
+          : "top-1/2 -translate-x-1/2 -translate-y-1/2 left-1/2"
   );
 
   // If no children, just render the line
