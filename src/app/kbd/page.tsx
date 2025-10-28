@@ -17,7 +17,7 @@ const KbdDemo = () => {
         <div className="flex flex-col gap-[30px_0] w-full max-w-[500px] mx-auto">
           <div className="flex flex-col items-center gap-4">
             <p className="text-muted-foreground text-sm">
-              Use{" "}
+              Use
               <KbdGroup>
                 <Kbd>Ctrl + B</Kbd>
                 <Kbd>Ctrl + K</Kbd>

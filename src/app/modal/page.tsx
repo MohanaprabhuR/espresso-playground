@@ -27,9 +27,11 @@ import {
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CommandIcon, MailIcon } from "lucide-react";
+import { CommandIcon, MailIcon, SearchIcon } from "lucide-react";
 import { ButtonGroup } from "@/components/ui/button-group";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Kbd, KbdGroup } from "@/components/ui/kbd";
+import { Divider } from "@/components/ui/divider";
 
 const modalDemo = () => {
   return (
@@ -43,7 +45,7 @@ const modalDemo = () => {
             <DialogTrigger asChild>
               <Button variant="outline">Open Dialog</Button>
             </DialogTrigger>
-            <DialogContent size="md">
+            <DialogContent size="md" className="space-y-4">
               <DialogHeader className="flex flex-col gap-y-4">
                 <DialogTitle>Title</DialogTitle>
               </DialogHeader>
