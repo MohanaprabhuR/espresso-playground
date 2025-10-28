@@ -255,6 +255,12 @@ const data = {
     { title: "Calendar", url: "/calendar", badge: "new", icon: Calendar1Icon },
     { title: "Popover", url: "/popover", badge: "new", icon: Blend },
     { title: "Modals", url: "/modal", badge: "new", icon: Component },
+    // {
+    //   title: "cell Primitive",
+    //   url: "/cell-primitive",
+    //   badge: "new",
+    //   icon: ShieldOff,
+    // },
   ],
 };
 
