@@ -91,7 +91,7 @@ function TabsList({
   return (
     <TabsPrimitive.List
       data-slot="tabs-list"
-      className={cn(variantClasses[variant], className)}
+      className={cn(variantClasses[variant], "w-fit", className)}
       {...props}
     />
   );
