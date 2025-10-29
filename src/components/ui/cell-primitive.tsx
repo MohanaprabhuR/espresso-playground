@@ -12,7 +12,7 @@ function CellPrimitive({
       data-slot="cell-primitive"
       role="cell"
       className={cn(
-        "group relative flex  items-center  gap-2   bg-background   transition-all",
+        "group relative flex  items-center  gap-2 bg-background  transition-all",
         className
       )}
       {...props}
@@ -30,7 +30,7 @@ function CellContent({
   return (
     <div
       data-slot="cell-content"
-      className={cn("flex flex-col  gap-0.5", className)}
+      className={cn("flex flex-col gap-0.5 justify-between", className)}
       {...props}
     >
       {children}
@@ -46,24 +46,33 @@ function CellTitle({
   return (
     <div
       data-slot="cell-content"
-      className={cn("text-primary flex gap-1 items-center", className)}
+      className={cn(
+        "text-accent-secondary  text-base font-normal tracking-1",
+        className
+      )}
       {...props}
     >
-      {children}
+      <span className="leading-4.5 flex gap-1 items-center ">{children}</span>
     </div>
   );
 }
 
-function CellSubtext({ className, ...props }: React.ComponentProps<"div">) {
+function CellSubtext({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="cell-subtext"
       className={cn(
-        "text-xs text-muted-foreground leading-4 mt-0.5",
+        "text-secondary-foreground flex gap-1 items-center font-normal tracking-0 text-base",
         className
       )}
       {...props}
-    />
+    >
+      <span className="leading-6">{children}</span>
+    </div>
   );
 }
 
@@ -76,14 +85,14 @@ function CellHint({
     <div
       data-slot="cell-hint"
       className={cn(
-        "flex items-center gap-1 text-[10px] text-muted-foreground",
+        "flex items-center gap-1 text-muted-foreground   text-sm font-normal tracking-1 ",
         className
       )}
       {...props}
     >
       {/* Dot before text */}
       <span className="inline-block w-0.5 h-0.5 rounded-full bg-muted-foreground/70" />
-      <span>{children}</span>
+      <span className="leading-4.5">{children}</span>
     </div>
   );
 }

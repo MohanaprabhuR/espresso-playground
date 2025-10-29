@@ -38,6 +38,7 @@ import {
   MoonStar,
   Blend,
   Component,
+  ShieldOff,
 } from "lucide-react";
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
@@ -255,12 +256,12 @@ const data = {
     { title: "Calendar", url: "/calendar", badge: "new", icon: Calendar1Icon },
     { title: "Popover", url: "/popover", badge: "new", icon: Blend },
     { title: "Modals", url: "/modal", badge: "new", icon: Component },
-    // {
-    //   title: "cell Primitive",
-    //   url: "/cell-primitive",
-    //   badge: "new",
-    //   icon: ShieldOff,
-    // },
+    {
+      title: "cell Primitive",
+      url: "/cell-primitive",
+      badge: "new",
+      icon: ShieldOff,
+    },
   ],
 };
 
