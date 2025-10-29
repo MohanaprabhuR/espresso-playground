@@ -93,7 +93,8 @@ function Checkbox({
           "inline-flex items-center text-secondary-foreground font-medium leading-none rounded-lg bg-transparent gap-x-2 hover:bg-accent active:bg-primary/12 focus:bg-primary/5 focus-visible:bg-primary/5 focus-visible::ring-2 focus-visible::ring-ring focus-visible::ring-offset-0 active:text-accent-foreground focus:text-accent-foreground ",
           labelStyle,
           isDisabled &&
-            "pointer-events-none cursor-not-allowed gap-x-2 text-primary/42"
+            "pointer-events-none cursor-not-allowed gap-x-2 text-primary/42",
+          className
         )}
       >
         {checkboxElement}

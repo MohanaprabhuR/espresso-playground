@@ -45,7 +45,7 @@ function CellTitle({
 }: React.ComponentProps<"div">) {
   return (
     <div
-      data-slot="cell-content"
+      data-slot="cell-title"
       className={cn(
         "text-accent-secondary  text-base font-normal tracking-1",
         className

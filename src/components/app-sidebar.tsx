@@ -39,6 +39,8 @@ import {
   Blend,
   Component,
   ShieldOff,
+  TableCellsMerge,
+  Container,
 } from "lucide-react";
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
@@ -257,10 +259,22 @@ const data = {
     { title: "Popover", url: "/popover", badge: "new", icon: Blend },
     { title: "Modals", url: "/modal", badge: "new", icon: Component },
     {
-      title: "cell Primitive",
+      title: "Cell Primitive",
       url: "/cell-primitive",
       badge: "new",
       icon: ShieldOff,
+    },
+    // {
+    //   title: "Form Field",
+    //   url: "/form",
+    //   badge: "new",
+    //   icon: Container,
+    // },
+    {
+      title: "Advanced Cell",
+      url: "/advanced-cell",
+      badge: "new",
+      icon: TableCellsMerge,
     },
   ],
 };
