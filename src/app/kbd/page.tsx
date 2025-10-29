@@ -21,7 +21,7 @@ const KbdDemo = () => {
               <KbdGroup>
                 <Kbd>Ctrl + B</Kbd>
                 <Kbd>Ctrl + K</Kbd>
-              </KbdGroup>{" "}
+              </KbdGroup>
               to open the command palette
             </p>
           </div>

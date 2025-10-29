@@ -22,11 +22,11 @@ const buttonVariants = cva(
           "bg-transparent hover:bg-accent  text-accent-foreground  active:bg-primary/12 focus:bg-secondary focus-visible:bg-secondary  disabled:bg-transparent disabled:text-primary/42",
       },
       size: {
-        sm: "h-7 rounded-lg text-base font-normal tracking-[0.28px]",
-        md: "h-8 rounded-lg text-base font-normal tracking-[0.28px]",
-        lg: "h-10 rounded-[10px] text-lg font-medium tracking-[0.24px]",
-        xl: "h-[46px] rounded-[10px] text-xl font-medium tracking-[0.18px]",
-        "2xl": "h-[52px] rounded-[14px] text-2xl font-medium tracking-[0.2px]",
+        sm: " rounded-lg text-base font-normal tracking-[0.28px]",
+        md: " rounded-lg text-base font-normal tracking-[0.28px]",
+        lg: "rounded-[10px] text-lg font-medium tracking-[0.24px]",
+        xl: "rounded-[10px] text-xl font-medium tracking-[0.18px]",
+        "2xl": " rounded-[14px] text-2xl font-medium tracking-[0.2px]",
       },
       iconOnly: {
         true: "",
