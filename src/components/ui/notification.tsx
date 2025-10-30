@@ -6,14 +6,15 @@ function Notification({
   action = false,
   longText = false,
   notificationPanel = false,
-  splitbutton = false,
+  modal = false,
   children,
   ...props
 }: React.ComponentProps<"div"> & {
   action?: boolean;
   longText?: boolean;
-  splitbutton?: boolean;
+  modal?: boolean;
   notificationPanel?: boolean;
+
   children?: React.ReactNode;
 }) {
   return (
@@ -21,13 +22,13 @@ function Notification({
       data-slot="notification"
       role="alert"
       className={cn(
-        "relative shadow-2xl bg-white dark:bg-[var(--color-dark-gray-100)] rounded-lg flex w-full max-w-[384px] flex-1 has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-2.5 gap-x-2.5 gap-y-0.5 [&>svg]:size-4 [&>svg]:text-current",
-        action && "px-3 py-1.5",
+        "relative shadow-2xl bg-white dark:bg-[var(--color-dark-gray-100)] rounded-lg flex w-full  flex-1 has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-2.5 gap-x-2.5 gap-y-0.5 [&>svg]:size-4 [&>svg]:text-current",
+        action && "px-3 py-1.5 items-center",
         longText &&
           "py-3 px-3.5  items-start [&>svg]:mt-0.75 [&>svg]:mb-0.75 [&>img]:mt-0.75 [&>img]:mb-0.75",
         !action && !longText && "py-2.5 px-3 flex-row items-center",
         notificationPanel && "items-start p-3",
-        splitbutton && longText && "p-0",
+        modal && "flex-col items-center justify-center text-center py-4 px-3",
         className
       )}
       {...props}

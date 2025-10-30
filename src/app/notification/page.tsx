@@ -20,7 +20,7 @@ const AlertDemo = () => {
         <h1 className="text-xl font-bold text-gray-900 dark:text-white pb-10 text-center">
           Notification Component
         </h1>
-        <div className="flex flex-wrap  flex-col mx-auto gap-[20px] items-center ">
+        <div className="flex flex-wrap  flex-col mx-auto gap-[20px] items-center  max-w-[400px]">
           <Notification>
             <NotificationTitle>
               Update available. Get new features!
@@ -251,30 +251,6 @@ const AlertDemo = () => {
               <CloseIcon />
             </Button>
           </Notification>
-          {/* <Notification splitbutton longText>
-            <NotificationContent >
-              <NotificationTitle>Your trial ends soon!</NotificationTitle>
-              <NotificationDescription>
-                Upgrade now to continue enjoying all features without
-                interruption.
-              </NotificationDescription>
-            </NotificationContent>
-            <ButtonGroup orientation="vertical">
-              <Button variant="outline">Update</Button>
-              <Button variant="outline">View</Button>
-            </ButtonGroup>
-          </Notification>
-          <Notification splitbutton longText>
-            <ExclamationIcon />
-            <NotificationContent >
-              <NotificationTitle>Your trial ends soon!</NotificationTitle>
-              <NotificationDescription>
-                Upgrade now to continue enjoying all features without
-                interruption.
-              </NotificationDescription>
-            </NotificationContent>
-            <CloseIcon />
-          </Notification> */}
         </div>
       </div>
     </div>
