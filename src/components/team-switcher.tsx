@@ -25,6 +25,7 @@ import {
   DropdownMenuLabel,
 } from "@/components/ui/dropdown-menu";
 import { useTheme } from "next-themes";
+import { Button } from "./ui/button";
 
 export function TeamSwitcher({
   teams,
@@ -43,7 +44,7 @@ export function TeamSwitcher({
       <SidebarMenuItem>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <SidebarHeader className="cursor-pointer p-0">
+            <Button className="w-full" variant="ghost">
               <activeTeam.logo className="size-7" />
               <div className="flex flex-col flex-1 text-left text-sm gap-1 group-data-[collapsible=icon]:hidden">
                 <span className="truncate font-medium text-base">
@@ -54,7 +55,7 @@ export function TeamSwitcher({
                 </span>
               </div>
               <ChevronsUpDown className="ml-auto size-4 group-data-[collapsible=icon]:hidden" />
-            </SidebarHeader>
+            </Button>
           </DropdownMenuTrigger>
 
           <DropdownMenuContent align="start" className="w-[220px]">

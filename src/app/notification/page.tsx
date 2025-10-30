@@ -251,6 +251,32 @@ const AlertDemo = () => {
               <CloseIcon />
             </Button>
           </Notification>
+          <Notification modal>
+            <NotificationContent>
+              <NotificationTitle>System Update Available</NotificationTitle>
+              <NotificationDescription>
+                A new update is available for the app. Update now to enjoy new
+                features and improvements.
+              </NotificationDescription>
+            </NotificationContent>
+            <ButtonGroup destructive orientation="vertical">
+              <Button variant="secondary">Update now</Button>
+              <Button variant="outline">Later</Button>
+            </ButtonGroup>
+          </Notification>
+          <Notification modal>
+            <NotificationContent>
+              <NotificationTitle>System Update Available</NotificationTitle>
+              <NotificationDescription>
+                A new update is available for the app. Update now to enjoy new
+                features and improvements.
+              </NotificationDescription>
+            </NotificationContent>
+            <ButtonGroup destructive>
+              <Button variant="secondary">Update now</Button>
+              <Button variant="outline">Later</Button>
+            </ButtonGroup>
+          </Notification>
         </div>
       </div>
     </div>

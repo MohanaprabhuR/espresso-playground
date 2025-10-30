@@ -62,7 +62,7 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="alert-title"
       className={cn(
-        "font-medium text-base tracking-2 leading-5 text-primary w-full",
+        "font-medium text-base -tracking-tight leading-6  text-primary w-full",
         className
       )}
       {...props}
@@ -78,7 +78,7 @@ function AlertDescription({
     <div
       data-slot="alert-description"
       className={cn(
-        "text-secondary-foreground font-normal tracking-4 grid justify-items-start gap-1 text-base leading-6",
+        "text-secondary-foreground font-normal tracking-none grid justify-items-start gap-1 text-base leading-6",
         className
       )}
       {...props}

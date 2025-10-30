@@ -17,6 +17,7 @@ import {
 import { PopoverTrigger } from "@radix-ui/react-popover";
 import { ChevronDownIcon, ClockIcon, CommandIcon } from "lucide-react";
 import React from "react";
+import { DropdownNavProps, DropdownProps } from "react-day-picker";
 
 const CalendarDemo = () => {
   const id = useId();
@@ -57,22 +58,29 @@ const CalendarDemo = () => {
   const lastYear = subYears(today, 1);
   const [month, setMonth] = useState(today);
 
+  const handleCalendarChange = (
+    _value: string | number,
+    _e: React.ChangeEventHandler<HTMLSelectElement>
+  ) => {
+    const _event = {
+      target: {
+        value: String(_value),
+      },
+    } as React.ChangeEvent<HTMLSelectElement>;
+    _e(_event);
+  };
+
   return (
     <div>
       <div className="pt-10 ">
         <h1 className="text-xl font-bold text-gray-900 dark:text-white pb-10 text-center">
           Calendar Component
         </h1>
+
         <div className="flex flex-wrap justify-center items-center mx-auto gap-x-[50px] gap-y-20  ">
           <Calendar mode="single" selected={date} onSelect={setDate} />
           <Calendar mode="multiple" defaultMonth={date} numberOfMonths={2} />
           <Calendar mode="range" defaultMonth={date} numberOfMonths={2} />
-          <Calendar
-            mode="single"
-            selected={date}
-            onSelect={setDate}
-            captionLayout="dropdown"
-          />
 
           <div className="flex flex-col gap-4">
             <Calendar
@@ -80,7 +88,94 @@ const CalendarDemo = () => {
               defaultMonth={date}
               selected={date}
               onSelect={setDate}
+              captionLayout="dropdown"
+              components={{
+                DropdownNav: (props: DropdownNavProps) => {
+                  return (
+                    <div className="flex z-10 relative  items-center gap-2">
+                      {props.children}
+                    </div>
+                  );
+                },
+                Dropdown: (props: DropdownProps) => {
+                  return (
+                    <Select
+                      value={String(props.value)}
+                      onValueChange={(value) => {
+                        if (props.onChange) {
+                          handleCalendarChange(value, props.onChange);
+                        }
+                      }}
+                    >
+                      <SelectTrigger
+                        className=" font-medium first:grow"
+                        variant="outline"
+                      >
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent className="max-h-[min(26rem,var(--radix-select-content-available-height))]">
+                        {props.options?.map((option) => (
+                          <SelectItem
+                            key={option.value}
+                            value={String(option.value)}
+                            disabled={option.disabled}
+                          >
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  );
+                },
+              }}
+            />
+          </div>
+          <div className="flex flex-col gap-4">
+            <Calendar
+              mode="single"
+              defaultMonth={date}
+              selected={date}
+              onSelect={setDate}
               captionLayout={dropdown}
+              components={{
+                DropdownNav: (props: DropdownNavProps) => {
+                  return (
+                    <div className="flex z-10 relative  items-center gap-2">
+                      {props.children}
+                    </div>
+                  );
+                },
+                Dropdown: (props: DropdownProps) => {
+                  return (
+                    <Select
+                      value={String(props.value)}
+                      onValueChange={(value) => {
+                        if (props.onChange) {
+                          handleCalendarChange(value, props.onChange);
+                        }
+                      }}
+                    >
+                      <SelectTrigger
+                        className=" font-medium first:grow"
+                        variant="outline"
+                      >
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent className="max-h-[min(26rem,var(--radix-select-content-available-height))]">
+                        {props.options?.map((option) => (
+                          <SelectItem
+                            key={option.value}
+                            value={String(option.value)}
+                            disabled={option.disabled}
+                          >
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  );
+                },
+              }}
             />
             <div className="flex flex-col gap-3">
               <Label htmlFor="dropdown" className="px-1">
@@ -107,6 +202,63 @@ const CalendarDemo = () => {
               </Select>
             </div>
           </div>
+          <Calendar
+            mode="single"
+            selected={date}
+            onSelect={setDate}
+            defaultMonth={date}
+            captionLayout="dropdown" // must stay "dropdown"
+            components={{
+              DropdownNav: (props: DropdownNavProps) => {
+                const [monthDropdown, yearDropdown] = React.Children.toArray(
+                  props.children
+                );
+
+                return (
+                  <div className="flex items-center gap-2 relative z-10">
+                    {/* Render only the year dropdown */}
+                    {yearDropdown}
+                  </div>
+                );
+              },
+              Dropdown: (props: DropdownProps) => (
+                <div className="relative z-20">
+                  <Select
+                    value={String(props.value)}
+                    onValueChange={(value) =>
+                      handleCalendarChange(value, props.onChange)
+                    }
+                  >
+                    <SelectTrigger
+                      className="font-medium first:grow"
+                      variant="outline"
+                    >
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent className="max-h-[min(26rem,var(--radix-select-content-available-height))]">
+                      {props.options?.map((option) => (
+                        <SelectItem
+                          key={option.value}
+                          value={String(option.value)}
+                          disabled={option.disabled}
+                        >
+                          {new Intl.DateTimeFormat("en-US", {
+                            month: "long",
+                            year: "numeric",
+                          }).format(
+                            new Date(
+                              Number(option.value),
+                              date?.getMonth() ?? 0
+                            )
+                          )}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              ),
+            }}
+          />
           <div className="rounded-2xl  overflow-hidden    border bg-popover">
             <Calendar
               mode="single"

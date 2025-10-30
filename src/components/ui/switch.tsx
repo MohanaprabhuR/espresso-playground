@@ -47,8 +47,8 @@ function Switch({
       root: "h-5 w-8 p-[3px]",
       thumb:
         "size-[14px] translate-x-[calc(100%-(2px))] data-[state=unchecked]:translate-x-0",
-      wrapper: "gap-x-2.5 px-2 py-1.5 text-lg tracking-1",
-      description: "text-lg tracking-1",
+      wrapper: "gap-x-2.5 px-2 py-1.5 text-lg leading-loose tracking-2",
+      description: "text-lg leading-loose tracking-2",
     },
   };
 
@@ -100,7 +100,7 @@ function Switch({
           }
         }}
         className={cn(
-          "inline-flex items-center select-none rounded-lg transition-colors text-secondary-foreground font-medium",
+          "inline-flex items-center select-none rounded-lg  transition-colors text-secondary-foreground font-medium ",
           wrapper,
           !props.disabled &&
             "hover:bg-accent active:bg-primary/12 active:text-accent-foreground focus:bg-secondary focus:ring-ring focus:ring-2 focus:ring-offset-0 focus-visible:ring-ring focus-visible:ring-2 focus-visible:bg-secondary",
@@ -115,7 +115,7 @@ function Switch({
           {description && (
             <span
               className={cn(
-                "text-secondary-foreground font-normal pt-1",
+                "text-secondary-foreground font-normal pt-1 ",
                 descriptionSize,
                 props.disabled && "text-primary/50"
               )}

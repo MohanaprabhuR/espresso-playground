@@ -116,7 +116,7 @@ function SelectContent({
       <SelectPrimitive.Content
         data-slot="select-content"
         className={cn(
-          "focus:ring-offset-0 focus-visible:ring-2 focus-visible:ring-ring rounded-2xl bg-popover p-1 shadow-sm text-secondary-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-(--radix-select-content-available-height) min-w-[8rem] origin-(--radix-select-content-transform-origin) overflow-x-hidden overflow-y-auto",
+          "focus:ring-offset-0 focus-visible:ring-2 focus-visible:ring-ring rounded-2xl bg-popover p-1 shadow-sm text-secondary-foreground leading-loose tracking-4 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-(--radix-select-content-available-height) min-w-[8rem] origin-(--radix-select-content-transform-origin) overflow-x-hidden overflow-y-auto",
           position === "popper" &&
             "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
           className
@@ -151,7 +151,7 @@ function SelectLabel({
       data-slot="select-label"
       data-size={size}
       className={cn(
-        "text-secondary-foreground px-2 py-1.5 font-medium relative flex w-full cursor-default items-center",
+        "text-secondary-foreground leading-loose tracking-4 px-2 py-1.5 font-medium relative flex w-full cursor-default items-center",
         className
       )}
       {...props}
@@ -199,34 +199,6 @@ function SelectItem({
     </SelectPrimitive.Item>
   );
 }
-
-// function SelectItem({
-//   className,
-//   children,
-//   size = "md",
-//   ...props
-// }: React.ComponentProps<typeof SelectPrimitive.Item> & {
-//   size?: "sm" | "md" | "lg";
-// }) {
-//   return (
-//     <SelectPrimitive.Item
-//       {...props}
-//       data-size={size}
-//       className={cn(
-//         "relative flex w-full cursor-pointer items-center gap-2 select-none rounded-md px-2 py-1.5 text-base leading-none outline-none",
-//         "data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground",
-//         "data-[state=checked]:font-semibold",
-//         sizeClassMap[size],
-//         className
-//       )}
-//     >
-//       <span className="pointer-events-none absolute right-2 flex size-3.5 items-center justify-center">
-//         <SelectPrimitive.ItemIndicator>✔</SelectPrimitive.ItemIndicator>
-//       </span>
-//       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
-//     </SelectPrimitive.Item>
-//   );
-// }
 
 function SelectSeparator({
   className,

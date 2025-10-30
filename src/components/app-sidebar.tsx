@@ -220,7 +220,7 @@ const data = {
       icon: NotepadTextIcon,
     },
     {
-      title: "Dropdown",
+      title: "Dropown",
       url: "/dropdown",
       icon: DropletIcon,
     },

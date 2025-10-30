@@ -209,8 +209,12 @@
   --text-15xl: 5.5rem; /*88px*/
   --text-15xl--line-height: calc(6.625 / 5.5);
 
+  /* Line Height */
+  --leading-loose: 18px;
+
   /* Letter Spacing */
   --tracking-0: 0em; /* 0px */
+  --tracking-tight: 0.08px;
   --tracking-1: 0.01em; /* 0.16px */
   --tracking-2: 0.016em; /* 0.24px */
   --tracking-3: 0.0175em; /* 0.28px */
@@ -576,7 +580,7 @@
   --color-dark-violet-800: #9f87ed;
   --color-dark-violet-900: #bca9fc;
   --color-dark-violet-950: #cdbeff;
-  --color-ring-color: rgba(201, 201, 201, 0.9);
+  --color-ring-color: rgba(201, 201, 201, 0.5);
 
   /* Box Shadow */
   --shadow-2xs: 0px 1px 4px rgba(0, 0, 0, 0.1);

@@ -49,25 +49,25 @@ const statusMap: Record<VariantType, Record<StatusType, string>> = {
 const sizeMap = {
   sm: {
     input:
-      "h-7 text-base font-normal rounded-lg tracking-4 px-2 py-1.5 file:text-base ",
+      "h-7 text-base font-normal rounded-lg tracking-4 leading-loose px-2 py-1.5 file:text-base ",
     prefix: "pl-8",
     suffix: "pr-8",
   },
   md: {
     input:
-      "h-8 text-base font-normal rounded-lg tracking-4 px-2.5 py-2 file:text-base",
+      "h-8 text-base font-normal rounded-lg tracking-4 leading-loose px-2.5 py-2 file:text-base",
     prefix: "pl-[34px]",
     suffix: "pr-[34px]",
   },
   lg: {
     input:
-      "h-10 text-lg font-normal rounded-xl tracking-4 px-3 py-[11px] file:text-lg",
+      "h-10 text-lg font-normal rounded-xl tracking-4 leading-loose px-3 py-[11px] file:text-lg",
     prefix: "pl-9",
     suffix: "pr-9",
   },
   xl: {
     input:
-      "h-10 text-xl font-normal rounded-xl tracking-4 px-3 py-[9.5px] file:text-xl",
+      "h-10 text-xl font-normal rounded-xl tracking-2 leading-loose px-3 py-[9.5px] file:text-xl",
     prefix: "pl-10",
     suffix: "pr-10",
   },

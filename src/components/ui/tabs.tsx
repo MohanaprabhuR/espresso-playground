@@ -125,8 +125,8 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
   };
 
   const sizeClasses: Record<TabSize, string> = {
-    sm: "px-2 py-[5px] text-base font-normal tracking-4",
-    md: "px-2.5 py-2 text-lg font-medium tracking-2",
+    sm: "px-2 py-[5px] text-base font-normal tracking-4 leading-loose",
+    md: "px-2.5 py-2 text-lg font-medium tracking-2 leading-loose",
   };
 
   return (
@@ -161,7 +161,7 @@ function TabsContent({
     <TabsPrimitive.Content
       data-slot="tabs-content"
       className={cn(
-        "flex-1 outline-none text-left font-normal tracking-4 text-base",
+        "flex-1 outline-none text-left font-normal tracking-4 text-base leading-loose",
         sizeClasses[size],
         className
       )}
