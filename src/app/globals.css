@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap";
+/* @import "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"; */
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -10,10 +10,19 @@
   }
 }
 
+@font-face {
+  font-family: "Inter-V";
+  font-weight: 100 900;
+  font-display: block;
+  font-style: normal;
+  font-named-instance: "Regular";
+  src: url("../../public/fonts/Inter-V.woff2") format("woff2");
+}
+
 @theme inline {
   --tw-leading: 1rem;
   /* Fonts */
-  --font-sans: "Inter", sans-serif;
+  --font-sans: "Inter-V", sans-serif;
   /* Variations Fonts */
   --font-sans--font-variation-settings: "opsz" 24;
 
@@ -620,7 +629,7 @@
   --sidebar-accent: var(--color-light-gray-200);
   --sidebar-accent-foreground: var(--color-light-gray-900);
   --sidebar-border: var(--color-light-gray-200);
-  --sidebar-ring: var(--color-light-gray-1000);
+  --sidebar-ring: var(--ring);
   --chart-1: var(--color-light-blue-400);
   --chart-2: var(--color-light-blue-500);
   --chart-3: var(--color-light-blue-600);
@@ -755,7 +764,7 @@
   --sidebar-accent: var(--color-dark-gray-300);
   --sidebar-accent-foreground: var(--color-dark-gray-950);
   --sidebar-border: var(--color-dark-gray-200);
-  --sidebar-ring: var(--color-light-gray-1000);
+  --sidebar-ring: var(--ring);
   --chart-1: var(--color-light-blue-900);
   --chart-2: var(--color-light-blue-800);
   --chart-3: var(--color-light-blue-700);

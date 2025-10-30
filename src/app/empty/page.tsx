@@ -80,7 +80,7 @@ const EmptyDemo = () => {
             </EmptyHeader>
             <EmptyContent>
               <Button size="sm" variant="outline">
-                <PlusIcon size="sm" />
+                <PlusIcon className="size-4" />
                 Invite Members
               </Button>
             </EmptyContent>
