@@ -202,7 +202,7 @@ const CalendarDemo = () => {
               </Select>
             </div>
           </div>
-          {/* <Calendar
+          <Calendar
             mode="single"
             selected={date}
             onSelect={setDate}
@@ -216,7 +216,7 @@ const CalendarDemo = () => {
 
                 return (
                   <div className="flex items-center gap-2 relative z-10">
-                    {yearDropdown}
+                    {monthDropdown}
                   </div>
                 );
               },
@@ -242,12 +242,12 @@ const CalendarDemo = () => {
                           disabled={option.disabled}
                         >
                           {new Intl.DateTimeFormat("en-US", {
+                            month: "short",
                             year: "numeric",
-                            month: "numeric",
                           }).format(
                             new Date(
-                              Number(option.value),
-                              date?.getMonth() ?? 0
+                              date?.getFullYear() ?? 0,
+                              Number(option.value)
                             )
                           )}
                         </SelectItem>
@@ -257,7 +257,7 @@ const CalendarDemo = () => {
                 </div>
               ),
             }}
-          /> */}
+          />
           <div className="rounded-2xl  overflow-hidden    border bg-popover">
             <Calendar
               mode="single"
