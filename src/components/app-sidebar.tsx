@@ -40,7 +40,6 @@ import {
   Component,
   ShieldOff,
   TableCellsMerge,
-  Container,
 } from "lucide-react";
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
@@ -221,7 +220,7 @@ const data = {
       icon: NotepadTextIcon,
     },
     {
-      title: "DropDwon",
+      title: "Dropdown",
       url: "/dropdown",
       icon: DropletIcon,
     },
@@ -258,24 +257,24 @@ const data = {
     { title: "Calendar", url: "/calendar", badge: "new", icon: Calendar1Icon },
     { title: "Popover", url: "/popover", badge: "new", icon: Blend },
     { title: "Modals", url: "/modal", badge: "new", icon: Component },
-    {
-      title: "Cell Primitive",
-      url: "/cell-primitive",
-      badge: "new",
-      icon: ShieldOff,
-    },
     // {
-    //   title: "Form Field",
-    //   url: "/form",
+    //   title: "Cell Primitive",
+    //   url: "/cell-primitive",
     //   badge: "new",
-    //   icon: Container,
+    //   icon: ShieldOff,
     // },
-    {
-      title: "Advanced Cell",
-      url: "/advanced-cell",
-      badge: "new",
-      icon: TableCellsMerge,
-    },
+    // // {
+    // //   title: "Form Field",
+    // //   url: "/form",
+    // //   badge: "new",
+    // //   icon: Container,
+    // // },
+    // {
+    //   title: "Advanced Cell",
+    //   url: "/advanced-cell",
+    //   badge: "new",
+    //   icon: TableCellsMerge,
+    // },
   ],
 };
 
