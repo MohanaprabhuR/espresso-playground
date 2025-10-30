@@ -202,12 +202,12 @@ const CalendarDemo = () => {
               </Select>
             </div>
           </div>
-          <Calendar
+          {/* <Calendar
             mode="single"
             selected={date}
             onSelect={setDate}
             defaultMonth={date}
-            captionLayout="dropdown" // must stay "dropdown"
+            captionLayout="dropdown"
             components={{
               DropdownNav: (props: DropdownNavProps) => {
                 const [monthDropdown, yearDropdown] = React.Children.toArray(
@@ -216,7 +216,6 @@ const CalendarDemo = () => {
 
                 return (
                   <div className="flex items-center gap-2 relative z-10">
-                    {/* Render only the year dropdown */}
                     {yearDropdown}
                   </div>
                 );
@@ -243,8 +242,8 @@ const CalendarDemo = () => {
                           disabled={option.disabled}
                         >
                           {new Intl.DateTimeFormat("en-US", {
-                            month: "long",
                             year: "numeric",
+                            month: "numeric",
                           }).format(
                             new Date(
                               Number(option.value),
@@ -258,7 +257,7 @@ const CalendarDemo = () => {
                 </div>
               ),
             }}
-          />
+          /> */}
           <div className="rounded-2xl  overflow-hidden    border bg-popover">
             <Calendar
               mode="single"
