@@ -2,20 +2,21 @@
 
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
+
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 const inputGroupVariants = cva(
-  "group/input-group relative outline-none flex w-full items-center border border-transparent transition-[color,box-shadow] has-[>[data-align=inline-start]]:[&>input]:pl-2 has-[>[data-align=inline-end]]:[&>input]:pr-2 has-[>[data-align=block-start]]:flex-col has-[>[data-align=block-end]]:flex-col",
+  "group/input-group relative outline-none flex w-full items-center rounded-md border border-transparent  transition-[color,box-shadow] has-[>[data-align=inline-start]]:[&>input]:pl-2 has-[>[data-align=inline-end]]:[&>input]:pr-2 has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>[data-align=block-start]]:[&>input]:pb-3 has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-end]]:[&>input]:pt-3",
   {
     variants: {
       variant: {
         default:
-          "bg-secondary hover:bg-accent has-[[data-slot=input-group-control]:focus]:border-primary/50 has-[[data-slot=input-group-control]:focus]:shadow-lg has-[[data-slot=input-group-control]:focus-visible]:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-ring has-[[data-slot][aria-invalid=true]]:border-destructive",
+          "has-[>textarea]:h-auto bg-secondary hover:bg-accent has-[[data-slot=input-group-control]:active]:bg-transparent has-[[data-slot=input-group-control]:active]:border-primary/50 has-[[data-slot=input-group-control]:active]:shadow-lg has-[[data-slot=input-group-control]:focus]:border has-[[data-slot=input-group-control]:focus]:border-primary/50 has-[[data-slot=input-group-control]:focus]:shadow-lg has-[[data-slot=input-group-control]:focus]:bg-white has-[[data-slot=input-group-control]:focus-visible]:border-primary/50 has-[[data-slot=input-group-control]:focus]:text-accent-foreground has-[[data-slot=input-group-control]:focus-visible]:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-ring has-[[data-slot=input-group-control]:focus-visible]:ring-offset-0 has-[[data-slot=input-group-control]:focus-visible]:bg-transparent has-[[data-slot][aria-invalid=true]]:ring-destructive/20 has-[[data-slot][aria-invalid=true]]:border-destructive",
         outline:
-          "border border-input bg-background text-secondary-foreground hover:border-primary/25 has-[[data-slot=input-group-control]:focus]:border-primary/50 has-[[data-slot=input-group-control]:focus-visible]:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-ring",
+          "border border-input bg-background text-secondary-foreground hover:border-primary/25 has-[[data-slot=input-group-control]:active]:border-primary/50 has-[[data-slot=input-group-control]:active]:bg-background has-[[data-slot=input-group-control]:active]:shadow-lg focus-border has-[[data-slot=input-group-control]:focus]:border-primary/50 has-[[data-slot=input-group-control]:focus]:text-accent-foreground has-[[data-slot=input-group-control]:focus-visible]:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-ring has-[[data-slot=input-group-control]:focus-visible]:ring-offset-0 has-[[data-slot=input-group-control]:focus-visible]:border-primary/50 has-[[data-slot=input-group-control]:focus-visible]:bg-transparent",
       },
       size: {
         sm: "rounded-lg",
@@ -24,6 +25,7 @@ const inputGroupVariants = cva(
         xl: "rounded-xl",
       },
     },
+
     defaultVariants: {
       variant: "default",
       size: "md",
@@ -38,17 +40,20 @@ const statusMap: Record<VariantType, Record<StatusType, string>> = {
   default: {
     default: "",
     success:
-      "bg-success text-accent-foreground hover:bg-success focus:border-success-border",
+      "bg-success text-accent-foreground hover:bg-success active:bg-success focus:border-success-border focus:bg-success",
     warning:
-      "bg-warning text-accent-foreground hover:bg-warning focus:border-warning-border",
+      "bg-warning text-accent-foreground hover:bg-warning active:bg-warning focus:border-warning-border focus:bg-warning",
     error:
-      "bg-error text-accent-foreground hover:bg-error focus:border-error-border",
+      "bg-error text-accent-foreground hover:bg-error active:bg-error focus:border-error-border focus:bg-error",
   },
   outline: {
     default: "",
-    success: "border-success-border hover:border-success-border",
-    warning: "border-warning-border hover:border-warning-border",
-    error: "border-error-border hover:border-error-border",
+    success:
+      "border-success-border hover:border-success-border active:border-success-border focus:border-success-border disabled:border-transparent",
+    warning:
+      "border-warning-border hover:border-warning-border active:border-warning-border focus:border-warning-border disabled:border-transparent",
+    error:
+      "border-error-border hover:border-error-border active:border-error-border focus:border-error-border disabled:border-transparent",
   },
 };
 
@@ -82,24 +87,22 @@ function InputGroup({
 }
 
 const inputGroupAddonVariants = cva(
-  "text-muted-foreground flex cursor-text items-center justify-center gap-2 text-sm font-medium select-none [&>svg:not([class*='size-'])]:size-4",
+  "text-muted-foreground flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium select-none [&>svg:not([class*='size-'])]:size-4 [&>kbd]:rounded-[calc(var(--radius)-5px)] group-data-[disabled=true]/input-group:bg-primary/3 group-data-[disabled=true]/input-group:cursor-not-allowed",
   {
     variants: {
       align: {
-        "inline-start": "order-first pl-2",
-        "inline-end": "order-last pr-2",
-        "block-start": "order-first w-full justify-start px-2 pt-2",
-        "block-end": "order-last w-full justify-start px-2 pb-2",
-      },
-      size: {
-        sm: "text-xs py-1 rounded-md",
-        md: "text-sm py-1.5 rounded-lg",
-        lg: "text-base py-2 rounded-xl",
+        "inline-start":
+          "order-first pl-2 has-[>button]:ml-[-0.45rem] has-[>kbd]:ml-[-0.35rem]",
+        "inline-end":
+          "order-last pr-2 has-[>button]:mr-[-0.45rem] has-[>kbd]:mr-[-0.35rem]",
+        "block-start":
+          "order-first w-full justify-start px-2 pt-3 [.border-b]:pb-3 group-has-[>input]/input-group:pt-2.5",
+        "block-end":
+          "order-last w-full justify-start px-2 pb-3 [.border-t]:pt-3 group-has-[>input]/input-group:pb-2.5",
       },
     },
     defaultVariants: {
       align: "inline-start",
-      size: "md",
     },
   }
 );
@@ -107,7 +110,6 @@ const inputGroupAddonVariants = cva(
 function InputGroupAddon({
   className,
   align = "inline-start",
-  size = "md",
   ...props
 }: React.ComponentProps<"div"> & VariantProps<typeof inputGroupAddonVariants>) {
   return (
@@ -115,7 +117,7 @@ function InputGroupAddon({
       role="group"
       data-slot="input-group-addon"
       data-align={align}
-      className={cn(inputGroupAddonVariants({ align, size }), className)}
+      className={cn(inputGroupAddonVariants({ align }), className)}
       onClick={(e) => {
         if ((e.target as HTMLElement).closest("button")) return;
         const input = e.currentTarget.parentElement?.querySelector(
@@ -133,13 +135,15 @@ const inputGroupButtonVariants = cva(
   {
     variants: {
       size: {
-        sm: "h-7 gap-1 px-2 rounded-md [&>svg]:size-3.5",
-        md: "h-9 gap-1.5 px-3 rounded-lg [&>svg]:size-4",
-        lg: "h-11 px-3.5 gap-2 rounded-xl [&>svg]:size-4.5",
+        xs: "h-6 gap-1 px-2 rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-3.5 has-[>svg]:px-2",
+        sm: "h-8 px-2.5 gap-1.5 rounded-md has-[>svg]:px-2.5",
+        "icon-xs":
+          "size-6 rounded-[calc(var(--radius)-5px)] p-0 has-[>svg]:p-0",
+        "icon-sm": "size-8 p-0 has-[>svg]:p-0",
       },
     },
     defaultVariants: {
-      size: "md",
+      size: "xs",
     },
   }
 );
@@ -148,7 +152,7 @@ function InputGroupButton({
   className,
   type = "button",
   variant = "ghost",
-  size = "md",
+  size = "xs",
   ...props
 }: Omit<React.ComponentProps<typeof Button>, "size"> &
   VariantProps<typeof inputGroupButtonVariants>) {
@@ -185,7 +189,7 @@ function InputGroupInput({
       data-slot="input-group-control"
       disabled={disabled}
       className={cn(
-        "flex-1 rounded-none border-0 bg-transparent shadow-none focus-visible:ring-0 active:shadow-none",
+        "flex-1 rounded-none border-0 bg-transparent shadow-none focus-visible:ring-0 active:shadow-none active:bg-transparent focus:border-0 focus:shadow-none",
         className
       )}
       {...props}
@@ -203,16 +207,16 @@ function InputGroupTextarea({
   ...props
 }: InputGroupTextareaProps) {
   const sizeClasses = {
-    sm: "min-h-[72px] px-2 py-1 text-sm rounded-md",
-    md: "min-h-[102px] px-3 py-2 text-base rounded-lg",
-    lg: "min-h-[126px] px-4 py-3 text-lg rounded-xl",
+    sm: "min-h-[72px] px-2 py-1.5 text-sm",
+    md: "min-h-[102px] px-3 py-2.5 text-base",
+    lg: "min-h-[126px] px-3.5 py-3 text-lg rounded-xl",
   };
 
   return (
     <Textarea
       data-slot="input-group-control"
       className={cn(
-        "flex-1 resize-none border-transparent bg-transparent shadow-none focus-visible:ring-0",
+        "flex-1 resize-none rounded-t rounded-b-none border-transparent bg-transparent  shadow-none focus-visible:ring-0 active:border-0 focus:border-0 active:shadow-none focus:shadow-none",
         sizeClasses[size],
         className
       )}
