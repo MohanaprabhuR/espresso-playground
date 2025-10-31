@@ -40,6 +40,7 @@ import {
   Component,
   ShieldOff,
   TableCellsMerge,
+  Megaphone,
 } from "lucide-react";
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
@@ -257,18 +258,20 @@ const data = {
     { title: "Calendar", url: "/calendar", badge: "new", icon: Calendar1Icon },
     { title: "Popover", url: "/popover", badge: "new", icon: Blend },
     { title: "Modals", url: "/modal", badge: "new", icon: Component },
+    { title: "Sonner", url: "/sonner", badge: "new", icon: Megaphone },
+
     // {
     //   title: "Cell Primitive",
     //   url: "/cell-primitive",
     //   badge: "new",
     //   icon: ShieldOff,
     // },
-    // // {
-    // //   title: "Form Field",
-    // //   url: "/form",
-    // //   badge: "new",
-    // //   icon: Container,
-    // // },
+    // {
+    //   title: "Form Field",
+    //   url: "/form",
+    //   badge: "new",
+    //   icon: Container,
+    // },
     // {
     //   title: "Advanced Cell",
     //   url: "/advanced-cell",

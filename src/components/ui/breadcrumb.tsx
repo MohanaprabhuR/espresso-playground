@@ -15,7 +15,7 @@ const BreadcrumbContext = React.createContext<{ size: BreadcrumbSize }>({
 
 const breadcrumbSizeMap: Record<BreadcrumbSize, string> = {
   sm: "text-base font-normal tracking-4 [&>svg]:size-4",
-  md: "text-lg font-normal tracking-2 [&>svg]:size-5",
+  md: "text-lg font-normal tracking-4 [&>svg]:size-5",
 };
 
 function Breadcrumb(props: React.ComponentProps<"nav">) {

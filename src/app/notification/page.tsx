@@ -259,9 +259,17 @@ const AlertDemo = () => {
                 features and improvements.
               </NotificationDescription>
             </NotificationContent>
-            <ButtonGroup destructive orientation="vertical">
-              <Button variant="secondary">Update now</Button>
-              <Button variant="outline">Later</Button>
+            <ButtonGroup
+              destructive
+              orientation="vertical"
+              className="flex flex-col gap-1 w-full"
+            >
+              <Button variant="secondary" className="w-full">
+                Update now
+              </Button>
+              <Button variant="outline" className="w-full">
+                Later
+              </Button>
             </ButtonGroup>
           </Notification>
           <Notification modal>
@@ -272,9 +280,13 @@ const AlertDemo = () => {
                 features and improvements.
               </NotificationDescription>
             </NotificationContent>
-            <ButtonGroup destructive>
-              <Button variant="secondary">Update now</Button>
-              <Button variant="outline">Later</Button>
+            <ButtonGroup destructive className="w-full">
+              <Button variant="secondary" className="w-full">
+                Update now
+              </Button>
+              <Button variant="outline" className="w-full">
+                Later
+              </Button>
             </ButtonGroup>
           </Notification>
         </div>
