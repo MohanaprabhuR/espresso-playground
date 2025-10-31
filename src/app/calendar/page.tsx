@@ -434,6 +434,45 @@ const CalendarDemo = () => {
                     setDate(date);
                     setOpen(false);
                   }}
+                  components={{
+                    DropdownNav: (props: DropdownNavProps) => {
+                      return (
+                        <div className="flex z-10 relative  items-center gap-2">
+                          {props.children}
+                        </div>
+                      );
+                    },
+                    Dropdown: (props: DropdownProps) => {
+                      return (
+                        <Select
+                          value={String(props.value)}
+                          onValueChange={(value) => {
+                            if (props.onChange) {
+                              handleCalendarChange(value, props.onChange);
+                            }
+                          }}
+                        >
+                          <SelectTrigger
+                            className=" font-medium first:grow"
+                            variant="outline"
+                          >
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent className="max-h-[min(26rem,var(--radix-select-content-available-height))]">
+                            {props.options?.map((option) => (
+                              <SelectItem
+                                key={option.value}
+                                value={String(option.value)}
+                                disabled={option.disabled}
+                              >
+                                {option.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      );
+                    },
+                  }}
                 />
               </PopoverContent>
             </Popover>
