@@ -10,6 +10,7 @@ import { DayButton, DayPicker, getDefaultClassNames } from "react-day-picker";
 
 import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "@/components/ui/button";
+import { Divider } from "./divider";
 
 function Calendar({
   className,
@@ -29,7 +30,7 @@ function Calendar({
     <DayPicker
       showOutsideDays={showOutsideDays}
       className={cn(
-        "bg-background dark:bg-[var(--color-dark-gray-200)] shadow-5xl rounded-2xl group/calendar py-3.5 px-4 [--cell-size:--spacing(8)] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent",
+        "bg-background dark:bg-[var(--color-dark-gray-200)] shadow-5xl rounded-2xl group/calendar  [--cell-size:--spacing(8)] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent",
         String.raw`rtl:**:[.rdp-button\_next>svg]:rotate-180`,
         String.raw`rtl:**:[.rdp-button\_previous>svg]:rotate-180`,
         className
@@ -43,12 +44,15 @@ function Calendar({
       classNames={{
         root: cn("w-fit", defaultClassNames.root),
         months: cn(
-          "flex gap-4 flex-col md:flex-row relative",
+          "flex gap-1.5 flex-col md:flex-row relative ",
           defaultClassNames.months
         ),
-        month: cn("flex flex-col w-full gap-2", defaultClassNames.month),
+        month: cn(
+          "flex flex-col w-full gap-2 py-4.5 px-4",
+          defaultClassNames.month
+        ),
         nav: cn(
-          "flex items-center gap-1 w-full absolute top-0 inset-x-0 justify-end",
+          "flex items-center gap-1 w-full absolute top-4.5 right-3.5 justify-end",
           defaultClassNames.nav
         ),
         button_previous: cn(
@@ -157,6 +161,23 @@ function Calendar({
           );
         },
         DayButton: CalendarDayButton,
+        Months: ({ children, ...props }) => {
+          const months = React.Children.toArray(children);
+          return (
+            <div className="flex flex-col md:flex-row gap-6 w-full" {...props}>
+              {months.map((month, i) => (
+                <React.Fragment key={i}>
+                  {i > 1 && (
+                    <>
+                      <Divider slot={false} orientation="vertical" />
+                    </>
+                  )}
+                  {month}
+                </React.Fragment>
+              ))}
+            </div>
+          );
+        },
         WeekNumber: ({ children, ...props }) => {
           return (
             <td {...props}>

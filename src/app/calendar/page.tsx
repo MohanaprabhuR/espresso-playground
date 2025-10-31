@@ -80,7 +80,7 @@ const CalendarDemo = () => {
         <div className="flex flex-wrap justify-center items-center mx-auto gap-x-[50px] gap-y-20  ">
           <Calendar mode="single" selected={date} onSelect={setDate} />
           <Calendar mode="multiple" defaultMonth={date} numberOfMonths={2} />
-          <Calendar mode="range" defaultMonth={date} numberOfMonths={2} />
+          <Calendar mode="range" defaultMonth={date} numberOfMonths={3} />
 
           <div className="flex flex-col gap-4">
             <Calendar
