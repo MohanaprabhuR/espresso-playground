@@ -39,10 +39,7 @@ import {
   Blend,
   Component,
   Megaphone,
-  Diamond,
-  ChevronDown,
-  ArrowDownUp,
-  CornerDownLeft,
+  BadgePercent,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -78,7 +75,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "./ui/label";
 import { ButtonGroup } from "./ui/button-group";
 import { Button } from "./ui/button";
-import { Kbd, KbdGroup } from "./ui/kbd";
 import { Badge } from "./ui/badge";
 
 const data = {
@@ -131,7 +127,7 @@ const data = {
   ],
   navMain: [
     { title: "Avatar", url: "/avatar", icon: Home, badge: "1" },
-    { title: "Badge", url: "/badges", icon: Badge, badge: "2" },
+    { title: "Badge", url: "/badges", icon: BadgePercent, badge: "2" },
     { title: "Breadcrumb", url: "/breadcrumb", icon: LinkIcon, badge: "3" },
     { title: "Button", url: "/button", icon: RegexIcon, badge: "4" },
     { title: "Button Group", url: "/buttongroup", icon: InboxIcon, badge: "5" },
