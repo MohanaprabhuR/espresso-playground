@@ -205,15 +205,17 @@ function TabsList({
           className={cn(
             "absolute pointer-events-none transition-all duration-300 ease-out z-0 ",
             variant === "subtle" &&
-              "bg-background text-card-foreground rounded-lg  dark:bg-accent  shadow-sm",
+              "bg-background text-card-foreground rounded-[7px]  dark:bg-accent  shadow-sm",
             variant === "outline" &&
-              "bg-background dark:bg-accent rounded-lg text-card-foreground  shadow-sm",
+              "bg-background dark:bg-accent rounded-[7px] text-card-foreground  shadow-sm",
             variant === "ghost" &&
-              "bg-background dark:bg-accent rounded-lg  shadow-sm",
+              "bg-background dark:bg-accent rounded-[7px]  shadow-sm",
             variant === "browser" &&
               cn(
                 "bg-background border",
-                orientation === "horizontal" ? "rounded-t-lg " : "rounded-l-lg "
+                orientation === "horizontal"
+                  ? "rounded-t-[7px] "
+                  : "rounded-l-[7px] "
               ),
             variant === "underline" &&
               cn(
@@ -274,7 +276,7 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
   };
 
   const sizeClasses: Record<TabSize, string> = {
-    sm: "px-3 py-1.5 text-sm font-medium",
+    sm: "px-3 py-1.5 text-sm font-medium ",
     md: "px-4 py-2 text-base font-medium",
   };
 
@@ -283,7 +285,7 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
       ref={ref}
       data-slot="tabs-trigger"
       className={cn(
-        "focus-visible:outline-none inline-flex tracking-4 leading-loose items-center justify-center gap-2 whitespace-nowrap disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "focus-visible:outline-none  inline-flex tracking-4 leading-loose items-center justify-center gap-2 whitespace-nowrap disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         variantClasses[variant],
         sizeClasses[size],
         className
