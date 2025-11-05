@@ -29,6 +29,7 @@ export function NavMain({
     icon?: LucideIcon;
     badge?: string | number;
     isActive?: boolean;
+    onClick?: () => void;
     items?: {
       title: string;
       url: string;
@@ -45,14 +46,12 @@ export function NavMain({
       <SidebarMenu>
         {items.map((item) => {
           const hasSubItems = item.items && item.items.length > 0;
-
-          // Check if current item or any of its sub-items is active
           const isItemActive = item.url === pathname;
           const hasActiveChild =
-            hasSubItems &&
-            item.items.some((subItem) => subItem.url === pathname);
+            hasSubItems && item.items.some((sub) => sub.url === pathname);
           const shouldBeOpen = isItemActive || hasActiveChild || item.isActive;
 
+          // Handle dropdowns
           if (hasSubItems) {
             return (
               <Collapsible
@@ -61,7 +60,6 @@ export function NavMain({
                 className="group/collapsible"
               >
                 <SidebarMenuItem>
-                  {/* Trigger */}
                   <CollapsibleTrigger asChild>
                     <SidebarMenuButton
                       tooltip={item.title}
@@ -81,29 +79,24 @@ export function NavMain({
                       )}
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
-
-                  {/* Collapsible content */}
                   <CollapsibleContent>
                     <SidebarMenuSub>
-                      {item.items.map((subItem) => {
-                        const isSubItemActive = subItem.url === pathname;
-
+                      {item.items.map((sub) => {
+                        const isSubItemActive = sub.url === pathname;
                         return (
-                          <SidebarMenuSubItem key={subItem.title}>
+                          <SidebarMenuSubItem key={sub.title}>
                             <SidebarMenuSubButton
                               asChild
                               isActive={isSubItemActive}
                             >
                               <Link
-                                href={subItem.url}
+                                href={sub.url}
                                 className="flex items-center justify-between w-full"
                               >
-                                <span className="truncate">
-                                  {subItem.title}
-                                </span>
-                                {subItem.badge && (
+                                <span className="truncate">{sub.title}</span>
+                                {sub.badge && (
                                   <SidebarMenuBadge className="ml-auto">
-                                    {subItem.badge}
+                                    {sub.badge}
                                   </SidebarMenuBadge>
                                 )}
                               </Link>
@@ -118,18 +111,24 @@ export function NavMain({
             );
           }
 
-          // Single link (no children)
-          const isSingleItemActive = item.url === pathname;
+          // Single menu item
+          const handleClick = (e: React.MouseEvent) => {
+            if (item.onClick) {
+              e.preventDefault();
+              item.onClick();
+            }
+          };
 
           return (
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton
                 asChild
                 tooltip={item.title}
-                isActive={isSingleItemActive}
+                isActive={isItemActive}
               >
                 <Link
                   href={item.url || "#"}
+                  onClick={handleClick}
                   className="flex items-center gap-2"
                 >
                   {item.icon && <item.icon className="w-4 h-4" />}

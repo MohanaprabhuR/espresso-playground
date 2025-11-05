@@ -15,9 +15,17 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { PopoverTrigger } from "@radix-ui/react-popover";
-import { ChevronDownIcon, ClockIcon, CommandIcon } from "lucide-react";
+import {
+  CalendarIcon,
+  ChevronDownIcon,
+  ClockIcon,
+  CommandIcon,
+} from "lucide-react";
 import React from "react";
 import { DropdownNavProps, DropdownProps } from "react-day-picker";
+import { DateRange } from "react-day-picker";
+
+import { cn } from "@/lib/utils";
 
 const CalendarDemo = () => {
   const id = useId();
@@ -70,6 +78,8 @@ const CalendarDemo = () => {
     _e(_event);
   };
 
+  const [dates, setDates] = useState<DateRange | undefined>();
+
   return (
     <div>
       <div className="pt-10 ">
@@ -78,6 +88,7 @@ const CalendarDemo = () => {
         </h1>
 
         <div className="flex flex-wrap justify-center items-center mx-auto gap-x-[50px] gap-y-20  ">
+          <div></div>
           <Calendar mode="single" selected={date} onSelect={setDate} />
           <Calendar mode="multiple" defaultMonth={date} numberOfMonths={2} />
           <Calendar mode="range" defaultMonth={date} numberOfMonths={3} />
@@ -581,6 +592,74 @@ const CalendarDemo = () => {
                 </SelectContent>
               </Select>
             </div>
+          </div>
+          <div>
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  id={id}
+                  variant="outline"
+                  className="group w-full justify-between border-input bg-background px-3 font-normal outline-offset-0 outline-none hover:bg-background focus-visible:outline-[3px]"
+                >
+                  <span
+                    className={cn("truncate", !date && "text-muted-foreground")}
+                  >
+                    {dates?.from ? (
+                      dates.to ? (
+                        <>
+                          {format(dates.from, "LLL dd, y")} -{" "}
+                          {format(dates.to, "LLL dd, y")}
+                        </>
+                      ) : (
+                        format(dates.from, "LLL dd, y")
+                      )
+                    ) : (
+                      "Pick a date range"
+                    )}
+                  </span>
+                  <CalendarIcon
+                    size={16}
+                    className="shrink-0 text-muted-foreground/80 transition-colors group-hover:text-foreground"
+                    aria-hidden="true"
+                  />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent
+                className=" border-0 p-0 shadow-none"
+                align="start"
+              >
+                <Calendar mode="range" selected={dates} onSelect={setDates} />
+              </PopoverContent>
+            </Popover>
+          </div>
+          <div className="*:not-first:mt-2">
+            <Label htmlFor={id}>Date picker</Label>
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  id={id}
+                  variant={"outline"}
+                  className="group w-full justify-between border-input bg-background px-3 font-normal outline-offset-0 outline-none hover:bg-background focus-visible:outline-[3px]"
+                >
+                  <span
+                    className={cn("truncate", !date && "text-muted-foreground")}
+                  >
+                    {date ? format(date, "PPP") : "Pick a date"}
+                  </span>
+                  <CalendarIcon
+                    size={16}
+                    className="shrink-0 text-muted-foreground/80 transition-colors group-hover:text-foreground"
+                    aria-hidden="true"
+                  />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent
+                className="border-0 p-0 shadow-none"
+                align="start"
+              >
+                <Calendar mode="single" selected={date} onSelect={setDate} />
+              </PopoverContent>
+            </Popover>
           </div>
         </div>
       </div>
