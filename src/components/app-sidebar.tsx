@@ -169,7 +169,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <>
-      <Dialog open={searchModalOpen} onOpenChange={setSearchModalOpen}>
+      {/* <Dialog open={searchModalOpen} onOpenChange={setSearchModalOpen}>
         <DialogContent
           className="p-0 overflow-hidden"
           size="lg"
@@ -296,7 +296,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </Badge>
           </DialogFooter>
         </DialogContent>
-      </Dialog>
+      </Dialog> */}
 
       <Sidebar collapsible="icon" {...props}>
         <SidebarHeader>
