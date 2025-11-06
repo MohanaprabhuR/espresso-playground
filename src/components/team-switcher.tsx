@@ -21,6 +21,7 @@ import {
   ArrowRightFromLine,
   PanelLeft,
   MessageCircleQuestionMark,
+  ListFilter,
 } from "lucide-react";
 
 import {
@@ -62,7 +63,6 @@ import { InputGroup, InputGroupAddon, InputGroupInput } from "./ui/input-group";
 import { Tabs, TabsList, TabsTrigger } from "./ui/tabs";
 
 function SettingsDialogContent() {
-  const [activeSection, setActiveSection] = React.useState("My profile");
   const { state } = useSidebar();
   const isCollapsed = state === "collapsed";
   const { theme, setTheme } = useTheme();
@@ -85,7 +85,7 @@ function SettingsDialogContent() {
 
   return (
     <>
-      <Sidebar className="h-full" collapsible="icon">
+      <Sidebar className="h-full bg-background" collapsible="icon">
         {!isCollapsed && (
           <SidebarHeader className="p-4">
             <DialogTitle>Settings</DialogTitle>
@@ -257,10 +257,10 @@ function SettingsDialogContent() {
                     <InputGroupAddon>
                       <Mail />
                     </InputGroupAddon>
+                    <InputGroupAddon align="inline-end">
+                      <ListFilter />
+                    </InputGroupAddon>
                   </InputGroup>
-                  <Button variant="ghost" className="h-8 w-8">
-                    <SettingsIcon className="size-4" />
-                  </Button>
                 </div>
               </div>
 
