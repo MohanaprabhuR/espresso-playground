@@ -108,12 +108,7 @@ function TabsList({
   const listRef = React.useRef<HTMLDivElement>(null);
 
   const [indicatorStyle, setIndicatorStyle] =
-    React.useState<React.CSSProperties>({
-      left: "0px",
-      top: "0px",
-      width: variant === "underline" ? "0px" : "0px",
-      height: variant === "underline" ? "1px" : "0px",
-    });
+    React.useState<React.CSSProperties>({});
 
   React.useLayoutEffect(() => {
     if (!listRef.current) return;
@@ -123,12 +118,7 @@ function TabsList({
     ) as HTMLElement;
 
     if (!activeElement) {
-      setIndicatorStyle({
-        left: "0px",
-        top: "0px",
-        width: variant === "underline" ? "0px" : "0px",
-        height: variant === "underline" ? "1px" : "0px",
-      });
+      setIndicatorStyle({});
       return;
     }
 
@@ -157,7 +147,9 @@ function TabsList({
   }, [activeTab, orientation, variant]);
 
   const baseOrientation =
-    orientation === "horizontal" ? "flex flex-row" : "flex flex-col";
+    orientation === "horizontal"
+      ? "flex flex-row overflow-hidden"
+      : "flex flex-col overflow-hidden";
 
   const variantClasses: Record<TabVariant, string> = {
     subtle: cn(
@@ -262,8 +254,7 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
     outline:
       "rounded-lg data-[state=active]:text-card-foreground transition-colors relative z-10",
     underline: cn(
-      "data-[state=active]:text-foreground transition-colors relative z-10",
-      orientation === "horizontal" ? "pb-2" : "pr-2"
+      "data-[state=active]:text-foreground transition-colors relative z-10"
     ),
     ghost:
       "data-[state=active]:text-card-foreground transition-colors rounded-lg relative z-10",
@@ -276,8 +267,8 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
   };
 
   const sizeClasses: Record<TabSize, string> = {
-    sm: "px-3 py-1.5 text-sm font-medium ",
-    md: "px-4 py-2 text-base font-medium",
+    sm: "px-2 py-[5px] text-sm  ",
+    md: "px-2.5 py-1.5 text-base ",
   };
 
   return (
@@ -285,7 +276,7 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
       ref={ref}
       data-slot="tabs-trigger"
       className={cn(
-        "focus-visible:outline-none  inline-flex tracking-4 leading-loose items-center justify-center gap-2 whitespace-nowrap disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "focus-visible:outline-none  inline-flex tracking-4 font-normal leading-loose items-center justify-center gap-2 whitespace-nowrap disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         variantClasses[variant],
         sizeClasses[size],
         className

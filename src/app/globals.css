@@ -213,27 +213,27 @@
   --leading-loose: 18px;
 
   /* Letter Spacing */
-  --tracking-0: 0em; /* 0px */
+  --tracking-0: 0em;
   --tracking-tight: 0.08px;
-  --tracking-1: 0.01em; /* 0.16px */
-  --tracking-2: 0.016em; /* 0.24px */
-  --tracking-3: 0.0175em; /* 0.28px */
-  --tracking-4: 0.02em; /* 0.32px */
-  --tracking-5: 0.03em; /* 0.48px */
-  --tracking-6: 0.04em; /* 0.64px */
-  --tracking-7: 0.05em; /* 0.8px */
-  --tracking-8: 0.06em; /* 0.96px */
-  --tracking-9: 0.07em; /* 1.12px */
-  --tracking-10: 0.08em; /* 1.28px */
-  --tracking-11: 0.09em; /* 1.44px */
-  --tracking-12: 0.1em; /* 1.6px */
-  --tracking-13: 0.11em; /* 1.76px */
-  --tracking-14: 0.12em; /* 1.92px */
-  --tracking-15: 0.14em; /* 2.24px */
-  --tracking-16: 0.16em; /* 2.56px */
-  --tracking-17: 0.2em; /* 3.2px */
-  --tracking-18: 0.24em; /* 3.8px */
-  --tracking-19: 0.26em; /* 4.16px */
+  --tracking-1: 0.16px;
+  --tracking-2: 0.24px;
+  --tracking-3: 0.28px;
+  --tracking-4: 0.32px;
+  --tracking-5: 0.48px;
+  --tracking-6: 0.64px;
+  --tracking-7: 0.8px;
+  --tracking-8: 0.96px;
+  --tracking-9: 1.12px;
+  --tracking-10: 1.28px;
+  --tracking-11: 1.44px;
+  --tracking-12: 1.6px;
+  --tracking-13: 1.76px;
+  --tracking-14: 1.92px;
+  --tracking-15: 2.24px;
+  --tracking-16: 2.56px;
+  --tracking-17: 3.2px;
+  --tracking-18: 3.8px;
+  --tracking-19: 4.16px;
 
   /* Radius */
   --radius-xs: 0.25rem; /* 4px */
