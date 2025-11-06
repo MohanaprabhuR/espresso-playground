@@ -150,67 +150,28 @@
 
   /* Font Size */
   --text-2xs: 0.6875rem; /*11px*/
-  --text-2xs--line-height: calc(16 / 0.6875);
-
   --text-xs: 0.75rem; /*12px*/
-  --text-xs--line-height: calc(0.875 / 0.75);
-
   --text-sm: 0.8125rem; /*13px*/
-  --text-sm--line-height: calc(0.9375 / 0.75);
-
   --text-base: 0.875rem; /*14px*/
-  --text-base--line-height: calc(1 / 0.875);
-
   --text-lg: 1rem; /*16px*/
-  --text-lg--line-height: calc(1.125 / 1);
-
   --text-xl: 1.125rem; /*18px*/
-  --text-xl--line-height: calc(1.3125 / 1.125);
-
   --text-2xl: 1.25rem; /*20px*/
-  --text-2xl--line-height: calc(1.4375 / 1.25);
-
   --text-3xl: 1.5rem; /*24px*/
-  --text-3xl--line-height: calc(1.75 / 1.5);
-
   --text-4xl: 1.625rem; /*26px*/
-  --text-4xl--line-height: calc(2.625 / 1.625);
-
   --text-5xl: 1.75rem; /*28px*/
-  --text-5xl--line-height: calc(2.8125 / 1.75);
-
   --text-6xl: 2rem; /*32px*/
-  --text-6xl--line-height: calc(3.1875 / 2);
-
   --text-7xl: 2.5rem; /*40px*/
-  --text-7xl--line-height: calc(3.5 / 2.5);
-
   --text-8xl: 2.75rem; /*44px*/
-  --text-8xl--line-height: calc(3.875 / 2.75);
-
   --text-9xl: 3rem; /*48px*/
-  --text-9xl--line-height: calc(4.1875 / 3);
-
   --text-10xl: 3.25rem; /*52px*/
-  --text-10xl--line-height: calc(4.5625 / 3.25);
-
   --text-11xl: 3.5rem; /*56px*/
-  --text-11xl--line-height: calc(4.875 / 3.5);
-
   --text-12xl: 4rem; /*64px*/
-  --text-12xl--line-height: calc(5.1875 / 4);
-
   --text-13xl: 4.5rem; /*72px*/
-  --text-13xl--line-height: calc(5.75 / 4.5);
-
   --text-14xl: 5rem; /*80px*/
-  --text-14xl--line-height: calc(6 / 5);
-
   --text-15xl: 5.5rem; /*88px*/
-  --text-15xl--line-height: calc(6.625 / 5.5);
 
   /* Line Height */
-  --leading-loose: 18px;
+  --leading-loose: 1.15;
 
   /* Letter Spacing */
   --tracking-0: 0em;

@@ -222,10 +222,7 @@ const TabsDemo = () => {
           <div className="flex gap-[50px]">
             <Tabs defaultValue="tab1">
               <TabsList>
-                <TabsTrigger value="tab1">
-                  <CommandIcon fill="currentColor" />
-                  Tab 1
-                </TabsTrigger>
+                <TabsTrigger value="tab1">Tab 1</TabsTrigger>
                 <TabsTrigger value="tab2">Tab 2</TabsTrigger>
                 <TabsTrigger value="tab3">Tab 3</TabsTrigger>
                 <TabsTrigger value="tab4">Tab 4</TabsTrigger>

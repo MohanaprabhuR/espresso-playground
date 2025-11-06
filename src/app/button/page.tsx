@@ -238,220 +238,215 @@ const ButtonDemo = () => {
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="ghost" size="lg">
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-5" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-5" />
               </Button>
               <Button variant="ghost" size="lg" disabled>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-5" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-5" />
               </Button>
               <Button variant="ghost" size="lg" iconOnly>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-5" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-5" />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="destructive" size="lg">
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-5" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-5" />
               </Button>
               <Button variant="destructive" size="lg" disabled>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-5" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-5" />
               </Button>
               <Button variant="destructive" size="lg" iconOnly>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-5" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-5" />
               </Button>
             </div>
           </div>
           <div className="flex flex-col justify-center items-center gap-[10px_0]">
             <div className="flex gap-[0_20px]">
               <Button variant="primary" size="xl">
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
               <Button variant="primary" size="xl" disabled>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
               <Button variant="primary" size="xl" iconOnly>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="secondary" size="xl">
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
               <Button variant="secondary" size="xl" disabled>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
               <Button variant="secondary" size="xl" iconOnly>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="outline" size="xl">
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
               <Button variant="outline" size="xl" disabled>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
               <Button variant="outline" size="xl" iconOnly>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="ghost" size="xl">
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
               <Button variant="ghost" size="xl" disabled>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
               <Button variant="ghost" size="xl" iconOnly>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="destructive" size="xl">
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
               <Button variant="destructive" size="xl" disabled>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
               <Button variant="destructive" size="xl" iconOnly>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
             </div>
           </div>
           <div className="flex flex-col justify-center items-center gap-[10px_0]">
             <div className="flex gap-[0_20px]">
               <Button variant="primary" size="2xl">
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
               <Button variant="primary" size="2xl" disabled>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
               <Button variant="primary" size="2xl" iconOnly>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="secondary" size="2xl">
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
               <Button variant="secondary" size="2xl" disabled>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
               <Button variant="secondary" size="2xl" iconOnly>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="outline" size="2xl">
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
               <Button variant="outline" size="2xl" disabled>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
               <Button variant="outline" size="2xl" iconOnly>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="ghost" size="2xl">
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
               <Button variant="ghost" size="2xl" disabled>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
               <Button variant="ghost" size="2xl" iconOnly>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="destructive" size="2xl">
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
               <Button variant="destructive" size="2xl" disabled>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
               <Button variant="destructive" size="2xl" iconOnly>
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
                 Discover
-                <CommandIcon fill="currentColor" />
+                <CommandIcon fill="currentColor" className="size-6" />
               </Button>
             </div>
           </div>
         </div>
       </div>
-      <Button variant="destructive" size="2xl" iconOnly>
-        <CommandIcon fill="currentColor" />
-        Discover
-        <CommandIcon fill="currentColor" />
-      </Button>
     </div>
   );
 };

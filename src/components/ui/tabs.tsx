@@ -190,6 +190,7 @@ function TabsList({
       ref={listRef}
       data-slot="tabs-list"
       className={cn(variantClasses[variant], "w-fit relative", className)}
+      style={{}}
       {...props}
     >
       {showIndicator && (
@@ -267,8 +268,8 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
   };
 
   const sizeClasses: Record<TabSize, string> = {
-    sm: "px-2 py-[5px] text-sm  ",
-    md: "px-2.5 py-1.5 text-base ",
+    sm: "px-2 py-[5px]",
+    md: "px-2.5 py-1.5",
   };
 
   return (
@@ -276,7 +277,7 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
       ref={ref}
       data-slot="tabs-trigger"
       className={cn(
-        "focus-visible:outline-none  inline-flex tracking-4 font-normal leading-loose items-center justify-center gap-2 whitespace-nowrap disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "focus-visible:outline-none text-base  inline-flex tracking-4 font-normal leading-loose items-center justify-center gap-2 whitespace-nowrap disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         variantClasses[variant],
         sizeClasses[size],
         className

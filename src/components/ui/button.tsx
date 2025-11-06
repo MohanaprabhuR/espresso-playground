@@ -40,14 +40,14 @@ const buttonVariants = cva(
       { size: "md", iconOnly: false, className: "py-2 px-2.5" },
       { size: "md", iconOnly: true, className: "p-[7px]" },
 
-      { size: "lg", iconOnly: false, className: "py-[11px] px-3" },
+      { size: "lg", iconOnly: false, className: "py-2.5 px-3" },
       { size: "lg", iconOnly: true, className: "p-2.5" },
 
       { size: "xl", iconOnly: false, className: "py-[11px] px-[14px]" },
       { size: "xl", iconOnly: true, className: "p-[11px]" },
 
-      { size: "2xl", iconOnly: false, className: "py-[14px] px-4" },
-      { size: "2xl", iconOnly: true, className: "p-[14px]" },
+      { size: "2xl", iconOnly: false, className: "py-3.5 px-4" },
+      { size: "2xl", iconOnly: true, className: "p-3.5" },
     ],
     defaultVariants: {
       variant: "primary",
