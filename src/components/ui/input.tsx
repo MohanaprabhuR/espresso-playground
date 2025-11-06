@@ -16,7 +16,7 @@ type InputProps = Omit<
 };
 
 const baseStyles =
-  "w-full min-w-0 transition-[color,box-shadow,border] outline-none placeholder:text-primary/50 file:inline-flex file:pr-1 file:border-r file:border-r-[1px] file:border-primary/20 file:bg-transparent file:font-normal aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&:-webkit-autofill]:bg-autofill [&:-webkit-autofill]:text-accent-foreground disabled:bg-primary/3 disabled:border-none disabled:text-primary/20 disabled:cursor-not-allowed disabled:pointer-events-none ";
+  "w-full min-w-0 transition-[color,box-shadow,border] outline-none placeholder:text-primary/50 file:inline-flex file:pr-1 file:border-r file:border-r-[1px] file:border-primary/20 file:bg-transparent  aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&:-webkit-autofill]:bg-autofill [&:-webkit-autofill]:text-accent-foreground disabled:bg-primary/3 disabled:border-none disabled:text-primary/20 disabled:cursor-not-allowed disabled:pointer-events-none ";
 
 const variantBaseMap: Record<VariantType, string> = {
   default:
@@ -49,25 +49,25 @@ const statusMap: Record<VariantType, Record<StatusType, string>> = {
 const sizeMap = {
   sm: {
     input:
-      "h-7 text-base font-normal rounded-lg tracking-4 leading-loose px-2 py-1.5 file:text-base ",
+      " text-base font-normal rounded-lg tracking-4 leading-loose px-2 py-1.5 ",
     prefix: "pl-8",
     suffix: "pr-8",
   },
   md: {
     input:
-      "h-8 text-base font-normal rounded-lg tracking-4 leading-loose px-2.5 py-2 file:text-base",
+      " text-base font-normal rounded-lg tracking-4 leading-loose px-2.5 py-2 ",
     prefix: "pl-[34px]",
     suffix: "pr-[34px]",
   },
   lg: {
     input:
-      "h-10 text-lg font-normal rounded-xl tracking-4 leading-loose px-3 py-[11px] file:text-lg",
+      " text-lg font-normal rounded-xl tracking-4 leading-loose px-3 py-[11px] ",
     prefix: "pl-9",
     suffix: "pr-9",
   },
   xl: {
     input:
-      "h-10 text-xl font-normal rounded-xl tracking-2 leading-loose px-3 py-[9.5px] file:text-xl",
+      "text-lg font-normal rounded-xl tracking-4 leading-loose px-3 py-[11px] ",
     prefix: "pl-10",
     suffix: "pr-10",
   },
