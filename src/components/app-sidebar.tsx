@@ -40,6 +40,10 @@ import {
   Component,
   Megaphone,
   BadgePercent,
+  ArrowDownUp,
+  ChevronDown,
+  CornerDownLeft,
+  Diamond,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -76,6 +80,7 @@ import { Label } from "./ui/label";
 import { ButtonGroup } from "./ui/button-group";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
+import { KbdGroup, Kbd } from "./ui/kbd";
 
 const data = {
   user: {
@@ -165,7 +170,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <>
-      {/* <Dialog open={searchModalOpen} onOpenChange={setSearchModalOpen}>
+      <Dialog open={searchModalOpen} onOpenChange={setSearchModalOpen}>
         <DialogContent
           className="p-0 overflow-hidden"
           size="lg"
@@ -292,7 +297,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </Badge>
           </DialogFooter>
         </DialogContent>
-      </Dialog> */}
+      </Dialog>
 
       <Sidebar collapsible="icon" {...props}>
         <SidebarHeader>
