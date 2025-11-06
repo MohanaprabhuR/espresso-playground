@@ -26,7 +26,7 @@ function Notification({
         action && "px-3 py-1.5 items-center",
         longText &&
           "py-3 px-3.5  items-start [&>svg]:mt-0.75 [&>svg]:mb-0.75 [&>img]:mt-0.75 [&>img]:mb-0.75",
-        !action && !longText && "py-2.5 px-3 flex-row items-center",
+        !action && !longText && "py-[9.5px] px-3 flex-row items-center",
         notificationPanel && "items-start p-3",
         modal &&
           "flex-col items-center justify-center text-center py-4 px-3 gap-y-4.5",
@@ -47,7 +47,7 @@ function NotificationTitle({
     <div
       data-slot="notification-title"
       className={cn(
-        "font-medium text-base tracking-2 leading-6 text-primary w-full",
+        "font-medium text-base tracking-2 leading-relaxed text-primary w-full",
         className
       )}
       {...props}
@@ -63,7 +63,7 @@ function NotificationDescription({
     <div
       data-slot="notification-description"
       className={cn(
-        "text-secondary-foreground font-normal tracking-4 grid justify-items-start gap-1 text-base leading-6",
+        "text-secondary-foreground font-normal tracking-4 grid justify-items-start gap-1 text-base leading-relaxed",
         className
       )}
       {...props}
@@ -79,7 +79,7 @@ function NotificationTimeStamp({
     <div
       data-slot="notification-timestamp"
       className={cn(
-        "text-muted-foreground font-normal pt-1.5 -tracking-1 grid justify-items-start gap-1 text-sm leading-6",
+        "text-muted-foreground font-normal pt-1.5 -tracking-1 grid justify-items-start gap-1 text-sm leading-relaxed",
         className
       )}
       {...props}

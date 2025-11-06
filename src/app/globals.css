@@ -172,6 +172,7 @@
 
   /* Line Height */
   --leading-loose: 1.15;
+  --leading-relaxed: 1.5;
 
   /* Letter Spacing */
   --tracking-0: 0em;

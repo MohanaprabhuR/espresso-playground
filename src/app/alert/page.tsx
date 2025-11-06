@@ -23,17 +23,17 @@ const AlertDemo = () => {
             <AlertTitle>Your trial ends soon!</AlertTitle>
           </Alert>
           <Alert>
+            <ExclamationIcon />
             <AlertTitle>Your trial ends soon!</AlertTitle>
-            <Button variant="ghost">
-              <CloseIcon />
-            </Button>
+          </Alert>
+          <Alert>
+            <AlertTitle>Your trial ends soon!</AlertTitle>
+            <CloseIcon />
           </Alert>
           <Alert>
             <ExclamationIcon />
             <AlertTitle>Your trial ends soon!</AlertTitle>
-            <Button variant="ghost">
-              <CloseIcon />
-            </Button>
+            <CloseIcon />
           </Alert>
           <Alert action>
             <AlertTitle>Your trial ends soon!</AlertTitle>
@@ -114,7 +114,7 @@ const AlertDemo = () => {
                 Upgrade now to continue enjoying all features without
                 interruption.
               </AlertDescription>
-              <ButtonGroup destructive className="pt-3.5">
+              <ButtonGroup destructive className="pt-3.25">
                 <Button variant="outline">Update now</Button>
                 <Button variant="ghost">View plans</Button>
               </ButtonGroup>
@@ -127,7 +127,7 @@ const AlertDemo = () => {
                 Upgrade now to continue enjoying all features without
                 interruption.
               </AlertDescription>
-              <ButtonGroup destructive className="pt-3.5">
+              <ButtonGroup destructive className="pt-3.25">
                 <Button variant="outline">Update now</Button>
                 <Button variant="ghost">View plans</Button>
               </ButtonGroup>
@@ -144,7 +144,7 @@ const AlertDemo = () => {
                 Upgrade now to continue enjoying all features without
                 interruption.
               </AlertDescription>
-              <ButtonGroup destructive className="pt-3.5">
+              <ButtonGroup destructive className="pt-3.25">
                 <Button variant="outline">Update now</Button>
                 <Button variant="ghost">View plans</Button>
               </ButtonGroup>
@@ -158,7 +158,7 @@ const AlertDemo = () => {
                 Upgrade now to continue enjoying all features without
                 interruption.
               </AlertDescription>
-              <ButtonGroup destructive className="pt-3.5">
+              <ButtonGroup destructive className="pt-3.25">
                 <Button variant="outline">Update now</Button>
                 <Button variant="ghost">View plans</Button>
               </ButtonGroup>
@@ -167,6 +167,7 @@ const AlertDemo = () => {
               <CloseIcon />
             </Button>
           </Alert>
+
           <Alert longText action variant="success">
             <ExclamationIcon />
             <AlertContent>
@@ -175,7 +176,7 @@ const AlertDemo = () => {
                 Upgrade now to continue enjoying all features without
                 interruption.
               </AlertDescription>
-              <ButtonGroup destructive className="pt-3.5">
+              <ButtonGroup destructive className="pt-3.25">
                 <Button variant="outline">Update now</Button>
                 <Button variant="ghost">View plans</Button>
               </ButtonGroup>
@@ -192,7 +193,7 @@ const AlertDemo = () => {
                 Upgrade now to continue enjoying all features without
                 interruption.
               </AlertDescription>
-              <ButtonGroup destructive className="pt-3.5">
+              <ButtonGroup destructive className="pt-3.25">
                 <Button variant="outline">Update now</Button>
                 <Button variant="ghost">View plans</Button>
               </ButtonGroup>
@@ -209,7 +210,7 @@ const AlertDemo = () => {
                 Upgrade now to continue enjoying all features without
                 interruption.
               </AlertDescription>
-              <ButtonGroup destructive className="pt-3.5">
+              <ButtonGroup destructive className="pt-3.25">
                 <Button variant="outline">Update now</Button>
                 <Button variant="ghost">View plans</Button>
               </ButtonGroup>
@@ -226,7 +227,7 @@ const AlertDemo = () => {
                 Upgrade now to continue enjoying all features without
                 interruption.
               </AlertDescription>
-              <ButtonGroup destructive className="pt-3.5">
+              <ButtonGroup destructive className="pt-3.25">
                 <Button variant="outline">Update now</Button>
                 <Button variant="ghost">View plans</Button>
               </ButtonGroup>

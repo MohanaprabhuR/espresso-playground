@@ -50,10 +50,10 @@ function DropdownDemo() {
         <h1 className="text-xl font-bold text-gray-900 dark:text-white pb-4">
           DropDown Component
         </h1>
-        <div className="flex mx-auto justify-center gap-[30px] w-full flex-wrap">
+        <div className="flex  items-start mx-auto justify-center gap-[30px] w-full flex-wrap">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline">Open</Button>
+              <Button>Open</Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="" align="start">
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -134,14 +134,14 @@ function DropdownDemo() {
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                <Avatar size="sm">
+                <Avatar size="xs">
                   <AvatarImage src="https://mockmind-api.uifaces.co/content/human/80.jpg" />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
                 Aaron Menezes
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Avatar size="sm">
+                <Avatar size="xs">
                   <AvatarImage src="https://mockmind-api.uifaces.co/content/human/185.jpg" />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
@@ -213,35 +213,35 @@ function DropdownDemo() {
 
               <DropdownMenuGroup>
                 <DropdownMenuItem>
-                  <Avatar size="sm">
+                  <Avatar size="xs">
                     <AvatarImage src="https://mockmind-api.uifaces.co/content/human/80.jpg" />
                     <AvatarFallback>CN</AvatarFallback>
                   </Avatar>
                   Aaron Menezes
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Avatar size="sm">
+                  <Avatar size="xs">
                     <AvatarImage src="https://mockmind-api.uifaces.co/content/human/82.jpg" />
                     <AvatarFallback>CN</AvatarFallback>
                   </Avatar>
                   Vaani Kapoor
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Avatar size="sm">
+                  <Avatar size="xs">
                     <AvatarImage src="https://mockmind-api.uifaces.co/content/human/185.jpg" />
                     <AvatarFallback>CN</AvatarFallback>
                   </Avatar>
                   Daniel Kapoor
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Avatar size="sm">
+                  <Avatar size="xs">
                     <AvatarImage src="https://mockmind-api.uifaces.co/content/human/186.jpg" />
                     <AvatarFallback>CN</AvatarFallback>
                   </Avatar>
                   Steven James
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Avatar size="sm">
+                  <Avatar size="xs">
                     <AvatarImage src="https://mockmind-api.uifaces.co/content/human/187.jpg" />
                     <AvatarFallback>CN</AvatarFallback>
                   </Avatar>

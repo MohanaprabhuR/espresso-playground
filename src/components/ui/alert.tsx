@@ -8,7 +8,7 @@ const alertVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-card border",
+        default: "bg-card outline outline-1 outline-border",
         information: "bg-blue-secondary",
         success: "bg-green-secondary",
         warning: "bg-amber-secondary",
@@ -47,7 +47,7 @@ function Alert({
         !action &&
           longText &&
           "px-4 py-3.5 items-start [&>svg]:mt-0.75 [&>svg]:mb-0.75",
-        !action && !longText && "py-2.5 px-3.5 items-center",
+        !action && !longText && "py-[9.5px] px-3.5 items-center",
         className
       )}
       {...props}
@@ -62,7 +62,7 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="alert-title"
       className={cn(
-        "font-medium text-base -tracking-tight leading-6  text-primary w-full",
+        "font-medium text-base -tracking-tight leading-relaxed text-primary w-full",
         className
       )}
       {...props}
@@ -78,7 +78,7 @@ function AlertDescription({
     <div
       data-slot="alert-description"
       className={cn(
-        "text-secondary-foreground font-normal tracking-none grid justify-items-start gap-1 text-base leading-6",
+        "text-secondary-foreground font-normal tracking-none grid justify-items-start gap-1 text-base leading-relaxed",
         className
       )}
       {...props}
@@ -92,7 +92,11 @@ function AlertContent({
   ...props
 }: React.ComponentProps<"div"> & { children?: React.ReactNode }) {
   return (
-    <div data-slot="alert-content" className={cn("", className)} {...props}>
+    <div
+      data-slot="alert-content"
+      className={cn("flex flex-col gap-y-0.5", className)}
+      {...props}
+    >
       {children}
     </div>
   );
