@@ -46,125 +46,326 @@ const InputGroupDemo = () => {
       <h1 className="text-xl font-bold text-gray-900 dark:text-white pb-4">
         InputGroup Component
       </h1>
-      <div className="grid w-full  gap-6 justify-center">
-        <InputGroup size="sm">
-          <InputGroupInput placeholder="Search..." size="sm" />
-          <InputGroupAddon>
-            <SearchIcon />
-          </InputGroupAddon>
-        </InputGroup>
-        <InputGroup size="md">
-          <InputGroupInput placeholder="Search..." size="md" />
-          <InputGroupAddon>
-            <SearchIcon />
-          </InputGroupAddon>
-        </InputGroup>
-        <InputGroup size="lg">
-          <InputGroupInput placeholder="Search..." size="lg" />
-          <InputGroupAddon>
-            <SearchIcon />
-          </InputGroupAddon>
-        </InputGroup>
-        <InputGroup size="xl">
-          <InputGroupInput placeholder="Search..." size="xl" />
-          <InputGroupAddon>
-            <SearchIcon />
-          </InputGroupAddon>
-        </InputGroup>
+      <div className="grid w-full gap-6 justify-center">
+        <div className="flex gap-4 items-center">
+          <InputGroup variant="outline" size="sm">
+            <InputGroupInput
+              variant="outline"
+              placeholder="Search..."
+              size="sm"
+            />
+            <InputGroupAddon size="sm">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup variant="outline" size="md">
+            <InputGroupInput
+              variant="outline"
+              placeholder="Search..."
+              size="md"
+            />
+            <InputGroupAddon size="md">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup variant="outline" size="lg">
+            <InputGroupInput
+              variant="outline"
+              placeholder="Search..."
+              size="lg"
+            />
+            <InputGroupAddon size="lg">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup variant="outline" size="xl">
+            <InputGroupInput
+              variant="outline"
+              placeholder="Search..."
+              size="xl"
+            />
+            <InputGroupAddon size="xl">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+        </div>
+        <div className="flex gap-4 items-center">
+          <InputGroup variant="outline" size="sm">
+            <InputGroupInput
+              variant="outline"
+              placeholder="Search..."
+              size="sm"
+            />
+            <InputGroupAddon size="sm" align="inline-end">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup variant="outline" size="md">
+            <InputGroupInput
+              variant="outline"
+              placeholder="Search..."
+              size="md"
+            />
+            <InputGroupAddon size="md" align="inline-end">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup variant="outline" size="lg">
+            <InputGroupInput
+              variant="outline"
+              placeholder="Search..."
+              size="lg"
+            />
+            <InputGroupAddon size="lg" align="inline-end">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup variant="outline" size="xl">
+            <InputGroupInput
+              variant="outline"
+              placeholder="Search..."
+              size="xl"
+            />
+            <InputGroupAddon size="xl" align="inline-end">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+        </div>
 
-        <InputGroup variant="outline" size="sm">
-          <InputGroupInput
-            variant="outline"
-            placeholder="Search..."
-            size="sm"
-          />
-          <InputGroupAddon>
-            <SearchIcon />
-          </InputGroupAddon>
-        </InputGroup>
-        <InputGroup variant="outline" size="md">
-          <InputGroupInput
-            variant="outline"
-            placeholder="Search..."
-            size="md"
-          />
-          <InputGroupAddon>
-            <SearchIcon />
-          </InputGroupAddon>
-        </InputGroup>
-        <InputGroup variant="outline" size="lg">
-          <InputGroupInput
-            variant="outline"
-            placeholder="Search..."
-            size="lg"
-          />
-          <InputGroupAddon>
-            <SearchIcon />
-          </InputGroupAddon>
-        </InputGroup>
-        <InputGroup variant="outline" size="xl">
-          <InputGroupInput
-            variant="outline"
-            placeholder="Search..."
-            size="xl"
-          />
-          <InputGroupAddon>
-            <SearchIcon />
-          </InputGroupAddon>
-        </InputGroup>
+        <div className="flex gap-4 items-center">
+          <InputGroup variant="outline" size="sm">
+            <InputGroupInput
+              variant="outline"
+              placeholder="Search..."
+              size="sm"
+            />
+            <InputGroupAddon size="sm" align="block-start">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup variant="outline" size="md">
+            <InputGroupInput
+              variant="outline"
+              placeholder="Search..."
+              size="md"
+            />
+            <InputGroupAddon size="md" align="block-start">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup variant="outline" size="lg">
+            <InputGroupInput
+              variant="outline"
+              placeholder="Search..."
+              size="lg"
+            />
+            <InputGroupAddon size="lg" align="block-start">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup variant="outline" size="xl">
+            <InputGroupInput
+              variant="outline"
+              placeholder="Search..."
+              size="xl"
+            />
+            <InputGroupAddon size="xl" align="block-start">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+        </div>
+        <div className="flex gap-4 items-center">
+          <InputGroup variant="outline" size="sm">
+            <InputGroupInput
+              variant="outline"
+              placeholder="Search..."
+              size="sm"
+            />
+            <InputGroupAddon size="sm" align="block-end">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup variant="outline" size="md">
+            <InputGroupInput
+              variant="outline"
+              placeholder="Search..."
+              size="md"
+            />
+            <InputGroupAddon size="md" align="block-end">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup variant="outline" size="lg">
+            <InputGroupInput
+              variant="outline"
+              placeholder="Search..."
+              size="lg"
+            />
+            <InputGroupAddon size="lg" align="block-end">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup variant="outline" size="xl">
+            <InputGroupInput
+              variant="outline"
+              placeholder="Search..."
+              size="xl"
+            />
+            <InputGroupAddon size="xl" align="block-end">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+        </div>
 
-        <InputGroup status="success" size="sm">
-          <InputGroupInput placeholder="Search..." size="sm" status="success" />
-          <InputGroupAddon>
-            <SearchIcon />
-          </InputGroupAddon>
-        </InputGroup>
-        <InputGroup status="error" size="md">
-          <InputGroupInput placeholder="Search..." size="md" status="error" />
-          <InputGroupAddon>
-            <SearchIcon />
-          </InputGroupAddon>
-        </InputGroup>
-        <InputGroup status="warning" size="lg">
-          <InputGroupInput placeholder="Search..." size="lg" status="warning" />
-          <InputGroupAddon>
-            <SearchIcon />
-          </InputGroupAddon>
-        </InputGroup>
+        <div className="flex gap-4 items-center">
+          <InputGroup size="sm">
+            <InputGroupInput placeholder="Search..." size="sm" />
+          </InputGroup>
+          <InputGroup size="md">
+            <InputGroupInput placeholder="Search..." size="md" />
+          </InputGroup>
+          <InputGroup size="lg">
+            <InputGroupInput placeholder="Search..." size="lg" />
+          </InputGroup>
+          <InputGroup size="xl">
+            <InputGroupInput placeholder="Search..." size="xl" />
+          </InputGroup>
+        </div>
 
-        <InputGroup status="success" variant="outline" size="sm">
-          <InputGroupInput
-            placeholder="Search..."
-            size="sm"
-            status="success"
-            variant="outline"
-          />
-          <InputGroupAddon>
-            <SearchIcon />
-          </InputGroupAddon>
-        </InputGroup>
-        <InputGroup status="error" variant="outline" size="md">
-          <InputGroupInput
-            placeholder="Search..."
-            size="md"
-            status="error"
-            variant="outline"
-          />
-          <InputGroupAddon>
-            <SearchIcon />
-          </InputGroupAddon>
-        </InputGroup>
-        <InputGroup status="warning" variant="outline" size="lg">
-          <InputGroupInput
-            placeholder="Search..."
-            size="lg"
-            status="warning"
-            variant="outline"
-          />
-          <InputGroupAddon>
-            <SearchIcon />
-          </InputGroupAddon>
-        </InputGroup>
+        <div className="flex gap-4 items-center">
+          <InputGroup size="sm">
+            <InputGroupInput placeholder="Search..." size="sm" />
+            <InputGroupAddon size="sm">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup size="md">
+            <InputGroupInput placeholder="Search..." size="md" />
+            <InputGroupAddon size="md">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup size="lg">
+            <InputGroupInput placeholder="Search..." size="lg" />
+            <InputGroupAddon size="lg">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup size="xl">
+            <InputGroupInput placeholder="Search..." size="xl" />
+            <InputGroupAddon size="xl">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+        </div>
+
+        <div className="flex gap-4 items-center">
+          <InputGroup variant="outline" size="sm">
+            <InputGroupInput
+              variant="outline"
+              placeholder="Search..."
+              size="sm"
+            />
+            <InputGroupAddon size="sm">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup variant="outline" size="md">
+            <InputGroupInput
+              variant="outline"
+              placeholder="Search..."
+              size="md"
+            />
+            <InputGroupAddon size="md">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup variant="outline" size="lg">
+            <InputGroupInput
+              variant="outline"
+              placeholder="Search..."
+              size="lg"
+            />
+            <InputGroupAddon size="lg">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup variant="outline" size="xl">
+            <InputGroupInput
+              variant="outline"
+              placeholder="Search..."
+              size="xl"
+            />
+            <InputGroupAddon size="xl">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+        </div>
+
+        <div className="flex gap-4 items-center">
+          <InputGroup status="success" size="sm">
+            <InputGroupInput
+              placeholder="Search..."
+              size="sm"
+              status="success"
+            />
+            <InputGroupAddon size="sm">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup status="error" size="md">
+            <InputGroupInput placeholder="Search..." size="md" status="error" />
+            <InputGroupAddon size="md">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup status="warning" size="lg">
+            <InputGroupInput
+              placeholder="Search..."
+              size="lg"
+              status="warning"
+            />
+            <InputGroupAddon size="lg">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+        </div>
+
+        <div className="flex gap-4 items-center">
+          <InputGroup status="success" variant="outline" size="sm">
+            <InputGroupInput
+              placeholder="Search..."
+              size="sm"
+              status="success"
+              variant="outline"
+            />
+            <InputGroupAddon size="sm">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup status="error" variant="outline" size="md">
+            <InputGroupInput
+              placeholder="Search..."
+              size="md"
+              status="error"
+              variant="outline"
+            />
+            <InputGroupAddon size="md">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup status="warning" variant="outline" size="lg">
+            <InputGroupInput
+              placeholder="Search..."
+              size="lg"
+              status="warning"
+              variant="outline"
+            />
+            <InputGroupAddon size="lg">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+        </div>
 
         <InputGroup>
           <InputGroupInput type="email" placeholder="Enter your email" />

@@ -86,22 +86,29 @@ function InputGroup({
 }
 
 const inputGroupAddonVariants = cva(
-  "text-muted-foreground transition-colors flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium select-none [&>svg:not([class*='size-'])]:size-4 [&>kbd]:rounded-[calc(var(--radius)-5px)] group-data-[disabled=true]/input-group:bg-primary/3 group-data-[disabled=true]/input-group:cursor-not-allowed group-has-[[data-slot=input-group-control][data-filled=true]]/input-group:text-foreground",
+  "text-muted-foreground transition-colors flex h-auto cursor-text items-center justify-center gap-2 text-sm font-medium select-none [&>svg:not([class*='size-'])]:size-4 [&>kbd]:rounded-[calc(var(--radius)-5px)] group-data-[disabled=true]/input-group:bg-primary/3 group-data-[disabled=true]/input-group:cursor-not-allowed group-has-[[data-slot=input-group-control][data-filled=true]]/input-group:text-foreground",
   {
     variants: {
       align: {
         "inline-start":
-          "order-first pl-2 has-[>button]:ml-[-0.45rem] has-[>kbd]:ml-[-0.35rem]",
+          "order-first has-[>button]:ml-[-0.45rem] has-[>kbd]:ml-[-0.35rem]",
         "inline-end":
-          "order-last pr-2 has-[>button]:mr-[-0.45rem] has-[>kbd]:mr-[-0.35rem]",
+          "order-last has-[>button]:mr-[-0.45rem] has-[>kbd]:mr-[-0.35rem]",
         "block-start":
-          "order-first w-full justify-start px-2 pt-3 [.border-b]:pb-3 group-has-[>input]/input-group:pt-2.5",
+          "order-first w-full justify-start [.border-b]:pb-3 group-has-[>input]/input-group:pt-2.5",
         "block-end":
-          "order-last w-full justify-start px-2 pb-3 [.border-t]:pt-3 group-has-[>input]/input-group:pb-2.5",
+          "order-last w-full justify-start [.border-t]:pt-3 group-has-[>input]/input-group:pb-2.5",
+      },
+      size: {
+        sm: "[&[data-align='inline-start']]:pl-2 [&[data-align='inline-end']]:pr-2 [&[data-align='block-start']]:pl-2 [&[data-align='block-start']]:pt-2 [&[data-align='block-end']]:pl-2 [&[data-align='block-end']]:pb-2",
+        md: "[&[data-align='inline-start']]:pl-2.5 [&[data-align='inline-end']]:pr-2.5 [&[data-align='block-start']]:pl-2.5 [&[data-align='block-start']]:pt-2.5 [&[data-align='block-end']]:pl-2.5 [&[data-align='block-end']]:pb-2.5",
+        lg: "[&[data-align='inline-start']]:pl-3 [&[data-align='inline-end']]:pr-3 [&[data-align='block-start']]:pl-3 [&[data-align='block-start']]:pt-3 [&[data-align='block-end']]:pl-3 [&[data-align='block-end']]:pb-3",
+        xl: "[&[data-align='inline-start']]:pl-3 [&[data-align='inline-end']]:pr-3 [&[data-align='block-start']]:pl-3 [&[data-align='block-start']]:pt-3 [&[data-align='block-end']]:pl-3 [&[data-align='block-end']]:pb-3",
       },
     },
     defaultVariants: {
       align: "inline-start",
+      size: "sm",
     },
   }
 );
@@ -109,6 +116,7 @@ const inputGroupAddonVariants = cva(
 function InputGroupAddon({
   className,
   align = "inline-start",
+  size = "sm",
   ...props
 }: React.ComponentProps<"div"> & VariantProps<typeof inputGroupAddonVariants>) {
   return (
@@ -116,7 +124,7 @@ function InputGroupAddon({
       role="group"
       data-slot="input-group-addon"
       data-align={align}
-      className={cn(inputGroupAddonVariants({ align }), className)}
+      className={cn(inputGroupAddonVariants({ align, size }), className)}
       onClick={(e) => {
         if ((e.target as HTMLElement).closest("button")) return;
         const input = e.currentTarget.parentElement?.querySelector(
