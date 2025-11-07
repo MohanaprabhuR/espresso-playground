@@ -11,12 +11,13 @@ const TextAreaDemo = () => {
         <div className="flex flex-col  mx-auto gap-[50px]">
           <div className="flex  mx-auto gap-[50px]">
             <div className="flex  flex-col justify-center gap-[50px] max-w-[400px] mx-auto">
-              <Textarea placeholder="Enter the text hear...." />
+              <Textarea placeholder="Enter the text hear...." size="sm" />
               <Textarea placeholder="Enter the text hear...." size="md" />
               <Textarea placeholder="Enter the text hear...." size="lg" />
             </div>
             <div className="flex  flex-col justify-center gap-[50px] max-w-[400px] mx-auto">
               <Textarea
+                size="sm"
                 placeholder="Enter the text hear...."
                 variant="outline"
               />
