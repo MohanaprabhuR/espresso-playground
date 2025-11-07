@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 const inputGroupVariants = cva(
-  "group/input-group relative outline-none flex w-full items-center rounded-md border border-transparent  transition-[color,box-shadow] has-[>[data-align=inline-start]]:[&>input]:pl-2 has-[>[data-align=inline-end]]:[&>input]:pr-2 has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>[data-align=block-start]]:[&>input]:pb-3 has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-end]]:[&>input]:pt-3",
+  "group/input-group relative outline-none flex w-full items-center rounded-md border border-transparent transition-[color,box-shadow] has-[>[data-align=inline-start]]:[&>input]:pl-2 has-[>[data-align=inline-end]]:[&>input]:pr-2 has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>[data-align=block-start]]:[&>input]:pb-3 has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-end]]:[&>input]:pt-3",
   {
     variants: {
       variant: {
@@ -25,7 +25,6 @@ const inputGroupVariants = cva(
         xl: "rounded-xl",
       },
     },
-
     defaultVariants: {
       variant: "default",
       size: "md",
@@ -87,7 +86,7 @@ function InputGroup({
 }
 
 const inputGroupAddonVariants = cva(
-  "text-muted-foreground flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium select-none [&>svg:not([class*='size-'])]:size-4 [&>kbd]:rounded-[calc(var(--radius)-5px)] group-data-[disabled=true]/input-group:bg-primary/3 group-data-[disabled=true]/input-group:cursor-not-allowed",
+  "text-muted-foreground transition-colors flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium select-none [&>svg:not([class*='size-'])]:size-4 [&>kbd]:rounded-[calc(var(--radius)-5px)] group-data-[disabled=true]/input-group:bg-primary/3 group-data-[disabled=true]/input-group:cursor-not-allowed group-has-[[data-slot=input-group-control][data-filled=true]]/input-group:text-foreground",
   {
     variants: {
       align: {
@@ -171,7 +170,7 @@ function InputGroupText({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
       className={cn(
-        "text-muted-foreground flex items-center gap-2 text-sm [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4",
+        "text-muted-foreground flex items-center gap-2 text-sm [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 transition-colors",
         className
       )}
       {...props}
@@ -182,12 +181,28 @@ function InputGroupText({ className, ...props }: React.ComponentProps<"span">) {
 function InputGroupInput({
   className,
   disabled = false,
+  onChange,
+  value,
+  defaultValue,
   ...props
 }: React.ComponentProps<typeof Input>) {
+  const [hasValue, setHasValue] = React.useState(
+    Boolean(value ?? defaultValue ?? "")
+  );
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setHasValue(Boolean(e.target.value));
+    onChange?.(e);
+  };
+
   return (
     <Input
       data-slot="input-group-control"
+      data-filled={hasValue}
       disabled={disabled}
+      value={value}
+      defaultValue={defaultValue}
+      onChange={handleChange}
       className={cn(
         "flex-1 rounded-none border-0 bg-transparent shadow-none focus-visible:ring-0 active:shadow-none active:bg-transparent focus:border-0 focus:shadow-none",
         className
@@ -204,8 +219,20 @@ interface InputGroupTextareaProps extends React.ComponentProps<"textarea"> {
 function InputGroupTextarea({
   className,
   size = "md",
+  value,
+  defaultValue,
+  onChange,
   ...props
 }: InputGroupTextareaProps) {
+  const [hasValue, setHasValue] = React.useState(
+    Boolean(value ?? defaultValue ?? "")
+  );
+
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setHasValue(Boolean(e.target.value));
+    onChange?.(e);
+  };
+
   const sizeClasses = {
     sm: "min-h-[72px] px-2 py-1.5 text-sm",
     md: "min-h-[102px] px-3 py-2.5 text-base",
@@ -215,11 +242,15 @@ function InputGroupTextarea({
   return (
     <Textarea
       data-slot="input-group-control"
+      data-filled={hasValue}
       className={cn(
-        "flex-1 resize-none rounded-t rounded-b-none border-transparent bg-transparent  shadow-none focus-visible:ring-0 active:border-0 focus:border-0 active:shadow-none focus:shadow-none",
+        "flex-1 resize-none rounded-t rounded-b-none border-transparent bg-transparent shadow-none focus-visible:ring-0 active:border-0 focus:border-0 active:shadow-none focus:shadow-none",
         sizeClasses[size],
         className
       )}
+      value={value}
+      defaultValue={defaultValue}
+      onChange={handleChange}
       {...props}
     />
   );

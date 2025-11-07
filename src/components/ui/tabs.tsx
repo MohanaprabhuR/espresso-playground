@@ -124,10 +124,11 @@ function TabsList({
 
     const listRect = listRef.current.getBoundingClientRect();
     const activeRect = activeElement.getBoundingClientRect();
+    const borderOffset = variant === "outline" ? 1 : 0;
 
     if (orientation === "horizontal") {
       setIndicatorStyle({
-        left: `${activeRect.left - listRect.left}px`,
+        left: `${activeRect.left - listRect.left - borderOffset}px`,
         width:
           variant === "underline"
             ? `${activeRect.width}px`
@@ -136,7 +137,7 @@ function TabsList({
       });
     } else {
       setIndicatorStyle({
-        top: `${activeRect.top - listRect.top}px`,
+        top: `${activeRect.top - listRect.top - borderOffset}px`,
         width: variant === "underline" ? "1px" : `${activeRect.width}px`,
         height:
           variant === "underline"
@@ -147,21 +148,19 @@ function TabsList({
   }, [activeTab, orientation, variant]);
 
   const baseOrientation =
-    orientation === "horizontal"
-      ? "flex flex-row overflow-hidden"
-      : "flex flex-col overflow-hidden";
+    orientation === "horizontal" ? "flex flex-row " : "flex flex-col ";
 
   const variantClasses: Record<TabVariant, string> = {
     subtle: cn(
-      "bg-secondary text-muted-foreground rounded-lg p-px gap-1 flex ",
+      "bg-secondary text-muted-foreground rounded-lg p-px gap-1 flex overflow-hidden",
       baseOrientation
     ),
     outline: cn(
-      "rounded-lg bg-background border border-accent text-muted-foreground p-px gap-1 flex ",
+      "rounded-lg bg-background border  border-accent text-muted-foreground p-px gap-1 flex overflow-hidden",
       baseOrientation
     ),
     underline: cn(
-      "bg-background text-muted-foreground p-px flex border-b border-accent gap-1 w-fit",
+      "bg-background text-muted-foreground p-px flex border-b border-accent gap-1 w-fit ",
       orientation === "vertical" && "flex-col border-b-0 border-r"
     ),
     ghost: cn(
@@ -169,7 +168,7 @@ function TabsList({
       baseOrientation
     ),
     browser: cn(
-      "bg-background text-muted-foreground gap-1 relative border-accent flex relative ",
+      "bg-background text-muted-foreground gap-1 relative border-accent flex relative overflow-hidden",
       baseOrientation,
       orientation === "horizontal"
         ? "rounded-t-lg after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:w-full after:bg-border"
@@ -196,7 +195,7 @@ function TabsList({
       {showIndicator && (
         <div
           className={cn(
-            "absolute pointer-events-none transition-all duration-300 ease-out z-0 ",
+            "absolute pointer-events-none transition-all duration-300 ease-out z-0",
             variant === "subtle" &&
               "bg-background text-card-foreground rounded-[7px]  dark:bg-accent  shadow-sm",
             variant === "outline" &&

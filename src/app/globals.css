@@ -570,6 +570,7 @@
 }
 
 :root {
+  --autofill: var(--color-light-orange-50);
   --border: var(--color-light-gray-200);
   --background: var(--color-white);
   --foreground: var(--color-light-gray-900);
@@ -703,6 +704,7 @@
 }
 
 .dark {
+  --autofill: var(--color-dark-orange-100);
   --border: var(--color-dark-gray-400);
   --background: var(--color-black);
   --foreground: var(--color-dark-gray-950);

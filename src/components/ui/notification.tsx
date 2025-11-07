@@ -95,7 +95,7 @@ function NotificationContent({
   return (
     <div
       data-slot="notification-content"
-      className={cn("w-full", className)}
+      className={cn("w-full flex flex-col gap-y-0.5", className)}
       {...props}
     >
       {children}
