@@ -1,7 +1,7 @@
 import React from "react";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { ListFilter, Mail, Phone, Search } from "lucide-react";
+import { Link, ListFilter, Mail, Phone, Search } from "lucide-react";
 import { Spinner } from "@/components/ui/spinner";
 
 const InputDemo = () => {
@@ -31,28 +31,59 @@ const InputDemo = () => {
             <Input disabled type="text" size="xl" placeholder="Disabled" />
           </div>
           <div className="flex  gap-[30px] ">
+            <Input type="text" placeholder="Text" prefix={<Mail />} />
+            <Input type="text" size="md" placeholder="Text" prefix={<Mail />} />
+            <Input type="text" size="lg" placeholder="Text" prefix={<Mail />} />
+            <Input type="text" size="xl" placeholder="Text" prefix={<Mail />} />
+          </div>
+          <div className="flex  gap-[30px] ">
             <Input
+              variant="outline"
               type="text"
               placeholder="Text"
-              prefix={<Mail className="size-4" />}
+              prefix={<Mail />}
             />
+            <Input
+              variant="outline"
+              type="text"
+              size="md"
+              placeholder="Text"
+              prefix={<Mail />}
+            />
+            <Input
+              variant="outline"
+              type="text"
+              size="lg"
+              placeholder="Text"
+              prefix={<Mail />}
+            />
+            <Input
+              variant="outline"
+              type="text"
+              size="xl"
+              placeholder="Text"
+              prefix={<Mail />}
+            />
+          </div>
+          <div className="flex  gap-[30px] ">
+            <Input type="text" placeholder="Text" suffix={<ListFilter />} />
             <Input
               type="text"
               size="md"
               placeholder="Text"
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
             />
             <Input
               type="text"
               size="lg"
               placeholder="Text"
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
             />
             <Input
               type="text"
               size="xl"
               placeholder="Text"
-              prefix={<Mail className="size-4.5" />}
+              suffix={<ListFilter />}
             />
           </div>
           <div className="flex  gap-[30px] ">
@@ -60,111 +91,57 @@ const InputDemo = () => {
               variant="outline"
               type="text"
               placeholder="Text"
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
             />
             <Input
               variant="outline"
               type="text"
               size="md"
               placeholder="Text"
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
             />
             <Input
               variant="outline"
               type="text"
               size="lg"
               placeholder="Text"
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
             />
             <Input
               variant="outline"
               type="text"
               size="xl"
               placeholder="Text"
-              prefix={<Mail className="size-4.5" />}
+              suffix={<ListFilter />}
             />
           </div>
           <div className="flex  gap-[30px] ">
             <Input
               type="text"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               type="text"
               size="md"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               type="text"
               size="lg"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               type="text"
               size="xl"
               placeholder="Text"
-              suffix={<ListFilter className="size-4.5" />}
-            />
-          </div>
-          <div className="flex  gap-[30px] ">
-            <Input
-              variant="outline"
-              type="text"
-              placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-            />
-            <Input
-              variant="outline"
-              type="text"
-              size="md"
-              placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-            />
-            <Input
-              variant="outline"
-              type="text"
-              size="lg"
-              placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-            />
-            <Input
-              variant="outline"
-              type="text"
-              size="xl"
-              placeholder="Text"
-              suffix={<ListFilter className="size-4.5" />}
-            />
-          </div>
-          <div className="flex  gap-[30px] ">
-            <Input
-              type="text"
-              placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
-            />
-            <Input
-              type="text"
-              size="md"
-              placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
-            />
-            <Input
-              type="text"
-              size="lg"
-              placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
-            />
-            <Input
-              type="text"
-              size="xl"
-              placeholder="Text"
-              suffix={<ListFilter className="size-4.5" />}
-              prefix={<Mail className="size-4.5" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
           </div>
           <div className="flex  gap-[30px] ">
@@ -172,32 +149,32 @@ const InputDemo = () => {
               variant="outline"
               type="text"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               variant="outline"
               type="text"
               size="md"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               variant="outline"
               type="text"
               size="lg"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               variant="outline"
               type="text"
               size="xl"
               placeholder="Text"
-              suffix={<ListFilter className="size-4.5" />}
-              prefix={<Mail className="size-4.5" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
           </div>
           <div className="flex  gap-[30px] ">
@@ -206,7 +183,7 @@ const InputDemo = () => {
               type="text"
               placeholder="Text"
               suffix={<Spinner size="lg" />}
-              prefix={<Mail className="size-4" />}
+              prefix={<Mail />}
             />
             <Input
               variant="outline"
@@ -214,7 +191,7 @@ const InputDemo = () => {
               size="md"
               placeholder="Text"
               suffix={<Spinner size="lg" />}
-              prefix={<Mail className="size-4" />}
+              prefix={<Mail />}
             />
             <Input
               variant="outline"
@@ -222,7 +199,7 @@ const InputDemo = () => {
               size="lg"
               placeholder="Text"
               suffix={<Spinner size="lg" />}
-              prefix={<Mail className="size-4" />}
+              prefix={<Mail />}
             />
             <Input
               variant="outline"
@@ -230,7 +207,7 @@ const InputDemo = () => {
               size="xl"
               placeholder="Text"
               suffix={<Spinner size="lg" />}
-              prefix={<Mail className="size-4.5" />}
+              prefix={<Mail />}
             />
           </div>
           <div className="flex  gap-[30px] ">
@@ -238,32 +215,32 @@ const InputDemo = () => {
               status="success"
               type="text"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               status="success"
               type="text"
               size="md"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               status="success"
               type="text"
               size="lg"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               status="success"
               type="text"
               size="xl"
               placeholder="Text"
-              suffix={<ListFilter className="size-4.5" />}
-              prefix={<Mail className="size-4.5" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
           </div>
           <div className="flex  gap-[30px] ">
@@ -271,32 +248,32 @@ const InputDemo = () => {
               status="warning"
               type="text"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               status="warning"
               type="text"
               size="md"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               status="warning"
               type="text"
               size="lg"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               status="warning"
               type="text"
               size="xl"
               placeholder="Text"
-              suffix={<ListFilter className="size-4.5" />}
-              prefix={<Mail className="size-4.5" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
           </div>
           <div className="flex  gap-[30px] ">
@@ -304,32 +281,32 @@ const InputDemo = () => {
               status="error"
               type="text"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               status="error"
               type="text"
               size="md"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               status="error"
               type="text"
               size="lg"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               status="error"
               type="text"
               size="xl"
               placeholder="Text"
-              suffix={<ListFilter className="size-4.5" />}
-              prefix={<Mail className="size-4.5" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
           </div>
           <div className="flex  gap-[30px] ">
@@ -338,8 +315,8 @@ const InputDemo = () => {
               variant="outline"
               type="text"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               status="success"
@@ -347,8 +324,8 @@ const InputDemo = () => {
               type="text"
               size="md"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               status="success"
@@ -356,8 +333,8 @@ const InputDemo = () => {
               type="text"
               size="lg"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               status="success"
@@ -365,8 +342,8 @@ const InputDemo = () => {
               type="text"
               size="xl"
               placeholder="Text"
-              suffix={<ListFilter className="size-4.5" />}
-              prefix={<Mail className="size-4.5" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
           </div>
           <div className="flex  gap-[30px] ">
@@ -375,8 +352,8 @@ const InputDemo = () => {
               variant="outline"
               type="text"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               status="warning"
@@ -384,8 +361,8 @@ const InputDemo = () => {
               type="text"
               size="md"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               status="warning"
@@ -393,8 +370,8 @@ const InputDemo = () => {
               type="text"
               size="lg"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               status="warning"
@@ -402,8 +379,8 @@ const InputDemo = () => {
               type="text"
               size="xl"
               placeholder="Text"
-              suffix={<ListFilter className="size-4.5" />}
-              prefix={<Mail className="size-4.5" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
           </div>
           <div className="flex  gap-[30px] ">
@@ -412,8 +389,8 @@ const InputDemo = () => {
               variant="outline"
               type="text"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               status="error"
@@ -421,8 +398,8 @@ const InputDemo = () => {
               type="text"
               size="md"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               status="error"
@@ -430,8 +407,8 @@ const InputDemo = () => {
               type="text"
               size="lg"
               placeholder="Text"
-              suffix={<ListFilter className="size-4" />}
-              prefix={<Mail className="size-4" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
             <Input
               status="error"
@@ -439,8 +416,8 @@ const InputDemo = () => {
               type="text"
               size="xl"
               placeholder="Text"
-              suffix={<ListFilter className="size-4.5" />}
-              prefix={<Mail className="size-4.5" />}
+              suffix={<ListFilter />}
+              prefix={<Mail />}
             />
           </div>
           <div className="flex  gap-[30px] ">
@@ -497,28 +474,24 @@ const InputDemo = () => {
             <Input size="xl" placeholder="Text" type="datetime-local" />
           </div>
           <div className="flex  gap-[30px] ">
-            <Input
-              placeholder="Email"
-              type="email"
-              prefix={<Mail className="size-4" />}
-            />
+            <Input placeholder="Email" type="email" prefix={<Mail />} />
             <Input
               size="md"
               placeholder="Email"
               type="email"
-              prefix={<Mail className="size-4" />}
+              prefix={<Mail />}
             />
             <Input
               size="lg"
               placeholder="Email"
               type="email"
-              prefix={<Mail className="size-4" />}
+              prefix={<Mail />}
             />
             <Input
               size="xl"
               placeholder="Email"
               type="email"
-              prefix={<Mail className="size-4" />}
+              prefix={<Mail />}
             />
           </div>
           <div className="flex  gap-[30px] ">
@@ -534,55 +507,53 @@ const InputDemo = () => {
             <Input size="xl" placeholder="Password" type="password" />
           </div>
           <div className="flex  gap-[30px] ">
-            <Input
-              placeholder="Search"
-              type="search"
-              prefix={<Search className="size-4" />}
-            />
+            <Input placeholder="Search" type="search" prefix={<Search />} />
             <Input
               size="md"
               placeholder="Search"
               type="search"
-              prefix={<Search className="size-4" />}
+              prefix={<Search />}
             />
             <Input
               size="lg"
               placeholder="Search"
               type="search"
-              prefix={<Search className="size-4" />}
+              prefix={<Search />}
             />
             <Input
               size="xl"
               placeholder="Search"
               type="search"
-              prefix={<Search className="size-4" />}
+              prefix={<Search />}
             />
           </div>
 
           <div className="flex  gap-[30px] ">
-            <Input
-              placeholder="Phone"
-              type="phone"
-              prefix={<Phone className="size-4" />}
-            />
+            <Input placeholder="Phone" type="tel" prefix={<Phone />} />
             <Input
               size="md"
               placeholder="Phone"
-              type="phone"
-              prefix={<Phone className="size-4" />}
+              type="tel"
+              prefix={<Phone />}
             />
             <Input
               size="lg"
               placeholder="Phone"
-              type="phone"
-              prefix={<Phone className="size-4" />}
+              type="tel"
+              prefix={<Phone />}
             />
             <Input
               size="xl"
               placeholder="Phone"
-              type="phone"
-              prefix={<Phone className="size-4" />}
+              type="tel"
+              prefix={<Phone />}
             />
+          </div>
+          <div className="flex  gap-[30px] ">
+            <Input placeholder="Url" type="url" prefix={<Link />} />
+            <Input size="md" placeholder="Url" type="url" prefix={<Link />} />
+            <Input size="lg" placeholder="Url" type="url" prefix={<Link />} />
+            <Input size="xl" placeholder="Url" type="url" prefix={<Link />} />
           </div>
           <div className="flex  gap-[30px] ">
             <Input placeholder="Phone" type="file" />
