@@ -26,7 +26,7 @@ const buttonVariants = cva(
         md: " rounded-lg text-base font-normal tracking-2 leading-loose",
         lg: "rounded-[10px] text-lg font-medium tracking-2 leading-loose",
         xl: "rounded-[10px] text-xl font-medium tracking-1 leading-loose",
-        "2xl": " rounded-[14px] text-2xl font-medium tracking-1 leading-loose",
+        "2xl": "rounded-[14px] text-2xl font-medium tracking-1 leading-loose",
       },
       iconOnly: {
         true: "",
@@ -34,10 +34,10 @@ const buttonVariants = cva(
       },
     },
     compoundVariants: [
-      { size: "sm", iconOnly: false, className: "px-2 py-1.5" },
+      { size: "sm", iconOnly: false, className: "px-2 py-[6px]" },
       { size: "sm", iconOnly: true, className: "p-1.5" },
 
-      { size: "md", iconOnly: false, className: "py-2 px-2.5" },
+      { size: "md", iconOnly: false, className: "py-[7px] px-2.5" },
       { size: "md", iconOnly: true, className: "p-[7px]" },
 
       { size: "lg", iconOnly: false, className: "py-2.5 px-3" },
