@@ -613,7 +613,7 @@ const ButtonGroupDemo = () => {
                       </DropdownMenuGroup>
                       <DropdownMenuGroup>
                         <DropdownMenuItem variant="destructive">
-                          <Trash2Icon />
+                          <Trash2Icon className="size-4" />
                           Trash
                         </DropdownMenuItem>
                       </DropdownMenuGroup>

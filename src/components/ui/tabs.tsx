@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
+import { cn } from "@/lib/utils";
 
 type TabVariant = "ghost" | "outline" | "subtle" | "browser" | "underline";
 type TabSize = "sm" | "md";
@@ -28,10 +29,6 @@ interface TabsProps extends React.ComponentProps<typeof TabsPrimitive.Root> {
 }
 
 type TabsTriggerProps = React.ComponentProps<typeof TabsPrimitive.Trigger>;
-
-function cn(...classes: (string | undefined | false)[]) {
-  return classes.filter(Boolean).join(" ");
-}
 
 function Tabs({
   className,
@@ -296,8 +293,8 @@ function TabsContent({
   const { size } = context;
 
   const sizeClasses: Record<TabSize, string> = {
-    sm: "p-4",
-    md: "p-6",
+    sm: "py-4 px-2",
+    md: "py-6 px-2.5",
   };
 
   return (

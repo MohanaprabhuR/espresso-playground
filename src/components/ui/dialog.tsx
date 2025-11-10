@@ -48,7 +48,7 @@ function DialogOverlay({
 
 const dialogSizeVariants = {
   sm: "max-w-[360px] rounded-3xl",
-  md: "max-w-md rounded-4xl",
+  md: "max-w-[440px] rounded-4xl",
   lg: "max-w-[600px] rounded-4xl",
 };
 

@@ -12,6 +12,14 @@ import { CircleCheckIcon, ShieldAlert, X } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ButtonGroup } from "@/components/ui/button-group";
 import { Toast, ToastTitle } from "@/components/ui/toast";
+import {
+  Alert,
+  AlertContent,
+  AlertDescription,
+  AlertTitle,
+} from "@/components/ui/alert";
+import { ExclamationIcon } from "../../../public/images/svg/exclamationIcon";
+import { CloseIcon } from "../../../public/images/svg/closeIcon";
 
 const SonnerDemo = () => {
   const handleShowToast = () => {
@@ -38,6 +46,27 @@ const SonnerDemo = () => {
       </Notification>
     ));
   };
+
+  const handleAlertToast = () => {
+    toast.custom((t) => (
+      <Alert longText action variant="information">
+        <ExclamationIcon />
+        <AlertContent>
+          <AlertTitle>Your trial ends soon!</AlertTitle>
+          <AlertDescription>
+            Upgrade now to continue enjoying all features without interruption.
+          </AlertDescription>
+          <ButtonGroup destructive className="pt-3.25">
+            <Button variant="outline">Update now</Button>
+            <Button variant="ghost">View plans</Button>
+          </ButtonGroup>
+        </AlertContent>
+        <Button variant="ghost">
+          <CloseIcon />
+        </Button>
+      </Alert>
+    ));
+  };
   return (
     <div className="pt-10">
       <h1 className="text-xl font-bold text-center text-gray-900 dark:text-white pb-4">
@@ -61,6 +90,9 @@ const SonnerDemo = () => {
         </Button>
         <Button variant="outline" onClick={handleShowToast}>
           Notification Sonner
+        </Button>
+        <Button variant="outline" onClick={handleAlertToast}>
+          Alert Sonner
         </Button>
         <Button
           variant="outline"
