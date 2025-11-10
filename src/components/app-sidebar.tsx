@@ -147,6 +147,7 @@ const data = {
     { title: "Spinner", url: "/spinner", icon: SplinePointer },
     { title: "Switch", url: "/switch", icon: SwitchCameraIcon },
     { title: "Tabs", url: "/tabs", icon: Tablet },
+    { title: "Tags", url: "/tags", icon: Tags },
     { title: "Tooltip", url: "/tooltip", icon: ToolCase },
     { title: "Alert", url: "/alert", icon: AlertCircleIcon },
     { title: "Notification", url: "/notification", icon: NotepadTextIcon },

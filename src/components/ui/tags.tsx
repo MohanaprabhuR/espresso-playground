@@ -7,7 +7,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const tagVariants = cva(
-  "inline-flex items-center outline-none gap-x-1 rounded-sm font-medium transition-all ease-in-out w-fit whitespace-nowrap shrink-0 [&>svg]:pointer-events-none aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive overflow-hidden data-[disabled=true]:cursor-not-allowed data-[disabled=true]:pointer-events-none",
+  "inline-flex items-center outline-none gap-x-1 rounded-sm  font-medium transition-all ease-in-out w-fit whitespace-nowrap shrink-0 [&>svg]:pointer-events-none aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive overflow-hidden data-[disabled=true]:cursor-not-allowed data-[disabled=true]:pointer-events-none",
   {
     variants: {
       variant: {
@@ -23,9 +23,9 @@ const tagVariants = cva(
           "text-[var(--theme-secondary-foreground)] hover:bg-[var(--theme-secondary-hover)] active:bg-[var(--theme-secondary-active)] focus-visible:shadow-blue-ring focus:bg-[var(--theme-secondary)] data-[disabled=true]:text-[var(--theme-disabled-foreground)] data-[disabled=true]:focus-visible:shadow-none",
       },
       size: {
-        sm: "px-1.5 py-[3px] text-xs tracking-4 font-normal [&>svg]:size-3",
-        md: "px-1.5 py-1 text-sm tracking-4 font-normal [&>svg]:size-3",
-        lg: "px-2 py-1.5 text-base tracking-4 font-normal [&>svg]:size-3",
+        sm: "px-1.5 py-[3px] text-xs tracking-4 leading-tight font-normal [&>svg]:size-3",
+        md: "px-1.5 py-1 text-sm tracking-4 leading-tight font-normal [&>svg]:size-3",
+        lg: "px-2 py-1.5 text-base tracking-4 leading-tight font-normal [&>svg]:size-3",
       },
     },
     defaultVariants: {
