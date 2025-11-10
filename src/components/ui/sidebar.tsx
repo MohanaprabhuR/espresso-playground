@@ -653,7 +653,7 @@ function SidebarMenuSub({ className, ...props }: React.ComponentProps<"ul">) {
       data-slot="sidebar-menu-sub"
       data-sidebar="menu-sub"
       className={cn(
-        " flex min-w-0 translate-x-px flex-col gap-1  pl-4.5 py-0.5",
+        " flex min-w-0 translate-x-px flex-col gap-0.5  pl-4.5 py-0.5",
         "group-data-[collapsible=icon]:hidden",
         className
       )}
@@ -670,7 +670,7 @@ function SidebarMenuSubItem({
     <li
       data-slot="sidebar-menu-sub-item"
       data-sidebar="menu-sub-item"
-      className={cn("group/menu-sub-item relative", className)}
+      className={cn("group/menu-sub-item relative ", className)}
       {...props}
     />
   );
@@ -696,10 +696,10 @@ function SidebarMenuSubButton({
       data-size={size}
       data-active={isActive}
       className={cn(
-        "text-sidebar-foreground text-base tracking-4 ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground active:bg-input active:text-sidebar-accent-foreground  [&>svg]:text-sidebar-accent-foreground flex  min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-lg px-2 py-1.5 outline-hidden  focus-visible:ring-2 focus-visible:ring-sidebar-ring focus-visible:bg-sidebar-primary focus-visible:text-sidebar-primary-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
+        "text-sidebar-foreground text-base tracking-4  ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground active:bg-input active:text-sidebar-accent-foreground  [&>svg]:text-sidebar-accent-foreground flex  min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-lg px-2 py-1.5 outline-hidden  focus-visible:ring-2 focus-visible:ring-sidebar-ring focus-visible:bg-sidebar-primary focus-visible:text-sidebar-primary-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
         "data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground",
-        size === "sm" && "text-sm",
-        size === "md" && "text-base",
+        size === "sm" && "text-sm leading-loose",
+        size === "md" && "text-base leading-loose",
         "group-data-[collapsible=icon]:hidden",
         className
       )}
