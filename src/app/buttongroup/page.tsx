@@ -3,10 +3,8 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import {
   ButtonGroup,
-  ButtonGroupde,
   ButtonGroupSeparator,
 } from "@/components/ui/button-group";
-import { Input } from "@/components/ui/input";
 import {
   AlertTriangleIcon,
   ArchiveIcon,
@@ -37,12 +35,12 @@ import {
   DropdownMenuItem,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
-  DropdownMenudestructive,
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
 
 const ButtonGroupDemo = () => {
   const [label, setLabel] = React.useState("personal");
@@ -53,7 +51,499 @@ const ButtonGroupDemo = () => {
           ButtonGroup Component
         </h1>
 
-        <div className="flex  gap-30 justify-center">
+        <div className="flex flex-col  gap-10 items-center">
+          <div className="flex flex-col gap-4">
+            <ButtonGroup destructive>
+              <Button>Button</Button>
+              <Button>Button</Button>
+              <Button>Button</Button>
+              <Button>Button</Button>
+              <Button>Button</Button>
+              <Button>Button</Button>
+              <Button>Button</Button>
+            </ButtonGroup>
+            <ButtonGroup destructive>
+              <Button variant="secondary">Button</Button>
+              <Button variant="secondary">Button</Button>
+              <Button variant="secondary">Button</Button>
+              <Button variant="secondary">Button</Button>
+              <Button variant="secondary">Button</Button>
+              <Button variant="secondary">Button</Button>
+              <Button variant="secondary">Button</Button>
+            </ButtonGroup>
+            <ButtonGroup destructive>
+              <Button variant="outline">Button</Button>
+              <Button variant="outline">Button</Button>
+              <Button variant="outline">Button</Button>
+              <Button variant="outline">Button</Button>
+              <Button variant="outline">Button</Button>
+              <Button variant="outline">Button</Button>
+              <Button variant="outline">Button</Button>
+            </ButtonGroup>
+            <ButtonGroup destructive>
+              <Button variant="ghost">Button</Button>
+              <Button variant="ghost">Button</Button>
+              <Button variant="ghost">Button</Button>
+              <Button variant="ghost">Button</Button>
+              <Button variant="ghost">Button</Button>
+              <Button variant="ghost">Button</Button>
+              <Button variant="ghost">Button</Button>
+            </ButtonGroup>
+          </div>
+          <div className="flex flex-col gap-4">
+            <ButtonGroup destructive>
+              <Button size="md">Button</Button>
+              <Button size="md">Button</Button>
+              <Button size="md">Button</Button>
+              <Button size="md">Button</Button>
+              <Button size="md">Button</Button>
+              <Button size="md">Button</Button>
+              <Button size="md">Button</Button>
+            </ButtonGroup>
+            <ButtonGroup destructive>
+              <Button size="md" variant="secondary">
+                Button
+              </Button>
+              <Button size="md" variant="secondary">
+                Button
+              </Button>
+              <Button size="md" variant="secondary">
+                Button
+              </Button>
+              <Button size="md" variant="secondary">
+                Button
+              </Button>
+              <Button size="md" variant="secondary">
+                Button
+              </Button>
+              <Button size="md" variant="secondary">
+                Button
+              </Button>
+              <Button size="md" variant="secondary">
+                Button
+              </Button>
+            </ButtonGroup>
+            <ButtonGroup destructive>
+              <Button size="md" variant="outline">
+                Button
+              </Button>
+              <Button size="md" variant="outline">
+                Button
+              </Button>
+              <Button size="md" variant="outline">
+                Button
+              </Button>
+              <Button size="md" variant="outline">
+                Button
+              </Button>
+              <Button size="md" variant="outline">
+                Button
+              </Button>
+              <Button size="md" variant="outline">
+                Button
+              </Button>
+              <Button size="md" variant="outline">
+                Button
+              </Button>
+            </ButtonGroup>
+            <ButtonGroup destructive>
+              <Button size="md" variant="ghost">
+                Button
+              </Button>
+              <Button size="md" variant="ghost">
+                Button
+              </Button>
+              <Button size="md" variant="ghost">
+                Button
+              </Button>
+              <Button size="md" variant="ghost">
+                Button
+              </Button>
+              <Button size="md" variant="ghost">
+                Button
+              </Button>
+              <Button size="md" variant="ghost">
+                Button
+              </Button>
+              <Button size="md" variant="ghost">
+                Button
+              </Button>
+            </ButtonGroup>
+          </div>
+          <div className="flex flex-col gap-4">
+            <ButtonGroup destructive>
+              <Button size="lg">Button</Button>
+              <Button size="lg">Button</Button>
+              <Button size="lg">Button</Button>
+              <Button size="lg">Button</Button>
+              <Button size="lg">Button</Button>
+              <Button size="lg">Button</Button>
+              <Button size="lg">Button</Button>
+            </ButtonGroup>
+            <ButtonGroup destructive>
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+            </ButtonGroup>
+            <ButtonGroup destructive>
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+            </ButtonGroup>
+            <ButtonGroup destructive>
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+            </ButtonGroup>
+          </div>
+          <div className="flex flex-col gap-4">
+            <ButtonGroup>
+              <Button>Button</Button>
+              <Button>Button</Button>
+              <Button>Button</Button>
+              <Button>Button</Button>
+              <Button>Button</Button>
+              <Button>Button</Button>
+              <Button>Button</Button>
+            </ButtonGroup>
+            <ButtonGroup>
+              <Button variant="secondary">Button</Button>
+              <Button variant="secondary">Button</Button>
+              <Button variant="secondary">Button</Button>
+              <Button variant="secondary">Button</Button>
+              <Button variant="secondary">Button</Button>
+              <Button variant="secondary">Button</Button>
+              <Button variant="secondary">Button</Button>
+            </ButtonGroup>
+            <ButtonGroup>
+              <Button variant="outline">Button</Button>
+              <Button variant="outline">Button</Button>
+              <Button variant="outline">Button</Button>
+              <Button variant="outline">Button</Button>
+              <Button variant="outline">Button</Button>
+              <Button variant="outline">Button</Button>
+              <Button variant="outline">Button</Button>
+            </ButtonGroup>
+            <ButtonGroup>
+              <Button variant="ghost">Button</Button>
+              <Button variant="ghost">Button</Button>
+              <Button variant="ghost">Button</Button>
+              <Button variant="ghost">Button</Button>
+              <Button variant="ghost">Button</Button>
+              <Button variant="ghost">Button</Button>
+              <Button variant="ghost">Button</Button>
+            </ButtonGroup>
+          </div>
+          <div className="flex flex-col gap-4">
+            <ButtonGroup>
+              <Button size="md">Button</Button>
+              <Button size="md">Button</Button>
+              <Button size="md">Button</Button>
+              <Button size="md">Button</Button>
+              <Button size="md">Button</Button>
+              <Button size="md">Button</Button>
+              <Button size="md">Button</Button>
+            </ButtonGroup>
+            <ButtonGroup>
+              <Button size="md" variant="secondary">
+                Button
+              </Button>
+              <Button size="md" variant="secondary">
+                Button
+              </Button>
+              <Button size="md" variant="secondary">
+                Button
+              </Button>
+              <Button size="md" variant="secondary">
+                Button
+              </Button>
+              <Button size="md" variant="secondary">
+                Button
+              </Button>
+              <Button size="md" variant="secondary">
+                Button
+              </Button>
+              <Button size="md" variant="secondary">
+                Button
+              </Button>
+            </ButtonGroup>
+            <ButtonGroup>
+              <Button size="md" variant="outline">
+                Button
+              </Button>
+              <Button size="md" variant="outline">
+                Button
+              </Button>
+              <Button size="md" variant="outline">
+                Button
+              </Button>
+              <Button size="md" variant="outline">
+                Button
+              </Button>
+              <Button size="md" variant="outline">
+                Button
+              </Button>
+              <Button size="md" variant="outline">
+                Button
+              </Button>
+              <Button size="md" variant="outline">
+                Button
+              </Button>
+            </ButtonGroup>
+            <ButtonGroup>
+              <Button size="md" variant="ghost">
+                Button
+              </Button>
+              <Button size="md" variant="ghost">
+                Button
+              </Button>
+              <Button size="md" variant="ghost">
+                Button
+              </Button>
+              <Button size="md" variant="ghost">
+                Button
+              </Button>
+              <Button size="md" variant="ghost">
+                Button
+              </Button>
+              <Button size="md" variant="ghost">
+                Button
+              </Button>
+              <Button size="md" variant="ghost">
+                Button
+              </Button>
+            </ButtonGroup>
+          </div>
+          <div className="flex flex-col gap-4">
+            <ButtonGroup>
+              <Button size="lg">Button</Button>
+              <Button size="lg">Button</Button>
+              <Button size="lg">Button</Button>
+              <Button size="lg">Button</Button>
+              <Button size="lg">Button</Button>
+              <Button size="lg">Button</Button>
+              <Button size="lg">Button</Button>
+            </ButtonGroup>
+            <ButtonGroup>
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+            </ButtonGroup>
+            <ButtonGroup>
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+            </ButtonGroup>
+            <ButtonGroup>
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+            </ButtonGroup>
+          </div>
+          <div className="flex flex-col gap-4 ">
+            <ButtonGroup
+              wrapLayout={true}
+              className="max-w-[400px] justify-center"
+              destructive
+            >
+              <Button size="lg">Button</Button>
+              <Button size="lg">Button</Button>
+              <Button size="lg">Button</Button>
+              <Button size="lg">Button</Button>
+              <Button size="lg">Button</Button>
+              <Button size="lg">Button</Button>
+              <Button size="lg">Button</Button>
+            </ButtonGroup>
+            <ButtonGroup
+              wrapLayout={true}
+              className="max-w-[400px] justify-center"
+              destructive
+            >
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+              <Button size="lg" variant="secondary">
+                Button
+              </Button>
+            </ButtonGroup>
+            <ButtonGroup
+              wrapLayout={true}
+              className="max-w-[400px] justify-center"
+              destructive
+            >
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+              <Button size="lg" variant="outline">
+                Button
+              </Button>
+            </ButtonGroup>
+            <ButtonGroup
+              wrapLayout={true}
+              className="max-w-[400px] justify-center"
+              destructive
+            >
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+              <Button size="lg" variant="ghost">
+                Button
+              </Button>
+            </ButtonGroup>
+          </div>
           <div className="flex flex-col gap-[30px_0]">
             <div>
               <ButtonGroup destructive>
@@ -85,7 +575,6 @@ const ButtonGroupDemo = () => {
                           Archive
                         </DropdownMenuItem>
                       </DropdownMenuGroup>
-                      <DropdownMenudestructive />
                       <DropdownMenuGroup>
                         <DropdownMenuItem>
                           <ClockIcon className="size-4" />
@@ -122,7 +611,6 @@ const ButtonGroupDemo = () => {
                           </DropdownMenuSubContent>
                         </DropdownMenuSub>
                       </DropdownMenuGroup>
-                      <DropdownMenudestructive />
                       <DropdownMenuGroup>
                         <DropdownMenuItem variant="destructive">
                           <Trash2Icon />
@@ -409,7 +897,7 @@ const ButtonGroupDemo = () => {
                     <ChevronDownIcon className="size-4" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="[--radius:1rem]">
+                <DropdownMenuContent align="end">
                   <DropdownMenuGroup>
                     <DropdownMenuItem>
                       <VolumeOffIcon className="size-4" />
@@ -436,7 +924,6 @@ const ButtonGroupDemo = () => {
                       Copy Conversation
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
-                  <DropdownMenudestructive />
                   <DropdownMenuGroup>
                     <DropdownMenuItem variant="destructive">
                       <TrashIcon className="size-4" />

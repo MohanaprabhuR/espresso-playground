@@ -10,7 +10,7 @@ import {
   ItemTitle,
 } from "@/components/ui/item";
 import { Progress } from "@/components/ui/progress";
-import { Spinner } from "@/components/ui/spinner-old";
+import { Spinner } from "@/components/ui/spinner";
 import { cn } from "@/lib/utils";
 import { Loader2Icon, LoaderIcon } from "lucide-react";
 import React from "react";

@@ -4,14 +4,13 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
 
-// Button group variants with orientation and separator
 const buttonGroupVariants = cva(
   "flex w-fit items-stretch [&>*]:focus-visible:z-10 [&>*]:focus-visible:relative [&>[data-slot=select-trigger]:not([class*='w-'])]:w-fit [&>input]:flex-1",
   {
     variants: {
       orientation: {
         horizontal:
-          "flex-row [&>*:not(:first-child)]:rounded-l-none  [&>*:not(:last-child)]:rounded-r-none",
+          "flex-row [&>*:not(:first-child)]:rounded-l-none [&>*:not(:last-child)]:rounded-r-none",
         vertical:
           "flex-col [&>*:not(:first-child):not(:last-child)]:rounded-none [&>*:not(:first-child)]:rounded-t-none [&>*:not(:last-child)]:rounded-b-none",
       },
@@ -28,10 +27,15 @@ const buttonGroupVariants = cva(
           data-[orientation=vertical]:[&>*:last-child]:rounded-b-lg
         `,
       },
+      wrapLayout: {
+        false: "flex-nowrap",
+        true: "flex-wrap",
+      },
     },
     defaultVariants: {
       orientation: "horizontal",
       destructive: false,
+      wrapLayout: false,
     },
   }
 );
@@ -46,6 +50,7 @@ function ButtonGroup({
   className,
   orientation,
   destructive,
+  wrapLayout,
   ...props
 }: ButtonGroupProps) {
   return (
@@ -54,7 +59,7 @@ function ButtonGroup({
       data-slot="button-group"
       data-orientation={orientation}
       className={cn(
-        buttonGroupVariants({ orientation, destructive }),
+        buttonGroupVariants({ orientation, destructive, wrapLayout }),
         className
       )}
       {...props}
