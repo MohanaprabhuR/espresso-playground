@@ -2,7 +2,11 @@
 import React from "react";
 import {
   ArchiveRestoreIcon,
+  BoltIcon,
   ChevronDownIcon,
+  CopyPlusIcon,
+  FilesIcon,
+  Layers2Icon,
   PlusIcon,
   Share2Icon,
   TrashIcon,
@@ -61,7 +65,6 @@ function DropdownDemo() {
                 <DropdownMenuItem>
                   <CommandIcon />
                   Profile
-                  <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <BellIcon />
@@ -412,6 +415,43 @@ function DropdownDemo() {
                   Option 3
                 </DropdownMenuRadioItem>
               </DropdownMenuRadioGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline">
+                Labeled grouped items
+                <ChevronDownIcon className="size-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>Label</DropdownMenuLabel>
+              <DropdownMenuGroup>
+                <DropdownMenuItem>
+                  <CopyPlusIcon className="size-4" />
+                  Copy
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <BoltIcon className="size-4" />
+                  Edit
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+              <DropdownMenuSeparator />
+              <DropdownMenuLabel>Label</DropdownMenuLabel>
+              <DropdownMenuGroup>
+                <DropdownMenuItem>
+                  <Layers2Icon className="size-4" />
+                  Group
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <FilesIcon className="size-4" />
+                  Clone
+                </DropdownMenuItem>
+                <DropdownMenuItem variant="destructive">
+                  <TrashIcon size={16} aria-hidden="true" />
+                  Delete
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
