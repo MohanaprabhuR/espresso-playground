@@ -5,21 +5,11 @@ import {
   Notification,
   NotificationContent,
   NotificationDescription,
-  NotificationTimeStamp,
   NotificationTitle,
 } from "@/components/ui/notification";
-import { CircleCheckIcon, ShieldAlert, X } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ButtonGroup } from "@/components/ui/button-group";
-import { Toast, ToastTitle } from "@/components/ui/toast";
-import {
-  Alert,
-  AlertContent,
-  AlertDescription,
-  AlertTitle,
-} from "@/components/ui/alert";
-import { ExclamationIcon } from "../../../public/images/svg/exclamationIcon";
-import { CloseIcon } from "../../../public/images/svg/closeIcon";
+import { X } from "lucide-react";
 
 const SonnerDemo = () => {
   const handleShowToast = () => {
@@ -48,24 +38,33 @@ const SonnerDemo = () => {
   };
 
   const handleAlertToast = () => {
-    toast.custom((t) => (
-      <Alert longText action variant="information">
-        <ExclamationIcon />
-        <AlertContent>
-          <AlertTitle>Your trial ends soon!</AlertTitle>
-          <AlertDescription>
-            Upgrade now to continue enjoying all features without interruption.
-          </AlertDescription>
-          <ButtonGroup destructive className="pt-3.25">
-            <Button variant="outline">Update now</Button>
-            <Button variant="ghost">View plans</Button>
-          </ButtonGroup>
-        </AlertContent>
-        <Button variant="ghost">
-          <CloseIcon />
-        </Button>
-      </Alert>
-    ));
+    toast.custom(
+      (t) => (
+        <Notification longText>
+          <Avatar size="lg">
+            <AvatarImage src="https://mockmind-api.uifaces.co/content/human/80.jpg" />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+          <NotificationContent>
+            <NotificationTitle>System Update Available</NotificationTitle>
+            <NotificationDescription>
+              A new update is available for the app. Update now to enjoy new
+              features and improvements.
+            </NotificationDescription>
+            <ButtonGroup destructive className="pt-3.5">
+              <Button variant="secondary">Update Now</Button>
+              <Button variant="outline">Later</Button>
+            </ButtonGroup>
+          </NotificationContent>
+          <Button variant="ghost">
+            <X className="size-4" onClick={() => toast.dismiss(t)} />
+          </Button>
+        </Notification>
+      ),
+      {
+        position: "top-center",
+      }
+    );
   };
   return (
     <div className="pt-10">
@@ -92,7 +91,7 @@ const SonnerDemo = () => {
           Notification Sonner
         </Button>
         <Button variant="outline" onClick={handleAlertToast}>
-          Alert Sonner
+          Notification Custom Align Sonner
         </Button>
         <Button
           variant="outline"

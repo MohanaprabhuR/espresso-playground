@@ -5,14 +5,12 @@ import {
   AvatarGroup,
   AvatarImage,
 } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import {
   CellContent,
   CellPrimitive,
   CellTitle,
 } from "@/components/ui/cell-primitive";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Diamond, Loader, Phone } from "lucide-react";
+import { Diamond, Loader } from "lucide-react";
 import React from "react";
 const advancedCellDemo = () => {
   return (

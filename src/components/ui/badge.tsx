@@ -86,13 +86,13 @@ function Badge({
   asChild = false,
   children,
   ...props
-}: React.ComponentProps<"span"> &
+}: React.ComponentProps<"div"> &
   VariantProps<typeof badgeVariants> & {
     theme?: keyof typeof themeVars;
     asChild?: boolean;
     showIcon?: boolean;
   }) {
-  const Comp = asChild ? Slot : "span";
+  const Comp = asChild ? Slot : "div";
 
   return (
     <Comp
@@ -110,4 +110,28 @@ function Badge({
   );
 }
 
-export { Badge, badgeVariants };
+function BadgeGroup({
+  className,
+  asChild = false,
+  children,
+  ...props
+}: React.ComponentProps<"div"> &
+  VariantProps<typeof badgeVariants> & {
+    theme?: keyof typeof themeVars;
+    asChild?: boolean;
+    showIcon?: boolean;
+  }) {
+  const Comp = asChild ? Slot : "div";
+
+  return (
+    <Comp
+      data-slot="badge-group"
+      className={cn("flex gap-x-1", className)}
+      {...props}
+    >
+      {children}
+    </Comp>
+  );
+}
+
+export { Badge, badgeVariants, BadgeGroup };

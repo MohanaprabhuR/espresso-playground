@@ -1,5 +1,5 @@
 "use client";
-import { useId, useState, useEffect } from "react";
+import { useId } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import * as React from "react";
 import { Checkbox } from "@/components/ui/checkbox";

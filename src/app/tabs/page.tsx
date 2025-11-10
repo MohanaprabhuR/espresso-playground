@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CommandIcon } from "../../../public/images/svg/commandIcon";
+
 import {
   AlignHorizontalJustifyCenter,
   AlignHorizontalJustifyEnd,
