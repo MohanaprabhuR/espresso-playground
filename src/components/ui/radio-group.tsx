@@ -63,8 +63,8 @@ function RadioGroupItem({
     : defaultLabelMap[size];
 
   const labelFontMap: Record<RadioSize, string> = {
-    sm: "text-base leading-loose",
-    md: "text-lg leading-loose",
+    sm: "text-base leading-tight",
+    md: "text-lg leading-tight",
   };
 
   const radio = (

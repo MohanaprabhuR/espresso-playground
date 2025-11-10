@@ -484,7 +484,7 @@ function SidebarMenuItem({ className, ...props }: React.ComponentProps<"li">) {
 }
 
 const sidebarMenuButtonVariants = cva(
-  "peer/menu-button flex   items-center gap-2 overflow-hidden w-full rounded-lg px-2 py-1.5 text-left text-base tracking-4 leading-loose outline-hidden ring-sidebar-ring transition-[width,height,padding] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground   focus-visible:ring-2 focus-visible:bg-sidebar-primary focus-visible:text-sidebar-primary-foreground focus-visible:ring-sidebar-ring active:bg-input active:text-sidebar-accent-foreground  disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-primary data-[active=true]:shadow-sidebar  data-[active=true]:font-normal data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
+  "peer/menu-button flex   items-center gap-2 overflow-hidden w-full rounded-lg px-2 py-1.5 text-left text-base tracking-4 leading-tight outline-hidden ring-sidebar-ring transition-[width,height,padding] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground   focus-visible:ring-2 focus-visible:bg-sidebar-primary focus-visible:text-sidebar-primary-foreground focus-visible:ring-sidebar-ring active:bg-input active:text-sidebar-accent-foreground  disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-primary data-[active=true]:shadow-sidebar  data-[active=true]:font-normal data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -698,8 +698,8 @@ function SidebarMenuSubButton({
       className={cn(
         "text-sidebar-foreground text-base tracking-4  ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground active:bg-input active:text-sidebar-accent-foreground  [&>svg]:text-sidebar-accent-foreground flex  min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-lg px-2 py-1.5 outline-hidden  focus-visible:ring-2 focus-visible:ring-sidebar-ring focus-visible:bg-sidebar-primary focus-visible:text-sidebar-primary-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
         "data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground",
-        size === "sm" && "text-sm leading-loose",
-        size === "md" && "text-base leading-loose",
+        size === "sm" && "text-sm leading-tight",
+        size === "md" && "text-base leading-tight",
         "group-data-[collapsible=icon]:hidden",
         className
       )}

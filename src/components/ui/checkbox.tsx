@@ -98,7 +98,7 @@ function Checkbox({
         )}
       >
         {checkboxElement}
-        <span className="leading-loose">{label}</span>
+        <span className="leading-tight">{label}</span>
       </label>
     );
   }

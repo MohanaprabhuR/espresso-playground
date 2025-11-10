@@ -15,9 +15,9 @@ const textareaVariants = cva(
           "bg-transparent border border-transparent text-accent-foreground active:text-accent-foreground active:placeholder:text-accent-foreground focus-visible:ring-2 focus-visible:border focus-visible:border-primary/50 focus-visible:ring-ring focus-visible:ring-offset-0 focus-visible:bg-transparent ",
       },
       size: {
-        sm: "min-h-[72px] h-full px-2 py-1.5 text-sm leading-relaxed tracking-4",
-        md: "min-h-[102px] px-3 py-2.5 text-base leading-loose tracking-4",
-        lg: "min-h-[126px] px-3.5 py-3 text-lg rounded-xl leading-loose tracking-2",
+        sm: "min-h-[72px] h-full px-2 py-1.5 text-sm leading-normal tracking-4",
+        md: "min-h-[102px] px-3 py-2.5 text-base leading-tight tracking-4",
+        lg: "min-h-[126px] px-3.5 py-3 text-lg rounded-xl leading-tight tracking-2",
       },
       state: {
         default: "",

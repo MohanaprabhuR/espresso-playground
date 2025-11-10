@@ -33,15 +33,15 @@ const radiusMap: Record<string, string> = {
 };
 
 const textSizeMap: Record<string, string> = {
-  xs: "text-2xs font-medium text-accent-foreground leading-loose tracking-tight",
-  sm: "text-sm font-medium text-accent-foreground leading-loose tracking-tight",
-  md: "text-base font-medium text-accent-foreground leading-loose tracking-tight",
-  lg: "text-base font-medium text-accent-foreground leading-loose tracking-tight",
-  xl: "text-lg font-medium text-accent-foreground leading-loose tracking-tight",
+  xs: "text-2xs font-medium text-accent-foreground leading-tight tracking-tight",
+  sm: "text-sm font-medium text-accent-foreground leading-tight tracking-tight",
+  md: "text-base font-medium text-accent-foreground leading-tight tracking-tight",
+  lg: "text-base font-medium text-accent-foreground leading-tight tracking-tight",
+  xl: "text-lg font-medium text-accent-foreground leading-tight tracking-tight",
   "2xl":
-    "text-xl font-medium text-accent-foreground leading-loose tracking-tight",
+    "text-xl font-medium text-accent-foreground leading-tight tracking-tight",
   "3xl":
-    "text-2xl font-medium text-accent-foreground leading-loose tracking-tight",
+    "text-2xl font-medium text-accent-foreground leading-tight tracking-tight",
 };
 
 const iconSizeMap: Record<string, number> = {

@@ -273,7 +273,7 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
       ref={ref}
       data-slot="tabs-trigger"
       className={cn(
-        "focus-visible:outline-none text-base  inline-flex tracking-4 font-normal leading-loose items-center justify-center gap-2 whitespace-nowrap disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "focus-visible:outline-none text-base  inline-flex tracking-4 font-normal leading-tight items-center justify-center gap-2 whitespace-nowrap disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         variantClasses[variant],
         sizeClasses[size],
         className
@@ -301,7 +301,7 @@ function TabsContent({
     <TabsPrimitive.Content
       data-slot="tabs-content"
       className={cn(
-        "flex-1 outline-none text-left font-normal text-sm tracking-4 leading-loose",
+        "flex-1 outline-none text-left font-normal text-sm tracking-4 leading-tight",
         sizeClasses[size],
         className
       )}

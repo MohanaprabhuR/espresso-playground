@@ -47,7 +47,7 @@ function NotificationTitle({
     <div
       data-slot="notification-title"
       className={cn(
-        "font-medium text-base tracking-2 leading-relaxed text-primary w-full",
+        "font-medium text-base tracking-2 leading-normal text-primary w-full",
         className
       )}
       {...props}
@@ -63,7 +63,7 @@ function NotificationDescription({
     <div
       data-slot="notification-description"
       className={cn(
-        "text-secondary-foreground font-normal tracking-4 grid justify-items-start gap-1 text-base leading-relaxed",
+        "text-secondary-foreground font-normal tracking-4 grid justify-items-start gap-1 text-base leading-normal",
         className
       )}
       {...props}
@@ -79,7 +79,7 @@ function NotificationTimeStamp({
     <div
       data-slot="notification-timestamp"
       className={cn(
-        "text-muted-foreground font-normal pt-1.5 -tracking-1 grid justify-items-start gap-1 text-sm leading-relaxed",
+        "text-muted-foreground font-normal pt-1.5 -tracking-1 grid justify-items-start gap-1 text-sm leading-normal",
         className
       )}
       {...props}

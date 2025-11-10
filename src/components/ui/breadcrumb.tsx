@@ -67,7 +67,7 @@ function BreadcrumbLink({
     <Comp
       data-slot="breadcrumb-link"
       className={cn(
-        "transition-colors gap-1.5 px-2 py-1.5 rounded-lg hover:bg-accent leading-loose tracking-4 hover:text-accent-foreground focus:bg-secondary focus:text-accent-foreground focus:shadow-shadow active:bg-transparent active:text-foreground",
+        "transition-colors gap-1.5 px-2 py-1.5 rounded-lg hover:bg-accent leading-tight tracking-4 hover:text-accent-foreground focus:bg-secondary focus:text-accent-foreground focus:shadow-shadow active:bg-transparent active:text-foreground",
         asChild && "inline-flex",
         className
       )}
@@ -92,7 +92,7 @@ function BreadcrumbPage({
       aria-disabled="true"
       aria-current="page"
       className={cn(
-        "text-foreground leading-loose tracking-4 font-normal inline-flex items-center  gap-1.5 px-2 py-1.5",
+        "text-foreground leading-tight tracking-4 font-normal inline-flex items-center  gap-1.5 px-2 py-1.5",
         className
       )}
       {...props}

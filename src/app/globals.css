@@ -171,8 +171,8 @@
   --text-15xl: 5.5rem; /*88px*/
 
   /* Line Height */
-  --leading-loose: 1.15; /*115%*/
-  --leading-relaxed: 1.5; /*150%*/
+  --leading-tight: 1.15; /*115%*/
+  --leading-normal: 1.5; /*150%*/
 
   /* Letter Spacing */
   --tracking-0: 0em;
