@@ -213,7 +213,7 @@ function InputGroupInput({
       defaultValue={defaultValue}
       onChange={handleChange}
       className={cn(
-        "flex-1 rounded-none border-0 bg-transparent shadow-none focus-visible:ring-0 active:shadow-none active:bg-transparent focus:border-0 focus:shadow-none",
+        "flex-1 rounded-none border-0 bg-transparent hover:bg-transparent shadow-none focus-visible:ring-0 active:shadow-none active:bg-transparent focus:border-0 focus:shadow-none",
         className
       )}
       {...props}

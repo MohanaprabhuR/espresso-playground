@@ -48,6 +48,58 @@ const InputGroupDemo = () => {
       </h1>
       <div className="grid w-full gap-6 justify-center">
         <div className="flex gap-4 items-center">
+          <InputGroup size="sm">
+            <InputGroupInput placeholder="Search..." size="sm" />
+            <InputGroupAddon size="sm">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup size="md">
+            <InputGroupInput placeholder="Search..." size="md" />
+            <InputGroupAddon size="md">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup size="lg">
+            <InputGroupInput placeholder="Search..." size="lg" />
+            <InputGroupAddon size="lg">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup size="xl">
+            <InputGroupInput placeholder="Search..." size="xl" />
+            <InputGroupAddon size="xl">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+        </div>
+        <div className="flex gap-4 items-center">
+          <InputGroup variant="outline" size="sm">
+            <InputGroupInput placeholder="Search..." size="sm" />
+            <InputGroupAddon size="sm" align="inline-end">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup variant="outline" size="md">
+            <InputGroupInput placeholder="Search..." size="md" />
+            <InputGroupAddon size="md" align="inline-end">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup variant="outline" size="lg">
+            <InputGroupInput placeholder="Search..." size="lg" />
+            <InputGroupAddon size="lg" align="inline-end">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup variant="outline" size="xl">
+            <InputGroupInput placeholder="Search..." size="xl" />
+            <InputGroupAddon size="xl" align="inline-end">
+              <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+        </div>
+        <div className="flex gap-4 items-center">
           <InputGroup variant="outline" size="sm">
             <InputGroupInput
               variant="outline"
