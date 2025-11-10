@@ -4,8 +4,6 @@ import * as React from "react";
 import { ChevronRightIcon, CircleIcon } from "lucide-react";
 import { DropdownMenu as DropdownMenuPrimitive } from "radix-ui";
 import { Checkbox } from "@/components/ui/checkbox";
-// import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-
 import { cn } from "@/lib/utils";
 
 type PointerDownEvent = Parameters<

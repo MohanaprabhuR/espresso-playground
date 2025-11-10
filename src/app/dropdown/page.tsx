@@ -3,13 +3,23 @@ import React from "react";
 import {
   ArchiveRestoreIcon,
   BoltIcon,
+  BookOpenIcon,
+  Calendar,
   ChevronDownIcon,
+  Columns2,
   CopyPlusIcon,
   FilesIcon,
   Layers2Icon,
+  List,
+  LogOutIcon,
+  MapPin,
+  MapPinCheck,
+  PinIcon,
+  Plus,
   PlusIcon,
   Share2Icon,
   TrashIcon,
+  UserPenIcon,
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { CommandIcon } from "../../../public/images/svg/commandIcon";
@@ -54,7 +64,104 @@ function DropdownDemo() {
         <h1 className="text-xl font-bold text-gray-900 dark:text-white pb-4">
           DropDown Component
         </h1>
-        <div className="flex  items-start mx-auto justify-center gap-[30px] w-full flex-wrap">
+        <div className="flex  items-center mx-auto justify-center gap-[30px] w-full flex-wrap">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                className="h-auto p-0 hover:bg-transparent"
+              >
+                <Avatar size="xl">
+                  <AvatarImage
+                    src="https://mockmind-api.uifaces.co/content/human/185.jpg"
+                    alt="Profile image"
+                  />
+                  <AvatarFallback>KK</AvatarFallback>
+                </Avatar>
+                <ChevronDownIcon
+                  size={16}
+                  className="opacity-60"
+                  aria-hidden="true"
+                />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="max-w-64">
+              <DropdownMenuLabel className="flex min-w-0 flex-col">
+                <span className="truncate text-sm font-medium text-foreground">
+                  Keith Kennedy
+                </span>
+                <span className="truncate text-xs font-normal text-muted-foreground">
+                  k.kennedy@coss.com
+                </span>
+              </DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuGroup>
+                <DropdownMenuItem>
+                  <BoltIcon className="size-4" />
+                  Option 1
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Layers2Icon className="size-4" />
+                  Option 2
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <BookOpenIcon className="size-4" />
+                  Option 3
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+              <DropdownMenuSeparator />
+              <DropdownMenuGroup>
+                <DropdownMenuItem>
+                  <PinIcon className="size-4" />
+                  Option 4
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <UserPenIcon className="size-4" />
+                  Option 5
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <LogOutIcon className="size-4" />
+                Logout
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline">Options</Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem>
+                <List className="size-4" /> List view
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Columns2 className="size-4" />
+                Kanban view
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Calendar className="size-4" />
+                Calendar
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <span>🔆</span> Product - sales
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <span>⚓</span>Support
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <span>📌</span>Board- highest sales
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <MapPin className="size-4" /> Board pinned
+              </DropdownMenuItem>
+              <DropdownMenuItem disabled>
+                <Plus className="size-4" />
+                New view
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button>Open</Button>
@@ -127,7 +234,7 @@ function DropdownDemo() {
                 API
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem variant="destructive" disabled>
+              <DropdownMenuItem variant="destructive">
                 <BellIcon />
                 Support
               </DropdownMenuItem>
