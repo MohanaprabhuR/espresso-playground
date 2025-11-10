@@ -78,6 +78,7 @@ function InputGroup({
       className={cn(
         inputGroupVariants({ variant, size }),
         statusClasses,
+        "overflow-hidden",
         className
       )}
       {...props}
