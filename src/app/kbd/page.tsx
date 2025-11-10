@@ -7,6 +7,12 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/components/ui/input-group";
+import { PrinterIcon, SearchIcon } from "lucide-react";
 const KbdDemo = () => {
   return (
     <div>
@@ -37,6 +43,24 @@ const KbdDemo = () => {
             <span>+</span>
             <Kbd>B</Kbd>
           </KbdGroup>
+          <InputGroup>
+            <InputGroupInput placeholder="Search..." />
+            <InputGroupAddon>
+              <SearchIcon />
+            </InputGroupAddon>
+            <InputGroupAddon align="inline-end">
+              <KbdGroup>
+                <Kbd>⌘</Kbd>
+                <Kbd>K</Kbd>
+              </KbdGroup>
+            </InputGroupAddon>
+          </InputGroup>
+          <Button variant="outline">
+            <PrinterIcon className="size-4" />
+            Print
+            <Kbd>⌘P</Kbd>
+          </Button>
+
           <div className="flex flex-wrap items-center gap-4">
             <Button size="sm" className="pr-2">
               Accept <Kbd>⏎</Kbd>
