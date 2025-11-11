@@ -87,10 +87,10 @@ function DropdownDemo() {
             </DropdownMenuTrigger>
             <DropdownMenuContent className="max-w-64">
               <DropdownMenuLabel className="flex min-w-0 flex-col">
-                <span className="truncate text-sm font-medium text-foreground">
+                <span className="truncate text-sm font-medium text-foreground tracking-4 leading-normal">
                   Keith Kennedy
                 </span>
-                <span className="truncate text-xs font-normal text-muted-foreground">
+                <span className="truncate text-xs font-normal text-muted-foreground tracking-4 leading-normal">
                   k.kennedy@coss.com
                 </span>
               </DropdownMenuLabel>
