@@ -17,7 +17,7 @@ const textareaVariants = cva(
       size: {
         sm: "min-h-[72px] h-full px-2 py-1.5 text-sm leading-normal tracking-4",
         md: "min-h-[102px] px-3 py-2.5 text-base leading-tight tracking-4",
-        lg: "min-h-[126px] px-3.5 py-3 text-lg rounded-xl leading-tight tracking-2",
+        lg: "min-h-[126px] px-3.5 py-3 text-lg rounded-xl leading-tight tracking-4",
       },
       state: {
         default: "",
