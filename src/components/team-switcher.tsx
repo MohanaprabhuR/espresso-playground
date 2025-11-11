@@ -304,7 +304,7 @@ export function TeamSwitcher({
                   <span className="truncate font-medium text-base tracking-4 leading-tight">
                     {activeTeam.name}
                   </span>
-                  <span className="truncate text-xs text-muted-foreground tracking-none leading-normal">
+                  <span className="truncate text-xs text-muted-foreground tracking-4 leading-normal">
                     {activeTeam.plan}
                   </span>
                 </div>
