@@ -345,7 +345,10 @@ function SidebarHeader({
     <div
       data-slot="sidebar-header"
       data-sidebar="header"
-      className={cn("flex gap-2 items-center m-2 px-[3px] py-0.5", className)}
+      className={cn(
+        "flex gap-2 items-center m-2 px-[3px] py-0.5 truncate font-medium text-base tracking-4 leading-tight",
+        className
+      )}
       {...props}
     >
       {children}
@@ -358,7 +361,10 @@ function SidebarFooter({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="sidebar-footer"
       data-sidebar="footer"
-      className={cn("flex flex-col gap-2 px-2 py-2.5", className)}
+      className={cn(
+        "flex flex-col gap-2 px-2 py-2.5 text-sm font-medium tracking-4 leading-normal",
+        className
+      )}
       {...props}
     />
   );

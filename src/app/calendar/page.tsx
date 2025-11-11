@@ -83,7 +83,6 @@ const CalendarDemo = () => {
         </h1>
 
         <div className="flex flex-wrap justify-center items-center mx-auto gap-x-[50px] gap-y-20  ">
-          <div></div>
           <Calendar mode="single" selected={date} onSelect={setDate} />
           <Calendar mode="multiple" defaultMonth={date} numberOfMonths={2} />
           <Calendar mode="range" defaultMonth={date} numberOfMonths={3} />
@@ -293,7 +292,7 @@ const CalendarDemo = () => {
           </div>
           <div>
             <div className="rounded-2xl border overflow-hidden bg-popover">
-              <div className="flex max-sm:flex-col">
+              <div className="flex max-sm:flex-col p-0">
                 <Calendar
                   mode="single"
                   selected={date}
@@ -303,10 +302,8 @@ const CalendarDemo = () => {
                       setTime(null);
                     }
                   }}
-                  className="p-2 rounded-none"
-                  disabled={[
-                    { before: today }, // Dates before today
-                  ]}
+                  className="rounded-none"
+                  disabled={[{ before: today }]}
                 />
                 <div className="relative w-full max-sm:h-48 sm:w-40">
                   <div className="absolute inset-0 py-4 max-sm:border-t">
@@ -411,7 +408,7 @@ const CalendarDemo = () => {
                   }}
                   month={month}
                   onMonthChange={setMonth}
-                  className="p-2 rounded-none"
+                  className="rounded-none"
                 />
               </div>
             </div>
