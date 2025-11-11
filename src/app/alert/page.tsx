@@ -117,9 +117,7 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="secondary" className="bg-white shadow-lg">
-                    Update now
-                  </Button>
+                  <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -132,9 +130,7 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="secondary" className="bg-white shadow-lg">
-                    Update now
-                  </Button>
+                  <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -151,9 +147,7 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="secondary" className="bg-white shadow-lg">
-                    Update now
-                  </Button>
+                  <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -167,9 +161,7 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="secondary" className="bg-white shadow-lg">
-                    Update now
-                  </Button>
+                  <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -276,9 +268,7 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="secondary" className="bg-white shadow-lg">
-                    Update now
-                  </Button>
+                  <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -291,9 +281,7 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="secondary" className="bg-white shadow-lg">
-                    Update now
-                  </Button>
+                  <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -310,9 +298,7 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="secondary" className="bg-white shadow-lg">
-                    Update now
-                  </Button>
+                  <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -326,9 +312,7 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="secondary" className="bg-white shadow-lg">
-                    Update now
-                  </Button>
+                  <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -436,9 +420,7 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="secondary" className="bg-white shadow-lg">
-                    Update now
-                  </Button>
+                  <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -451,9 +433,7 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="secondary" className="bg-white shadow-lg">
-                    Update now
-                  </Button>
+                  <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -470,9 +450,7 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="secondary" className="bg-white shadow-lg">
-                    Update now
-                  </Button>
+                  <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -486,9 +464,7 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="secondary" className="bg-white shadow-lg">
-                    Update now
-                  </Button>
+                  <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -597,9 +573,7 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="secondary" className="bg-white shadow-lg">
-                    Update now
-                  </Button>
+                  <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -612,9 +586,7 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="secondary" className="bg-white shadow-lg">
-                    Update now
-                  </Button>
+                  <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -631,9 +603,7 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="secondary" className="bg-white shadow-lg">
-                    Update now
-                  </Button>
+                  <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -647,9 +617,7 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="secondary" className="bg-white shadow-lg">
-                    Update now
-                  </Button>
+                  <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -758,9 +726,7 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="secondary" className="bg-white shadow-lg">
-                    Update now
-                  </Button>
+                  <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -773,9 +739,7 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="secondary" className="bg-white shadow-lg">
-                    Update now
-                  </Button>
+                  <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -792,9 +756,7 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="secondary" className="bg-white shadow-lg">
-                    Update now
-                  </Button>
+                  <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -808,9 +770,7 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="secondary" className="bg-white shadow-lg">
-                    Update now
-                  </Button>
+                  <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
