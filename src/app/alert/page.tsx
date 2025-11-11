@@ -117,7 +117,9 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="outline">Update now</Button>
+                  <Button variant="secondary" className="bg-white shadow-lg">
+                    Update now
+                  </Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -130,7 +132,9 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="outline">Update now</Button>
+                  <Button variant="secondary" className="bg-white shadow-lg">
+                    Update now
+                  </Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -147,7 +151,9 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="outline">Update now</Button>
+                  <Button variant="secondary" className="bg-white shadow-lg">
+                    Update now
+                  </Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -161,7 +167,9 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="outline">Update now</Button>
+                  <Button variant="secondary" className="bg-white shadow-lg">
+                    Update now
+                  </Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -268,7 +276,9 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="outline">Update now</Button>
+                  <Button variant="secondary" className="bg-white shadow-lg">
+                    Update now
+                  </Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -281,7 +291,9 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="outline">Update now</Button>
+                  <Button variant="secondary" className="bg-white shadow-lg">
+                    Update now
+                  </Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -298,7 +310,9 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="outline">Update now</Button>
+                  <Button variant="secondary" className="bg-white shadow-lg">
+                    Update now
+                  </Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>
@@ -312,7 +326,491 @@ const AlertDemo = () => {
                   interruption.
                 </AlertDescription>
                 <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="outline">Update now</Button>
+                  <Button variant="secondary" className="bg-white shadow-lg">
+                    Update now
+                  </Button>
+                  <Button variant="ghost">View plans</Button>
+                </ButtonGroup>
+              </AlertContent>
+
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+          </div>
+          <div className="flex flex-wrap  mx-auto gap-[50px] items-center">
+            <Alert variant="success">
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+            </Alert>
+            <Alert variant="success">
+              <ExclamationIcon />
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+            </Alert>
+            <Alert variant="success">
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+            <Alert variant="success">
+              <ExclamationIcon />
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+            <Alert action variant="success">
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+              <Button variant="ghost">Update</Button>
+            </Alert>
+            <Alert action variant="success">
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+              <Button variant="ghost">Update</Button>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+            <Alert action variant="success">
+              <ExclamationIcon />
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+              <Button variant="ghost">Update</Button>
+            </Alert>
+            <Alert action variant="success">
+              <ExclamationIcon />
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+              <Button variant="ghost">Update</Button>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+            <Alert longText variant="success">
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+              </AlertContent>
+            </Alert>
+            <Alert longText variant="success">
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+              </AlertContent>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+            <Alert longText variant="success">
+              <ExclamationIcon />
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+              </AlertContent>
+            </Alert>
+            <Alert longText variant="success">
+              <ExclamationIcon />
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+              </AlertContent>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+
+            <Alert longText action variant="success">
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+                <ButtonGroup destructive className="pt-3.5">
+                  <Button variant="secondary" className="bg-white shadow-lg">
+                    Update now
+                  </Button>
+                  <Button variant="ghost">View plans</Button>
+                </ButtonGroup>
+              </AlertContent>
+            </Alert>
+            <Alert longText action variant="success">
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+                <ButtonGroup destructive className="pt-3.5">
+                  <Button variant="secondary" className="bg-white shadow-lg">
+                    Update now
+                  </Button>
+                  <Button variant="ghost">View plans</Button>
+                </ButtonGroup>
+              </AlertContent>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+            <Alert longText action variant="success">
+              <ExclamationIcon />
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+                <ButtonGroup destructive className="pt-3.5">
+                  <Button variant="secondary" className="bg-white shadow-lg">
+                    Update now
+                  </Button>
+                  <Button variant="ghost">View plans</Button>
+                </ButtonGroup>
+              </AlertContent>
+            </Alert>
+            <Alert longText action variant="success">
+              <ExclamationIcon />
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+                <ButtonGroup destructive className="pt-3.5">
+                  <Button variant="secondary" className="bg-white shadow-lg">
+                    Update now
+                  </Button>
+                  <Button variant="ghost">View plans</Button>
+                </ButtonGroup>
+              </AlertContent>
+
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+          </div>
+
+          <div className="flex flex-wrap  mx-auto gap-[50px] items-center">
+            <Alert variant="warning">
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+            </Alert>
+            <Alert variant="warning">
+              <ExclamationIcon />
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+            </Alert>
+            <Alert variant="warning">
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+            <Alert variant="warning">
+              <ExclamationIcon />
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+            <Alert action variant="warning">
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+              <Button variant="ghost">Update</Button>
+            </Alert>
+            <Alert action variant="warning">
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+              <Button variant="ghost">Update</Button>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+            <Alert action variant="warning">
+              <ExclamationIcon />
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+              <Button variant="ghost">Update</Button>
+            </Alert>
+            <Alert action variant="warning">
+              <ExclamationIcon />
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+              <Button variant="ghost">Update</Button>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+            <Alert longText variant="warning">
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+              </AlertContent>
+            </Alert>
+            <Alert longText variant="warning">
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+              </AlertContent>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+            <Alert longText variant="warning">
+              <ExclamationIcon />
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+              </AlertContent>
+            </Alert>
+            <Alert longText variant="warning">
+              <ExclamationIcon />
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+              </AlertContent>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+
+            <Alert longText action variant="warning">
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+                <ButtonGroup destructive className="pt-3.5">
+                  <Button variant="secondary" className="bg-white shadow-lg">
+                    Update now
+                  </Button>
+                  <Button variant="ghost">View plans</Button>
+                </ButtonGroup>
+              </AlertContent>
+            </Alert>
+            <Alert longText action variant="warning">
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+                <ButtonGroup destructive className="pt-3.5">
+                  <Button variant="secondary" className="bg-white shadow-lg">
+                    Update now
+                  </Button>
+                  <Button variant="ghost">View plans</Button>
+                </ButtonGroup>
+              </AlertContent>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+            <Alert longText action variant="warning">
+              <ExclamationIcon />
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+                <ButtonGroup destructive className="pt-3.5">
+                  <Button variant="secondary" className="bg-white shadow-lg">
+                    Update now
+                  </Button>
+                  <Button variant="ghost">View plans</Button>
+                </ButtonGroup>
+              </AlertContent>
+            </Alert>
+            <Alert longText action variant="warning">
+              <ExclamationIcon />
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+                <ButtonGroup destructive className="pt-3.5">
+                  <Button variant="secondary" className="bg-white shadow-lg">
+                    Update now
+                  </Button>
+                  <Button variant="ghost">View plans</Button>
+                </ButtonGroup>
+              </AlertContent>
+
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+          </div>
+
+          <div className="flex flex-wrap  mx-auto gap-[50px] items-center">
+            <Alert variant="error">
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+            </Alert>
+            <Alert variant="error">
+              <ExclamationIcon />
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+            </Alert>
+            <Alert variant="error">
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+            <Alert variant="error">
+              <ExclamationIcon />
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+            <Alert action variant="error">
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+              <Button variant="ghost">Update</Button>
+            </Alert>
+            <Alert action variant="error">
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+              <Button variant="ghost">Update</Button>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+            <Alert action variant="error">
+              <ExclamationIcon />
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+              <Button variant="ghost">Update</Button>
+            </Alert>
+            <Alert action variant="error">
+              <ExclamationIcon />
+              <AlertTitle>Your trial ends soon!</AlertTitle>
+              <Button variant="ghost">Update</Button>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+            <Alert longText variant="error">
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+              </AlertContent>
+            </Alert>
+            <Alert longText variant="error">
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+              </AlertContent>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+            <Alert longText variant="error">
+              <ExclamationIcon />
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+              </AlertContent>
+            </Alert>
+            <Alert longText variant="error">
+              <ExclamationIcon />
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+              </AlertContent>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+
+            <Alert longText action variant="error">
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+                <ButtonGroup destructive className="pt-3.5">
+                  <Button variant="secondary" className="bg-white shadow-lg">
+                    Update now
+                  </Button>
+                  <Button variant="ghost">View plans</Button>
+                </ButtonGroup>
+              </AlertContent>
+            </Alert>
+            <Alert longText action variant="error">
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+                <ButtonGroup destructive className="pt-3.5">
+                  <Button variant="secondary" className="bg-white shadow-lg">
+                    Update now
+                  </Button>
+                  <Button variant="ghost">View plans</Button>
+                </ButtonGroup>
+              </AlertContent>
+              <Button variant="ghost">
+                <CloseIcon />
+              </Button>
+            </Alert>
+            <Alert longText action variant="error">
+              <ExclamationIcon />
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+                <ButtonGroup destructive className="pt-3.5">
+                  <Button variant="secondary" className="bg-white shadow-lg">
+                    Update now
+                  </Button>
+                  <Button variant="ghost">View plans</Button>
+                </ButtonGroup>
+              </AlertContent>
+            </Alert>
+            <Alert longText action variant="error">
+              <ExclamationIcon />
+              <AlertContent>
+                <AlertTitle>Your trial ends soon!</AlertTitle>
+                <AlertDescription>
+                  Upgrade now to continue enjoying all features without
+                  interruption.
+                </AlertDescription>
+                <ButtonGroup destructive className="pt-3.5">
+                  <Button variant="secondary" className="bg-white shadow-lg">
+                    Update now
+                  </Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
               </AlertContent>

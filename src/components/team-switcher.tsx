@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 
 import {
-  ChevronsUpDown,
   Moon,
   Sun,
   Settings,
@@ -22,6 +21,7 @@ import {
   PanelLeft,
   MessageCircleQuestionMark,
   ListFilter,
+  ChevronDown,
 } from "lucide-react";
 
 import {
@@ -299,25 +299,27 @@ export function TeamSwitcher({
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button className="w-full" variant="ghost">
-                <activeTeam.logo className="size-7" />
-                <div className="flex flex-col flex-1 text-left text-sm gap-1 group-data-[collapsible=icon]:hidden">
-                  <span className="truncate font-medium text-base tracking-4 leading-tight">
+                <activeTeam.logo className="size-8" />
+                <div className="flex flex-col flex-1 text-left text-sm gap-y-1 group-data-[collapsible=icon]:hidden">
+                  <span className="truncate font-medium text-base tracking-4 leading-tight text-foreground">
                     {activeTeam.name}
                   </span>
-                  <span className="truncate text-xs text-muted-foreground tracking-4 leading-normal">
+                  <span className="truncate text-xs text-muted-foreground tracking-4 leading-tight font-normal">
                     {activeTeam.plan}
                   </span>
                 </div>
-                <ChevronsUpDown className="ml-auto size-4 group-data-[collapsible=icon]:hidden" />
+                <ChevronDown className="ml-auto size-4 group-data-[collapsible=icon]:hidden" />
               </Button>
             </DropdownMenuTrigger>
 
             <DropdownMenuContent align="start" className="w-[220px]">
               <DropdownMenuLabel className="flex items-center gap-2">
                 <activeTeam.logo className="size-8" />
-                <div className="flex flex-col">
-                  <span className="font-medium text-sm">{activeTeam.name}</span>
-                  <span className="text-xs text-muted-foreground">
+                <div className="flex flex-col gap-y-1">
+                  <span className="font-medium text-sm tracking-4 leading-tight text-foreground">
+                    {activeTeam.name}
+                  </span>
+                  <span className="text-xs text-muted-foreground tracking-4 leading-tight font-normal">
                     {activeTeam.plan}
                   </span>
                 </div>

@@ -169,7 +169,7 @@ function Sidebar({
       <div
         data-slot="sidebar"
         className={cn(
-          "bg-sidebar  text-sidebar-foreground flex h-full w-(--sidebar-width) flex-col",
+          "bg-sidebar text-sidebar-foreground flex h-full w-(--sidebar-width) flex-col",
           className
         )}
         {...props}
@@ -243,7 +243,7 @@ function Sidebar({
         <div
           data-sidebar="sidebar"
           data-slot="sidebar-inner"
-          className="bg-sidebar   group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-lg"
+          className="bg-sidebar group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-lg"
         >
           {children}
         </div>
@@ -346,7 +346,7 @@ function SidebarHeader({
       data-slot="sidebar-header"
       data-sidebar="header"
       className={cn(
-        "flex gap-2 items-center m-2 px-[3px] py-0.5 truncate font-medium text-base tracking-4 leading-tight",
+        "flex gap-2 items-center p-2 text-foreground truncate font-medium text-base tracking-4 leading-tight",
         className
       )}
       {...props}
