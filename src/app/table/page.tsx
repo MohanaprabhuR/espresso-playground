@@ -206,7 +206,7 @@ const dataTableDemo = () => {
   return (
     <div>
       <div className="pt-10 ">
-        <h1 className="text-xl text-center font-bold text-gray-900 dark:text-white pb-4">
+        <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
           Table Component
         </h1>
         <div className="flex flex-col gap-20">

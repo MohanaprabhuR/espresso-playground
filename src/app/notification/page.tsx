@@ -17,7 +17,7 @@ const AlertDemo = () => {
   return (
     <div>
       <div className="pt-10 ">
-        <h1 className="text-xl font-bold text-gray-900 dark:text-white pb-10 text-center">
+        <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
           Notification Component
         </h1>
         <div className="flex flex-wrap  flex-col mx-auto gap-[20px] items-center  max-w-[400px]">

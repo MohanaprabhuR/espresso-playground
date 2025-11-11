@@ -9,7 +9,7 @@ const AvatarDemo = () => {
   return (
     <>
       <div className="flex flex-col justify-center items-center py-10 gap-[30px_0]">
-        <h1 className="text-xl font-bold text-gray-900 dark:text-white pb-4">
+        <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
           Avatar Component
         </h1>
 

@@ -50,7 +50,7 @@ const ItemDemo = () => {
   return (
     <div>
       <div className="pt-10 ">
-        <h1 className="text-xl font-bold text-gray-900 text-center dark:text-white pb-4">
+        <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
           Item Component
         </h1>
         <div className="flex flex-col gap-[30px_0] w-full max-w-[500px] mx-auto">

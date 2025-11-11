@@ -4,7 +4,7 @@ const RadioDemo = () => {
   return (
     <div>
       <div className="pt-10 text-center">
-        <h1 className="text-xl font-bold text-gray-900 dark:text-white pb-4">
+        <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
           Radio Component
         </h1>
         <div className="flex flex-col mx-auto  max-w-[500px] gap-[50px]">

@@ -68,7 +68,7 @@ const SonnerDemo = () => {
   };
   return (
     <div className="pt-10">
-      <h1 className="text-xl font-bold text-center text-gray-900 dark:text-white pb-4">
+      <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
         Sonner Component
       </h1>
       <div className="flex flex-col justify-center items-center gap-[30px_0] mx-auto">

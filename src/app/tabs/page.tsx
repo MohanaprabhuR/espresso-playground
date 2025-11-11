@@ -36,7 +36,7 @@ const TabsDemo = () => {
   return (
     <div>
       <div className="pt-10 text-center">
-        <h1 className="text-xl font-bold text-gray-900 dark:text-white pb-10">
+        <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
           Tab Component
         </h1>
         <div className="flex flex-col  mx-auto gap-[50px] items-center">
