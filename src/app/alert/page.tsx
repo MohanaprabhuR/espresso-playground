@@ -29,13 +29,11 @@ const AlertDemo = () => {
             </Alert>
             <Alert>
               <AlertTitle>Your trial ends soon!</AlertTitle>
-
               <CloseIcon />
             </Alert>
             <Alert>
               <ExclamationIcon />
               <AlertTitle>Your trial ends soon!</AlertTitle>
-
               <CloseIcon />
             </Alert>
             <Alert action>
@@ -44,9 +42,12 @@ const AlertDemo = () => {
             </Alert>
             <Alert action>
               <AlertTitle>Your trial ends soon!</AlertTitle>
-              <Button variant="ghost">Update</Button>
-
-              <CloseIcon />
+              <ButtonGroup destructive>
+                <Button variant="ghost">Update</Button>
+                <Button variant="ghost">
+                  <CloseIcon />
+                </Button>
+              </ButtonGroup>
             </Alert>
             <Alert action>
               <ExclamationIcon />
@@ -56,9 +57,12 @@ const AlertDemo = () => {
             <Alert action>
               <ExclamationIcon />
               <AlertTitle>Your trial ends soon!</AlertTitle>
-              <Button variant="ghost">Update</Button>
-
-              <CloseIcon />
+              <ButtonGroup destructive>
+                <Button variant="ghost">Update</Button>
+                <Button variant="ghost">
+                  <CloseIcon />
+                </Button>
+              </ButtonGroup>
             </Alert>
             <Alert longText>
               <AlertContent>
@@ -187,9 +191,12 @@ const AlertDemo = () => {
             </Alert>
             <Alert action variant="information">
               <AlertTitle>Your trial ends soon!</AlertTitle>
-              <Button variant="ghost">Update</Button>
-
-              <CloseIcon />
+              <ButtonGroup destructive>
+                <Button variant="ghost">Update</Button>
+                <Button variant="ghost">
+                  <CloseIcon />
+                </Button>
+              </ButtonGroup>
             </Alert>
             <Alert action variant="information">
               <ExclamationIcon />
@@ -199,9 +206,12 @@ const AlertDemo = () => {
             <Alert action variant="information">
               <ExclamationIcon />
               <AlertTitle>Your trial ends soon!</AlertTitle>
-              <Button variant="ghost">Update</Button>
-
-              <CloseIcon />
+              <ButtonGroup destructive>
+                <Button variant="ghost">Update</Button>
+                <Button variant="ghost">
+                  <CloseIcon />
+                </Button>
+              </ButtonGroup>
             </Alert>
             <Alert longText variant="information">
               <AlertContent>
@@ -329,9 +339,12 @@ const AlertDemo = () => {
             </Alert>
             <Alert action variant="success">
               <AlertTitle>Your trial ends soon!</AlertTitle>
-              <Button variant="ghost">Update</Button>
-
-              <CloseIcon />
+              <ButtonGroup destructive>
+                <Button variant="ghost">Update</Button>
+                <Button variant="ghost">
+                  <CloseIcon />
+                </Button>
+              </ButtonGroup>
             </Alert>
             <Alert action variant="success">
               <ExclamationIcon />
@@ -341,9 +354,12 @@ const AlertDemo = () => {
             <Alert action variant="success">
               <ExclamationIcon />
               <AlertTitle>Your trial ends soon!</AlertTitle>
-              <Button variant="ghost">Update</Button>
-
-              <CloseIcon />
+              <ButtonGroup destructive>
+                <Button variant="ghost">Update</Button>
+                <Button variant="ghost">
+                  <CloseIcon />
+                </Button>
+              </ButtonGroup>
             </Alert>
             <Alert longText variant="success">
               <AlertContent>
@@ -473,9 +489,12 @@ const AlertDemo = () => {
             </Alert>
             <Alert action variant="warning">
               <AlertTitle>Your trial ends soon!</AlertTitle>
-              <Button variant="ghost">Update</Button>
-
-              <CloseIcon />
+              <ButtonGroup destructive>
+                <Button variant="ghost">Update</Button>
+                <Button variant="ghost">
+                  <CloseIcon />
+                </Button>
+              </ButtonGroup>
             </Alert>
             <Alert action variant="warning">
               <ExclamationIcon />
@@ -485,9 +504,12 @@ const AlertDemo = () => {
             <Alert action variant="warning">
               <ExclamationIcon />
               <AlertTitle>Your trial ends soon!</AlertTitle>
-              <Button variant="ghost">Update</Button>
-
-              <CloseIcon />
+              <ButtonGroup destructive>
+                <Button variant="ghost">Update</Button>
+                <Button variant="ghost">
+                  <CloseIcon />
+                </Button>
+              </ButtonGroup>
             </Alert>
             <Alert longText variant="warning">
               <AlertContent>
@@ -617,9 +639,12 @@ const AlertDemo = () => {
             </Alert>
             <Alert action variant="error">
               <AlertTitle>Your trial ends soon!</AlertTitle>
-              <Button variant="ghost">Update</Button>
-
-              <CloseIcon />
+              <ButtonGroup destructive>
+                <Button variant="ghost">Update</Button>
+                <Button variant="ghost">
+                  <CloseIcon />
+                </Button>
+              </ButtonGroup>
             </Alert>
             <Alert action variant="error">
               <ExclamationIcon />
@@ -629,9 +654,12 @@ const AlertDemo = () => {
             <Alert action variant="error">
               <ExclamationIcon />
               <AlertTitle>Your trial ends soon!</AlertTitle>
-              <Button variant="ghost">Update</Button>
-
-              <CloseIcon />
+              <ButtonGroup destructive>
+                <Button variant="ghost">Update</Button>
+                <Button variant="ghost">
+                  <CloseIcon />
+                </Button>
+              </ButtonGroup>
             </Alert>
             <Alert longText variant="error">
               <AlertContent>
