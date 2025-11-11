@@ -72,20 +72,20 @@ function TooltipContent({
           <span
             className={cn(
               "absolute text-primary",
-              "group-data-[side=top]:-bottom-[9px] group-data-[side=top]:left-1/2 group-data-[side=top]:-translate-x-1/2 group-data-[side=top]:-rotate-90",
-              "group-data-[side=bottom]:-top-[9px] group-data-[side=bottom]:left-1/2 group-data-[side=bottom]:-translate-x-1/2 group-data-[side=bottom]:rotate-90",
-              "group-data-[side=left]:-right-[5px] group-data-[side=left]:top-1/2 group-data-[side=left]:-translate-y-1/2 group-data-[side=left]:-rotate-180",
-              "group-data-[side=right]:-left-[5px] group-data-[side=right]:top-1/2 group-data-[side=right]:-translate-y-1/2 group-data-[side=right]:rotate-0"
+              "group-data-[side=top]:-bottom-[8px] group-data-[side=top]:left-1/2 group-data-[side=top]:-translate-x-1/2 group-data-[side=top]:-rotate-90",
+              "group-data-[side=bottom]:-top-[8px] group-data-[side=bottom]:left-1/2 group-data-[side=bottom]:-translate-x-1/2 group-data-[side=bottom]:rotate-90",
+              "group-data-[side=left]:-right-[4px] group-data-[side=left]:top-1/2 group-data-[side=left]:-translate-y-1/2 group-data-[side=left]:-rotate-180",
+              "group-data-[side=right]:-left-[4px] group-data-[side=right]:top-1/2 group-data-[side=right]:-translate-y-1/2 group-data-[side=right]:rotate-0"
             )}
           >
             <svg
               width="5"
-              height="13"
-              viewBox="0 0 5 13"
+              height="12"
+              viewBox="0 0 5 12"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path d="M5 1.35344C5 -3.88012 5 16.8808 5 11.6463C5 9.7166 5.39611e-08 7.9069 2.14575e-07 6.49985C3.34598e-08 5.09281 5 3.26252 5 1.35344Z" />
+              <path d="M5 0.853444C5 -4.38012 5 16.3808 5 11.1463C5 9.2166 1.53071e-07 7.4069 2.14575e-07 5.99985C-2.00758e-07 4.59281 5 2.76252 5 0.853444Z" />
             </svg>
           </span>
         )}
