@@ -15,6 +15,7 @@ import {
   ArrowUpIcon,
   PlusIcon,
   Search,
+  HelpCircle,
 } from "lucide-react";
 
 import {
@@ -548,6 +549,72 @@ const InputGroupDemo = () => {
                 <CheckIcon className="size-3" />
               </div>
             </InputGroupAddon>
+          </InputGroup>
+
+          <InputGroup>
+            <InputGroupTextarea placeholder="Enter your message" />
+            <InputGroupAddon align="block-end">
+              <InputGroupText className="text-muted-foreground text-xs">
+                120 characters left
+              </InputGroupText>
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup>
+            <InputGroupInput placeholder="Enter password" type="password" />
+            <InputGroupAddon align="inline-end">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <InputGroupButton
+                    variant="ghost"
+                    aria-label="Info"
+                    size="icon-xs"
+                  >
+                    <InfoIcon className="size-4" />
+                  </InputGroupButton>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Password must be at least 8 characters</p>
+                </TooltipContent>
+              </Tooltip>
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup>
+            <InputGroupInput placeholder="Your email address" />
+            <InputGroupAddon align="inline-end">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <InputGroupButton
+                    variant="ghost"
+                    aria-label="Help"
+                    size="icon-xs"
+                  >
+                    <HelpCircle className="size-4" />
+                  </InputGroupButton>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>We&apos;ll use this to send you notifications</p>
+                </TooltipContent>
+              </Tooltip>
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup>
+            <InputGroupInput placeholder="Enter API key" />
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <InputGroupAddon>
+                  <InputGroupButton
+                    variant="ghost"
+                    aria-label="Help"
+                    size="icon-xs"
+                  >
+                    <HelpCircle className="size-4" />
+                  </InputGroupButton>
+                </InputGroupAddon>
+              </TooltipTrigger>
+              <TooltipContent side="left">
+                <p>Click for help with API keys</p>
+              </TooltipContent>
+            </Tooltip>
           </InputGroup>
         </div>
       </div>
