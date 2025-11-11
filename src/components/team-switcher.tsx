@@ -301,10 +301,10 @@ export function TeamSwitcher({
               <Button className="w-full" variant="ghost">
                 <activeTeam.logo className="size-7" />
                 <div className="flex flex-col flex-1 text-left text-sm gap-1 group-data-[collapsible=icon]:hidden">
-                  <span className="truncate font-medium text-base">
+                  <span className="truncate font-medium text-base tracking-2 leading-tight">
                     {activeTeam.name}
                   </span>
-                  <span className="truncate text-xs text-muted-foreground">
+                  <span className="truncate text-xs text-muted-foreground tracking-none leading-normal">
                     {activeTeam.plan}
                   </span>
                 </div>
