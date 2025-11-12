@@ -309,6 +309,7 @@ const InputDemo = () => {
               prefix={<Mail />}
             />
           </div>
+
           <div className="flex  gap-[30px] ">
             <Input
               status="success"

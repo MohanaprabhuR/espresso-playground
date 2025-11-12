@@ -3,16 +3,16 @@ import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const textareaVariants = cva(
-  "flex w-full rounded-lg outline-none placeholder:text-primary/50   font-normal disabled:cursor-not-allowed disabled:pointer-events-none disabled:bg-primary/3 disabled:text-primary/20 disabled:border-transparent",
+  "flex w-full rounded-lg  placeholder:text-primary/50   font-normal disabled:cursor-not-allowed disabled:pointer-events-none disabled:bg-primary/3 disabled:text-primary/20 disabled:border-transparent",
   {
     variants: {
       variant: {
         default:
-          "bg-secondary text-accent-foreground border border-transparent hover:bg-accent active:border active:border-primary/50 active:placeholder:text-accent-foreground active:text-accent-foreground focus:bg-transparent focus:border focus:shadow-2xs focus:border-primary/50  focus-visible:ring-2 focus-visible:ring-ring focus-visible:border-primary/50",
+          "bg-secondary text-accent-foreground outline outline-1 -outline-offset-1 outline-transparent hover:bg-accent active:outline active:outline-primary/50 active:placeholder:text-accent-foreground active:text-accent-foreground focus:bg-transparent focus:outline focus:shadow-2xs focus:outline-primary/50 focus-visible:ring-2 focus-visible:ring-ring",
         outline:
-          "border  hover:border-primary/20 active:border-primary/50 active:placeholder:text-accent-foreground active:text-accent-foreground bg-transparent text-accent-foreground focus:border focus:shadow-2xs focus:border-primary/50 focus-visible:ring-2 focus-visible:ring-ring",
+          "outline outline-1 -outline-offset-1 hover:outline-primary/20 active:outline-primary/50 active:placeholder:text-accent-foreground active:text-accent-foreground bg-transparent text-accent-foreground focus:outline focus:shadow-2xs focus:outline-primary/50 focus-visible:ring-2 focus-visible:ring-ring",
         ghost:
-          "bg-transparent border border-transparent text-accent-foreground active:text-accent-foreground active:placeholder:text-accent-foreground focus-visible:ring-2 focus-visible:border focus-visible:border-primary/50 focus-visible:ring-ring focus-visible:ring-offset-0 focus-visible:bg-transparent ",
+          "bg-transparent outline outline-1 -outline-offset-1 outline-transparent text-accent-foreground active:text-accent-foreground active:placeholder:text-accent-foreground focus:outline focus:shadow-2xs focus:outline-primary/50 focus-visible:ring-2 focus-visible:ring-ring",
       },
       size: {
         sm: "min-h-[72px] h-full px-2 py-1.5 text-sm leading-normal tracking-4",
@@ -41,7 +41,7 @@ const textareaVariants = cva(
         state: "success",
         variant: "outline",
         className:
-          "border-success-border text-accent-foreground hover:border-success-border",
+          "outline-success-border text-accent-foreground hover:outline-success-border",
       },
 
       {
@@ -53,7 +53,7 @@ const textareaVariants = cva(
         state: "error",
         variant: "outline",
         className:
-          "border-error-border text-accent-foreground hover:border-error-border",
+          "outline-error-border text-accent-foreground hover:outline-error-border",
       },
 
       {
@@ -65,7 +65,7 @@ const textareaVariants = cva(
         state: "warning",
         variant: "outline",
         className:
-          "border-warning-border text-accent-foreground hover:border-warning-border",
+          "outline-warning-border text-accent-foreground hover:outline-warning-border",
       },
     ],
   }

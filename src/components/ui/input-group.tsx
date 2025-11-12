@@ -9,14 +9,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 const inputGroupVariants = cva(
-  "group/input-group relative outline-none flex w-full items-center rounded-md border border-transparent transition-[color,box-shadow] has-[>[data-align=inline-start]]:[&>input]:pl-2 has-[>[data-align=inline-end]]:[&>input]:pr-2 has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>[data-align=block-start]]:[&>input]:pb-3 has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-end]]:[&>input]:pt-3",
+  "group/input-group relative  flex w-full items-center rounded-md outline outline-1  -outline-offset-1 outline-transparent transition-[color,box-shadow] has-[>[data-align=inline-start]]:[&>input]:pl-2 has-[>[data-align=inline-end]]:[&>input]:pr-2 has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>[data-align=block-start]]:[&>input]:pb-3 has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-end]]:[&>input]:pt-3",
   {
     variants: {
       variant: {
         default:
-          "has-[>textarea]:h-auto bg-secondary hover:bg-accent has-[[data-slot=input-group-control]:active]:bg-transparent has-[[data-slot=input-group-control]:active]:border-primary/50 has-[[data-slot=input-group-control]:active]:shadow-lg has-[[data-slot=input-group-control]:focus]:border has-[[data-slot=input-group-control]:focus]:border-primary/50 has-[[data-slot=input-group-control]:focus]:shadow-lg has-[[data-slot=input-group-control]:focus]:bg-white has-[[data-slot=input-group-control]:focus-visible]:border-primary/50 has-[[data-slot=input-group-control]:focus]:text-accent-foreground has-[[data-slot=input-group-control]:focus-visible]:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-ring has-[[data-slot=input-group-control]:focus-visible]:ring-offset-0 has-[[data-slot=input-group-control]:focus-visible]:bg-transparent has-[[data-slot][aria-invalid=true]]:ring-destructive/20 has-[[data-slot][aria-invalid=true]]:border-destructive",
+          "has-[>textarea]:h-auto bg-secondary hover:bg-accent has-[[data-slot=input-group-control]:active]:bg-transparent has-[[data-slot=input-group-control]:active]:outline-primary/50 has-[[data-slot=input-group-control]:active]:shadow-lg has-[[data-slot=input-group-control]:focus]:outline has-[[data-slot=input-group-control]:focus]:outline-primary/50 has-[[data-slot=input-group-control]:focus]:shadow-lg has-[[data-slot=input-group-control]:focus]:bg-white has-[[data-slot=input-group-control]:focus-visible]:outline-primary/50 has-[[data-slot=input-group-control]:focus]:text-accent-foreground has-[[data-slot=input-group-control]:focus-visible]:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-ring has-[[data-slot=input-group-control]:focus-visible]:ring-offset-0 has-[[data-slot=input-group-control]:focus-visible]:bg-transparent has-[[data-slot][aria-invalid=true]]:ring-destructive/20 has-[[data-slot][aria-invalid=true]]:outline-destructive",
         outline:
-          "border border-input bg-background text-secondary-foreground hover:border-primary/25 has-[[data-slot=input-group-control]:active]:border-primary/50 has-[[data-slot=input-group-control]:active]:bg-background has-[[data-slot=input-group-control]:active]:shadow-lg focus-border has-[[data-slot=input-group-control]:focus]:border-primary/50 has-[[data-slot=input-group-control]:focus]:text-accent-foreground has-[[data-slot=input-group-control]:focus-visible]:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-ring has-[[data-slot=input-group-control]:focus-visible]:ring-offset-0 has-[[data-slot=input-group-control]:focus-visible]:border-primary/50 has-[[data-slot=input-group-control]:focus-visible]:bg-transparent",
+          "outline-input bg-background text-secondary-foreground hover:outline-primary/25 has-[[data-slot=input-group-control]:active]:outline-primary/50 has-[[data-slot=input-group-control]:active]:bg-background has-[[data-slot=input-group-control]:active]:shadow-lg focus-outline has-[[data-slot=input-group-control]:focus]:outline-primary/50 has-[[data-slot=input-group-control]:focus]:text-accent-foreground has-[[data-slot=input-group-control]:focus-visible]:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-ring has-[[data-slot=input-group-control]:focus-visible]:ring-offset-0 has-[[data-slot=input-group-control]:focus-visible]:outline-primary/50 has-[[data-slot=input-group-control]:focus-visible]:bg-transparent",
       },
       size: {
         sm: "rounded-lg",
@@ -39,20 +39,20 @@ const statusMap: Record<VariantType, Record<StatusType, string>> = {
   default: {
     default: "",
     success:
-      "bg-success text-accent-foreground hover:bg-success active:bg-success focus:border-success-border focus:bg-success",
+      "bg-success text-accent-foreground hover:bg-success active:bg-success focus:outline-success-border focus:bg-success",
     warning:
-      "bg-warning text-accent-foreground hover:bg-warning active:bg-warning focus:border-warning-border focus:bg-warning",
+      "bg-warning text-accent-foreground hover:bg-warning active:bg-warning focus:outline-warning-border focus:bg-warning",
     error:
-      "bg-error text-accent-foreground hover:bg-error active:bg-error focus:border-error-border focus:bg-error",
+      "bg-error text-accent-foreground hover:bg-error active:bg-error focus:outline-error-border focus:bg-error",
   },
   outline: {
     default: "",
     success:
-      "border-success-border hover:border-success-border active:border-success-border focus:border-success-border disabled:border-transparent",
+      "outline-success-border hover:outline-success-border active:outline-success-border focus:outline-success-border disabled:border-transparent",
     warning:
-      "border-warning-border hover:border-warning-border active:border-warning-border focus:border-warning-border disabled:border-transparent",
+      "outline-warning-border hover:outline-warning-border active:outline-warning-border focus:outline-warning-border disabled:border-transparent",
     error:
-      "border-error-border hover:border-error-border active:border-error-border focus:border-error-border disabled:border-transparent",
+      "outline-error-border hover:outline-error-border active:outline-error-border focus:outline-error-border disabled:border-transparent",
   },
 };
 
@@ -217,7 +217,7 @@ function InputGroupInput({
       defaultValue={defaultValue}
       onChange={handleChange}
       className={cn(
-        "flex-1 rounded-none border-0 bg-transparent hover:bg-transparent shadow-none focus-visible:ring-0 active:shadow-none active:bg-transparent focus:border-0 focus:shadow-none",
+        "flex-1 rounded-none outline-0 bg-transparent hover:bg-transparent shadow-none focus-visible:ring-0 active:shadow-none active:bg-transparent focus:outline-0 focus:shadow-none",
         className
       )}
       {...props}
@@ -257,7 +257,7 @@ function InputGroupTextarea({
       data-slot="input-group-control"
       data-filled={hasValue}
       className={cn(
-        "flex-1 resize-none rounded-t rounded-b-none border-transparent bg-transparent shadow-none focus-visible:ring-0 active:border-0 focus:border-0 active:shadow-none focus:shadow-none",
+        "flex-1 resize-none rounded-t rounded-b-none outline-transparent bg-transparent shadow-none focus-visible:ring-0 active:outline-0 focus:outline-0 active:shadow-none focus:shadow-none",
         sizeClasses[size],
         className
       )}

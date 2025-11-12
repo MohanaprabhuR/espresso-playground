@@ -17,13 +17,13 @@ type InputProps = Omit<
 };
 
 const baseStyles =
-  "w-full min-w-0 transition-[color,box-shadow,border] outline-none placeholder:text-primary/50 file:inline-flex file:pr-1 file:border-r file:border-r-[1px] file:border-primary/20 file:bg-transparent aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&:-webkit-autofill]:bg-autofill [&:-webkit-autofill]:text-accent-foreground disabled:bg-primary/3 disabled:border-none disabled:text-primary/20 disabled:cursor-not-allowed disabled:pointer-events-none ";
+  "w-full min-w-0 transition-[color,box-shadow,border]  placeholder:text-primary/50 file:inline-flex file:pr-1 file:border-r file:border-r-[1px] file:border-primary/20 file:bg-transparent aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&:-webkit-autofill]:bg-autofill [&:-webkit-autofill]:text-accent-foreground disabled:bg-primary/3 disabled:border-none disabled:text-primary/20 disabled:cursor-not-allowed disabled:pointer-events-none ";
 
 const variantBaseMap: Record<VariantType, string> = {
   default:
-    "bg-secondary border border-transparent hover:bg-accent text-secondary-foreground active:bg-transparent active:shadow-lg active:border-primary/50 active:text-accent-foreground focus:border focus:border-primary/50 focus:shadow-lg focus:bg-background focus-visible:border-primary/50 focus:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 focus-visible:bg-transparent",
+    "bg-secondary outline outline-0 outline-border -outline-offset-1  hover:bg-accent text-secondary-foreground active:bg-transparent active:shadow-lg active:outline-primary/50 active:text-accent-foreground focus:outline focus:outline-primary/50 focus:shadow-lg focus:bg-background focus-visible:outline-primary/50 focus:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 focus-visible:bg-transparent",
   outline:
-    "border bg-background text-secondary-foreground hover:border-primary/25 active:border-primary/50 active:bg-background active:shadow-lg focus-border focus:border-primary/50 focus:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 focus-visible:border-primary/50 focus-visible:bg-transparent",
+    "outline outline-1 outline-border -outline-offset-1 bg-background text-secondary-foreground hover:outline-primary/25 active:outline-primary/50 active:bg-background active:shadow-lg focus-outline focus:outline-primary/50 focus:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 focus-visible:outline-primary/50 focus-visible:bg-transparent",
 };
 
 const statusMap: Record<VariantType, Record<StatusType, string>> = {
@@ -39,11 +39,11 @@ const statusMap: Record<VariantType, Record<StatusType, string>> = {
   outline: {
     default: "",
     success:
-      "border-success-border hover:border-success-border active:border-success-border focus:border-success-border disabled:border-transparent",
+      "outline-success-border hover:outline-success-border active:outline-success-border focus:outline-success-border disabled:border-transparent",
     warning:
-      "border-warning-border hover:border-warning-border active:border-warning-border focus:border-warning-border disabled:border-transparent",
+      "outline-warning-border hover:outline-warning-border active:outline-warning-border focus:outline-warning-border disabled:border-transparent",
     error:
-      "border-error-border hover:border-error-border active:border-error-border focus:border-error-border disabled:border-transparent",
+      "outline-error-border hover:outline-error-border active:outline-error-border focus:outline-error-border disabled:border-transparent",
   },
 };
 
@@ -131,7 +131,7 @@ function Input({
         type={type}
         data-variant={variant}
         className={cn(
-          "flex-1 bg-transparent focus:outline-none p-0 w-full",
+          "flex-1 bg-transparent  p-0 w-full",
           baseStyles,
           variantBaseMap[variant],
           statusClasses,

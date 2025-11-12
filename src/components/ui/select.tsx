@@ -36,24 +36,24 @@ const variantClassMap = {
   default:
     "data-[disabled]:bg-primary/3 data-[disabled]:text-primary/20 disabled:cursor-not-allowed disabled:bg-primary/3 disabled:pointer-events-none disabled:cursor-not-allowed bg-secondary text-secondary-foreground hover:bg-accent hover:text-secondary-foreground active:bg-primary/12 active:text-accent-foreground focus:text-accent-foreground",
   outline:
-    "data-[disabled]:bg-primary/3 data-[disabled]:text-primary/20 disabled:cursor-not-allowed disabled:bg-primary/3 disabled:pointer-events-none disabled:cursor-not-allowed border bg-background text-secondary-foreground hover:border-primary/25 active:border-primary/50 active:bg-background active:text-accent-foreground focus:border-background focus:text-accent-foreground",
+    "data-[disabled]:bg-primary/3 data-[disabled]:text-primary/20 disabled:cursor-not-allowed disabled:bg-primary/3 disabled:pointer-events-none disabled:cursor-not-allowed outline outline-1 outline-border -outline-offset-1 bg-background text-secondary-foreground hover:outline-primary/25 active:outline-primary/50 active:bg-background active:text-accent-foreground focus:outline-background focus:text-accent-foreground",
   ghost:
     "data-[disabled]:bg-primary/3 data-[disabled]:text-primary/20 disabled:cursor-not-allowed disabled:bg-primary/3 disabled:pointer-events-none disabled:cursor-not-allowed bg-transparent text-secondary-foreground hover:bg-accent active:bg-primary/12 active:text-accent-foreground focus:bg-primary/15 focus:text-accent-foreground focus-visible:bg-primary/3",
 };
 
 const statusOutlineMap = {
   success:
-    "data-[status=success]:border-success-border hover:data-[status=success]:border-success-border active:data-[status=success]:border-success-border focus:data-[status=success]:border-none ",
+    "data-[status=success]:outline-success-border hover:data-[status=success]:outline-success-border active:data-[status=success]:outline-success-border focus:data-[status=success]:outline-transparent ",
   warning:
-    "data-[status=warning]:border-warning-border hover:data-[status=warning]:border-warning-border active:data-[status=warning]:border-warning-border focus:data-[status=warning]:border-none ",
+    "data-[status=warning]:outline-warning-border hover:data-[status=warning]:outline-warning-border active:data-[status=warning]:outline-warning-border focus:data-[status=warning]:outline-transparent ",
   error:
-    "data-[status=error]:border-error-border hover:data-[status=error]:border-error-border active:data-[status=error]:border-error-border focus:data-[status=error]:border-none ",
+    "data-[status=error]:outline-error-border hover:data-[status=error]:outline-error-border active:data-[status=error]:outline-error-border focus:data-[status=error]:outline-transparent ",
 };
 
 const sizeClassMap = {
-  sm: "h-7 px-2 py-1.5 text-base tracking-4 font-normal rounded-lg",
-  md: "h-8 px-2.5 py-2 text-base tracking-4 font-normal rounded-lg",
-  lg: "h-10 px-3 py-[11px] text-lg tracking-4 font-normal rounded-xl",
+  sm: " px-2 py-1.5 text-base tracking-4 font-normal rounded-lg leading-tight",
+  md: "px-2.5 py-2 text-base tracking-4 font-normal rounded-lg leading-tight",
+  lg: "px-3 py-[11px] text-lg tracking-4 font-normal rounded-xl leading-tight",
 };
 
 function SelectTrigger({
@@ -75,7 +75,7 @@ function SelectTrigger({
       data-size={size}
       data-status={status}
       className={cn(
-        "flex w-fit items-center justify-between gap-2 px-3 py-2 text-base whitespace-nowrap transition-[color,box-shadow] outline-none focus:ring-2 focus:ring-ring focus:ring-offset-0  focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 aria-invalid:ring-destructive/20 aria-invalid:border-destructive data-[size=default]:h-9 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 data-[placeholder]:text-primary/50",
+        "flex w-fit items-center justify-between gap-2 px-3 py-2  text-base whitespace-nowrap transition-[color,box-shadow]  focus:ring-2 focus:ring-ring focus:ring-offset-0  focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 aria-invalid:ring-destructive/20 aria-invalid:border-destructive data-[size=default]:h-9 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 data-[placeholder]:text-primary/50",
         variantClassMap[variant],
         sizeClassMap[size],
         variant === "outline" && status ? statusOutlineMap[status] : null,
