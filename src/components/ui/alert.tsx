@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const alertVariants = cva(
-  "relative w-full rounded-lg justify-between flex max-w-[384px] has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-2.5 gap-y-0.5 [&>svg]:size-4 [&>svg]:text-current",
+  "relative w-full  justify-between flex max-w-[384px] has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-2.5 gap-y-0.5 [&>svg]:size-4 [&>svg]:text-current",
   {
     variants: {
       variant: {
@@ -42,12 +42,14 @@ function Alert({
         alertVariants({ variant }),
         action &&
           longText &&
-          "px-3 pt-3 pb-4 items-start [&>svg]:mt-0.75 [&>svg]:mb-0.75",
-        action && !longText && "pl-[14px] py-1.5 pr-1.5 items-center",
+          "px-3 pt-3 pb-4 items-start [&>svg]:mt-0.75 [&>svg]:mb-0.75 rounded-2xl",
+        action &&
+          !longText &&
+          "pl-[14px] py-1.5 pr-1.5 items-center rounded-xl",
         !action &&
           longText &&
-          "px-4 py-3.5 items-start [&>svg]:mt-0.75 [&>svg]:mb-0.75",
-        !action && !longText && "py-[9.5px] px-3.5 items-center",
+          "px-4 py-3.5 items-start [&>svg]:mt-0.75 [&>svg]:mb-0.75 rounded-2xl",
+        !action && !longText && "py-[9.5px] px-3.5 items-center rounded-xl",
         className
       )}
       {...props}
