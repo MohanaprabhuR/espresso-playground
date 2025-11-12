@@ -27,15 +27,17 @@ const AlertDemo = () => {
               <ExclamationIcon />
               <AlertTitle>Your trial ends soon!</AlertTitle>
             </Alert>
-            <Alert>
+            <Alert action>
               <AlertTitle>Your trial ends soon!</AlertTitle>
-              <CloseIcon />
+              <Button variant="ghost" iconOnly>
+                <CloseIcon className="size-4" />
+              </Button>
             </Alert>
-            <Alert>
+            <Alert action>
               <ExclamationIcon />
               <AlertTitle>Your trial ends soon!</AlertTitle>
-              <Button iconOnly variant="ghost">
-                <CloseIcon />
+              <Button variant="ghost" iconOnly>
+                <CloseIcon className="size-4" />
               </Button>
             </Alert>
             <Alert action>

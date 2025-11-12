@@ -44,6 +44,8 @@ import {
   ChevronDown,
   CornerDownLeft,
   Diamond,
+  PanelLeftIcon,
+  XIcon,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -61,6 +63,7 @@ import {
   SidebarMenuItem,
   SidebarRail,
   SidebarSeparator,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import {
   DropdownMenuTrigger,
@@ -73,7 +76,6 @@ import {
   DialogContent,
   DialogFooter,
   DialogHeader,
-  DialogTitle,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "./ui/label";
@@ -167,6 +169,7 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const [searchModalOpen, setSearchModalOpen] = React.useState(false);
+  const { openMobile, setOpenMobile, isMobile } = useSidebar();
 
   return (
     <>
@@ -298,6 +301,18 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+
+      {isMobile && (
+        <div className="fixed top-2 left-2 z-[100] md:hidden">
+          <Button variant="ghost" onClick={() => setOpenMobile(!openMobile)}>
+            {openMobile ? (
+              <XIcon className="size-4" />
+            ) : (
+              <PanelLeftIcon className="size-4" />
+            )}
+          </Button>
+        </div>
+      )}
 
       <Sidebar collapsible="icon" {...props}>
         <SidebarHeader>

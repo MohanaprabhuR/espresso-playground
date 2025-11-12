@@ -269,7 +269,7 @@ const ButtonGroupDemo = () => {
               <Button variant="secondary">Button</Button>
               <Button variant="secondary">Button</Button>
             </ButtonGroup>
-            <ButtonGroup>
+            <ButtonGroup variant="outline">
               <Button variant="outline">Button</Button>
               <Button variant="outline">Button</Button>
               <Button variant="outline">Button</Button>
@@ -321,7 +321,7 @@ const ButtonGroupDemo = () => {
                 Button
               </Button>
             </ButtonGroup>
-            <ButtonGroup>
+            <ButtonGroup variant="outline">
               <Button size="md" variant="outline">
                 Button
               </Button>
@@ -401,7 +401,7 @@ const ButtonGroupDemo = () => {
                 Button
               </Button>
             </ButtonGroup>
-            <ButtonGroup>
+            <ButtonGroup variant="outline">
               <Button size="lg" variant="outline">
                 Button
               </Button>
@@ -490,6 +490,7 @@ const ButtonGroupDemo = () => {
               </Button>
             </ButtonGroup>
             <ButtonGroup
+              variant="outline"
               wrapLayout={true}
               className="max-w-[400px] justify-center"
               destructive
@@ -649,7 +650,11 @@ const ButtonGroupDemo = () => {
                   <MinusIcon className="size-4" />
                 </Button>
               </ButtonGroup>
-              <ButtonGroup aria-label="Media controls" className="h-fit">
+              <ButtonGroup
+                variant="outline"
+                aria-label="Media controls"
+                className="h-fit"
+              >
                 <Button variant="outline" size="md">
                   <PlusIcon className="size-4" />
                 </Button>
@@ -658,6 +663,7 @@ const ButtonGroupDemo = () => {
                 </Button>
               </ButtonGroup>
               <ButtonGroup
+                variant="outline"
                 aria-label="Media controls"
                 className="h-fit"
                 orientation="vertical"
@@ -694,7 +700,7 @@ const ButtonGroupDemo = () => {
                     <PlusIcon className="size-4" />
                   </Button>
                 </ButtonGroup>
-                <ButtonGroup>
+                <ButtonGroup variant="outline">
                   <Button variant="outline" size="lg">
                     Large
                   </Button>
@@ -809,7 +815,7 @@ const ButtonGroupDemo = () => {
             </div>
             <div className="flex justify-between">
               <ButtonGroup destructive>
-                <ButtonGroup>
+                <ButtonGroup variant="outline">
                   <Button variant="outline" size="sm">
                     1
                   </Button>
@@ -826,7 +832,7 @@ const ButtonGroupDemo = () => {
                     5
                   </Button>
                 </ButtonGroup>
-                <ButtonGroup>
+                <ButtonGroup variant="outline">
                   <Button variant="outline" aria-label="Previous">
                     <ArrowLeftIcon className="size-4" />
                   </Button>
@@ -879,7 +885,7 @@ const ButtonGroupDemo = () => {
                 <PlusIcon className="size-4" />
               </Button>
             </ButtonGroup>
-            <ButtonGroup>
+            <ButtonGroup variant="outline">
               <Input
                 placeholder="Search..."
                 className="rounded-r-none"
@@ -889,7 +895,7 @@ const ButtonGroupDemo = () => {
                 <SearchIcon className="size-4" />
               </Button>
             </ButtonGroup>
-            <ButtonGroup>
+            <ButtonGroup variant="outline">
               <Button variant="outline">Follow</Button>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
