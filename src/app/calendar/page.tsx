@@ -588,11 +588,7 @@ const CalendarDemo = () => {
           <div>
             <Popover>
               <PopoverTrigger asChild>
-                <Button
-                  id={id}
-                  variant="outline"
-                  className="group w-full justify-between border-input bg-background px-3 font-normal outline-offset-0 outline-none hover:bg-background focus-visible:outline-[3px]"
-                >
+                <Button id={id} variant="outline">
                   <span
                     className={cn("truncate", !date && "text-muted-foreground")}
                   >
@@ -628,11 +624,7 @@ const CalendarDemo = () => {
             <Label htmlFor={id}>Date picker</Label>
             <Popover>
               <PopoverTrigger asChild>
-                <Button
-                  id={id}
-                  variant={"outline"}
-                  className="group w-full justify-between border-input bg-background px-3 font-normal outline-offset-0 outline-none hover:bg-background focus-visible:outline-[3px]"
-                >
+                <Button id={id} variant={"outline"}>
                   <span
                     className={cn("truncate", !date && "text-muted-foreground")}
                   >

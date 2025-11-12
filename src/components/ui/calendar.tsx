@@ -163,13 +163,23 @@ function Calendar({
         DayButton: CalendarDayButton,
         Months: ({ children, ...props }) => {
           const months = React.Children.toArray(children);
+
           return (
             <div className="flex flex-col md:flex-row gap-6 w-full" {...props}>
               {months.map((month, i) => (
                 <React.Fragment key={i}>
-                  {i > 1 && (
+                  {i > 1 && months.length > 1 && (
                     <>
-                      <Divider slot={false} orientation="vertical" />
+                      <Divider
+                        slot={false}
+                        orientation="vertical"
+                        className="hidden md:block"
+                      />
+                      <Divider
+                        slot={false}
+                        orientation="horizontal"
+                        className="block md:hidden"
+                      />
                     </>
                   )}
                   {month}
