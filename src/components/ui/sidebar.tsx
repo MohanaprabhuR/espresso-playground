@@ -346,7 +346,7 @@ function SidebarHeader({
       data-slot="sidebar-header"
       data-sidebar="header"
       className={cn(
-        "flex gap-2 items-center px-1 py-2 text-foreground truncate font-medium text-base tracking-4 leading-tight",
+        "flex gap-2 items-center px-1 pb-2 pt-1 text-foreground truncate font-medium text-base tracking-4 leading-tight",
         className
       )}
       {...props}

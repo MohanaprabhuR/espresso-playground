@@ -9,7 +9,14 @@ import {
 } from "@/components/ui/notification";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ButtonGroup } from "@/components/ui/button-group";
-import { X } from "lucide-react";
+import { X, XIcon } from "lucide-react";
+import {
+  Alert,
+  AlertContent,
+  AlertDescription,
+  AlertTitle,
+} from "@/components/ui/alert";
+import { ExclamationIcon } from "../../../public/images/svg/exclamationIcon";
 
 const SonnerDemo = () => {
   const handleShowToast = () => {
@@ -74,16 +81,30 @@ const SonnerDemo = () => {
       <div className="flex flex-col justify-center items-center gap-[30px_0] mx-auto">
         <Button
           variant="outline"
-          onClick={() =>
-            toast("Event has been created", {
-              description: "Sunday, December 03, 2023 at 9:00 AM",
-              duration: 1000,
-              action: {
-                label: "Undo",
-                onClick: () => console.log("Undo"),
-              },
-            })
-          }
+          onClick={() => {
+            toast.custom(
+              () => (
+                <Alert longText action>
+                  <ExclamationIcon />
+                  <AlertContent>
+                    <AlertTitle>Your trial ends soon!</AlertTitle>
+                    <AlertDescription>
+                      Upgrade now to continue enjoying all features without
+                      interruption.
+                    </AlertDescription>
+                    <ButtonGroup destructive className="pt-3.5">
+                      <Button>Update</Button>
+                      <Button>View plans</Button>
+                    </ButtonGroup>
+                  </AlertContent>
+                  <XIcon className="size-4" />
+                </Alert>
+              ),
+              {
+                position: "top-center",
+              }
+            );
+          }}
         >
           Show Toast
         </Button>

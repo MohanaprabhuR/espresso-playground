@@ -121,6 +121,7 @@ function TabsList({
 
     const listRect = listRef.current.getBoundingClientRect();
     const activeRect = activeElement.getBoundingClientRect();
+
     const borderOffset = variant === "outline" ? 1 : 0;
 
     if (orientation === "horizontal") {

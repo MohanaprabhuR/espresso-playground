@@ -80,7 +80,7 @@ const modalDemo = () => {
                 </div>
                 <div className="flex flex-col space-y-3">
                   <h3 className="text-sm font-medium text-gray-700">Title</h3>
-                  <Tabs defaultValue="tab1" size="sm">
+                  <Tabs defaultValue="tab1">
                     <TabsList className="gap-x-1.5">
                       <TabsTrigger
                         value="tab1"
