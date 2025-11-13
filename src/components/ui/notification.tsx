@@ -27,9 +27,9 @@ function Notification({
         longText &&
           "py-3 px-3.5  items-start [&>svg]:mt-0.75 [&>svg]:mb-0.75 [&>img]:mt-0.75 [&>img]:mb-0.75 rounded-2xl",
         !action && !longText && "py-[9.5px] px-3 flex-row items-center",
-        notificationPanel && "items-start p-3 rounded-2xl",
+        notificationPanel && "items-start p-3 rounded-2xl gap-y-3",
         modal &&
-          "flex-col items-center justify-center text-center py-4 px-3 gap-y-4.5 rounded-2xl",
+          "flex-col items-center justify-center text-center py-4 px-3  gap-y-4.5 rounded-2xl",
         className
       )}
       {...props}
