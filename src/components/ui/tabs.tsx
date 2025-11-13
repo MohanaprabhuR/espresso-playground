@@ -214,11 +214,11 @@ function TabsList({
             variant === "ghost" && "bg-background dark:bg-accent shadow-sm",
             variant === "browser" &&
               cn(
-                "bg-background border",
+                "bg-background border ",
                 orientation === "horizontal"
                   ? size === "md"
-                    ? "rounded-none rounded-t-[9px]"
-                    : "rounded-none rounded-t-[7px]"
+                    ? "rounded-none rounded-t-[9px] border-b-transparent"
+                    : "rounded-none rounded-t-[7px] border-b-transparent"
                   : size === "md"
                     ? "rounded-none rounded-l-[9px]"
                     : "rounded-none rounded-l-[7px]"
@@ -273,10 +273,10 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
     ghost:
       "data-[state=active]:text-card-foreground transition-colors  relative z-10",
     browser: cn(
-      "relative border border-transparent data-[state=active]:text-card-foreground transition-colors z-10 after:transition-all after:duration-300 after:ease-out",
+      "relative  data-[state=active]:text-card-foreground transition-colors z-10 after:transition-all after:duration-300 after:ease-out",
       orientation === "horizontal"
-        ? " data-[state=active]:border-b-transparent after:absolute after:left-0 after:right-0 after:-bottom-px after:h-px data-[state=active]:after:bg-background"
-        : " data-[state=active]:border-r-transparent after:absolute after:top-0 after:bottom-0 after:-right-px after:w-px data-[state=active]:after:bg-background"
+        ? " data-[state=active]:border-b-transparent after:absolute after:left-0 after:right-0 after:bottom-0 after:h-px data-[state=active]:after:bg-background"
+        : " data-[state=active]:border-r-transparent after:absolute after:top-0 after:bottom-0 after:right-0 after:w-px data-[state=active]:after:bg-background"
     ),
   };
 
