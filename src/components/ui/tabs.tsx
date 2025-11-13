@@ -122,27 +122,26 @@ function TabsList({
     const listRect = listRef.current.getBoundingClientRect();
     const activeRect = activeElement.getBoundingClientRect();
 
+    const exactHeight = activeElement.clientHeight;
+    const exactWidth = activeRect.width;
+
     const borderOffset = variant === "outline" ? 1 : 0;
 
     if (orientation === "horizontal") {
       setIndicatorStyle({
         left: `${activeRect.left - listRect.left - borderOffset}px`,
-        width:
-          variant === "underline"
-            ? `${activeRect.width}px`
-            : `${activeRect.width}px`,
-        height: variant === "underline" ? "1px" : `${activeRect.height}px`,
+        width: `${exactWidth}px`,
+        height: variant === "underline" ? "1px" : `${exactHeight}px`,
       });
     } else {
       setIndicatorStyle({
         top: `${activeRect.top - listRect.top - borderOffset}px`,
-        width: variant === "underline" ? "1px" : `${activeRect.width}px`,
-        height:
-          variant === "underline"
-            ? `${activeRect.height}px`
-            : `${activeRect.height}px`,
+        width: variant === "underline" ? "1px" : `${exactWidth}px`,
+        height: `${exactHeight}px`,
       });
     }
+
+    console.log("Exact height:", exactHeight, "Width:", exactWidth);
   }, [activeTab, orientation, variant]);
 
   const baseOrientation =
