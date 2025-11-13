@@ -75,7 +75,7 @@ const KbdDemo = () => {
               Cancel <Kbd>Esc</Kbd>
             </Button>
             <div className="flex flex-wrap items-center gap-4">
-              <ButtonGroup>
+              <ButtonGroup variant="outline">
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Button size="sm" variant="outline">
@@ -96,7 +96,7 @@ const KbdDemo = () => {
                   </TooltipTrigger>
                   <TooltipContent>
                     <div className="flex items-center gap-2">
-                      Print Document{" "}
+                      Print Document
                       <KbdGroup>
                         <Kbd>Ctrl</Kbd>
                         <Kbd>P</Kbd>
