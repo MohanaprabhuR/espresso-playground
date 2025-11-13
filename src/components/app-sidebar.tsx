@@ -45,7 +45,6 @@ import {
   CornerDownLeft,
   Diamond,
   PanelLeftIcon,
-  XIcon,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -303,13 +302,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </Dialog>
 
       {isMobile && (
-        <div className="fixed top-2 left-2 z-[100] md:hidden">
-          <Button variant="ghost" onClick={() => setOpenMobile(!openMobile)}>
-            {openMobile ? (
-              <XIcon className="size-4" />
-            ) : (
-              <PanelLeftIcon className="size-4" />
-            )}
+        <div className="fixed top-4 left-4 z-50 md:hidden">
+          <Button variant="ghost" onClick={() => setOpenMobile(true)}>
+            <PanelLeftIcon className="size-4" />
           </Button>
         </div>
       )}

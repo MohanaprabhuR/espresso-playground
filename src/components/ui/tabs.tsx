@@ -101,7 +101,7 @@ function TabsList({
   const context = React.useContext(TabsContext);
   if (!context) throw new Error("TabsList must be used within Tabs");
 
-  const { variant, orientation, activeTab } = context;
+  const { variant, orientation, activeTab, size } = context;
   const listRef = React.useRef<HTMLDivElement>(null);
 
   const [indicatorStyle, setIndicatorStyle] =
@@ -149,11 +149,11 @@ function TabsList({
 
   const variantClasses: Record<TabVariant, string> = {
     subtle: cn(
-      "bg-secondary text-muted-foreground rounded-lg p-px gap-1 flex overflow-hidden",
+      "bg-secondary text-muted-foreground  p-px gap-1 flex overflow-hidden",
       baseOrientation
     ),
     outline: cn(
-      "rounded-lg bg-background border  border-accent text-muted-foreground p-px gap-1 flex overflow-hidden",
+      " bg-background border  border-accent text-muted-foreground p-px gap-1 flex overflow-hidden",
       baseOrientation
     ),
     underline: cn(
@@ -161,7 +161,7 @@ function TabsList({
       orientation === "vertical" && "flex-col border-b-0 border-r"
     ),
     ghost: cn(
-      "bg-background text-muted-foreground rounded-lg p-px gap-1 flex ",
+      "bg-background text-muted-foreground  p-px gap-1 flex ",
       baseOrientation
     ),
     browser: cn(
@@ -181,11 +181,23 @@ function TabsList({
     "underline",
   ].includes(variant);
 
+  const radiusClasses =
+    variant === "subtle" || variant === "outline"
+      ? size === "md"
+        ? "rounded-xl"
+        : "rounded-lg"
+      : "";
+
   return (
     <TabsPrimitive.List
       ref={listRef}
       data-slot="tabs-list"
-      className={cn(variantClasses[variant], "w-fit relative", className)}
+      className={cn(
+        variantClasses[variant],
+        "w-fit relative",
+        radiusClasses,
+        className
+      )}
       style={{}}
       {...props}
     >
@@ -193,18 +205,23 @@ function TabsList({
         <div
           className={cn(
             "absolute pointer-events-none transition-all duration-300 ease-out z-0",
+            size === "md" ? "rounded-[9px]" : "rounded-[7px]",
+
             variant === "subtle" &&
-              "bg-background text-card-foreground rounded-[7px]  dark:bg-accent  shadow-sm",
+              "bg-background text-card-foreground dark:bg-accent shadow-sm",
             variant === "outline" &&
-              "bg-background dark:bg-accent rounded-[7px] text-card-foreground  shadow-sm",
-            variant === "ghost" &&
-              "bg-background dark:bg-accent rounded-[7px]  shadow-sm",
+              "bg-background dark:bg-accent  text-card-foreground shadow-sm",
+            variant === "ghost" && "bg-background dark:bg-accent shadow-sm",
             variant === "browser" &&
               cn(
                 "bg-background border",
                 orientation === "horizontal"
-                  ? "rounded-t-[7px] "
-                  : "rounded-l-[7px] "
+                  ? size === "md"
+                    ? "rounded-none rounded-t-[9px]"
+                    : "rounded-none rounded-t-[7px]"
+                  : size === "md"
+                    ? "rounded-none rounded-l-[9px]"
+                    : "rounded-none rounded-l-[7px]"
               ),
             variant === "underline" &&
               cn(
@@ -247,14 +264,14 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
 
   const variantClasses: Record<TabVariant, string> = {
     subtle:
-      "rounded-lg data-[state=active]:text-card-foreground transition-colors relative z-10",
+      " data-[state=active]:text-card-foreground transition-colors relative z-10",
     outline:
-      "rounded-lg data-[state=active]:text-card-foreground transition-colors relative z-10",
+      " data-[state=active]:text-card-foreground transition-colors relative z-10",
     underline: cn(
       "data-[state=active]:text-foreground transition-colors relative z-10"
     ),
     ghost:
-      "data-[state=active]:text-card-foreground transition-colors rounded-lg relative z-10",
+      "data-[state=active]:text-card-foreground transition-colors  relative z-10",
     browser: cn(
       "relative border border-transparent data-[state=active]:text-card-foreground transition-colors z-10 after:transition-all after:duration-300 after:ease-out",
       orientation === "horizontal"

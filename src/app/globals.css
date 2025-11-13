@@ -832,4 +832,8 @@
   body {
     @apply bg-background text-foreground  font-sans;
   }
+
+  svg {
+    stroke-width: 1.5;
+  }
 }
