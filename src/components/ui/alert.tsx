@@ -107,4 +107,19 @@ function AlertContent({
   );
 }
 
-export { Alert, AlertTitle, AlertDescription, AlertContent };
+function AlertWrapper({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<"div"> & { children?: React.ReactNode }) {
+  return (
+    <div
+      data-slot="alert-wrapper"
+      className={cn("flex flex-col gap-y-3.5", className)}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+}
+export { Alert, AlertTitle, AlertDescription, AlertContent, AlertWrapper };

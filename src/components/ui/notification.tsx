@@ -103,10 +103,27 @@ function NotificationContent({
   );
 }
 
+function NotificationWrapper({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<"div"> & { children?: React.ReactNode }) {
+  return (
+    <div
+      data-slot="notification-wrapper"
+      className={cn("flex flex-col gap-y-3", className)}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+}
+
 export {
   Notification,
   NotificationTitle,
   NotificationDescription,
   NotificationContent,
   NotificationTimeStamp,
+  NotificationWrapper,
 };

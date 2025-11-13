@@ -10,6 +10,7 @@ import {
   NotificationDescription,
   NotificationTimeStamp,
   NotificationTitle,
+  NotificationWrapper,
 } from "@/components/ui/notification";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
@@ -126,61 +127,69 @@ const AlertDemo = () => {
             </Button>
           </Notification>
           <Notification longText>
-            <NotificationContent>
-              <NotificationTitle>System Update Available</NotificationTitle>
-              <NotificationDescription>
-                A new update is available for the app. Update now to enjoy new
-                features and improvements.
-              </NotificationDescription>
-              <ButtonGroup destructive className="pt-3.5">
+            <NotificationWrapper>
+              <NotificationContent>
+                <NotificationTitle>System Update Available</NotificationTitle>
+                <NotificationDescription>
+                  A new update is available for the app. Update now to enjoy new
+                  features and improvements.
+                </NotificationDescription>
+              </NotificationContent>
+              <ButtonGroup destructive>
                 <Button variant="secondary">Update Now</Button>
                 <Button variant="outline">Later</Button>
               </ButtonGroup>
-            </NotificationContent>
+            </NotificationWrapper>
           </Notification>
           <Notification longText>
-            <NotificationContent>
-              <NotificationTitle>System Update Available</NotificationTitle>
-              <NotificationDescription>
-                A new update is available for the app. Update now to enjoy new
-                features and improvements.
-              </NotificationDescription>
-              <ButtonGroup destructive className="pt-3.5">
+            <NotificationWrapper>
+              <NotificationContent>
+                <NotificationTitle>System Update Available</NotificationTitle>
+                <NotificationDescription>
+                  A new update is available for the app. Update now to enjoy new
+                  features and improvements.
+                </NotificationDescription>
+              </NotificationContent>
+              <ButtonGroup destructive>
                 <Button variant="secondary">Update Now</Button>
                 <Button variant="outline">Later</Button>
               </ButtonGroup>
-            </NotificationContent>
+            </NotificationWrapper>
             <Button variant="ghost">
               <CloseIcon />
             </Button>
           </Notification>
           <Notification longText>
             <ExclamationIcon />
-            <NotificationContent>
-              <NotificationTitle>System Update Available</NotificationTitle>
-              <NotificationDescription>
-                A new update is available for the app. Update now to enjoy new
-                features and improvements.
-              </NotificationDescription>
-              <ButtonGroup destructive className="pt-3.5">
+            <NotificationWrapper>
+              <NotificationContent>
+                <NotificationTitle>System Update Available</NotificationTitle>
+                <NotificationDescription>
+                  A new update is available for the app. Update now to enjoy new
+                  features and improvements.
+                </NotificationDescription>
+              </NotificationContent>
+              <ButtonGroup destructive>
                 <Button variant="secondary">Update Now</Button>
                 <Button variant="outline">Later</Button>
               </ButtonGroup>
-            </NotificationContent>
+            </NotificationWrapper>
           </Notification>
           <Notification longText>
             <ExclamationIcon />
-            <NotificationContent>
-              <NotificationTitle>System Update Available</NotificationTitle>
-              <NotificationDescription>
-                A new update is available for the app. Update now to enjoy new
-                features and improvements.
-              </NotificationDescription>
-              <ButtonGroup destructive className="pt-3.5">
+            <NotificationWrapper>
+              <NotificationContent>
+                <NotificationTitle>System Update Available</NotificationTitle>
+                <NotificationDescription>
+                  A new update is available for the app. Update now to enjoy new
+                  features and improvements.
+                </NotificationDescription>
+              </NotificationContent>
+              <ButtonGroup destructive>
                 <Button variant="secondary">Update Now</Button>
                 <Button variant="outline">Later</Button>
               </ButtonGroup>
-            </NotificationContent>
+            </NotificationWrapper>
             <Button variant="ghost">
               <CloseIcon />
             </Button>
@@ -203,17 +212,19 @@ const AlertDemo = () => {
               <AvatarImage src="https://mockmind-api.uifaces.co/content/human/80.jpg" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
-            <NotificationContent>
-              <NotificationTitle>Jane Johnson</NotificationTitle>
-              <NotificationDescription>
-                Your task is due tomorrow
-              </NotificationDescription>
-              <NotificationTimeStamp>28 min ago</NotificationTimeStamp>
-              <ButtonGroup destructive className="pt-3.5">
+            <NotificationWrapper>
+              <NotificationContent>
+                <NotificationTitle>Jane Johnson</NotificationTitle>
+                <NotificationDescription>
+                  Your task is due tomorrow
+                </NotificationDescription>
+                <NotificationTimeStamp>28 min ago</NotificationTimeStamp>
+              </NotificationContent>
+              <ButtonGroup destructive>
                 <Button variant="secondary">Join</Button>
                 <Button variant="outline">Decline</Button>
               </ButtonGroup>
-            </NotificationContent>
+            </NotificationWrapper>
           </Notification>
           <Notification notificationPanel>
             <Avatar size="lg">
@@ -236,17 +247,20 @@ const AlertDemo = () => {
               <AvatarImage src="https://mockmind-api.uifaces.co/content/human/80.jpg" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
-            <NotificationContent>
-              <NotificationTitle>Jane Johnson</NotificationTitle>
-              <NotificationDescription>
-                Your task is due tomorrow
-              </NotificationDescription>
-              <NotificationTimeStamp>28 min ago</NotificationTimeStamp>
-              <ButtonGroup destructive className="pt-3.5">
+            <NotificationWrapper>
+              <NotificationContent>
+                <NotificationTitle>Jane Johnson</NotificationTitle>
+                <NotificationDescription>
+                  Your task is due tomorrow
+                </NotificationDescription>
+                <NotificationTimeStamp>28 min ago</NotificationTimeStamp>
+              </NotificationContent>
+
+              <ButtonGroup destructive>
                 <Button variant="secondary">Join</Button>
                 <Button variant="outline">Decline</Button>
               </ButtonGroup>
-            </NotificationContent>
+            </NotificationWrapper>
             <Button variant="ghost">
               <CloseIcon />
             </Button>
@@ -259,11 +273,7 @@ const AlertDemo = () => {
                 features and improvements.
               </NotificationDescription>
             </NotificationContent>
-            <ButtonGroup
-              destructive
-              orientation="vertical"
-              className="flex flex-col gap-1 w-full"
-            >
+            <ButtonGroup destructive orientation="vertical" className="w-full">
               <Button variant="secondary" className="w-full">
                 Update now
               </Button>

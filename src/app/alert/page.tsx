@@ -8,6 +8,7 @@ import {
   AlertContent,
   AlertDescription,
   AlertTitle,
+  AlertWrapper,
 } from "@/components/ui/alert";
 import { ButtonGroup } from "@/components/ui/button-group";
 
@@ -115,62 +116,70 @@ const AlertDemo = () => {
             </Alert>
 
             <Alert longText action>
-              <AlertContent>
-                <AlertTitle>Your trial ends soon!</AlertTitle>
-                <AlertDescription>
-                  Upgrade now to continue enjoying all features without
-                  interruption.
-                </AlertDescription>
-                <ButtonGroup destructive className="pt-3.5">
+              <AlertWrapper>
+                <AlertContent>
+                  <AlertTitle>Your trial ends soon!</AlertTitle>
+                  <AlertDescription>
+                    Upgrade now to continue enjoying all features without
+                    interruption.
+                  </AlertDescription>
+                </AlertContent>
+                <ButtonGroup destructive>
                   <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
-              </AlertContent>
+              </AlertWrapper>
             </Alert>
             <Alert longText action>
-              <AlertContent>
-                <AlertTitle>Your trial ends soon!</AlertTitle>
-                <AlertDescription>
-                  Upgrade now to continue enjoying all features without
-                  interruption.
-                </AlertDescription>
-                <ButtonGroup destructive className="pt-3.5">
+              <AlertWrapper>
+                <AlertContent>
+                  <AlertTitle>Your trial ends soon!</AlertTitle>
+                  <AlertDescription>
+                    Upgrade now to continue enjoying all features without
+                    interruption.
+                  </AlertDescription>
+                </AlertContent>
+                <ButtonGroup destructive>
                   <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
-              </AlertContent>
+              </AlertWrapper>
 
               <Button iconOnly variant="ghost">
                 <CloseIcon />
               </Button>
-            </Alert>
-            <Alert longText action>
-              <ExclamationIcon />
-              <AlertContent>
-                <AlertTitle>Your trial ends soon!</AlertTitle>
-                <AlertDescription>
-                  Upgrade now to continue enjoying all features without
-                  interruption.
-                </AlertDescription>
-                <ButtonGroup destructive className="pt-3.5">
-                  <Button variant="outline">Update now</Button>
-                  <Button variant="ghost">View plans</Button>
-                </ButtonGroup>
-              </AlertContent>
             </Alert>
             <Alert longText action>
               <ExclamationIcon />
-              <AlertContent>
-                <AlertTitle>Your trial ends soon!</AlertTitle>
-                <AlertDescription>
-                  Upgrade now to continue enjoying all features without
-                  interruption.
-                </AlertDescription>
-                <ButtonGroup destructive className="pt-3.5">
+              <AlertWrapper>
+                <AlertContent>
+                  <AlertTitle>Your trial ends soon!</AlertTitle>
+                  <AlertDescription>
+                    Upgrade now to continue enjoying all features without
+                    interruption.
+                  </AlertDescription>
+                </AlertContent>
+                <ButtonGroup destructive>
                   <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
-              </AlertContent>
+              </AlertWrapper>
+            </Alert>
+            <Alert longText action>
+              <ExclamationIcon />
+              <AlertWrapper>
+                <AlertContent>
+                  <AlertTitle>Your trial ends soon!</AlertTitle>
+                  <AlertDescription>
+                    Upgrade now to continue enjoying all features without
+                    interruption.
+                  </AlertDescription>
+                </AlertContent>
+                <ButtonGroup destructive>
+                  <Button variant="outline">Update now</Button>
+                  <Button variant="ghost">View plans</Button>
+                </ButtonGroup>
+              </AlertWrapper>
 
               <Button iconOnly variant="ghost">
                 <CloseIcon />
@@ -274,30 +283,34 @@ const AlertDemo = () => {
             </Alert>
 
             <Alert longText action variant="information">
-              <AlertContent>
-                <AlertTitle>Your trial ends soon!</AlertTitle>
-                <AlertDescription>
-                  Upgrade now to continue enjoying all features without
-                  interruption.
-                </AlertDescription>
-                <ButtonGroup destructive className="pt-3.5">
+              <AlertWrapper>
+                <AlertContent>
+                  <AlertTitle>Your trial ends soon!</AlertTitle>
+                  <AlertDescription>
+                    Upgrade now to continue enjoying all features without
+                    interruption.
+                  </AlertDescription>
+                </AlertContent>
+                <ButtonGroup destructive>
                   <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
-              </AlertContent>
+              </AlertWrapper>
             </Alert>
             <Alert longText action variant="information">
-              <AlertContent>
-                <AlertTitle>Your trial ends soon!</AlertTitle>
-                <AlertDescription>
-                  Upgrade now to continue enjoying all features without
-                  interruption.
-                </AlertDescription>
-                <ButtonGroup destructive className="pt-3.5">
+              <AlertWrapper>
+                <AlertContent>
+                  <AlertTitle>Your trial ends soon!</AlertTitle>
+                  <AlertDescription>
+                    Upgrade now to continue enjoying all features without
+                    interruption.
+                  </AlertDescription>
+                </AlertContent>
+                <ButtonGroup destructive>
                   <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
-              </AlertContent>
+              </AlertWrapper>
 
               <Button iconOnly variant="ghost">
                 <CloseIcon />
@@ -305,31 +318,35 @@ const AlertDemo = () => {
             </Alert>
             <Alert longText action variant="information">
               <ExclamationIcon />
-              <AlertContent>
-                <AlertTitle>Your trial ends soon!</AlertTitle>
-                <AlertDescription>
-                  Upgrade now to continue enjoying all features without
-                  interruption.
-                </AlertDescription>
-                <ButtonGroup destructive className="pt-3.5">
+              <AlertWrapper>
+                <AlertContent>
+                  <AlertTitle>Your trial ends soon!</AlertTitle>
+                  <AlertDescription>
+                    Upgrade now to continue enjoying all features without
+                    interruption.
+                  </AlertDescription>
+                </AlertContent>
+                <ButtonGroup destructive>
                   <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
-              </AlertContent>
+              </AlertWrapper>
             </Alert>
             <Alert longText action variant="information">
               <ExclamationIcon />
-              <AlertContent>
-                <AlertTitle>Your trial ends soon!</AlertTitle>
-                <AlertDescription>
-                  Upgrade now to continue enjoying all features without
-                  interruption.
-                </AlertDescription>
-                <ButtonGroup destructive className="pt-3.5">
+              <AlertWrapper>
+                <AlertContent>
+                  <AlertTitle>Your trial ends soon!</AlertTitle>
+                  <AlertDescription>
+                    Upgrade now to continue enjoying all features without
+                    interruption.
+                  </AlertDescription>
+                </AlertContent>
+                <ButtonGroup destructive>
                   <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
-              </AlertContent>
+              </AlertWrapper>
 
               <Button iconOnly variant="ghost">
                 <CloseIcon />
@@ -434,30 +451,34 @@ const AlertDemo = () => {
             </Alert>
 
             <Alert longText action variant="success">
-              <AlertContent>
-                <AlertTitle>Your trial ends soon!</AlertTitle>
-                <AlertDescription>
-                  Upgrade now to continue enjoying all features without
-                  interruption.
-                </AlertDescription>
-                <ButtonGroup destructive className="pt-3.5">
+              <AlertWrapper>
+                <AlertContent>
+                  <AlertTitle>Your trial ends soon!</AlertTitle>
+                  <AlertDescription>
+                    Upgrade now to continue enjoying all features without
+                    interruption.
+                  </AlertDescription>
+                </AlertContent>
+                <ButtonGroup destructive>
                   <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
-              </AlertContent>
+              </AlertWrapper>
             </Alert>
             <Alert longText action variant="success">
-              <AlertContent>
-                <AlertTitle>Your trial ends soon!</AlertTitle>
-                <AlertDescription>
-                  Upgrade now to continue enjoying all features without
-                  interruption.
-                </AlertDescription>
-                <ButtonGroup destructive className="pt-3.5">
+              <AlertWrapper>
+                <AlertContent>
+                  <AlertTitle>Your trial ends soon!</AlertTitle>
+                  <AlertDescription>
+                    Upgrade now to continue enjoying all features without
+                    interruption.
+                  </AlertDescription>
+                </AlertContent>
+                <ButtonGroup destructive>
                   <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
-              </AlertContent>
+              </AlertWrapper>
 
               <Button iconOnly variant="ghost">
                 <CloseIcon />
@@ -465,31 +486,35 @@ const AlertDemo = () => {
             </Alert>
             <Alert longText action variant="success">
               <ExclamationIcon />
-              <AlertContent>
-                <AlertTitle>Your trial ends soon!</AlertTitle>
-                <AlertDescription>
-                  Upgrade now to continue enjoying all features without
-                  interruption.
-                </AlertDescription>
-                <ButtonGroup destructive className="pt-3.5">
+              <AlertWrapper>
+                <AlertContent>
+                  <AlertTitle>Your trial ends soon!</AlertTitle>
+                  <AlertDescription>
+                    Upgrade now to continue enjoying all features without
+                    interruption.
+                  </AlertDescription>
+                </AlertContent>
+                <ButtonGroup destructive>
                   <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
-              </AlertContent>
+              </AlertWrapper>
             </Alert>
             <Alert longText action variant="success">
               <ExclamationIcon />
-              <AlertContent>
-                <AlertTitle>Your trial ends soon!</AlertTitle>
-                <AlertDescription>
-                  Upgrade now to continue enjoying all features without
-                  interruption.
-                </AlertDescription>
-                <ButtonGroup destructive className="pt-3.5">
+              <AlertWrapper>
+                <AlertContent>
+                  <AlertTitle>Your trial ends soon!</AlertTitle>
+                  <AlertDescription>
+                    Upgrade now to continue enjoying all features without
+                    interruption.
+                  </AlertDescription>
+                </AlertContent>
+                <ButtonGroup destructive>
                   <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
-              </AlertContent>
+              </AlertWrapper>
 
               <Button iconOnly variant="ghost">
                 <CloseIcon />
@@ -596,30 +621,34 @@ const AlertDemo = () => {
             </Alert>
 
             <Alert longText action variant="warning">
-              <AlertContent>
-                <AlertTitle>Your trial ends soon!</AlertTitle>
-                <AlertDescription>
-                  Upgrade now to continue enjoying all features without
-                  interruption.
-                </AlertDescription>
-                <ButtonGroup destructive className="pt-3.5">
+              <AlertWrapper>
+                <AlertContent>
+                  <AlertTitle>Your trial ends soon!</AlertTitle>
+                  <AlertDescription>
+                    Upgrade now to continue enjoying all features without
+                    interruption.
+                  </AlertDescription>
+                </AlertContent>
+                <ButtonGroup destructive>
                   <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
-              </AlertContent>
+              </AlertWrapper>
             </Alert>
             <Alert longText action variant="warning">
-              <AlertContent>
-                <AlertTitle>Your trial ends soon!</AlertTitle>
-                <AlertDescription>
-                  Upgrade now to continue enjoying all features without
-                  interruption.
-                </AlertDescription>
-                <ButtonGroup destructive className="pt-3.5">
+              <AlertWrapper>
+                <AlertContent>
+                  <AlertTitle>Your trial ends soon!</AlertTitle>
+                  <AlertDescription>
+                    Upgrade now to continue enjoying all features without
+                    interruption.
+                  </AlertDescription>
+                </AlertContent>
+                <ButtonGroup destructive>
                   <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
-              </AlertContent>
+              </AlertWrapper>
 
               <Button iconOnly variant="ghost">
                 <CloseIcon />
@@ -627,31 +656,35 @@ const AlertDemo = () => {
             </Alert>
             <Alert longText action variant="warning">
               <ExclamationIcon />
-              <AlertContent>
-                <AlertTitle>Your trial ends soon!</AlertTitle>
-                <AlertDescription>
-                  Upgrade now to continue enjoying all features without
-                  interruption.
-                </AlertDescription>
-                <ButtonGroup destructive className="pt-3.5">
+              <AlertWrapper>
+                <AlertContent>
+                  <AlertTitle>Your trial ends soon!</AlertTitle>
+                  <AlertDescription>
+                    Upgrade now to continue enjoying all features without
+                    interruption.
+                  </AlertDescription>
+                </AlertContent>
+                <ButtonGroup destructive>
                   <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
-              </AlertContent>
+              </AlertWrapper>
             </Alert>
             <Alert longText action variant="warning">
               <ExclamationIcon />
-              <AlertContent>
-                <AlertTitle>Your trial ends soon!</AlertTitle>
-                <AlertDescription>
-                  Upgrade now to continue enjoying all features without
-                  interruption.
-                </AlertDescription>
-                <ButtonGroup destructive className="pt-3.5">
+              <AlertWrapper>
+                <AlertContent>
+                  <AlertTitle>Your trial ends soon!</AlertTitle>
+                  <AlertDescription>
+                    Upgrade now to continue enjoying all features without
+                    interruption.
+                  </AlertDescription>
+                </AlertContent>
+                <ButtonGroup destructive>
                   <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
-              </AlertContent>
+              </AlertWrapper>
 
               <Button iconOnly variant="ghost">
                 <CloseIcon />
@@ -758,30 +791,34 @@ const AlertDemo = () => {
             </Alert>
 
             <Alert longText action variant="error">
-              <AlertContent>
-                <AlertTitle>Your trial ends soon!</AlertTitle>
-                <AlertDescription>
-                  Upgrade now to continue enjoying all features without
-                  interruption.
-                </AlertDescription>
-                <ButtonGroup destructive className="pt-3.5">
+              <AlertWrapper>
+                <AlertContent>
+                  <AlertTitle>Your trial ends soon!</AlertTitle>
+                  <AlertDescription>
+                    Upgrade now to continue enjoying all features without
+                    interruption.
+                  </AlertDescription>
+                </AlertContent>
+                <ButtonGroup destructive>
                   <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
-              </AlertContent>
+              </AlertWrapper>
             </Alert>
             <Alert longText action variant="error">
-              <AlertContent>
-                <AlertTitle>Your trial ends soon!</AlertTitle>
-                <AlertDescription>
-                  Upgrade now to continue enjoying all features without
-                  interruption.
-                </AlertDescription>
-                <ButtonGroup destructive className="pt-3.5">
+              <AlertWrapper>
+                <AlertContent>
+                  <AlertTitle>Your trial ends soon!</AlertTitle>
+                  <AlertDescription>
+                    Upgrade now to continue enjoying all features without
+                    interruption.
+                  </AlertDescription>
+                </AlertContent>
+                <ButtonGroup destructive>
                   <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
-              </AlertContent>
+              </AlertWrapper>
 
               <Button iconOnly variant="ghost">
                 <CloseIcon />
@@ -789,32 +826,35 @@ const AlertDemo = () => {
             </Alert>
             <Alert longText action variant="error">
               <ExclamationIcon />
-              <AlertContent>
-                <AlertTitle>Your trial ends soon!</AlertTitle>
-                <AlertDescription>
-                  Upgrade now to continue enjoying all features without
-                  interruption.
-                </AlertDescription>
-                <ButtonGroup destructive className="pt-3.5">
+              <AlertWrapper>
+                <AlertContent>
+                  <AlertTitle>Your trial ends soon!</AlertTitle>
+                  <AlertDescription>
+                    Upgrade now to continue enjoying all features without
+                    interruption.
+                  </AlertDescription>
+                </AlertContent>
+                <ButtonGroup destructive>
                   <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
-              </AlertContent>
+              </AlertWrapper>
             </Alert>
             <Alert longText action variant="error">
               <ExclamationIcon />
-              <AlertContent>
-                <AlertTitle>Your trial ends soon!</AlertTitle>
-                <AlertDescription>
-                  Upgrade now to continue enjoying all features without
-                  interruption.
-                </AlertDescription>
-                <ButtonGroup destructive className="pt-3.5">
+              <AlertWrapper>
+                <AlertContent>
+                  <AlertTitle>Your trial ends soon!</AlertTitle>
+                  <AlertDescription>
+                    Upgrade now to continue enjoying all features without
+                    interruption.
+                  </AlertDescription>
+                </AlertContent>
+                <ButtonGroup destructive>
                   <Button variant="outline">Update now</Button>
                   <Button variant="ghost">View plans</Button>
                 </ButtonGroup>
-              </AlertContent>
-
+              </AlertWrapper>
               <Button iconOnly variant="ghost">
                 <CloseIcon />
               </Button>
