@@ -79,7 +79,7 @@ const modalDemo = () => {
                   <Switch />
                 </div>
                 <div className="flex flex-col space-y-3">
-                  <h3 className="text-sm font-medium text-gray-700">Title</h3>
+                  <Label>Title</Label>
                   <Tabs defaultValue="tab1">
                     <TabsList className="gap-x-1.5">
                       <TabsTrigger
@@ -218,7 +218,7 @@ const modalDemo = () => {
                   <Switch />
                 </div>
                 <div className="flex flex-col space-y-3">
-                  <h3 className="text-sm font-medium text-gray-700">Title</h3>
+                  <Label>Title</Label>
                   <Tabs defaultValue="tab1" size="md">
                     <TabsList className="gap-x-1.5">
                       <TabsTrigger
@@ -357,7 +357,7 @@ const modalDemo = () => {
                   <Switch />
                 </div>
                 <div className="flex flex-col space-y-3">
-                  <h3 className="text-sm font-medium text-gray-700">Title</h3>
+                  <Label>Title</Label>
                   <Tabs defaultValue="tab1">
                     <TabsList className="gap-x-1.5">
                       <TabsTrigger

@@ -165,11 +165,11 @@ function TabsList({
       baseOrientation
     ),
     browser: cn(
-      "bg-background text-muted-foreground gap-1 relative border-accent flex relative overflow-hidden",
+      "bg-background text-muted-foreground gap-1  relative border-accent flex relative overflow-hidden",
       baseOrientation,
       orientation === "horizontal"
-        ? "rounded-t-lg after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:w-full after:bg-border"
-        : "rounded-l-lg after:absolute after:top-0 after:bottom-0 after:right-0 after:w-px after:h-full after:bg-border"
+        ? "rounded-t-lg after:absolute after:bottom-px after:left-0 after:right-0 after:h-px after:w-full after:bg-border py-px"
+        : "rounded-l-lg after:absolute after:top-0 after:bottom-0 after:right-px after:w-px after:h-full after:bg-border px-px"
     ),
   };
 
@@ -275,8 +275,8 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
     browser: cn(
       "relative  data-[state=active]:text-card-foreground transition-colors z-10 after:transition-all after:duration-300 after:ease-out",
       orientation === "horizontal"
-        ? " data-[state=active]:border-b-transparent after:absolute after:left-0 after:right-0 after:bottom-0 after:h-px data-[state=active]:after:bg-background"
-        : " data-[state=active]:border-r-transparent after:absolute after:top-0 after:bottom-0 after:right-0 after:w-px data-[state=active]:after:bg-background"
+        ? " data-[state=active]:border-b-transparent after:absolute after:left-0 after:right-0 after:bottom-0 after:h-px data-[state=active]:after:bg-background data-[state=active]:after:w-[96%] data-[state=active]:after:left-px"
+        : " data-[state=active]:border-r-transparent after:absolute after:top-0 after:bottom-0 after:right-0 after:w-px data-[state=active]:after:bg-background data-[state=active]:after:h-[96%] data-[state=active]:after:top-px"
     ),
   };
 
