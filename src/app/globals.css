@@ -91,6 +91,9 @@
   --color-blue-disabled: var(--blue-disabled);
   --color-blue-disabled-foreground: var(--blue-disabled-foreground);
 
+  --color-default-border-hover: var(--default-border-hover);
+  --color-default-border-active: var(--default-border-active);
+
   /* Badge Styles - Green */
   --color-green-primary: var(--green-primary);
   --color-green-primary-foreground: var(--green-primary-foreground);
@@ -602,6 +605,10 @@
   --chart-4: var(--color-light-blue-700);
   --chart-5: var(--color-light-blue-800);
 
+  /* Badge Styles - primary */
+  --default-border-hover: var(--color-light-gray-400);
+  --default-border-active: var(--color-light-gray-400);
+
   /* Badge Styles - Blue */
   --blue-primary: var(--color-light-blue-600);
   --blue-primary-hover: var(--color-light-blue-700);
@@ -737,6 +744,10 @@
   --chart-3: var(--color-light-blue-700);
   --chart-4: var(--color-light-blue-600);
   --chart-5: var(--color-light-blue-500);
+
+  /* Badge Styles - primary */
+  --default-border-hover: var(--color-dark-gray-500);
+  --default-border-active: var(--color-dark-gray-500);
 
   /* Badge Styles - Blue */
   --blue-primary: var(--color-dark-blue-500);

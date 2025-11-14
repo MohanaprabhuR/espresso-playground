@@ -7,20 +7,20 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const tagVariants = cva(
-  "inline-flex items-center outline-none gap-x-1 rounded-sm  font-medium transition-all ease-in-out w-fit whitespace-nowrap shrink-0 [&>svg]:pointer-events-none aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive overflow-hidden data-[disabled=true]:cursor-not-allowed data-[disabled=true]:pointer-events-none",
+  "inline-flex items-center  gap-x-1 rounded-sm  font-medium transition-all ease-in-out w-fit whitespace-nowrap shrink-0 [&>svg]:pointer-events-none aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive overflow-hidden data-[disabled=true]:cursor-not-allowed data-[disabled=true]:pointer-events-none",
   {
     variants: {
       variant: {
         solid:
-          "bg-[var(--theme-primary)] hover:bg-[var(--theme-primary-hover)] active:bg-[var(--theme-primary-active)] focus:bg-[var(--theme-primary)] focus-visible:shadow-blue-ring focus:outline-none text-[var(--theme-primary-foreground)] data-[disabled=true]:bg-[var(--theme-disabled)] data-[disabled=true]:text-[var(--theme-disabled-foreground)] data-[disabled=true]:focus-visible:shadow-none",
+          "bg-[var(--theme-primary)] outline-none hover:bg-[var(--theme-primary-hover)] active:bg-[var(--theme-primary-active)] focus:bg-[var(--theme-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 text-[var(--theme-primary-foreground)] data-[disabled=true]:bg-[var(--theme-disabled)] data-[disabled=true]:text-[var(--theme-disabled-foreground)] data-[disabled=true]:focus-visible:shadow-none",
         subtle:
-          "bg-[var(--theme-secondary)] focus:bg-[var(--theme-secondary)] hover:bg-[var(--theme-secondary-hover)] active:bg-[var(--theme-secondary-active)] focus-visible:shadow-blue-ring text-[var(--theme-secondary-foreground)] data-[disabled=true]:bg-[var(--theme-disabled)] data-[disabled=true]:text-[var(--theme-disabled-foreground)] data-[disabled=true]:focus-visible:shadow-none",
+          "bg-[var(--theme-secondary)] outline-none focus:bg-[var(--theme-secondary)] hover:bg-[var(--theme-secondary-hover)] active:bg-[var(--theme-secondary-active)] focus-visible:shadow-blue-ring text-[var(--theme-secondary-foreground)] data-[disabled=true]:bg-[var(--theme-disabled)] data-[disabled=true]:text-[var(--theme-disabled-foreground)] data-[disabled=true]:focus-visible:shadow-none",
         destructive:
-          "bg-destructive text-white data-[disabled=true]:bg-[var(--theme-disabled)] data-[disabled=true]:text-[var(--theme-disabled-foreground)]",
+          "bg-destructive text-white outline-none data-[disabled=true]:bg-[var(--theme-disabled)] data-[disabled=true]:text-[var(--theme-disabled-foreground)]",
         outline:
-          "border bg-transparent text-[var(--theme-primary)] hover:border-[var(--theme-border-hover)] active:border-[var(--theme-border-active)] border-[var(--theme-border)] active:bg-[var(--theme-secondary-active)] focus-visible:border-transparent focus-visible:shadow-blue-ring data-[disabled=true]:bg-[var(--theme-disabled)] data-[disabled=true]:text-[var(--theme-disabled-foreground)] data-[disabled=true]:focus-visible:shadow-none",
+          "outline outline-1 -outline-offset-1 bg-transparent text-[var(--theme-primary)] hover:outline-[var(--theme-border-hover)] active:outline-[var(--theme-border-active)] outline-[var(--theme-border)] active:bg-[var(--theme-secondary-active)] focus-visible:border-transparent focus-visible:shadow-blue-ring data-[disabled=true]:bg-[var(--theme-disabled)] data-[disabled=true]:text-[var(--theme-disabled-foreground)] data-[disabled=true]:focus-visible:shadow-none",
         ghost:
-          "text-[var(--theme-secondary-foreground)] hover:bg-[var(--theme-secondary-hover)] active:bg-[var(--theme-secondary-active)] focus-visible:shadow-blue-ring focus:bg-[var(--theme-secondary)] data-[disabled=true]:text-[var(--theme-disabled-foreground)] data-[disabled=true]:focus-visible:shadow-none",
+          "text-[var(--theme-secondary-foreground)] outline-none  hover:bg-[var(--theme-secondary-hover)] active:bg-[var(--theme-secondary-active)] focus-visible:shadow-blue-ring focus:bg-[var(--theme-secondary)] data-[disabled=true]:text-[var(--theme-disabled-foreground)] data-[disabled=true]:focus-visible:shadow-none",
       },
       size: {
         sm: "px-1.5 py-[3px] text-xs tracking-4 leading-tight font-normal [&>svg]:size-3",
@@ -41,10 +41,16 @@ const themeVars: Record<
 > = {
   default: {
     "--theme-primary": "var(--color-primary)",
+    "--theme-primary-hover": "var(--color-accent-foreground)",
+    "--theme-primary-active": "var(--color-secondary-foreground)",
     "--theme-primary-foreground": "var(--color-primary-foreground)",
     "--theme-secondary": "var(--color-secondary)",
     "--theme-secondary-foreground": "var(--color-secondary-foreground)",
+    "--theme-secondary-hover": "var(--color-accent)",
+    "--theme-secondary-active": "var(--color-input)",
     "--theme-border": "var(--color-border)",
+    "--theme-border-hover": "var(--color-default-border-hover)",
+    "--theme-border-active": "var(--color-default-border-active)",
   } as React.CSSProperties,
   blue: {
     "--theme-primary": "var(--color-blue-primary)",
@@ -110,7 +116,7 @@ export function Tag({
   disabled = false,
   ...props
 }: TagProps) {
-  const Comp = asChild ? Slot : "span";
+  const Comp = asChild ? Slot : "div";
 
   return (
     <Comp
@@ -122,10 +128,6 @@ export function Tag({
       {...props}
     >
       {children}
-
-      <button type="button" className="">
-        <X className="size-3" />
-      </button>
     </Comp>
   );
 }
