@@ -4,6 +4,7 @@ import * as React from "react";
 import * as ProgressPrimitive from "@radix-ui/react-progress";
 import { cn } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
+import { CloudIcon } from "lucide-react";
 
 interface ProgressProps
   extends React.ComponentProps<typeof ProgressPrimitive.Root> {
@@ -12,6 +13,9 @@ interface ProgressProps
   square?: boolean;
   size?: "xs" | "sm" | "md" | "lg";
   showLabel?: boolean;
+  labelName?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  labelIcon?: React.ComponentType<any>;
   children?: React.ReactNode;
 }
 
@@ -29,6 +33,8 @@ function Progress({
   square = false,
   size = "sm",
   showLabel = false,
+  labelName,
+  labelIcon: LabelIcon,
   children,
   ...props
 }: ProgressProps) {
@@ -36,9 +42,17 @@ function Progress({
 
   return (
     <div className="flex flex-col gap-1 w-full">
-      {showLabel && children && (
+      {showLabel && (
         <Label className={cn("flex justify-between items-center")}>
-          <div className="flex items-center gap-x-2 ">{children}</div>
+          <span className="flex items-center gap-x-2 text-accent-foreground tracking-4 leading-tight font-medium">
+            {LabelIcon ? (
+              <LabelIcon className="size-4" />
+            ) : (
+              <CloudIcon className="size-4" />
+            )}
+
+            {children ? children : labelName}
+          </span>
           <span className="font-medium text-muted-foreground tracking-4 leading-tight">
             {value}%
           </span>

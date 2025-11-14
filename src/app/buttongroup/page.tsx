@@ -548,16 +548,16 @@ const ButtonGroupDemo = () => {
           <div className="flex flex-col gap-[30px_0]">
             <div>
               <ButtonGroup destructive>
-                <ButtonGroup className="hidden sm:flex">
+                <ButtonGroup className="hidden sm:flex" variant="outline">
                   <Button variant="outline" aria-label="Go Back">
                     <ArrowLeftIcon className="size-4" />
                   </Button>
                 </ButtonGroup>
-                <ButtonGroup>
+                <ButtonGroup variant="outline">
                   <Button variant="outline">Archive</Button>
                   <Button variant="outline">Report</Button>
                 </ButtonGroup>
-                <ButtonGroup>
+                <ButtonGroup variant="outline">
                   <Button variant="outline">Snooze</Button>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>

@@ -79,7 +79,7 @@ const modalDemo = () => {
                   <Switch />
                 </div>
                 <div className="flex flex-col space-y-3">
-                  <Label>Title</Label>
+                  <Label className="text-accent-foreground">Title</Label>
                   <Tabs defaultValue="tab1">
                     <TabsList className="gap-x-1.5">
                       <TabsTrigger
@@ -140,9 +140,7 @@ const modalDemo = () => {
                 </div>
 
                 <div className="space-y-3">
-                  <p className="text-sm text-gray-600">
-                    Select from the choices available
-                  </p>
+                  <Label>Select from the choices available</Label>
 
                   <RadioGroup
                     defaultValue="option1"
@@ -279,9 +277,7 @@ const modalDemo = () => {
                 </div>
 
                 <div className="space-y-3">
-                  <p className="text-sm text-gray-600">
-                    Select from the choices available
-                  </p>
+                  <Label>Select from the choices available</Label>
 
                   <RadioGroup
                     defaultValue="option1"
@@ -418,9 +414,7 @@ const modalDemo = () => {
                 </div>
 
                 <div className="space-y-3">
-                  <p className="text-sm text-gray-600">
-                    Select from the choices available
-                  </p>
+                  <Label>Select from the choices available</Label>
 
                   <RadioGroup
                     defaultValue="option1"
