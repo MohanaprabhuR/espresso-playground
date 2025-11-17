@@ -405,7 +405,12 @@ const InputGroupDemo = () => {
             <InputGroupAddon>
               <Search className="size-4" />
             </InputGroupAddon>
-            <InputGroupAddon align="inline-end">12 results</InputGroupAddon>
+            <InputGroupAddon
+              align="inline-end"
+              className="tracking-4 leading-normal text-muted-foreground font-normal"
+            >
+              12 results
+            </InputGroupAddon>
           </InputGroup>
           <InputGroup>
             <InputGroupInput placeholder="example.com" className="!pl-1" />
