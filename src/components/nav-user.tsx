@@ -35,12 +35,12 @@ export function NavUser({
       <SidebarMenuItem className="gap-2.5 flex flex-col">
         {!isCollapsed && (
           <>
-            <Progress value={40} size="xs" showLabel>
-              <Label>
-                <CloudIcon className="size-4" />
-                Label
-              </Label>
-            </Progress>
+            <Progress
+              value={40}
+              showLabel
+              size="xs"
+              labelName="Label"
+            ></Progress>
 
             <div className="flex gap-1 justify-between w-full">
               <div className="flex items-center gap-1">

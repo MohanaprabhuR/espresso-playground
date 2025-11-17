@@ -11,9 +11,19 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { CommandIcon } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
 
 // ✅ Schema validation
 const formSchema = z.object({
@@ -42,26 +52,140 @@ const FormFieldDemo = () => {
         Form Field Component
       </h1>
 
-      <div className="flex flex-col mx-auto gap-10 w-full max-w-sm">
+      <div className="flex flex-col mx-auto gap-10 w-full  items-center justify-center">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <div className=" flex gap-x-4 w-full justify-center items-center">
             <FormField
               control={form.control}
-              name="username"
+              name="example"
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder="shadcn" {...field} />
+                    <Input placeholder="User Name..." {...field} />
                   </FormControl>
 
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full">
-              Submit
-            </Button>
-          </form>
+            <FormField
+              control={form.control}
+              name="example"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input placeholder="User Name..." {...field} size="md" />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="example"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Select>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Theme" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="aaron">
+                          <CommandIcon className="size-4" />
+                          Aaron Menezes
+                        </SelectItem>
+                        <SelectItem value="vaani">
+                          <CommandIcon className="size-4" />
+                          Vaani Kapoor
+                        </SelectItem>
+                        <SelectItem value="daniel">
+                          <CommandIcon className="size-4" />
+                          Daniel Kapoor
+                        </SelectItem>
+                        <SelectItem value="steven">
+                          <CommandIcon className="size-4" />
+                          Steven James
+                        </SelectItem>
+                        <SelectItem value="dipen">
+                          <CommandIcon className="size-4" />
+                          Dipen Gala
+                        </SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="example"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Select>
+                      <SelectTrigger size="md">
+                        <SelectValue placeholder="Theme" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="aaron">
+                          <CommandIcon className="size-4" />
+                          Aaron Menezes
+                        </SelectItem>
+                        <SelectItem value="vaani">
+                          <CommandIcon className="size-4" />
+                          Vaani Kapoor
+                        </SelectItem>
+                        <SelectItem value="daniel">
+                          <CommandIcon className="size-4" />
+                          Daniel Kapoor
+                        </SelectItem>
+                        <SelectItem value="steven">
+                          <CommandIcon className="size-4" />
+                          Steven James
+                        </SelectItem>
+                        <SelectItem value="dipen">
+                          <CommandIcon className="size-4" />
+                          Dipen Gala
+                        </SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="example"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Textarea placeholder="Type something" />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="example"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Textarea placeholder="Type something" size="md" />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
         </Form>
       </div>
     </div>
