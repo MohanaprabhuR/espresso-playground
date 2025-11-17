@@ -17,6 +17,8 @@ const inputGroupVariants = cva(
           "has-[>textarea]:h-auto bg-secondary hover:bg-accent has-[[data-slot=input-group-control]:active]:bg-transparent has-[[data-slot=input-group-control]:active]:outline-primary/50 has-[[data-slot=input-group-control]:active]:shadow-lg has-[[data-slot=input-group-control]:focus]:outline has-[[data-slot=input-group-control]:focus]:outline-primary/50 has-[[data-slot=input-group-control]:focus]:shadow-lg has-[[data-slot=input-group-control]:focus]:bg-white has-[[data-slot=input-group-control]:focus-visible]:outline-primary/50 has-[[data-slot=input-group-control]:focus]:text-accent-foreground has-[[data-slot=input-group-control]:focus-visible]:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-ring has-[[data-slot=input-group-control]:focus-visible]:ring-offset-0 has-[[data-slot=input-group-control]:focus-visible]:bg-transparent has-[[data-slot][aria-invalid=true]]:ring-destructive/20 has-[[data-slot][aria-invalid=true]]:outline-destructive",
         outline:
           "outline-input bg-background text-secondary-foreground hover:outline-primary/25 has-[[data-slot=input-group-control]:active]:outline-primary/50 has-[[data-slot=input-group-control]:active]:bg-background has-[[data-slot=input-group-control]:active]:shadow-lg focus-outline has-[[data-slot=input-group-control]:focus]:outline-primary/50 has-[[data-slot=input-group-control]:focus]:text-accent-foreground has-[[data-slot=input-group-control]:focus-visible]:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-ring has-[[data-slot=input-group-control]:focus-visible]:ring-offset-0 has-[[data-slot=input-group-control]:focus-visible]:outline-primary/50 has-[[data-slot=input-group-control]:focus-visible]:bg-transparent",
+        ghost:
+          "outline-transparent bg-background text-secondary-foreground    focus-outline has-[[data-slot=input-group-control]:focus]:outline-primary/50 has-[[data-slot=input-group-control]:focus]:text-accent-foreground has-[[data-slot=input-group-control]:focus-visible]:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-ring has-[[data-slot=input-group-control]:focus-visible]:ring-offset-0 has-[[data-slot=input-group-control]:focus-visible]:outline-primary/50 has-[[data-slot=input-group-control]:focus-visible]:bg-transparent",
       },
       size: {
         sm: "rounded-lg",
@@ -258,7 +260,7 @@ function InputGroupTextarea({
       data-slot="input-group-control"
       data-filled={hasValue}
       className={cn(
-        "flex-1 resize-none rounded-t rounded-b-none outline-transparent bg-transparent shadow-none focus-visible:ring-0 active:outline-0 focus:outline-0 active:shadow-none focus:shadow-none",
+        "flex-1 resize-none rounded-t  rounded-b-none outline-transparent hover:bg-transparent bg-transparent shadow-none focus-visible:ring-0 active:outline-0 focus:outline-0 active:shadow-none focus:shadow-none",
         sizeClasses[size],
         className
       )}

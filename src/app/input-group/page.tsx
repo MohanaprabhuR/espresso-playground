@@ -526,6 +526,109 @@ const InputGroupDemo = () => {
             </Tooltip>
           </InputGroup>
         </div>
+        <div className="flex gap-4 items-center">
+          <InputGroup>
+            <InputGroupTextarea placeholder="Text area...." size="sm" />
+          </InputGroup>
+          <InputGroup>
+            <InputGroupTextarea placeholder="Text area...." size="md" />
+          </InputGroup>
+          <InputGroup>
+            <InputGroupTextarea placeholder="Text area...." size="lg" />
+          </InputGroup>
+        </div>
+        <div className="flex gap-4 items-center">
+          <InputGroup variant="outline">
+            <InputGroupTextarea placeholder="Text area...." size="sm" />
+          </InputGroup>
+          <InputGroup variant="outline">
+            <InputGroupTextarea placeholder="Text area...." size="md" />
+          </InputGroup>
+          <InputGroup variant="outline">
+            <InputGroupTextarea placeholder="Text area...." size="lg" />
+          </InputGroup>
+        </div>
+
+        <div className="flex gap-4 items-center">
+          <InputGroup variant="ghost">
+            <InputGroupTextarea placeholder="Text area...." size="sm" />
+          </InputGroup>
+          <InputGroup variant="ghost">
+            <InputGroupTextarea placeholder="Text area...." size="md" />
+          </InputGroup>
+          <InputGroup variant="ghost">
+            <InputGroupTextarea placeholder="Text area...." size="lg" />
+          </InputGroup>
+        </div>
+
+        <div className="flex gap-4 items-center">
+          <InputGroup status="success">
+            <InputGroupTextarea placeholder="Text area...." size="sm" />
+          </InputGroup>
+          <InputGroup status="success">
+            <InputGroupTextarea placeholder="Text area...." size="md" />
+          </InputGroup>
+          <InputGroup status="success">
+            <InputGroupTextarea placeholder="Text area...." size="lg" />
+          </InputGroup>
+        </div>
+        <div className="flex gap-4 items-center">
+          <InputGroup status="success" variant="outline">
+            <InputGroupTextarea placeholder="Text area...." size="sm" />
+          </InputGroup>
+          <InputGroup status="success" variant="outline">
+            <InputGroupTextarea placeholder="Text area...." size="md" />
+          </InputGroup>
+          <InputGroup status="success" variant="outline">
+            <InputGroupTextarea placeholder="Text area...." size="lg" />
+          </InputGroup>
+        </div>
+
+        <div className="flex gap-4 items-center">
+          <InputGroup status="warning">
+            <InputGroupTextarea placeholder="Text area...." size="sm" />
+          </InputGroup>
+          <InputGroup status="warning">
+            <InputGroupTextarea placeholder="Text area...." size="md" />
+          </InputGroup>
+          <InputGroup status="warning">
+            <InputGroupTextarea placeholder="Text area...." size="lg" />
+          </InputGroup>
+        </div>
+        <div className="flex gap-4 items-center">
+          <InputGroup status="warning" variant="outline">
+            <InputGroupTextarea placeholder="Text area...." size="sm" />
+          </InputGroup>
+          <InputGroup status="warning" variant="outline">
+            <InputGroupTextarea placeholder="Text area...." size="md" />
+          </InputGroup>
+          <InputGroup status="warning" variant="outline">
+            <InputGroupTextarea placeholder="Text area...." size="lg" />
+          </InputGroup>
+        </div>
+
+        <div className="flex gap-4 items-center">
+          <InputGroup status="error">
+            <InputGroupTextarea placeholder="Text area...." size="sm" />
+          </InputGroup>
+          <InputGroup status="error">
+            <InputGroupTextarea placeholder="Text area...." size="md" />
+          </InputGroup>
+          <InputGroup status="error">
+            <InputGroupTextarea placeholder="Text area...." size="lg" />
+          </InputGroup>
+        </div>
+        <div className="flex gap-4 items-center">
+          <InputGroup status="error" variant="outline">
+            <InputGroupTextarea placeholder="Text area...." size="sm" />
+          </InputGroup>
+          <InputGroup status="error" variant="outline">
+            <InputGroupTextarea placeholder="Text area...." size="md" />
+          </InputGroup>
+          <InputGroup status="error" variant="outline">
+            <InputGroupTextarea placeholder="Text area...." size="lg" />
+          </InputGroup>
+        </div>
       </div>
     </div>
   );
