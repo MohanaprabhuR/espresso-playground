@@ -42,9 +42,19 @@ const FormField = <
   );
 };
 
+type FormItemContextValue = {
+  id: string;
+  status?: string;
+};
+
+const FormItemContext = React.createContext<FormItemContextValue>(
+  {} as FormItemContextValue
+);
+
 const useFormField = () => {
   const fieldContext = React.useContext(FormFieldContext);
   const itemContext = React.useContext(FormItemContext);
+
   const { getFieldState } = useFormContext();
   const formState = useFormState({ name: fieldContext.name });
   const fieldState = getFieldState(fieldContext.name, formState);
@@ -53,10 +63,11 @@ const useFormField = () => {
     throw new Error("useFormField should be used within <FormField>");
   }
 
-  const { id } = itemContext;
+  const { id, status } = itemContext;
 
   return {
     id,
+    status,
     name: fieldContext.name,
     formItemId: `${id}-form-item`,
     formDescriptionId: `${id}-form-item-description`,
@@ -65,29 +76,39 @@ const useFormField = () => {
   };
 };
 
-type FormItemContextValue = {
-  id: string;
-};
-
-const FormItemContext = React.createContext<FormItemContextValue>(
-  {} as FormItemContextValue
-);
-
-function FormItem({ className, ...props }: React.ComponentProps<"div">) {
+function FormItem({
+  className,
+  status,
+  ...props
+}: React.ComponentProps<"div"> & { status?: string }) {
   const id = React.useId();
 
   return (
-    <FormItemContext.Provider value={{ id }}>
+    <FormItemContext.Provider value={{ id, status }}>
       <div
         data-slot="form-item"
-        className={cn("grid gap-2 ", className)}
+        data-status={status}
+        className={cn("grid gap-2", className)}
         {...props}
       />
     </FormItemContext.Provider>
   );
 }
 
-function FormLabel({
+function FormLabel({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="form-label"
+      className={cn(
+        "data-[error=true]:text-destructive flex justify-between",
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
+function FormLabelText({
   className,
   ...props
 }: React.ComponentProps<typeof LabelPrimitive.Root>) {
@@ -95,9 +116,29 @@ function FormLabel({
 
   return (
     <Label
-      data-slot="form-label"
+      data-slot="form-label-text"
       data-error={!!error}
-      className={cn("data-[error=true]:text-destructive", className)}
+      className={cn("data-[error=true]:text-destructive flex-1", className)}
+      htmlFor={formItemId}
+      {...props}
+    />
+  );
+}
+
+function FormLabelHintText({
+  className,
+  ...props
+}: React.ComponentProps<typeof LabelPrimitive.Root>) {
+  const { error, formItemId } = useFormField();
+
+  return (
+    <Label
+      data-slot="form-label-hint-text"
+      data-error={!!error}
+      className={cn(
+        "data-[error=true]:text-destructive flex justify-between",
+        className
+      )}
       htmlFor={formItemId}
       {...props}
     />
@@ -124,13 +165,24 @@ function FormControl({ ...props }: React.ComponentProps<typeof Slot>) {
 }
 
 function FormDescription({ className, ...props }: React.ComponentProps<"p">) {
-  const { formDescriptionId } = useFormField();
+  const { formDescriptionId, status } = useFormField();
+
+  const statusClasses: Record<string, string> = {
+    success: "text-success-foreground",
+    warning: "text-warning-foreground",
+    error: "text-error-foreground",
+  };
 
   return (
     <p
       data-slot="form-description"
       id={formDescriptionId}
-      className={cn("text-muted-foreground text-sm", className)}
+      data-status={status}
+      className={cn(
+        "text-muted-foreground text-base leading-tight tracking-4 font-normal",
+        status ? statusClasses[status] : "",
+        className
+      )}
       {...props}
     />
   );
@@ -140,15 +192,16 @@ function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
   const { error, formMessageId } = useFormField();
   const body = error ? String(error?.message ?? "") : props.children;
 
-  if (!body) {
-    return null;
-  }
+  if (!body) return null;
 
   return (
     <p
       data-slot="form-message"
       id={formMessageId}
-      className={cn("text-destructive text-sm", className)}
+      className={cn(
+        "text-destructive text-base leading-tight tracking-4 font-normal",
+        className
+      )}
       {...props}
     >
       {body}
@@ -165,4 +218,6 @@ export {
   FormDescription,
   FormMessage,
   FormField,
+  FormLabelText,
+  FormLabelHintText,
 };

@@ -75,6 +75,7 @@ function InputGroup({
     <div
       data-slot="input-group"
       role="group"
+      data-variant={variant}
       className={cn(
         inputGroupVariants({ variant, size }),
         statusClasses,

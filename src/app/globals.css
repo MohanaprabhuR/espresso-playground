@@ -131,8 +131,11 @@
 
   /* State Color */
   --color-success: var(--success);
+  --color-success-foreground: var(--success-forground);
   --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-forground);
   --color-error: var(--error);
+  --color-error-foreground: var(--error-forground);
   --color-success-border: var(--success-border);
   --color-warning-border: var(--warning-border);
   --color-error-border: var(--error-border);
@@ -655,10 +658,13 @@
   /* State */
   --success: var(--color-light-green-100);
   --success-border: var(--color-light-green-400);
+  --success-forground: var(--color-light-green-500);
   --warning: var(--color-light-amber-100);
   --warning-border: var(--color-light-amber-400);
+  --warning-forground: var(--color-light-amber-700);
   --error: var(--color-light-red-100);
   --error-border: var(--color-light-red-400);
+  --error-forground: var(--color-light-red-700);
   --autofill: var(--color-light-orange-100);
   --autofill-border: var(--color-light-orange-400);
 
@@ -794,8 +800,11 @@
 
   /* State */
   --success: var(--color-dark-green-100);
+  --success-forground: var(--color-dark-green-600);
   --warning: var(--color-dark-amber-100);
+  --warning-forground: var(--color-dark-amber-600);
   --error: var(--color-dark-red-100);
+  --error-forground: var(--color-dark-red-700);
   --success-border: var(--color-dark-green-400);
   --warning-border: var(--color-dark-amber-300);
   --error-border: var(--color-dark-red-300);

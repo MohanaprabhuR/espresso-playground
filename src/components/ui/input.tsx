@@ -17,7 +17,7 @@ type InputProps = Omit<
 };
 
 const baseStyles =
-  "w-full min-w-0 transition-[color,box-shadow,border]  placeholder:text-primary/50 file:inline-flex file:pr-1 file:border-r file:border-r-[1px] file:border-primary/20 file:bg-transparent aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&:-webkit-autofill]:bg-autofill [&:-webkit-autofill]:text-accent-foreground disabled:bg-primary/3 disabled:border-none disabled:text-primary/20 disabled:cursor-not-allowed disabled:pointer-events-none ";
+  "w-full min-w-0 transition-[color,box-shadow,border]  placeholder:text-primary/50 file:inline-flex file:pr-1 file:border-r file:border-r-[1px] file:border-primary/20 file:bg-transparent aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:focus-visible:outline-destructive dark:aria-invalid:focus-visible:outline-destructive [&:-webkit-autofill]:bg-autofill [&:-webkit-autofill]:text-accent-foreground disabled:bg-primary/3 disabled:border-none disabled:text-primary/20 disabled:cursor-not-allowed disabled:pointer-events-none ";
 
 const variantBaseMap: Record<VariantType, string> = {
   default:

@@ -25,20 +25,20 @@ function SelectValue({
 
 const statusRingMap = {
   success:
-    "data-[status=success]:bg-success data-[status=success]:text-accent-foreground hover:data-[status=success]:bg-success active:data-[status=success]:bg-success focus:data-[status=success]:bg-success ",
+    "data-[status=success]:bg-success  hover:data-[status=success]:bg-success active:data-[status=success]:bg-success focus:data-[status=success]:bg-success ",
   warning:
-    "data-[status=warning]:bg-warning data-[status=warning]:text-accent-foreground hover:data-[status=warning]:bg-warning active:data-[status=warning]:bg-warning focus:data-[status=warning]:bg-warning ",
+    "data-[status=warning]:bg-warning  hover:data-[status=warning]:bg-warning active:data-[status=warning]:bg-warning focus:data-[status=warning]:bg-warning ",
   error:
-    "data-[status=error]:bg-error data-[status=error]:text-accent-foreground hover:data-[status=error]:bg-error active:data-[status=error]:bg-error focus:data-[status=error]:bg-error ",
+    "data-[status=error]:bg-error  hover:data-[status=error]:bg-error active:data-[status=error]:bg-error focus:data-[status=error]:bg-error ",
 };
 
 const variantClassMap = {
   default:
-    "data-[disabled]:bg-primary/3 data-[disabled]:text-primary/20 disabled:cursor-not-allowed disabled:bg-primary/3 disabled:pointer-events-none disabled:cursor-not-allowed bg-secondary text-secondary-foreground hover:bg-accent hover:text-secondary-foreground active:bg-primary/12 active:text-accent-foreground focus:text-accent-foreground",
+    "data-[disabled]:bg-primary/3 data-[disabled]:text-primary/20 disabled:cursor-not-allowed disabled:bg-primary/3 disabled:pointer-events-none disabled:cursor-not-allowed bg-secondary  hover:bg-accent hover:text-secondary-foreground active:bg-primary/12 active:text-accent-foreground focus:text-accent-foreground",
   outline:
-    "data-[disabled]:bg-primary/3 data-[disabled]:text-primary/20 disabled:cursor-not-allowed disabled:bg-primary/3 disabled:pointer-events-none disabled:cursor-not-allowed outline outline-1 outline-border -outline-offset-1 bg-background text-secondary-foreground hover:outline-primary/25 active:outline-primary/50 active:bg-background active:text-accent-foreground focus:outline-background focus:text-accent-foreground",
+    "data-[disabled]:bg-primary/3 data-[disabled]:text-primary/20 disabled:cursor-not-allowed disabled:bg-primary/3 disabled:pointer-events-none disabled:cursor-not-allowed outline outline-1 outline-border -outline-offset-1 bg-background  hover:outline-primary/25 active:outline-primary/50 active:bg-background active:text-accent-foreground focus:outline-background focus:text-accent-foreground",
   ghost:
-    "data-[disabled]:bg-primary/3 data-[disabled]:text-primary/20 disabled:cursor-not-allowed disabled:bg-primary/3 disabled:pointer-events-none disabled:cursor-not-allowed bg-transparent text-secondary-foreground hover:bg-accent active:bg-primary/12 active:text-accent-foreground focus:bg-primary/15 focus:text-accent-foreground focus-visible:bg-primary/3",
+    "data-[disabled]:bg-primary/3 data-[disabled]:text-primary/20 disabled:cursor-not-allowed disabled:bg-primary/3 disabled:pointer-events-none disabled:cursor-not-allowed bg-transparent  hover:bg-accent active:bg-primary/12 active:text-accent-foreground focus:bg-primary/15 focus:text-accent-foreground focus-visible:bg-primary/3",
 };
 
 const statusOutlineMap = {
@@ -75,7 +75,7 @@ function SelectTrigger({
       data-size={size}
       data-status={status}
       className={cn(
-        "flex w-fit items-center justify-between gap-2 px-3 py-2  text-base whitespace-nowrap transition-[color,box-shadow]  focus:ring-2 focus:ring-ring focus:ring-offset-0  focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 aria-invalid:ring-destructive/20 aria-invalid:border-destructive data-[size=default]:h-9 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 data-[placeholder]:text-primary/50",
+        "flex w-fit items-center justify-between text-accent-foreground gap-2 px-3 py-2  text-base whitespace-nowrap transition-[color,box-shadow]  focus:ring-2 focus:ring-ring focus:ring-offset-0  focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 aria-invalid:ring-destructive/20 aria-invalid:border-destructive data-[size=default]:h-9 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 data-[placeholder]:text-primary/50",
         variantClassMap[variant],
         sizeClassMap[size],
         variant === "outline" && status ? statusOutlineMap[status] : null,

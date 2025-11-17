@@ -45,6 +45,7 @@ import {
   CornerDownLeft,
   Diamond,
   PanelLeftIcon,
+  FileText,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -158,11 +159,12 @@ const data = {
     { title: "Field", url: "/field", icon: FileSlidersIcon },
     { title: "Item", url: "/item", icon: IndentDecreaseIcon },
     { title: "Kbd", url: "/kbd", icon: SquareChevronRightIcon },
-    { title: "Spacer", url: "/spacer", badge: "new", icon: SpaceIcon },
-    { title: "Calendar", url: "/calendar", badge: "new", icon: Calendar1Icon },
-    { title: "Popover", url: "/popover", badge: "new", icon: Blend },
-    { title: "Modals", url: "/modal", badge: "new", icon: Component },
-    { title: "Sonner", url: "/sonner", badge: "new", icon: Megaphone },
+    { title: "Spacer", url: "/spacer", icon: SpaceIcon },
+    { title: "Calendar", url: "/calendar", icon: Calendar1Icon },
+    { title: "Popover", url: "/popover", icon: Blend },
+    { title: "Modals", url: "/modal", icon: Component },
+    { title: "Sonner", url: "/sonner", icon: Megaphone },
+    { title: "Forms", url: "/form", badge: "new", icon: FileText },
   ],
 };
 

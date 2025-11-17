@@ -48,83 +48,62 @@ const TextAreaDemo = () => {
             <div className="flex  items-center gap-[50px] max-w-[1200px] mx-auto">
               <Textarea
                 placeholder="Enter the text hear...."
-                state="success"
+                status="success"
                 size="sm"
               />
 
               <Textarea
                 placeholder="Enter the text hear...."
                 size="md"
-                state="success"
+                status="success"
               />
               <Textarea
                 placeholder="Enter the text hear...."
                 size="lg"
-                state="success"
+                status="success"
               />
             </div>
             <div className="flex  items-center gap-[50px] max-w-[1200px] mx-auto">
               <Textarea
                 placeholder="Enter the text hear...."
-                state="warning"
+                status="warning"
                 size="sm"
               />
 
               <Textarea
                 placeholder="Enter the text hear...."
                 size="md"
-                state="warning"
+                status="warning"
               />
               <Textarea
                 placeholder="Enter the text hear...."
                 size="lg"
-                state="warning"
+                status="warning"
               />
             </div>
             <div className="flex  items-center gap-[50px] max-w-[1200px] mx-auto">
               <Textarea
                 placeholder="Enter the text hear...."
-                state="error"
+                status="error"
                 size="sm"
               />
 
               <Textarea
                 placeholder="Enter the text hear...."
                 size="md"
-                state="error"
+                status="error"
               />
               <Textarea
                 placeholder="Enter the text hear...."
                 size="lg"
-                state="error"
-              />
-            </div>
-            <div className="flex  items-center gap-[50px] max-w-[1200px] mx-auto">
-              <Textarea
-                placeholder="Enter the text hear...."
-                variant="outline"
-                state="success"
-                size="sm"
-              />
-
-              <Textarea
-                placeholder="Enter the text hear...."
-                size="md"
-                variant="outline"
-                state="success"
-              />
-              <Textarea
-                placeholder="Enter the text hear...."
-                size="lg"
-                state="success"
-                variant="outline"
+                status="error"
               />
             </div>
             <div className="flex  items-center gap-[50px] max-w-[1200px] mx-auto">
               <Textarea
                 placeholder="Enter the text hear...."
                 variant="outline"
-                state="warning"
+                status="success"
                 size="sm"
               />
 
@@ -132,12 +111,12 @@ const TextAreaDemo = () => {
                 placeholder="Enter the text hear...."
                 size="md"
                 variant="outline"
-                state="warning"
+                status="success"
               />
               <Textarea
                 placeholder="Enter the text hear...."
                 size="lg"
-                state="warning"
+                status="success"
                 variant="outline"
               />
             </div>
@@ -145,7 +124,7 @@ const TextAreaDemo = () => {
               <Textarea
                 placeholder="Enter the text hear...."
                 variant="outline"
-                state="error"
+                status="warning"
                 size="sm"
               />
 
@@ -153,12 +132,33 @@ const TextAreaDemo = () => {
                 placeholder="Enter the text hear...."
                 size="md"
                 variant="outline"
-                state="error"
+                status="warning"
               />
               <Textarea
                 placeholder="Enter the text hear...."
                 size="lg"
-                state="error"
+                status="warning"
+                variant="outline"
+              />
+            </div>
+            <div className="flex  items-center gap-[50px] max-w-[1200px] mx-auto">
+              <Textarea
+                placeholder="Enter the text hear...."
+                variant="outline"
+                status="error"
+                size="sm"
+              />
+
+              <Textarea
+                placeholder="Enter the text hear...."
+                size="md"
+                variant="outline"
+                status="error"
+              />
+              <Textarea
+                placeholder="Enter the text hear...."
+                size="lg"
+                status="error"
                 variant="outline"
               />
             </div>

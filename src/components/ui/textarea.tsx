@@ -19,7 +19,7 @@ const textareaVariants = cva(
         md: "min-h-[102px] px-3 py-2.5 text-base rounded-xl leading-normal tracking-4",
         lg: "min-h-[126px] px-3.5 py-3 text-lg rounded-xl leading-normal tracking-4",
       },
-      state: {
+      status: {
         default: "",
         success: "",
         error: "",
@@ -29,40 +29,40 @@ const textareaVariants = cva(
     defaultVariants: {
       variant: "default",
       size: "sm",
-      state: "default",
+      status: "default",
     },
     compoundVariants: [
       {
-        state: "success",
+        status: "success",
         variant: ["default", "ghost"],
         className: "bg-success text-accent-foreground hover:bg-success",
       },
       {
-        state: "success",
+        status: "success",
         variant: "outline",
         className:
           "outline-success-border text-accent-foreground hover:outline-success-border",
       },
 
       {
-        state: "error",
+        status: "error",
         variant: ["default", "ghost"],
         className: "bg-error text-accent-foreground hover:bg-error",
       },
       {
-        state: "error",
+        status: "error",
         variant: "outline",
         className:
           "outline-error-border text-accent-foreground hover:outline-error-border",
       },
 
       {
-        state: "warning",
+        status: "warning",
         variant: ["default", "ghost"],
         className: "bg-warning text-accent-foreground hover:bg-warning",
       },
       {
-        state: "warning",
+        status: "warning",
         variant: "outline",
         className:
           "outline-warning-border text-accent-foreground hover:outline-warning-border",
@@ -76,13 +76,13 @@ export interface TextareaProps
     VariantProps<typeof textareaVariants> {}
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ className, variant, size, state, ...props }, ref) => {
+  ({ className, variant, size, status, ...props }, ref) => {
     return (
       <textarea
         ref={ref}
         data-slot="textarea"
-        aria-invalid={state === "error" ? true : undefined}
-        className={cn(textareaVariants({ variant, size, state }), className)}
+        aria-invalid={status === "error" ? true : undefined}
+        className={cn(textareaVariants({ variant, size, status }), className)}
         {...props}
       />
     );

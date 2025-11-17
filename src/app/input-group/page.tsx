@@ -102,41 +102,25 @@ const InputGroupDemo = () => {
         </div>
         <div className="flex gap-4 items-center">
           <InputGroup variant="outline" size="sm">
-            <InputGroupInput
-              variant="outline"
-              placeholder="Search..."
-              size="sm"
-            />
+            <InputGroupInput placeholder="Search..." size="sm" />
             <InputGroupAddon size="sm">
               <SearchIcon />
             </InputGroupAddon>
           </InputGroup>
           <InputGroup variant="outline" size="md">
-            <InputGroupInput
-              variant="outline"
-              placeholder="Search..."
-              size="md"
-            />
+            <InputGroupInput placeholder="Search..." size="md" />
             <InputGroupAddon size="md">
               <SearchIcon />
             </InputGroupAddon>
           </InputGroup>
           <InputGroup variant="outline" size="lg">
-            <InputGroupInput
-              variant="outline"
-              placeholder="Search..."
-              size="lg"
-            />
+            <InputGroupInput placeholder="Search..." size="lg" />
             <InputGroupAddon size="lg">
               <SearchIcon />
             </InputGroupAddon>
           </InputGroup>
           <InputGroup variant="outline" size="xl">
-            <InputGroupInput
-              variant="outline"
-              placeholder="Search..."
-              size="xl"
-            />
+            <InputGroupInput placeholder="Search..." size="xl" />
             <InputGroupAddon size="xl">
               <SearchIcon />
             </InputGroupAddon>
@@ -144,41 +128,25 @@ const InputGroupDemo = () => {
         </div>
         <div className="flex gap-4 items-center">
           <InputGroup variant="outline" size="sm">
-            <InputGroupInput
-              variant="outline"
-              placeholder="Search..."
-              size="sm"
-            />
+            <InputGroupInput placeholder="Search..." size="sm" />
             <InputGroupAddon size="sm" align="inline-end">
               <SearchIcon />
             </InputGroupAddon>
           </InputGroup>
           <InputGroup variant="outline" size="md">
-            <InputGroupInput
-              variant="outline"
-              placeholder="Search..."
-              size="md"
-            />
+            <InputGroupInput placeholder="Search..." size="md" />
             <InputGroupAddon size="md" align="inline-end">
               <SearchIcon />
             </InputGroupAddon>
           </InputGroup>
           <InputGroup variant="outline" size="lg">
-            <InputGroupInput
-              variant="outline"
-              placeholder="Search..."
-              size="lg"
-            />
+            <InputGroupInput placeholder="Search..." size="lg" />
             <InputGroupAddon size="lg" align="inline-end">
               <SearchIcon />
             </InputGroupAddon>
           </InputGroup>
           <InputGroup variant="outline" size="xl">
-            <InputGroupInput
-              variant="outline"
-              placeholder="Search..."
-              size="xl"
-            />
+            <InputGroupInput placeholder="Search..." size="xl" />
             <InputGroupAddon size="xl" align="inline-end">
               <SearchIcon />
             </InputGroupAddon>
@@ -187,41 +155,25 @@ const InputGroupDemo = () => {
 
         <div className="flex gap-4 items-center">
           <InputGroup variant="outline" size="sm">
-            <InputGroupInput
-              variant="outline"
-              placeholder="Search..."
-              size="sm"
-            />
+            <InputGroupInput placeholder="Search..." size="sm" />
             <InputGroupAddon size="sm" align="block-start">
               <SearchIcon />
             </InputGroupAddon>
           </InputGroup>
           <InputGroup variant="outline" size="md">
-            <InputGroupInput
-              variant="outline"
-              placeholder="Search..."
-              size="md"
-            />
+            <InputGroupInput placeholder="Search..." size="md" />
             <InputGroupAddon size="md" align="block-start">
               <SearchIcon />
             </InputGroupAddon>
           </InputGroup>
           <InputGroup variant="outline" size="lg">
-            <InputGroupInput
-              variant="outline"
-              placeholder="Search..."
-              size="lg"
-            />
+            <InputGroupInput placeholder="Search..." size="lg" />
             <InputGroupAddon size="lg" align="block-start">
               <SearchIcon />
             </InputGroupAddon>
           </InputGroup>
           <InputGroup variant="outline" size="xl">
-            <InputGroupInput
-              variant="outline"
-              placeholder="Search..."
-              size="xl"
-            />
+            <InputGroupInput placeholder="Search..." size="xl" />
             <InputGroupAddon size="xl" align="block-start">
               <SearchIcon />
             </InputGroupAddon>
@@ -229,41 +181,25 @@ const InputGroupDemo = () => {
         </div>
         <div className="flex gap-4 items-center">
           <InputGroup variant="outline" size="sm">
-            <InputGroupInput
-              variant="outline"
-              placeholder="Search..."
-              size="sm"
-            />
+            <InputGroupInput placeholder="Search..." size="sm" />
             <InputGroupAddon size="sm" align="block-end">
               <SearchIcon />
             </InputGroupAddon>
           </InputGroup>
           <InputGroup variant="outline" size="md">
-            <InputGroupInput
-              variant="outline"
-              placeholder="Search..."
-              size="md"
-            />
+            <InputGroupInput placeholder="Search..." size="md" />
             <InputGroupAddon size="md" align="block-end">
               <SearchIcon />
             </InputGroupAddon>
           </InputGroup>
           <InputGroup variant="outline" size="lg">
-            <InputGroupInput
-              variant="outline"
-              placeholder="Search..."
-              size="lg"
-            />
+            <InputGroupInput placeholder="Search..." size="lg" />
             <InputGroupAddon size="lg" align="block-end">
               <SearchIcon />
             </InputGroupAddon>
           </InputGroup>
           <InputGroup variant="outline" size="xl">
-            <InputGroupInput
-              variant="outline"
-              placeholder="Search..."
-              size="xl"
-            />
+            <InputGroupInput placeholder="Search..." size="xl" />
             <InputGroupAddon size="xl" align="block-end">
               <SearchIcon />
             </InputGroupAddon>
@@ -314,41 +250,25 @@ const InputGroupDemo = () => {
 
         <div className="flex gap-4 items-center">
           <InputGroup variant="outline" size="sm">
-            <InputGroupInput
-              variant="outline"
-              placeholder="Search..."
-              size="sm"
-            />
+            <InputGroupInput placeholder="Search..." size="sm" />
             <InputGroupAddon size="sm">
               <SearchIcon />
             </InputGroupAddon>
           </InputGroup>
           <InputGroup variant="outline" size="md">
-            <InputGroupInput
-              variant="outline"
-              placeholder="Search..."
-              size="md"
-            />
+            <InputGroupInput placeholder="Search..." size="md" />
             <InputGroupAddon size="md">
               <SearchIcon />
             </InputGroupAddon>
           </InputGroup>
           <InputGroup variant="outline" size="lg">
-            <InputGroupInput
-              variant="outline"
-              placeholder="Search..."
-              size="lg"
-            />
+            <InputGroupInput placeholder="Search..." size="lg" />
             <InputGroupAddon size="lg">
               <SearchIcon />
             </InputGroupAddon>
           </InputGroup>
           <InputGroup variant="outline" size="xl">
-            <InputGroupInput
-              variant="outline"
-              placeholder="Search..."
-              size="xl"
-            />
+            <InputGroupInput placeholder="Search..." size="xl" />
             <InputGroupAddon size="xl">
               <SearchIcon />
             </InputGroupAddon>
@@ -390,19 +310,13 @@ const InputGroupDemo = () => {
               placeholder="Search..."
               size="sm"
               status="success"
-              variant="outline"
             />
             <InputGroupAddon size="sm">
               <SearchIcon />
             </InputGroupAddon>
           </InputGroup>
           <InputGroup status="error" variant="outline" size="md">
-            <InputGroupInput
-              placeholder="Search..."
-              size="md"
-              status="error"
-              variant="outline"
-            />
+            <InputGroupInput placeholder="Search..." size="md" status="error" />
             <InputGroupAddon size="md">
               <SearchIcon />
             </InputGroupAddon>
@@ -412,7 +326,6 @@ const InputGroupDemo = () => {
               placeholder="Search..."
               size="lg"
               status="warning"
-              variant="outline"
             />
             <InputGroupAddon size="lg">
               <SearchIcon />
@@ -509,11 +422,7 @@ const InputGroupDemo = () => {
           <InputGroup>
             <InputGroupTextarea placeholder="Ask, Search or Chat..." />
             <InputGroupAddon align="block-end">
-              <InputGroupButton
-                variant="outline"
-                className="rounded-full"
-                size="icon-xs"
-              >
+              <InputGroupButton className="rounded-full" size="icon-xs">
                 <PlusIcon className="size-4" />
               </InputGroupButton>
               <DropdownMenu>
