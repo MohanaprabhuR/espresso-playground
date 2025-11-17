@@ -16,6 +16,7 @@ import {
   PlusIcon,
   Search,
   HelpCircle,
+  ListFilter,
 } from "lucide-react";
 
 import {
@@ -71,6 +72,44 @@ const InputGroupDemo = () => {
             <InputGroupInput placeholder="Search..." size="xl" />
             <InputGroupAddon size="xl">
               <SearchIcon />
+            </InputGroupAddon>
+          </InputGroup>
+        </div>
+        <div className="flex gap-4 items-center">
+          <InputGroup size="sm">
+            <InputGroupInput placeholder="Search..." size="sm" />
+            <InputGroupAddon size="sm" align="inline-start">
+              <SearchIcon />
+            </InputGroupAddon>
+            <InputGroupAddon size="sm" align="inline-end">
+              <ListFilter />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup size="md">
+            <InputGroupInput placeholder="Search..." size="md" />
+            <InputGroupAddon size="md" align="inline-start">
+              <SearchIcon />
+            </InputGroupAddon>
+            <InputGroupAddon size="md" align="inline-end">
+              <ListFilter />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup size="lg">
+            <InputGroupInput placeholder="Search..." size="lg" />
+            <InputGroupAddon size="lg" align="inline-start">
+              <SearchIcon />
+            </InputGroupAddon>
+            <InputGroupAddon size="lg" align="inline-end">
+              <ListFilter />
+            </InputGroupAddon>
+          </InputGroup>
+          <InputGroup size="xl">
+            <InputGroupInput placeholder="Search..." size="xl" />
+            <InputGroupAddon size="xl" align="inline-start">
+              <SearchIcon />
+            </InputGroupAddon>
+            <InputGroupAddon size="xl" align="inline-end">
+              <ListFilter />
             </InputGroupAddon>
           </InputGroup>
         </div>
