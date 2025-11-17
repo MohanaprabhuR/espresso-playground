@@ -107,7 +107,7 @@ const inputGroupAddonVariants = cva(
         sm: "[&[data-align='inline-start']]:pl-2 [&[data-align='inline-end']]:pr-2 [&[data-align='block-start']]:pl-2 [&[data-align='block-start']]:pt-2 [&[data-align='block-end']]:pl-2 [&[data-align='block-end']]:pb-2",
         md: "[&[data-align='inline-start']]:pl-2.5 [&[data-align='inline-end']]:pr-2.5 [&[data-align='block-start']]:pl-2.5 [&[data-align='block-start']]:pt-2.5 [&[data-align='block-end']]:pl-2.5 [&[data-align='block-end']]:pb-2.5",
         lg: "[&[data-align='inline-start']]:pl-3 [&[data-align='inline-end']]:pr-3 [&[data-align='block-start']]:pl-3 [&[data-align='block-start']]:pt-3 [&[data-align='block-end']]:pl-3 [&[data-align='block-end']]:pb-3",
-        xl: "[&[data-align='inline-start']]:pl-3 [&[data-align='inline-end']]:pr-3 [&[data-align='block-start']]:pl-3 [&[data-align='block-start']]:pt-3 [&[data-align='block-end']]:pl-3 [&[data-align='block-end']]:pb-3",
+        xl: "[&[data-align='inline-start']]:pl-3 [&[data-align='inline-end']]:pr-3 [&[data-align='block-start']]:pl-3 [&[data-align='block-start']]:pt-3 [&[data-align='block-end']]:pl-3 [&[data-align='block-end']]:pb-3 [&>svg:not([class*='size-'])]:size-4.5",
       },
     },
     defaultVariants: {
