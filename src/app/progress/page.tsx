@@ -1,9 +1,6 @@
 "use client";
 import React from "react";
 import { Progress } from "@/components/ui/progress";
-import { CloudIcon } from "../../../public/images/svg/cloudIcon";
-import { Label } from "@/components/ui/label";
-import { Diamond, StarIcon } from "lucide-react";
 
 const ProgressDemo = () => {
   return (

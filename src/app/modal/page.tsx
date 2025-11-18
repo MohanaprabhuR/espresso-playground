@@ -47,116 +47,107 @@ const modalDemo = () => {
               <DialogHeader className="flex flex-col gap-y-4">
                 <DialogTitle>Title</DialogTitle>
               </DialogHeader>
-              <div className="space-y-5">
-                <div className="flex justify-between items-center">
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Theme" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="aaron">
-                        <CommandIcon className="size-4" />
-                        Aaron Menezes
-                      </SelectItem>
-                      <SelectItem value="vaani">
-                        <CommandIcon className="size-4" />
-                        Vaani Kapoor
-                      </SelectItem>
-                      <SelectItem value="daniel">
-                        <CommandIcon className="size-4" />
-                        Daniel Kapoor
-                      </SelectItem>
-                      <SelectItem value="steven">
-                        <CommandIcon className="size-4" />
-                        Steven James
-                      </SelectItem>
-                      <SelectItem value="dipen">
-                        <CommandIcon className="size-4" />
-                        Dipen Gala
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <Switch />
-                </div>
-                <div className="flex flex-col space-y-3">
-                  <Label className="text-accent-foreground">Title</Label>
-                  <Tabs defaultValue="tab1">
-                    <TabsList className="gap-x-1.5">
-                      <TabsTrigger
-                        value="tab1"
-                        className="px-1.5 py-1.5 font-medium"
-                      >
-                        Option
-                      </TabsTrigger>
-                      <TabsTrigger
-                        value="tab2"
-                        className="px-1.5 py-1.5 font-medium"
-                      >
-                        Option
-                      </TabsTrigger>
-                      <TabsTrigger
-                        value="tab3"
-                        className="px-1.5 py-1.5 font-medium"
-                      >
-                        Option
-                      </TabsTrigger>
-                      <TabsTrigger
-                        value="tab4"
-                        className="px-1.5 py-1.5 font-medium"
-                      >
-                        Option
-                      </TabsTrigger>
-                      <TabsTrigger
-                        value="tab5"
-                        className="px-1.5 py-1.5 font-medium"
-                      >
-                        Option
-                      </TabsTrigger>
-                    </TabsList>
-                    <TabsContent value="tab1">Options 1 Content</TabsContent>
-                    <TabsContent value="tab2">Options 2 Content</TabsContent>
-                    <TabsContent value="tab3">Options 3 Content</TabsContent>
-                    <TabsContent value="tab4">Options 4 Content</TabsContent>
-                    <TabsContent value="tab5">Options 5 Content</TabsContent>
-                  </Tabs>
-                </div>
-                {[...Array(3)].map((_, index) => (
-                  <div key={index} className="space-y-2">
-                    <Label>Label</Label>
-                    <InputGroup>
-                      <InputGroupInput
-                        type="email"
-                        placeholder="Enter your email"
-                      />
-                      <InputGroupAddon>
-                        <MailIcon />
-                      </InputGroupAddon>
-                    </InputGroup>
-                  </div>
-                ))}
-                <div className="space-y-2">
-                  <Label>Label</Label>
-                  <Input type="file" placeholder="file" />
-                </div>
-
-                <div className="space-y-3">
-                  <Label>Select from the choices available</Label>
-
-                  <RadioGroup
-                    defaultValue="option1"
-                    className="grid grid-cols-3 gap-3"
-                  >
-                    <RadioGroupItem id="opt1" value="option1" label="Gmail" />
-                    <RadioGroupItem id="opt2" value="option2" label="Outlook" />
-                    <RadioGroupItem
-                      id="opt3"
-                      value="option3"
-                      label="Microsoft"
-                    />
-                  </RadioGroup>
-                </div>
+              <div className="flex justify-between items-center">
+                <Select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Theme" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="aaron">
+                      <CommandIcon className="size-4" />
+                      Aaron Menezes
+                    </SelectItem>
+                    <SelectItem value="vaani">
+                      <CommandIcon className="size-4" />
+                      Vaani Kapoor
+                    </SelectItem>
+                    <SelectItem value="daniel">
+                      <CommandIcon className="size-4" />
+                      Daniel Kapoor
+                    </SelectItem>
+                    <SelectItem value="steven">
+                      <CommandIcon className="size-4" />
+                      Steven James
+                    </SelectItem>
+                    <SelectItem value="dipen">
+                      <CommandIcon className="size-4" />
+                      Dipen Gala
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
+                <Switch />
               </div>
-              <DialogFooter className="justify-between pt-4">
+
+              <div className="flex flex-col space-y-1.5">
+                <Label className="text-accent-foreground">Title</Label>
+                <Tabs defaultValue="tab1">
+                  <TabsList className="gap-x-1.5">
+                    <TabsTrigger
+                      value="tab1"
+                      className="px-1.5 py-1.5 font-medium"
+                    >
+                      Option
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="tab2"
+                      className="px-1.5 py-1.5 font-medium"
+                    >
+                      Option
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="tab3"
+                      className="px-1.5 py-1.5 font-medium"
+                    >
+                      Option
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="tab4"
+                      className="px-1.5 py-1.5 font-medium"
+                    >
+                      Option
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="tab5"
+                      className="px-1.5 py-1.5 font-medium"
+                    >
+                      Option
+                    </TabsTrigger>
+                  </TabsList>
+                </Tabs>
+              </div>
+              {[...Array(3)].map((_, index) => (
+                <div key={index} className="space-y-1.5">
+                  <Label>Label</Label>
+                  <InputGroup>
+                    <InputGroupInput
+                      type="email"
+                      placeholder="Enter your email"
+                    />
+                    <InputGroupAddon>
+                      <MailIcon />
+                    </InputGroupAddon>
+                  </InputGroup>
+                </div>
+              ))}
+              <div className="space-y-1.5">
+                <Label>Label</Label>
+                <Input type="file" placeholder="file" />
+              </div>
+
+              <div className="space-y-1.5">
+                <Label>Select from the choices available</Label>
+
+                <RadioGroup
+                  defaultValue="option1"
+                  className="grid grid-cols-3 gap-3"
+                >
+                  <RadioGroupItem id="opt1" value="option1" label="Gmail" />
+                  <RadioGroupItem id="opt2" value="option2" label="Outlook" />
+                  <RadioGroupItem id="opt3" value="option3" label="Microsoft" />
+                </RadioGroup>
+              </div>
+
+              <DialogFooter className="justify-between ">
                 <ButtonGroup aria-label="Media controls" className="h-fit">
                   <Button variant="secondary">Action</Button>
                 </ButtonGroup>
@@ -184,116 +175,107 @@ const modalDemo = () => {
               <DialogHeader className="flex flex-col gap-y-4">
                 <DialogTitle>Title</DialogTitle>
               </DialogHeader>
-              <div className="space-y-5">
-                <div className="flex justify-between items-center">
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Theme" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="aaron">
-                        <CommandIcon className="size-4" />
-                        Aaron Menezes
-                      </SelectItem>
-                      <SelectItem value="vaani">
-                        <CommandIcon className="size-4" />
-                        Vaani Kapoor
-                      </SelectItem>
-                      <SelectItem value="daniel">
-                        <CommandIcon className="size-4" />
-                        Daniel Kapoor
-                      </SelectItem>
-                      <SelectItem value="steven">
-                        <CommandIcon className="size-4" />
-                        Steven James
-                      </SelectItem>
-                      <SelectItem value="dipen">
-                        <CommandIcon className="size-4" />
-                        Dipen Gala
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <Switch />
-                </div>
-                <div className="flex flex-col space-y-3">
-                  <Label>Title</Label>
-                  <Tabs defaultValue="tab1" size="md">
-                    <TabsList className="gap-x-1.5">
-                      <TabsTrigger
-                        value="tab1"
-                        className="py-1.5 px-[14.1px] font-medium tracking-4"
-                      >
-                        Option
-                      </TabsTrigger>
-                      <TabsTrigger
-                        value="tab2"
-                        className="py-1.5 px-[14.1px] font-medium tracking-4"
-                      >
-                        Option
-                      </TabsTrigger>
-                      <TabsTrigger
-                        value="tab3"
-                        className="py-1.5 px-[14.1px] font-medium tracking-4"
-                      >
-                        Option
-                      </TabsTrigger>
-                      <TabsTrigger
-                        value="tab4"
-                        className="py-1.5 px-[14.1px] font-medium tracking-4"
-                      >
-                        Option
-                      </TabsTrigger>
-                      <TabsTrigger
-                        value="tab5"
-                        className="py-1.5 px-[14.1px] font-medium tracking-4"
-                      >
-                        Option
-                      </TabsTrigger>
-                    </TabsList>
-                    <TabsContent value="tab1">Options 1 Content</TabsContent>
-                    <TabsContent value="tab2">Options 2 Content</TabsContent>
-                    <TabsContent value="tab3">Options 3 Content</TabsContent>
-                    <TabsContent value="tab4">Options 4 Content</TabsContent>
-                    <TabsContent value="tab5">Options 5 Content</TabsContent>
-                  </Tabs>
-                </div>
-                {[...Array(3)].map((_, index) => (
-                  <div key={index} className="space-y-2">
-                    <Label>Label</Label>
-                    <InputGroup>
-                      <InputGroupInput
-                        type="email"
-                        placeholder="Enter your email"
-                      />
-                      <InputGroupAddon>
-                        <MailIcon />
-                      </InputGroupAddon>
-                    </InputGroup>
-                  </div>
-                ))}
-                <div className="space-y-2">
-                  <Label>Label</Label>
-                  <Input type="file" placeholder="file" />
-                </div>
 
-                <div className="space-y-3">
-                  <Label>Select from the choices available</Label>
-
-                  <RadioGroup
-                    defaultValue="option1"
-                    className="grid grid-cols-3 gap-3"
-                  >
-                    <RadioGroupItem id="opt1" value="option1" label="Gmail" />
-                    <RadioGroupItem id="opt2" value="option2" label="Outlook" />
-                    <RadioGroupItem
-                      id="opt3"
-                      value="option3"
-                      label="Microsoft"
-                    />
-                  </RadioGroup>
-                </div>
+              <div className="flex justify-between items-center">
+                <Select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Theme" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="aaron">
+                      <CommandIcon className="size-4" />
+                      Aaron Menezes
+                    </SelectItem>
+                    <SelectItem value="vaani">
+                      <CommandIcon className="size-4" />
+                      Vaani Kapoor
+                    </SelectItem>
+                    <SelectItem value="daniel">
+                      <CommandIcon className="size-4" />
+                      Daniel Kapoor
+                    </SelectItem>
+                    <SelectItem value="steven">
+                      <CommandIcon className="size-4" />
+                      Steven James
+                    </SelectItem>
+                    <SelectItem value="dipen">
+                      <CommandIcon className="size-4" />
+                      Dipen Gala
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
+                <Switch />
               </div>
-              <DialogFooter className="justify-between pt-4">
+              <div className="flex flex-col space-y-1.5">
+                <Label>Title</Label>
+                <Tabs defaultValue="tab1" size="md">
+                  <TabsList className="gap-x-1.5">
+                    <TabsTrigger
+                      value="tab1"
+                      className="py-1.5 px-[14.1px] font-medium tracking-4"
+                    >
+                      Option
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="tab2"
+                      className="py-1.5 px-[14.1px] font-medium tracking-4"
+                    >
+                      Option
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="tab3"
+                      className="py-1.5 px-[14.1px] font-medium tracking-4"
+                    >
+                      Option
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="tab4"
+                      className="py-1.5 px-[14.1px] font-medium tracking-4"
+                    >
+                      Option
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="tab5"
+                      className="py-1.5 px-[14.1px] font-medium tracking-4"
+                    >
+                      Option
+                    </TabsTrigger>
+                  </TabsList>
+                </Tabs>
+              </div>
+              {[...Array(3)].map((_, index) => (
+                <div key={index} className="space-y-2">
+                  <Label>Label</Label>
+                  <InputGroup>
+                    <InputGroupInput
+                      type="email"
+                      placeholder="Enter your email"
+                    />
+                    <InputGroupAddon>
+                      <MailIcon />
+                    </InputGroupAddon>
+                  </InputGroup>
+                </div>
+              ))}
+              <div className="space-y-1.5">
+                <Label>Label</Label>
+                <Input type="file" placeholder="file" />
+              </div>
+
+              <div className="space-y-1.5">
+                <Label>Select from the choices available</Label>
+
+                <RadioGroup
+                  defaultValue="option1"
+                  className="grid grid-cols-3 gap-3"
+                >
+                  <RadioGroupItem id="opt1" value="option1" label="Gmail" />
+                  <RadioGroupItem id="opt2" value="option2" label="Outlook" />
+                  <RadioGroupItem id="opt3" value="option3" label="Microsoft" />
+                </RadioGroup>
+              </div>
+
+              <DialogFooter className="justify-between ">
                 <ButtonGroup aria-label="Media controls" className="h-fit">
                   <Button variant="secondary">Action</Button>
                 </ButtonGroup>
@@ -321,116 +303,105 @@ const modalDemo = () => {
               <DialogHeader className="flex flex-col gap-y-4">
                 <DialogTitle>Title</DialogTitle>
               </DialogHeader>
-              <div className="space-y-5">
-                <div className="flex justify-between items-center">
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Theme" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="aaron">
-                        <CommandIcon className="size-4" />
-                        Aaron Menezes
-                      </SelectItem>
-                      <SelectItem value="vaani">
-                        <CommandIcon className="size-4" />
-                        Vaani Kapoor
-                      </SelectItem>
-                      <SelectItem value="daniel">
-                        <CommandIcon className="size-4" />
-                        Daniel Kapoor
-                      </SelectItem>
-                      <SelectItem value="steven">
-                        <CommandIcon className="size-4" />
-                        Steven James
-                      </SelectItem>
-                      <SelectItem value="dipen">
-                        <CommandIcon className="size-4" />
-                        Dipen Gala
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <Switch />
-                </div>
-                <div className="flex flex-col space-y-3">
-                  <Label>Title</Label>
-                  <Tabs defaultValue="tab1">
-                    <TabsList className="gap-x-1.5">
-                      <TabsTrigger
-                        className="py-1.5 px-[30.1px] font-medium"
-                        value="tab1"
-                      >
-                        Option
-                      </TabsTrigger>
-                      <TabsTrigger
-                        className="py-1.5 px-[30.1px] font-medium"
-                        value="tab2"
-                      >
-                        Option
-                      </TabsTrigger>
-                      <TabsTrigger
-                        className="py-1.5 px-[30.1px] font-medium"
-                        value="tab3"
-                      >
-                        Option
-                      </TabsTrigger>
-                      <TabsTrigger
-                        className="py-1.5 px-[30.1px] font-medium"
-                        value="tab4"
-                      >
-                        Option
-                      </TabsTrigger>
-                      <TabsTrigger
-                        className="py-1.5 px-[30.1px] font-medium"
-                        value="tab5"
-                      >
-                        Option
-                      </TabsTrigger>
-                    </TabsList>
-                    <TabsContent value="tab1">Options 1 Content</TabsContent>
-                    <TabsContent value="tab2">Options 2 Content</TabsContent>
-                    <TabsContent value="tab3">Options 3 Content</TabsContent>
-                    <TabsContent value="tab4">Options 4 Content</TabsContent>
-                    <TabsContent value="tab5">Options 5 Content</TabsContent>
-                  </Tabs>
-                </div>
-                {[...Array(3)].map((_, index) => (
-                  <div key={index} className="space-y-2">
-                    <Label>Label</Label>
-                    <InputGroup>
-                      <InputGroupInput
-                        type="email"
-                        placeholder="Enter your email"
-                      />
-                      <InputGroupAddon>
-                        <MailIcon />
-                      </InputGroupAddon>
-                    </InputGroup>
-                  </div>
-                ))}
-                <div className="space-y-2">
-                  <Label>Label</Label>
-                  <Input type="file" placeholder="file" />
-                </div>
-
-                <div className="space-y-3">
-                  <Label>Select from the choices available</Label>
-
-                  <RadioGroup
-                    defaultValue="option1"
-                    className="grid grid-cols-3 gap-3"
-                  >
-                    <RadioGroupItem id="opt1" value="option1" label="Gmail" />
-                    <RadioGroupItem id="opt2" value="option2" label="Outlook" />
-                    <RadioGroupItem
-                      id="opt3"
-                      value="option3"
-                      label="Microsoft"
-                    />
-                  </RadioGroup>
-                </div>
+              <div className="flex justify-between items-center">
+                <Select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Theme" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="aaron">
+                      <CommandIcon className="size-4" />
+                      Aaron Menezes
+                    </SelectItem>
+                    <SelectItem value="vaani">
+                      <CommandIcon className="size-4" />
+                      Vaani Kapoor
+                    </SelectItem>
+                    <SelectItem value="daniel">
+                      <CommandIcon className="size-4" />
+                      Daniel Kapoor
+                    </SelectItem>
+                    <SelectItem value="steven">
+                      <CommandIcon className="size-4" />
+                      Steven James
+                    </SelectItem>
+                    <SelectItem value="dipen">
+                      <CommandIcon className="size-4" />
+                      Dipen Gala
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
+                <Switch />
               </div>
-              <DialogFooter className="justify-between pt-4">
+              <div className="flex flex-col space-y-1.5">
+                <Label>Title</Label>
+                <Tabs defaultValue="tab1">
+                  <TabsList className="gap-x-1.5">
+                    <TabsTrigger
+                      className="py-1.5 px-[30.1px] font-medium"
+                      value="tab1"
+                    >
+                      Option
+                    </TabsTrigger>
+                    <TabsTrigger
+                      className="py-1.5 px-[30.1px] font-medium"
+                      value="tab2"
+                    >
+                      Option
+                    </TabsTrigger>
+                    <TabsTrigger
+                      className="py-1.5 px-[30.1px] font-medium"
+                      value="tab3"
+                    >
+                      Option
+                    </TabsTrigger>
+                    <TabsTrigger
+                      className="py-1.5 px-[30.1px] font-medium"
+                      value="tab4"
+                    >
+                      Option
+                    </TabsTrigger>
+                    <TabsTrigger
+                      className="py-1.5 px-[30.1px] font-medium"
+                      value="tab5"
+                    >
+                      Option
+                    </TabsTrigger>
+                  </TabsList>
+                </Tabs>
+              </div>
+              {[...Array(3)].map((_, index) => (
+                <div key={index} className="space-y-1.5">
+                  <Label>Label</Label>
+                  <InputGroup>
+                    <InputGroupInput
+                      type="email"
+                      placeholder="Enter your email"
+                    />
+                    <InputGroupAddon>
+                      <MailIcon />
+                    </InputGroupAddon>
+                  </InputGroup>
+                </div>
+              ))}
+              <div className="space-y-1.5">
+                <Label>Label</Label>
+                <Input type="file" placeholder="file" />
+              </div>
+
+              <div className="space-y-1.5">
+                <Label>Select from the choices available</Label>
+
+                <RadioGroup
+                  defaultValue="option1"
+                  className="grid grid-cols-3 gap-3"
+                >
+                  <RadioGroupItem id="opt1" value="option1" label="Gmail" />
+                  <RadioGroupItem id="opt2" value="option2" label="Outlook" />
+                  <RadioGroupItem id="opt3" value="option3" label="Microsoft" />
+                </RadioGroup>
+              </div>
+              <DialogFooter className="justify-between ">
                 <ButtonGroup aria-label="Media controls" className="h-fit">
                   <Button variant="secondary">Action</Button>
                 </ButtonGroup>

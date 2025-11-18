@@ -88,7 +88,7 @@ function FormItem({
       <div
         data-slot="form-item"
         data-status={status}
-        className={cn("grid gap-2", className)}
+        className={cn("grid gap-1.5 w-full", className)}
         {...props}
       />
     </FormItemContext.Provider>
@@ -118,7 +118,10 @@ function FormLabelText({
     <Label
       data-slot="form-label-text"
       data-error={!!error}
-      className={cn("data-[error=true]:text-destructive flex-1", className)}
+      className={cn(
+        "data-[error=true]:text-destructive flex-1 leading-tight",
+        className
+      )}
       htmlFor={formItemId}
       {...props}
     />
@@ -136,7 +139,7 @@ function FormLabelHintText({
       data-slot="form-label-hint-text"
       data-error={!!error}
       className={cn(
-        "data-[error=true]:text-destructive flex justify-between",
+        "data-[error=true]:text-destructive flex justify-between leading-tight",
         className
       )}
       htmlFor={formItemId}

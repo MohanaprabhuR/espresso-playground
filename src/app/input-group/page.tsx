@@ -2,16 +2,8 @@
 
 import {
   CheckIcon,
-  CreditCardIcon,
   InfoIcon,
-  Link2Icon,
-  MailIcon,
   SearchIcon,
-  CornerDownLeft,
-  StarIcon,
-  Code2Icon,
-  CopyIcon,
-  RefreshCwIcon,
   ArrowUpIcon,
   PlusIcon,
   Search,
