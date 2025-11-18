@@ -1,8 +1,6 @@
 "use client";
 import {
-  CloudIcon,
   PanelLeft,
-  PanelLeftClose,
   MessageCircleQuestionMark,
   Zap,
   ArrowRightFromLine,
@@ -16,7 +14,6 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { Progress } from "./ui/progress";
-import { Label } from "./ui/label";
 
 export function NavUser({
   user,

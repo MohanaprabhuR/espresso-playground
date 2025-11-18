@@ -26,8 +26,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CommandIcon, MailIcon, SearchIcon } from "lucide-react";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CommandIcon, MailIcon } from "lucide-react";
 import { ButtonGroup } from "@/components/ui/button-group";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 

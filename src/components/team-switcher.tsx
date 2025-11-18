@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 
 import {
   Moon,
@@ -34,7 +34,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "./ui/dialog";
 import { Label } from "./ui/label";
 import {
   Select,
@@ -44,7 +44,7 @@ import {
   SelectValue,
 } from "./ui/select";
 import { Switch } from "./ui/switch";
-import { Input } from "./ui/input";
+
 import {
   Sidebar,
   SidebarContent,

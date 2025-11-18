@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 
 function Toast({
   className,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   action = false,
   longText = false,
   children,

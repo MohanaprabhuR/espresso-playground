@@ -94,12 +94,11 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Input
                       placeholder="User Name..."
-                      {...field}
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
                     />
@@ -112,12 +111,11 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Input
                       placeholder="User Name..."
-                      {...field}
                       size="md"
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
@@ -131,7 +129,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Select>
@@ -170,7 +168,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Select>
@@ -209,7 +207,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Textarea placeholder="Type something" />
@@ -222,7 +220,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Textarea placeholder="Type something" size="md" />
@@ -239,7 +237,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -248,7 +246,6 @@ const FormFieldDemo = () => {
                   <FormControl>
                     <Input
                       placeholder="User Name..."
-                      {...field}
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
                     />
@@ -261,7 +258,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -270,7 +267,6 @@ const FormFieldDemo = () => {
                   <FormControl>
                     <Input
                       placeholder="User Name..."
-                      {...field}
                       size="md"
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
@@ -284,7 +280,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -327,7 +323,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -370,7 +366,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -387,7 +383,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -408,12 +404,11 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Input
                       placeholder="User Name..."
-                      {...field}
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
                     />
@@ -425,12 +420,11 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Input
                       placeholder="User Name..."
-                      {...field}
                       size="md"
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
@@ -444,7 +438,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Select>
@@ -483,7 +477,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Select>
@@ -522,7 +516,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Textarea placeholder="Type something" />
@@ -534,7 +528,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Textarea placeholder="Type something" size="md" />
@@ -551,13 +545,12 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Input
                       status="success"
                       placeholder="User Name..."
-                      {...field}
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
                     />
@@ -570,13 +563,12 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Input
                       status="success"
                       placeholder="User Name..."
-                      {...field}
                       size="md"
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
@@ -590,7 +582,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Select>
@@ -629,7 +621,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Select>
@@ -672,7 +664,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Textarea placeholder="Type something" status="success" />
@@ -685,7 +677,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Textarea
@@ -706,7 +698,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -716,7 +708,6 @@ const FormFieldDemo = () => {
                     <Input
                       status="success"
                       placeholder="User Name..."
-                      {...field}
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
                     />
@@ -729,7 +720,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -739,7 +730,6 @@ const FormFieldDemo = () => {
                     <Input
                       status="success"
                       placeholder="User Name..."
-                      {...field}
                       size="md"
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
@@ -753,7 +743,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -796,7 +786,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -843,7 +833,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -860,7 +850,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -885,13 +875,12 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem status="success">
                   <FormControl>
                     <Input
                       placeholder="User Name..."
                       status="success"
-                      {...field}
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
                     />
@@ -903,13 +892,12 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem status="success">
                   <FormControl>
                     <Input
                       placeholder="User Name..."
                       status="success"
-                      {...field}
                       size="md"
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
@@ -923,7 +911,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem status="success">
                   <FormControl>
                     <Select>
@@ -962,7 +950,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem status="success">
                   <FormControl>
                     <Select>
@@ -1005,7 +993,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem status="success">
                   <FormControl>
                     <Textarea placeholder="Type something" status="success" />
@@ -1017,7 +1005,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem status="success">
                   <FormControl>
                     <Textarea
@@ -1038,13 +1026,12 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Input
                       status="warning"
                       placeholder="User Name..."
-                      {...field}
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
                     />
@@ -1057,13 +1044,12 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Input
                       status="warning"
                       placeholder="User Name..."
-                      {...field}
                       size="md"
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
@@ -1077,7 +1063,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Select>
@@ -1116,7 +1102,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Select>
@@ -1159,7 +1145,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Textarea placeholder="Type something" status="warning" />
@@ -1172,7 +1158,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Textarea
@@ -1193,7 +1179,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -1203,7 +1189,6 @@ const FormFieldDemo = () => {
                     <Input
                       status="warning"
                       placeholder="User Name..."
-                      {...field}
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
                     />
@@ -1216,7 +1201,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -1226,7 +1211,6 @@ const FormFieldDemo = () => {
                     <Input
                       status="warning"
                       placeholder="User Name..."
-                      {...field}
                       size="md"
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
@@ -1240,7 +1224,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -1283,7 +1267,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -1330,7 +1314,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -1347,7 +1331,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -1372,13 +1356,12 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem status="warning">
                   <FormControl>
                     <Input
                       placeholder="User Name..."
                       status="warning"
-                      {...field}
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
                     />
@@ -1390,13 +1373,12 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem status="warning">
                   <FormControl>
                     <Input
                       placeholder="User Name..."
                       status="warning"
-                      {...field}
                       size="md"
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
@@ -1410,7 +1392,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem status="warning">
                   <FormControl>
                     <Select>
@@ -1449,7 +1431,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem status="warning">
                   <FormControl>
                     <Select>
@@ -1492,7 +1474,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem status="warning">
                   <FormControl>
                     <Textarea placeholder="Type something" status="warning" />
@@ -1504,7 +1486,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem status="warning">
                   <FormControl>
                     <Textarea
@@ -1525,13 +1507,12 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Input
                       status="error"
                       placeholder="User Name..."
-                      {...field}
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
                     />
@@ -1544,13 +1525,12 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Input
                       status="error"
                       placeholder="User Name..."
-                      {...field}
                       size="md"
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
@@ -1564,7 +1544,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Select>
@@ -1603,7 +1583,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Select>
@@ -1646,7 +1626,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Textarea placeholder="Type something" status="error" />
@@ -1659,7 +1639,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormControl>
                     <Textarea
@@ -1680,7 +1660,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -1690,7 +1670,6 @@ const FormFieldDemo = () => {
                     <Input
                       status="error"
                       placeholder="User Name..."
-                      {...field}
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
                     />
@@ -1703,7 +1682,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -1713,7 +1692,6 @@ const FormFieldDemo = () => {
                     <Input
                       status="error"
                       placeholder="User Name..."
-                      {...field}
                       size="md"
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
@@ -1727,7 +1705,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -1770,7 +1748,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -1817,7 +1795,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -1834,7 +1812,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Label</FormLabelText>
@@ -1859,13 +1837,12 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem status="error">
                   <FormControl>
                     <Input
                       placeholder="User Name..."
                       status="error"
-                      {...field}
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
                     />
@@ -1877,13 +1854,12 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem status="error">
                   <FormControl>
                     <Input
                       placeholder="User Name..."
                       status="error"
-                      {...field}
                       size="md"
                       prefix={<MailIcon className="size-4" />}
                       suffix={<ListFilter className="size-4" />}
@@ -1897,7 +1873,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem status="error">
                   <FormControl>
                     <Select>
@@ -1936,7 +1912,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem status="error">
                   <FormControl>
                     <Select>
@@ -1979,7 +1955,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem status="error">
                   <FormControl>
                     <Textarea placeholder="Type something" status="error" />
@@ -1991,7 +1967,7 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem status="error">
                   <FormControl>
                     <Textarea
@@ -2019,7 +1995,7 @@ const FormFieldDemo = () => {
               <FormField
                 control={form.control}
                 name="example"
-                render={({ field }) => (
+                render={({}) => (
                   <FormItem>
                     <FormLabel>
                       <FormLabelText>Title</FormLabelText>
@@ -2028,7 +2004,6 @@ const FormFieldDemo = () => {
                       <Input
                         variant="outline"
                         placeholder="Introduction to product design"
-                        {...field}
                       />
                     </FormControl>
                     <FormDescription>
@@ -2040,7 +2015,7 @@ const FormFieldDemo = () => {
               <FormField
                 control={form.control}
                 name="example"
-                render={({ field }) => (
+                render={({}) => (
                   <FormItem>
                     <FormLabel>
                       <FormLabelText>Content</FormLabelText>
@@ -2062,7 +2037,7 @@ const FormFieldDemo = () => {
               <FormField
                 control={form.control}
                 name="example"
-                render={({ field }) => (
+                render={({}) => (
                   <FormItem>
                     <FormLabel>
                       <FormLabelText>Attachment</FormLabelText>
@@ -2091,7 +2066,7 @@ const FormFieldDemo = () => {
               <FormField
                 control={form.control}
                 name="example"
-                render={({ field }) => (
+                render={({}) => (
                   <FormItem>
                     <FormLabel>
                       <FormLabelText>Instructor notes</FormLabelText>
@@ -2132,7 +2107,7 @@ const FormFieldDemo = () => {
               <FormField
                 control={form.control}
                 name="example"
-                render={({ field }) => (
+                render={({}) => (
                   <FormItem>
                     <FormControl>
                       <Progress value={20} size="xs" />
@@ -2143,7 +2118,7 @@ const FormFieldDemo = () => {
               <FormField
                 control={form.control}
                 name="example"
-                render={({ field }) => (
+                render={({}) => (
                   <FormItem>
                     <FormLabel>
                       <FormLabelText>Billing name</FormLabelText>
@@ -2158,7 +2133,7 @@ const FormFieldDemo = () => {
                 <FormField
                   control={form.control}
                   name="example"
-                  render={({ field }) => (
+                  render={({}) => (
                     <FormItem>
                       <FormLabel>
                         <FormLabelText>Country</FormLabelText>
@@ -2193,7 +2168,7 @@ const FormFieldDemo = () => {
                 <FormField
                   control={form.control}
                   name="example"
-                  render={({ field }) => (
+                  render={({}) => (
                     <FormItem>
                       <FormLabel>
                         <FormLabelText>City</FormLabelText>
@@ -2229,7 +2204,7 @@ const FormFieldDemo = () => {
               <FormField
                 control={form.control}
                 name="example"
-                render={({ field }) => (
+                render={({}) => (
                   <FormItem>
                     <FormLabel>
                       <FormLabelText>Address</FormLabelText>
@@ -2244,7 +2219,7 @@ const FormFieldDemo = () => {
                 <FormField
                   control={form.control}
                   name="example"
-                  render={({ field }) => (
+                  render={({}) => (
                     <FormItem>
                       <FormLabel>
                         <FormLabelText>State</FormLabelText>
@@ -2279,7 +2254,7 @@ const FormFieldDemo = () => {
                 <FormField
                   control={form.control}
                   name="example"
-                  render={({ field }) => (
+                  render={({}) => (
                     <FormItem>
                       <FormLabel>
                         <FormLabelText>Postal code</FormLabelText>
@@ -2308,13 +2283,13 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Currency</FormLabelText>
                   </FormLabel>
                   <FormControl>
-                    <Input variant="outline" placeholder="IND...." {...field} />
+                    <Input variant="outline" placeholder="IND...." />
                   </FormControl>
                 </FormItem>
               )}
@@ -2322,17 +2297,13 @@ const FormFieldDemo = () => {
             <FormField
               control={form.control}
               name="example"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>
                     <FormLabelText>Price List</FormLabelText>
                   </FormLabel>
                   <FormControl>
-                    <Input
-                      variant="outline"
-                      placeholder="Standard Selling"
-                      {...field}
-                    />
+                    <Input variant="outline" placeholder="Standard Selling" />
                   </FormControl>
                   <FormDescription>
                     <Switch label="Ignore Pricing Rule" />
@@ -2358,13 +2329,13 @@ const FormFieldDemo = () => {
                 <FormField
                   control={form.control}
                   name="name"
-                  render={({ field }) => (
+                  render={({}) => (
                     <FormItem>
                       <FormLabel>
                         <FormLabelText>Name</FormLabelText>
                       </FormLabel>
                       <FormControl>
-                        <Input placeholder="Enter your name" {...field} />
+                        <Input placeholder="Enter your name" />
                       </FormControl>
                       <FormDescription>Enter User Name</FormDescription>
                       <FormMessage />
@@ -2375,17 +2346,13 @@ const FormFieldDemo = () => {
                 <FormField
                   control={form.control}
                   name="email"
-                  render={({ field }) => (
+                  render={({}) => (
                     <FormItem>
                       <FormLabel>
                         <FormLabelText>Email</FormLabelText>
                       </FormLabel>
                       <FormControl>
-                        <Input
-                          type="email"
-                          placeholder="example@mail.com"
-                          {...field}
-                        />
+                        <Input type="email" placeholder="example@mail.com" />
                       </FormControl>
                       <FormDescription>Enter User Email</FormDescription>
                       <FormMessage />
@@ -2396,7 +2363,7 @@ const FormFieldDemo = () => {
                 <FormField
                   control={form.control}
                   name="password"
-                  render={({ field }) => (
+                  render={({}) => (
                     <FormItem>
                       <FormLabel>
                         <FormLabelText>Password</FormLabelText>
@@ -2408,7 +2375,6 @@ const FormFieldDemo = () => {
                               size="md"
                               type={showPassword ? "text" : "password"}
                               placeholder="Enter password"
-                              {...field}
                             />
                             <InputGroupAddon align="inline-end">
                               <Button
@@ -2434,7 +2400,7 @@ const FormFieldDemo = () => {
                 <FormField
                   control={form.control}
                   name="confirm_password"
-                  render={({ field }) => (
+                  render={({}) => (
                     <FormItem>
                       <FormLabel>
                         <FormLabelText>Confirm Password</FormLabelText>
@@ -2443,7 +2409,6 @@ const FormFieldDemo = () => {
                         <Input
                           type={showPassword ? "text" : "password"}
                           placeholder="Re-enter password"
-                          {...field}
                         />
                       </FormControl>
                       <FormDescription>
