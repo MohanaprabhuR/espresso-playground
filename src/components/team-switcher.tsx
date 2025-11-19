@@ -299,7 +299,9 @@ export function TeamSwitcher({
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button className="w-full" variant="ghost">
-                <activeTeam.logo className="size-8" />
+                <div className="bg-[#FF8F26] flex aspect-square size-8 items-center justify-center rounded-lg">
+                  <activeTeam.logo />
+                </div>
                 <div className="flex flex-col flex-1 text-left text-sm gap-y-1 group-data-[collapsible=icon]:hidden">
                   <span className="truncate font-medium text-base tracking-4 leading-tight text-foreground">
                     {activeTeam.name}
@@ -314,7 +316,9 @@ export function TeamSwitcher({
 
             <DropdownMenuContent align="start" className="w-[220px]">
               <DropdownMenuLabel className="flex items-center gap-2">
-                <activeTeam.logo className="size-8" />
+                <div className="bg-[#FF8F26] flex aspect-square size-8 items-center justify-center rounded-lg">
+                  <activeTeam.logo />
+                </div>
                 <div className="flex flex-col gap-y-1">
                   <span className="font-medium text-sm tracking-4 leading-tight text-foreground">
                     {activeTeam.name}

@@ -46,6 +46,7 @@ import {
   Diamond,
   PanelLeftIcon,
   FileText,
+  Table,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -165,6 +166,7 @@ const data = {
     { title: "Modals", url: "/modal", icon: Component },
     { title: "Sonner", url: "/sonner", icon: Megaphone },
     { title: "Forms", url: "/form", badge: "new", icon: FileText },
+    { title: "Data Tabel", url: "/tabel", badge: "new", icon: Table },
   ],
 };
 
@@ -331,7 +333,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenuItem>
             <SidebarMenuButton asChild size="sm">
               <a href="#">
-                <Home />
+                <Home className="size-4" />
                 <span>Home</span>
               </a>
             </SidebarMenuButton>
@@ -355,7 +357,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenuItem>
             <SidebarMenuButton asChild size="sm">
               <a href="#">
-                <Plane />
+                <Plane className="size-4" />
                 <span>Travel</span>
               </a>
             </SidebarMenuButton>
