@@ -299,7 +299,7 @@ export function TeamSwitcher({
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button className="w-full" variant="ghost">
-                <div className="bg-[#FF8F26] flex aspect-square size-8 items-center justify-center rounded-lg">
+                <div className="bg-[#FF8F26] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
                   <activeTeam.logo />
                 </div>
                 <div className="flex flex-col flex-1 text-left text-sm gap-y-1 group-data-[collapsible=icon]:hidden">

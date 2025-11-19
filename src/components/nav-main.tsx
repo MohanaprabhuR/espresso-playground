@@ -70,7 +70,7 @@ export function NavMain({
                       )}
                       <div className="flex items-center gap-2 flex-1">
                         {item.icon && <item.icon className="w-4 h-4" />}
-                        <span className="truncate">{item.title}</span>
+                        <span className="truncate ">{item.title}</span>
                       </div>
                       {item.badge && (
                         <SidebarMenuBadge className="ml-auto">
@@ -93,7 +93,9 @@ export function NavMain({
                                 href={sub.url}
                                 className="flex items-center justify-between w-full"
                               >
-                                <span className="truncate">{sub.title}</span>
+                                <span className="truncate flex-1 ">
+                                  {sub.title}
+                                </span>
                                 {sub.badge && (
                                   <SidebarMenuBadge className="ml-auto">
                                     {sub.badge}
@@ -132,7 +134,7 @@ export function NavMain({
                   className="flex items-center gap-2"
                 >
                   {item.icon && <item.icon className="w-4 h-4" />}
-                  <span className="flex-1 truncate">{item.title}</span>
+                  <span className="flex-1 truncate ">{item.title}</span>
                   {item.badge && (
                     <SidebarMenuBadge className="ml-auto">
                       {item.badge}
