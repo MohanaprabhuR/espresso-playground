@@ -63,7 +63,7 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
     <tr
       data-slot="table-row"
       className={cn(
-        "hover:bg-secondary relative data-[state=selected]:bg-secondary data-[state=selected]:shadow-sm  border-b transition-colors ",
+        "hover:bg-secondary data-[state=selected]:bg-secondary data-[state=selected]:shadow-sm  border-b  ",
         "[&>td:first-child]:pl-3 [&>td:first-child]:text-foreground [&>td:first-child]:font-medium [&>td:first-child:has([role=checkbox])+td]:text-foreground [&>td:first-child:has([role=checkbox])+td]:font-medium [&>td:last-child]:pr-3 [&>th:first-child]:pl-3  [&>th:last-child]:pr-3",
         className
       )}
