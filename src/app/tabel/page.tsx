@@ -22,7 +22,7 @@ import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Code, Codepen, Codesandbox, Phone } from "lucide-react";
+import { Code, Phone } from "lucide-react";
 type Item = {
   id: string;
   name: string;
@@ -95,26 +95,45 @@ const columns: ColumnDef<Item>[] = [
         aria-label="Select row"
       />
     ),
+    enableSorting: false,
+    enableHiding: false,
+    meta: {
+      colSpan: 1,
+    },
   },
   {
     header: "Name",
     accessorKey: "name",
-    cell: ({ row }) => (
-      <div className="font-medium">{row.getValue("name")}</div>
-    ),
+    cell: ({ row }) => <div>{row.getValue("name")}</div>,
   },
   {
     header: "Email",
     accessorKey: "email",
   },
   {
+    header: "Department",
+    accessorKey: "department",
+  },
+  {
+    header: "Role",
+    accessorKey: "role",
+  },
+  {
+    header: "Join Date",
+    accessorKey: "joinDate",
+  },
+  {
+    header: "Last Active",
+    accessorKey: "lastActive",
+  },
+  {
     header: "Location",
     accessorKey: "location",
     cell: ({ row }) => (
-      <div>
-        <span className="text-lg leading-none">{row.original.flag}</span>{" "}
+      <>
+        <span className="text-lg leading-none size-4">{row.original.flag}</span>
         {row.getValue("location")}
-      </div>
+      </>
     ),
   },
   {
@@ -122,17 +141,17 @@ const columns: ColumnDef<Item>[] = [
     accessorKey: "status",
     cell: ({ row }) => (
       <Badge
-        className={cn(
-          row.getValue("status") === "Inactive" &&
-            "bg-muted-foreground/60 text-primary-foreground"
-        )}
+        variant={
+          row.getValue("status") === "Inactive" ? "secondary" : "default"
+        }
+        theme="violet"
       >
         {row.getValue("status")}
       </Badge>
     ),
   },
   {
-    header: () => <div className="text-right">Balance</div>,
+    header: () => <div>Balance</div>,
     accessorKey: "balance",
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("balance"));
@@ -140,7 +159,7 @@ const columns: ColumnDef<Item>[] = [
         style: "currency",
         currency: "USD",
       }).format(amount);
-      return <div className="text-right">{formatted}</div>;
+      return <div>{formatted}</div>;
     },
   },
 ];
@@ -176,7 +195,59 @@ const dataTabelDemo = () => {
       <div className="flex flex-col mx-auto gap-10 w-full  items-center justify-center">
         <Table>
           <TableHeader>
-            <TableRow className="hover:bg-transparent">
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id}>
+                {headerGroup.headers.map((header) => {
+                  return (
+                    <TableHead key={header.id}>
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                    </TableHead>
+                  );
+                })}
+              </TableRow>
+            ))}
+          </TableHeader>
+          <TableBody>
+            {table.getRowModel().rows?.length ? (
+              table.getRowModel().rows.map((row) => (
+                <TableRow
+                  key={row.id}
+                  data-state={row.getIsSelected() && "selected"}
+                >
+                  {row.getVisibleCells().map((cell) => (
+                    <TableCell key={cell.id}>
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))
+            ) : (
+              <TableRow>
+                <TableCell
+                  colSpan={columns.length}
+                  className="h-24 text-center"
+                >
+                  No results.
+                </TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+
+        <Table>
+          <TableHeader></TableHeader>
+        </Table>
+        <Table>
+          <TableHeader>
+            <TableRow>
               <TableHead>Name</TableHead>
               <TableHead>Email</TableHead>
               <TableHead>Location</TableHead>
@@ -199,7 +270,7 @@ const dataTabelDemo = () => {
 
         <Table>
           <TableHeader>
-            <TableRow className="hover:bg-transparent">
+            <TableRow>
               <TableHead>Name</TableHead>
               <TableHead>Email</TableHead>
               <TableHead>Location</TableHead>
@@ -304,68 +375,6 @@ const dataTabelDemo = () => {
               </TableCell>
             </TableRow>
           </TableBody>
-        </Table>
-
-        <Table>
-          <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id} className="hover:bg-transparent">
-                {headerGroup.headers.map((header) => {
-                  return (
-                    <TableHead key={header.id}>
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
-                    </TableHead>
-                  );
-                })}
-              </TableRow>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center"
-                >
-                  No results.
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-          <TableFooter className="bg-transparent">
-            <TableRow className="hover:bg-transparent">
-              <TableCell colSpan={5}>Total</TableCell>
-              <TableCell className="text-right">
-                {new Intl.NumberFormat("en-US", {
-                  style: "currency",
-                  currency: "USD",
-                }).format(
-                  data.reduce((total, item) => total + item.balance, 0)
-                )}
-              </TableCell>
-            </TableRow>
-          </TableFooter>
         </Table>
       </div>
     </div>
