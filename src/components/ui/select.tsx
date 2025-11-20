@@ -36,7 +36,7 @@ const variantClassMap = {
   default:
     "data-[disabled]:bg-primary/3 data-[disabled]:text-primary/20 disabled:cursor-not-allowed disabled:bg-primary/3 disabled:pointer-events-none disabled:cursor-not-allowed bg-secondary  hover:bg-accent hover:text-secondary-foreground active:bg-primary/12 active:text-accent-foreground focus:text-accent-foreground",
   outline:
-    "data-[disabled]:bg-primary/3 data-[disabled]:text-primary/20 disabled:cursor-not-allowed disabled:bg-primary/3 disabled:pointer-events-none disabled:cursor-not-allowed outline outline-1 outline-border -outline-offset-1 bg-background  hover:outline-primary/25 active:outline-primary/50 active:bg-background active:text-accent-foreground focus:outline-background focus:text-accent-foreground",
+    "data-[disabled]:bg-primary/3 data-[disabled]:text-primary/20 disabled:cursor-not-allowed disabled:bg-primary/3 disabled:pointer-events-none disabled:cursor-not-allowed outline outline-1 outline-input -outline-offset-1 bg-background  hover:outline-primary/25 active:outline-primary/50 active:bg-background active:text-accent-foreground focus:outline-background focus:text-accent-foreground",
   ghost:
     "data-[disabled]:bg-primary/3 data-[disabled]:text-primary/20 disabled:cursor-not-allowed disabled:bg-primary/3 disabled:pointer-events-none disabled:cursor-not-allowed bg-transparent  hover:bg-accent active:bg-primary/12 active:text-accent-foreground focus:bg-primary/15 focus:text-accent-foreground focus-visible:bg-primary/3",
 };

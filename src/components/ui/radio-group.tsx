@@ -77,7 +77,7 @@ function RadioGroupItem({
         "data-[state=checked]:bg-primary data-[state=checked]:border-primary",
         "hover:border-primary/60 hover:shadow-lg active:border-primary/75 active:bg-secondary focus:border-primary/75 focus:bg-secondary",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0",
-        "disabled:bg-primary/3 disabled:border-primary/12 disabled:hover:shadow-none disbled:cursor-not-allowed disabled:pointer-events-none",
+        "disabled:bg-card disabled:data-[state=checked]:bg-accent disabled:data-[state=checked]:border-accent disabled:border-primary/12 disabled:hover:shadow-none disabled:cursor-not-allowed disabled:pointer-events-none",
         radioSizeMap[size],
         className
       )}
@@ -85,7 +85,11 @@ function RadioGroupItem({
     >
       <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
         <CircleIcon
-          className={cn("fill-background text-background", iconSizeMap[size])}
+          className={cn(
+            "fill-background text-background",
+            disabled && "fill-primary/15  text-primary/15",
+            iconSizeMap[size]
+          )}
         />
       </RadioGroupPrimitive.Indicator>
     </RadioGroupPrimitive.Item>

@@ -21,9 +21,9 @@ const baseStyles =
 
 const variantBaseMap: Record<VariantType, string> = {
   default:
-    "bg-secondary outline outline-0 outline-border -outline-offset-1  hover:bg-accent text-secondary-foreground active:bg-transparent active:shadow-lg active:outline-primary/50 active:text-accent-foreground focus:outline focus:outline-primary/50 focus:shadow-lg focus:bg-transparent focus-visible:outline-primary/50 focus:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 focus-visible:bg-transparent",
+    "bg-secondary outline outline-0 outline-input -outline-offset-1  hover:bg-accent text-secondary-foreground active:bg-transparent active:shadow-lg active:outline-primary/50 active:text-accent-foreground focus:outline focus:outline-primary/50 focus:shadow-lg focus:bg-transparent focus-visible:outline-primary/50 focus:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 focus-visible:bg-transparent",
   outline:
-    "outline outline-1 outline-border -outline-offset-1 bg-transparent text-secondary-foreground hover:outline-primary/25 active:outline-primary/50 active:bg-transparent active:shadow-lg focus-outline focus:outline-primary/50 focus:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 focus-visible:outline-primary/50 focus-visible:bg-transparent",
+    "outline outline-1 outline-input -outline-offset-1 bg-transparent text-secondary-foreground hover:outline-primary/25 active:outline-primary/50 active:bg-transparent active:shadow-lg focus-outline focus:outline-primary/50 focus:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 focus-visible:outline-primary/50 focus-visible:bg-transparent",
 };
 
 const statusMap: Record<VariantType, Record<StatusType, string>> = {

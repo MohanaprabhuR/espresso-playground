@@ -13,6 +13,7 @@ const RadioDemo = () => {
               <RadioGroupItem value="option-one" id="option-one" size="sm" />
               <RadioGroupItem value="option-two" id="option-two" size="sm" />
               <RadioGroupItem
+                checked
                 value="option-twos"
                 id="option-twos"
                 size="sm"

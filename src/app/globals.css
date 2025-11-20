@@ -731,7 +731,7 @@
   --border: var(--color-dark-gray-400);
   --muted: var(--color-dark-gray-300);
   --muted-foreground: var(--color-dark-gray-700);
-  --input: var(--color-dark-gray-500);
+  --input: var(--color-dark-gray-400);
   --ring: var(--color-ring-color);
   --card: var(--color-dark-gray-200);
   --card-foreground: var(--color-dark-gray-950);
