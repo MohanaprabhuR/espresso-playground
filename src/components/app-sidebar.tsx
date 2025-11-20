@@ -166,7 +166,7 @@ const data = {
     { title: "Modals", url: "/modal", icon: Component },
     { title: "Sonner", url: "/sonner", icon: Megaphone },
     { title: "Forms", url: "/form", badge: "new", icon: FileText },
-    { title: "Data Tabel", url: "/tabel", badge: "new", icon: Table },
+    { title: "Data Table", url: "/table", badge: "new", icon: Table },
   ],
 };
 
