@@ -86,8 +86,8 @@ function RadioGroupItem({
       <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
         <CircleIcon
           className={cn(
-            "fill-background text-background",
-            disabled && "fill-primary/15  text-primary/15",
+            "fill-background text-background stroke-0",
+            disabled && "fill-primary/15 text-primary/15",
             iconSizeMap[size]
           )}
         />
