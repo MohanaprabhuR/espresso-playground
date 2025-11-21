@@ -88,6 +88,7 @@ function Tabs({
         value={value}
         onValueChange={handleValueChange}
         defaultValue={defaultValue}
+        activationMode="manual"
         {...props}
       />
     </TabsContext.Provider>
@@ -125,17 +126,15 @@ function TabsList({
     const exactHeight = activeElement.clientHeight;
     const exactWidth = activeRect.width;
 
-    const borderOffset = variant === "outline" ? 1 : 0;
-
     if (orientation === "horizontal") {
       setIndicatorStyle({
-        left: `${activeRect.left - listRect.left - borderOffset}px`,
+        left: `${activeRect.left - listRect.left}px`,
         width: `${exactWidth}px`,
         height: variant === "underline" ? "1px" : `${exactHeight}px`,
       });
     } else {
       setIndicatorStyle({
-        top: `${activeRect.top - listRect.top - borderOffset}px`,
+        top: `${activeRect.top - listRect.top}px`,
         width: variant === "underline" ? "1px" : `${exactWidth}px`,
         height: `${exactHeight}px`,
       });
@@ -153,7 +152,7 @@ function TabsList({
       baseOrientation
     ),
     outline: cn(
-      " bg-background border  border-accent text-muted-foreground p-px gap-1 flex overflow-hidden",
+      " bg-background ring ring-1 ring-border text-muted-foreground p-px gap-1 flex overflow-hidden",
       baseOrientation
     ),
     underline: cn(
@@ -205,8 +204,13 @@ function TabsList({
         <div
           className={cn(
             "absolute pointer-events-none transition-all duration-300 ease-out z-0",
-            size === "md" ? "rounded-[9px]" : "rounded-[7px]",
-
+            size === "md"
+              ? variant === "browser"
+                ? "rounded-none"
+                : "rounded-xlg"
+              : variant === "browser"
+                ? "rounded-none"
+                : "rounded-xmd",
             variant === "subtle" &&
               "bg-background text-card-foreground dark:bg-accent shadow-sm",
             variant === "outline" &&
@@ -214,14 +218,14 @@ function TabsList({
             variant === "ghost" && "bg-background dark:bg-accent shadow-sm",
             variant === "browser" &&
               cn(
-                "bg-background border ",
+                "bg-background border",
                 orientation === "horizontal"
                   ? size === "md"
-                    ? "rounded-none rounded-t-[9px] border-b-transparent"
-                    : "rounded-none rounded-t-[7px] border-b-transparent"
+                    ? "rounded-none rounded-t-xlg border-b-transparent"
+                    : "rounded-none rounded-t-xmd border-b-transparent"
                   : size === "md"
-                    ? "rounded-none rounded-l-[9px]"
-                    : "rounded-none rounded-l-[7px]"
+                    ? "rounded-none rounded-l-xlg"
+                    : "rounded-none rounded-l-xmd"
               ),
             variant === "underline" &&
               cn(

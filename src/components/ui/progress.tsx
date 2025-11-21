@@ -44,7 +44,7 @@ function Progress({
     <div className="flex flex-col gap-1 w-full">
       {showLabel && (
         <Label className={cn("flex justify-between items-center")}>
-          <span className="flex items-center gap-x-2 text-accent-foreground tracking-4 leading-tight font-medium">
+          <span className="flex items-center gap-x-2 text-base text-accent-foreground tracking-4 leading-tight font-medium">
             {LabelIcon ? (
               <LabelIcon className="size-4" />
             ) : (
@@ -53,7 +53,7 @@ function Progress({
 
             {children ? children : labelName}
           </span>
-          <span className="font-medium text-muted-foreground tracking-4 leading-tight">
+          <span className="font-medium text-muted-foreground text-base tracking-4 leading-tight">
             {value}%
           </span>
         </Label>
@@ -65,7 +65,7 @@ function Progress({
           className={cn(
             "bg-secondary relative w-full overflow-hidden",
             heightClass,
-            square ? "rounded-3xl" : "rounded-3xl",
+            square ? "rounded-4xl" : "rounded-4xl",
             className
           )}
           {...props}
@@ -77,8 +77,8 @@ function Progress({
               square
                 ? value >= 100
                   ? "rounded-none"
-                  : "rounded-l-3xl rounded-r-none"
-                : "rounded-3xl "
+                  : "rounded-l-4xl rounded-r-none"
+                : "rounded-4xl "
             )}
             style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
           />
@@ -95,10 +95,10 @@ function Progress({
             const isFilled = i < filledSegments;
             let roundedClass = "";
             if (!square) {
-              roundedClass = "rounded-3xl";
+              roundedClass = "rounded-xl";
             } else {
-              if (i === 0) roundedClass = "rounded-l-3xl";
-              else if (i === intervals - 1) roundedClass = "rounded-r-3xl";
+              if (i === 0) roundedClass = "rounded-l-4xl";
+              else if (i === intervals - 1) roundedClass = "rounded-r-4xl";
             }
 
             return (

@@ -24,8 +24,8 @@ const defaultLabelMap: Record<RadioSize, string> = {
 };
 
 const labelPaddingMap: Record<LabelPadding, string> = {
-  sm: "p-1.5 text-base",
-  md: "px-2 py-[7px] text-lg",
+  sm: "p-1.5",
+  md: "px-2 py-[7px]",
 };
 
 function RadioGroup({
@@ -63,8 +63,8 @@ function RadioGroupItem({
     : defaultLabelMap[size];
 
   const labelFontMap: Record<RadioSize, string> = {
-    sm: "text-base leading-tight",
-    md: "text-lg leading-tight",
+    sm: "text-base leading-tight tracking-4",
+    md: "text-lg leading-tight tracking-4",
   };
 
   const radio = (
@@ -100,16 +100,14 @@ function RadioGroupItem({
       <label
         htmlFor={id}
         className={cn(
-          "inline-flex items-center gap-x-2 cursor-pointer   text-accent-foreground rounded-lg hover:bg-accent active:bg-primary/12 w-fit focus:bg-secondary focus:ring-ring focus:ring-2 focus:ring-offset-0 focus-visible:ring-ring focus-visible:ring-2 focus-visible:bg-secondary ",
+          "flex items-center gap-x-2 cursor-pointer   text-accent-foreground rounded-lg hover:bg-accent active:bg-primary/12 w-fit focus:bg-secondary focus:ring-ring focus:ring-2 focus:ring-offset-0 focus-visible:ring-ring focus-visible:ring-2 focus-visible:bg-secondary ",
           finalLabelClass,
           disabled &&
             "hover:bg-transparent cursor-not-allowed pointer-events-none text-primary/50"
         )}
       >
         {radio}
-        <span className={cn("tracking-4 font-medium", labelFontMap[size])}>
-          {label}
-        </span>
+        <span className={cn("font-medium", labelFontMap[size])}>{label}</span>
       </label>
     );
   }

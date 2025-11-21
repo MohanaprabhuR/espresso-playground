@@ -111,7 +111,7 @@ function NotificationWrapper({
   return (
     <div
       data-slot="notification-wrapper"
-      className={cn("flex flex-col gap-y-3", className)}
+      className={cn("flex flex-col gap-y-3 flex-1", className)}
       {...props}
     >
       {children}
