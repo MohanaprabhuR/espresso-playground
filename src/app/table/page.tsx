@@ -208,6 +208,128 @@ const columns: ColumnDef<Item>[] = [
   },
 ];
 
+const itemsStatic = [
+  {
+    id: "1",
+    name: "Alex Thompson",
+    email: "alex.t@company.com",
+    location: "San Francisco, US",
+    status: "Active",
+    balance: "$1,250.00",
+  },
+  {
+    id: "2",
+    name: "Sarah Chen",
+    email: "sarah.c@company.com",
+    location: "Singapore",
+    status: "Active",
+    balance: "$600.00",
+  },
+  {
+    id: "3",
+    name: "James Wilson",
+    email: "j.wilson@company.com",
+    location: "London, UK",
+    status: "Inactive",
+    balance: "$650.00",
+  },
+  {
+    id: "4",
+    name: "Maria Garcia",
+    email: "m.garcia@company.com",
+    location: "Madrid, Spain",
+    status: "Active",
+    balance: "$0.00",
+  },
+  {
+    id: "5",
+    name: "David Kim",
+    email: "d.kim@company.com",
+    location: "Seoul, KR",
+    status: "Active",
+    balance: "-$1,000.00",
+  },
+  {
+    id: "6",
+    name: "John Brown",
+    email: "john.brown@company.com",
+    location: "New York, US",
+    status: "Active",
+    balance: "$1,500.00",
+  },
+  {
+    id: "7",
+    name: "Jane Doe",
+    email: "jane.doe@company.com",
+    location: "Paris, FR",
+    status: "Inactive",
+    balance: "$200.00",
+  },
+  {
+    id: "8",
+    name: "Peter Smith",
+    email: "peter.smith@company.com",
+    location: "Berlin, DE",
+    status: "Active",
+    balance: "$1,000.00",
+  },
+  {
+    id: "9",
+    name: "Olivia Lee",
+    email: "olivia.lee@company.com",
+    location: "Tokyo, JP",
+    status: "Active",
+    balance: "$500.00",
+  },
+  {
+    id: "10",
+    name: "Liam Chen",
+    email: "liam.chen@company.com",
+    location: "Shanghai, CN",
+    status: "Inactive",
+    balance: "$300.00",
+  },
+  {
+    id: "11",
+    name: "Ethan Kim",
+    email: "ethan.kim@company.com",
+    location: "Busan, KR",
+    status: "Active",
+    balance: "$800.00",
+  },
+  {
+    id: "12",
+    name: "Ava Brown",
+    email: "ava.brown@company.com",
+    location: "London, UK",
+    status: "Active",
+    balance: "$1,200.00",
+  },
+  {
+    id: "13",
+    name: "Lily Lee",
+    email: "lily.lee@company.com",
+    location: "Seoul, KR",
+    status: "Active",
+    balance: "$400.00",
+  },
+  {
+    id: "14",
+    name: "Noah Smith",
+    email: "noah.smith@company.com",
+    location: "New York, US",
+    status: "Inactive",
+    balance: "$600.00",
+  },
+  {
+    id: "15",
+    name: "Eve Chen",
+    email: "eve.chen@company.com",
+    location: "Taipei, TW",
+    status: "Active",
+    balance: "$1,800.00",
+  },
+];
 const dataTabelDemo = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [data, setData] = useState<Item[]>([]);
@@ -1257,6 +1379,41 @@ const dataTabelDemo = () => {
               </TableRow>
             </TableBody>
           </Table>
+        </div>
+        <div className=" w-full">
+          <h1 className="text-lg font-semibold text-foreground pb-4 text-left tracking-4 leading-normal">
+            Static Header Table
+          </h1>
+          <div className="[&>div]:max-h-96">
+            <Table>
+              <TableHeader className="sticky top-0 z-10 bg-background/90 backdrop-blur-xs">
+                <TableRow>
+                  <TableHead>Name</TableHead>
+                  <TableHead>Email</TableHead>
+                  <TableHead>Location</TableHead>
+                  <TableHead>Status</TableHead>
+                  <TableHead>Balance</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {itemsStatic.map((item) => (
+                  <TableRow key={item.id}>
+                    <TableCell className="font-medium">{item.name}</TableCell>
+                    <TableCell>{item.email}</TableCell>
+                    <TableCell>{item.location}</TableCell>
+                    <TableCell>{item.status}</TableCell>
+                    <TableCell>{item.balance}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+              <TableFooter className="bg-transparent">
+                <TableRow className="hover:bg-transparent">
+                  <TableCell colSpan={4}>Total</TableCell>
+                  <TableCell className="text-right">$2,500.00</TableCell>
+                </TableRow>
+              </TableFooter>
+            </Table>
+          </div>
         </div>
       </div>
     </div>
