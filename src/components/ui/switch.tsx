@@ -40,8 +40,8 @@ function Switch({
       root: "h-4 w-[26px] p-0.5",
       thumb:
         "size-3 translate-x-[calc(100%-(2px))] data-[state=unchecked]:translate-x-0",
-      wrapper: "gap-x-2 p-1.5 text-base tracking-4",
-      description: "text-base tracking-4",
+      wrapper: "gap-x-2 p-1.5 text-base tracking-4 leading-tight",
+      description: "text-base tracking-4 leading-tight",
     },
     md: {
       root: "h-5 w-8 p-[3px]",

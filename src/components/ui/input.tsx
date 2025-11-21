@@ -71,7 +71,7 @@ const sizeMap = {
   },
   xl: {
     input:
-      "text-lg font-normal rounded-xl tracking-4 leading-tight px-3 py-[11px]",
+      "text-xl font-normal rounded-xl tracking-4 leading-tight px-3 py-[11px]",
     prefix: "pl-10",
     suffix: "pr-10",
     iconOffset: "left-3 right-3",

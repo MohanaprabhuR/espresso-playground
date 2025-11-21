@@ -81,7 +81,7 @@ function Slider({
             key={index}
             data-slot="slider-thumb"
             className={cn(
-              "bg-white block shrink-0 rounded-full outline-none shadow-sm transition-[color,box-shadow] group-hover:shadow-2xl group-active:shadow-2xl group-focus:shadow-3xl  group-focus-visible:shadow-3xl data-[disabled]:pointer-events-none data-[disabled]:bg-[#e2e2e2] dark:data-[disabled]:bg-[#424242] data-[disabled]:shadow-none data-[disabled]:cursor-not-allowed",
+              "bg-white block shrink-0 rounded-full outline-none shadow-sm transition-[color,box-shadow] group-hover:shadow-2xl group-active:shadow-2xl group-focus:shadow-3xl  group-focus-visible:shadow-3xl data-[disabled]:pointer-events-none data-[disabled]:bg-input  data-[disabled]:shadow-none data-[disabled]:cursor-not-allowed",
               "focus-visible:ring-ring focus-visible:ring-2 focus-visible:ring-offset-0",
               knobSizeMap[size]
             )}
