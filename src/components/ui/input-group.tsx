@@ -24,7 +24,7 @@ const inputGroupVariants = cva(
         sm: "rounded-lg",
         md: "rounded-lg",
         lg: "rounded-xl",
-        xl: "rounded-xl",
+        xl: "rounded-xl ",
       },
     },
     defaultVariants: {
