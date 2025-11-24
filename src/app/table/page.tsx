@@ -213,7 +213,6 @@ const columns: ColumnDef<Item>[] = [
   {
     header: "Name",
     accessorKey: "name",
-    cell: ({ row }) => <div>{row.getValue("name")}</div>,
   },
   {
     header: "Email",
