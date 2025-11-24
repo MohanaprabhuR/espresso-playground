@@ -12,11 +12,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useEffect, useState } from "react";
+import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 import {
   ColumnDef,
   flexRender,
   getCoreRowModel,
   useReactTable,
+  getSortedRowModel,
+  SortingState,
 } from "@tanstack/react-table";
 
 import { cn } from "@/lib/utils";
@@ -56,6 +59,68 @@ type Item = {
   status: "Active" | "Inactive" | "Pending";
   balance: number;
 };
+
+const columnsList: ColumnDef<Item>[] = [
+  {
+    header: "Name",
+    accessorKey: "name",
+    cell: ({ row }) => (
+      <div className="truncate font-medium">{row.getValue("name")}</div>
+    ),
+    sortUndefined: "last",
+    sortDescFirst: false,
+  },
+  {
+    header: "Email",
+    accessorKey: "email",
+  },
+  {
+    header: "Location",
+    accessorKey: "location",
+    cell: ({ row }) => (
+      <div className="truncate">
+        <span className="text-lg leading-none">{row.original.flag}</span>{" "}
+        {row.getValue("location")}
+      </div>
+    ),
+  },
+  {
+    header: "Status",
+    accessorKey: "status",
+  },
+  {
+    header: "Balance",
+    accessorKey: "balance",
+    cell: ({ row }) => {
+      const amount = parseFloat(row.getValue("balance"));
+      const formatted = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }).format(amount);
+      return formatted;
+    },
+  },
+  {
+    header: "Department",
+    accessorKey: "department",
+  },
+  {
+    header: "Role",
+    accessorKey: "role",
+  },
+  {
+    header: "Join Date",
+    accessorKey: "joinDate",
+  },
+  {
+    header: "Last Active",
+    accessorKey: "lastActive",
+  },
+  {
+    header: "Performance",
+    accessorKey: "performance",
+  },
+];
 const dealsItems = [
   {
     id: "1",
@@ -330,6 +395,49 @@ const itemsStatic = [
     balance: "$1,800.00",
   },
 ];
+
+const cardItems = [
+  {
+    id: "1",
+    name: "Alex Thompson",
+    email: "alex.t@company.com",
+    location: "San Francisco, US",
+    status: "Active",
+    balance: "$1,250.00",
+  },
+  {
+    id: "2",
+    name: "Sarah Chen",
+    email: "sarah.c@company.com",
+    location: "Singapore",
+    status: "Active",
+    balance: "$600.00",
+  },
+  {
+    id: "3",
+    name: "James Wilson",
+    email: "j.wilson@company.com",
+    location: "London, UK",
+    status: "Inactive",
+    balance: "$650.00",
+  },
+  {
+    id: "4",
+    name: "Maria Garcia",
+    email: "m.garcia@company.com",
+    location: "Madrid, Spain",
+    status: "Active",
+    balance: "$0.00",
+  },
+  {
+    id: "5",
+    name: "David Kim",
+    email: "d.kim@company.com",
+    location: "Seoul, KR",
+    status: "Active",
+    balance: "-$1,000.00",
+  },
+];
 const dataTabelDemo = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [data, setData] = useState<Item[]>([]);
@@ -347,11 +455,28 @@ const dataTabelDemo = () => {
   }, []);
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [sorting, setSorting] = useState<SortingState>([
+    {
+      id: "name",
+      desc: false,
+    },
+  ]);
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const table = useReactTable({
     data,
     columns,
+    columnsList,
     getCoreRowModel: getCoreRowModel(),
+    columnResizeMode: "onChange",
+    getSortedRowModel: getSortedRowModel(),
+    onSortingChange: setSorting,
+    state: {
+      sorting,
+    },
+    enableSortingRemoval: false,
   });
+
   return (
     <div className="pt-10 ">
       <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
@@ -1414,6 +1539,242 @@ const dataTabelDemo = () => {
               </TableFooter>
             </Table>
           </div>
+        </div>
+
+        <div className=" w-full">
+          <h1 className="text-lg font-semibold text-foreground pb-4 text-left tracking-4 leading-normal">
+            Card Table
+          </h1>
+          <div className="overflow-hidden rounded-md border bg-background">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="h-10">
+                    <Checkbox id={id} />
+                  </TableHead>
+                  <TableHead className="h-10">Name</TableHead>
+                  <TableHead className="h-10">Email</TableHead>
+                  <TableHead className="h-10">Location</TableHead>
+                  <TableHead className="h-10">Status</TableHead>
+                  <TableHead className="h-10">Balance</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {cardItems.map((item) => (
+                  <TableRow key={item.id}>
+                    <TableCell>
+                      <Checkbox id={`table-checkbox-${item.id}`} />
+                    </TableCell>
+                    <TableCell>{item.name}</TableCell>
+                    <TableCell>{item.email}</TableCell>
+                    <TableCell>{item.location}</TableCell>
+                    <TableCell>{item.status}</TableCell>
+                    <TableCell>{item.balance}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+              <TableFooter className="bg-transparent">
+                <TableRow className="hover:bg-transparent">
+                  <TableCell colSpan={5}>Total</TableCell>
+                  <TableCell className="text-right">$2,500.00</TableCell>
+                </TableRow>
+              </TableFooter>
+            </Table>
+          </div>
+        </div>
+        <div className=" w-full">
+          <h1 className="text-lg font-semibold text-foreground pb-4 text-left tracking-4 leading-normal">
+            TanStack Basic Table
+          </h1>
+          <Table>
+            <TableHeader>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow key={headerGroup.id} className="hover:bg-transparent">
+                  {headerGroup.headers.map((header) => {
+                    return (
+                      <TableHead key={header.id}>
+                        {header.isPlaceholder
+                          ? null
+                          : flexRender(
+                              header.column.columnDef.header,
+                              header.getContext()
+                            )}
+                      </TableHead>
+                    );
+                  })}
+                </TableRow>
+              ))}
+            </TableHeader>
+            <TableBody>
+              {table.getRowModel().rows?.length ? (
+                table.getRowModel().rows.map((row) => (
+                  <TableRow
+                    key={row.id}
+                    data-state={row.getIsSelected() && "selected"}
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell key={cell.id}>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell
+                    colSpan={columns.length}
+                    className="h-24 text-center"
+                  >
+                    No results.
+                  </TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+            <TableFooter className="bg-transparent">
+              <TableRow className="hover:bg-transparent">
+                <TableCell colSpan={9}>Total</TableCell>
+                <TableCell className="text-right">
+                  {new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                  }).format(
+                    data.reduce((total, item) => total + item.balance, 0)
+                  )}
+                </TableCell>
+              </TableRow>
+            </TableFooter>
+          </Table>
+        </div>
+
+        <div className=" w-full">
+          <h1 className="text-lg font-semibold text-foreground pb-4 text-left tracking-4 leading-normal">
+            Column Resize Table
+          </h1>
+
+          <Table
+            className="table-fixed"
+            style={{
+              width: table.getCenterTotalSize(),
+            }}
+          >
+            <TableHeader>
+              {table.getHeaderGroups().map((headerGroups) => (
+                <TableRow key={headerGroups.id} className="bg-muted/50">
+                  {headerGroups.headers.map((header) => {
+                    return (
+                      <TableHead
+                        key={header.id}
+                        className="relative h-10 border-t select-none last:[&>.cursor-col-resize]:opacity-0"
+                        aria-sort={
+                          header.column.getIsSorted() === "asc"
+                            ? "ascending"
+                            : header.column.getIsSorted() === "desc"
+                              ? "descending"
+                              : "none"
+                        }
+                        {...{
+                          colSpan: header.colSpan,
+                          style: {
+                            width: header.getSize(),
+                          },
+                        }}
+                      >
+                        {header.isPlaceholder ? null : (
+                          <div
+                            className={cn(
+                              header.column.getCanSort() &&
+                                "flex h-full cursor-pointer items-center justify-between gap-2 select-none"
+                            )}
+                            onClick={header.column.getToggleSortingHandler()}
+                            onKeyDown={(e) => {
+                              // Enhanced keyboard handling for sorting
+                              if (
+                                header.column.getCanSort() &&
+                                (e.key === "Enter" || e.key === " ")
+                              ) {
+                                e.preventDefault();
+                                header.column.getToggleSortingHandler()?.(e);
+                              }
+                            }}
+                            tabIndex={
+                              header.column.getCanSort() ? 0 : undefined
+                            }
+                          >
+                            <span className="truncate">
+                              {flexRender(
+                                header.column.columnDef.header,
+                                header.getContext()
+                              )}
+                            </span>
+                            {{
+                              asc: (
+                                <ChevronUpIcon
+                                  className="shrink-0 opacity-60"
+                                  size={16}
+                                  aria-hidden="true"
+                                />
+                              ),
+                              desc: (
+                                <ChevronDownIcon
+                                  className="shrink-0 opacity-60"
+                                  size={16}
+                                  aria-hidden="true"
+                                />
+                              ),
+                            }[header.column.getIsSorted() as string] ?? null}
+                          </div>
+                        )}
+                        {header.column.getCanResize() && (
+                          <div
+                            {...{
+                              onDoubleClick: () => header.column.resetSize(),
+                              onMouseDown: header.getResizeHandler(),
+                              onTouchStart: header.getResizeHandler(),
+                              className:
+                                "absolute top-0 h-full w-4 cursor-col-resize user-select-none touch-none -right-2 z-10 flex justify-center before:absolute before:w-px before:inset-y-0 before:bg-border before:translate-x-px",
+                            }}
+                          />
+                        )}
+                      </TableHead>
+                    );
+                  })}
+                </TableRow>
+              ))}
+            </TableHeader>
+            <TableBody>
+              {table.getRowModel().rows?.length ? (
+                table.getRowModel().rows.map((row) => (
+                  <TableRow
+                    key={row.id}
+                    data-state={row.getIsSelected() && "selected"}
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell key={cell.id} className="truncate">
+                        <span className="truncate">
+                          {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                          )}
+                        </span>
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell
+                    colSpan={columns.length}
+                    className="h-24 text-center"
+                  >
+                    No results.
+                  </TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
         </div>
       </div>
     </div>

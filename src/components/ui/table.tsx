@@ -96,12 +96,14 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
     <td
       data-slot="table-cell"
       className={cn(
-        "text-secondary-foreground text-base px-2 py-3.5 tracking-4 leading-tight font-normal  align-middle whitespace-nowrap [&:has([role=checkbox])]:px-1.5  [&:has([role=checkbox])]:w-[28px] [&:has([role=checkbox])]:py-[7px]  [&>[role=checkbox]]:translate-y-[2px] [&:has([data-slot=avatar])]:py-3 [&:has(button)]:py-0",
+        " text-secondary-foreground text-base  px-2 py-3.5 tracking-4 leading-tight font-normal  align-middle whitespace-nowrap [&:has([role=checkbox])]:px-1.5  [&:has([role=checkbox])]:w-[28px] [&:has([role=checkbox])]:py-[7px]  [&>[role=checkbox]]:translate-y-[2px] [&:has([data-slot=avatar])]:py-3 [&:has(button)]:py-0",
         className
       )}
       {...props}
     >
-      <div className="flex items-center gap-x-2 w-full">{props.children}</div>
+      <span className="flex items-center gap-x-2 truncate  ">
+        {props.children}
+      </span>
     </td>
   );
 }
