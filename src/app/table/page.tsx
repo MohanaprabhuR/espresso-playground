@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { CSSProperties } from "react";
 import {
   Table,
   TableBody,
@@ -12,7 +12,18 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useEffect, useState } from "react";
-import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
+import {
+  ArrowLeftToLineIcon,
+  ArrowRightToLineIcon,
+  ChevronDownIcon,
+  ChevronFirstIcon,
+  ChevronLastIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  ChevronUpIcon,
+  EllipsisIcon,
+  PinOffIcon,
+} from "lucide-react";
 import {
   ColumnDef,
   flexRender,
@@ -20,8 +31,23 @@ import {
   useReactTable,
   getSortedRowModel,
   SortingState,
+  Column,
+  PaginationState,
+  getPaginationRowModel,
 } from "@tanstack/react-table";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+} from "@/components/ui/pagination";
 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -50,6 +76,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Label } from "@/components/ui/label";
 type Item = {
   id: string;
   name: string;
@@ -60,67 +87,16 @@ type Item = {
   balance: number;
 };
 
-const columnsList: ColumnDef<Item>[] = [
-  {
-    header: "Name",
-    accessorKey: "name",
-    cell: ({ row }) => (
-      <div className="truncate font-medium">{row.getValue("name")}</div>
-    ),
-    sortUndefined: "last",
-    sortDescFirst: false,
-  },
-  {
-    header: "Email",
-    accessorKey: "email",
-  },
-  {
-    header: "Location",
-    accessorKey: "location",
-    cell: ({ row }) => (
-      <div className="truncate">
-        <span className="text-lg leading-none">{row.original.flag}</span>{" "}
-        {row.getValue("location")}
-      </div>
-    ),
-  },
-  {
-    header: "Status",
-    accessorKey: "status",
-  },
-  {
-    header: "Balance",
-    accessorKey: "balance",
-    cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("balance"));
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-      }).format(amount);
-      return formatted;
-    },
-  },
-  {
-    header: "Department",
-    accessorKey: "department",
-  },
-  {
-    header: "Role",
-    accessorKey: "role",
-  },
-  {
-    header: "Join Date",
-    accessorKey: "joinDate",
-  },
-  {
-    header: "Last Active",
-    accessorKey: "lastActive",
-  },
-  {
-    header: "Performance",
-    accessorKey: "performance",
-  },
-];
+const getPinningStyles = (column: Column<Item>): CSSProperties => {
+  const isPinned = column.getIsPinned();
+  return {
+    left: isPinned === "left" ? `${column.getStart("left")}px` : undefined,
+    right: isPinned === "right" ? `${column.getAfter("right")}px` : undefined,
+    position: isPinned ? "sticky" : "relative",
+    width: column.getSize(),
+    zIndex: isPinned ? 1 : 0,
+  };
+};
 const dealsItems = [
   {
     id: "1",
@@ -185,31 +161,6 @@ const dealsItems = [
 ];
 
 const columns: ColumnDef<Item>[] = [
-  {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
-    ),
-    enableSorting: false,
-    enableHiding: false,
-    meta: {
-      colSpan: 1,
-    },
-  },
   {
     header: "Name",
     accessorKey: "name",
@@ -448,7 +399,7 @@ const dataTabelDemo = () => {
         "https://raw.githubusercontent.com/origin-space/origin-images/refs/heads/main/users-01_fertyx.json"
       );
       const data = await res.json();
-      setData(data.slice(0, 5));
+      setData(data.slice(0, 25));
     }
     fetchPosts();
   }, []);
@@ -460,20 +411,27 @@ const dataTabelDemo = () => {
       desc: false,
     },
   ]);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [pagination, setPagination] = useState<PaginationState>({
+    pageIndex: 0,
+    pageSize: 5,
+  });
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const table = useReactTable({
     data,
     columns,
-    columnsList,
     getCoreRowModel: getCoreRowModel(),
     columnResizeMode: "onChange",
     getSortedRowModel: getSortedRowModel(),
     onSortingChange: setSorting,
+    enableSortingRemoval: false,
+    getPaginationRowModel: getPaginationRowModel(),
+    onPaginationChange: setPagination,
     state: {
       sorting,
+      pagination,
     },
-    enableSortingRemoval: false,
   });
 
   return (
@@ -709,7 +667,7 @@ const dataTabelDemo = () => {
         </div>
         <div className=" w-full">
           <h1 className="text-lg font-semibold text-foreground pb-4 text-left tracking-4 leading-normal">
-            Organisation Table
+            Organizations Table
           </h1>
           <Table>
             <TableHeader>
@@ -1652,7 +1610,6 @@ const dataTabelDemo = () => {
           <h1 className="text-lg font-semibold text-foreground pb-4 text-left tracking-4 leading-normal">
             Column Resize Table
           </h1>
-
           <Table
             className="table-fixed"
             style={{
@@ -1774,6 +1731,376 @@ const dataTabelDemo = () => {
               )}
             </TableBody>
           </Table>
+        </div>
+
+        <div className=" w-full">
+          <h1 className="text-lg font-semibold text-foreground pb-4 text-left tracking-4 leading-normal">
+            Pinnable columns Table
+          </h1>
+
+          <Table
+            className="table-fixed border-separate border-spacing-0 [&_td]:border-border [&_tfoot_td]:border-t [&_th]:border-b [&_th]:border-border [&_tr]:border-none [&_tr:not(:last-child)_td]:border-b"
+            style={{
+              width: table.getTotalSize(),
+            }}
+          >
+            <TableHeader>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow key={headerGroup.id} className="bg-muted/50">
+                  {headerGroup.headers.map((header) => {
+                    const { column } = header;
+                    const isPinned = column.getIsPinned();
+                    const isLastLeftPinned =
+                      isPinned === "left" && column.getIsLastColumn("left");
+                    const isFirstRightPinned =
+                      isPinned === "right" && column.getIsFirstColumn("right");
+
+                    return (
+                      <TableHead
+                        key={header.id}
+                        className="relative h-10 truncate border-t data-pinned:bg-muted/90 data-pinned:backdrop-blur-xs [&:not([data-pinned]):has(+[data-pinned])_div.cursor-col-resize:last-child]:opacity-0 [&[data-last-col=left]_div.cursor-col-resize:last-child]:opacity-0 [&[data-pinned=left][data-last-col=left]]:border-r [&[data-pinned=right]:last-child_div.cursor-col-resize:last-child]:opacity-0 [&[data-pinned=right][data-last-col=right]]:border-l [&[data-pinned][data-last-col]]:border-border"
+                        colSpan={header.colSpan}
+                        style={{ ...getPinningStyles(column) }}
+                        data-pinned={isPinned || undefined}
+                        data-last-col={
+                          isLastLeftPinned
+                            ? "left"
+                            : isFirstRightPinned
+                              ? "right"
+                              : undefined
+                        }
+                      >
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="truncate">
+                            {header.isPlaceholder
+                              ? null
+                              : flexRender(
+                                  header.column.columnDef.header,
+                                  header.getContext()
+                                )}
+                          </span>
+                          {!header.isPlaceholder &&
+                            header.column.getCanPin() &&
+                            (header.column.getIsPinned() ? (
+                              <Button
+                                variant="ghost"
+                                className="-mr-1 size-7 shadow-none"
+                                onClick={() => header.column.pin(false)}
+                                aria-label={`Unpin ${header.column.columnDef.header as string} column`}
+                                title={`Unpin ${header.column.columnDef.header as string} column`}
+                              >
+                                <PinOffIcon
+                                  className="opacity-60"
+                                  size={16}
+                                  aria-hidden="true"
+                                />
+                              </Button>
+                            ) : (
+                              <DropdownMenu>
+                                <DropdownMenuTrigger asChild>
+                                  <Button
+                                    variant="ghost"
+                                    className="-mr-1 size-7 shadow-none"
+                                    aria-label={`Pin options for ${header.column.columnDef.header as string} column`}
+                                    title={`Pin options for ${header.column.columnDef.header as string} column`}
+                                  >
+                                    <EllipsisIcon
+                                      className="opacity-60"
+                                      size={16}
+                                      aria-hidden="true"
+                                    />
+                                  </Button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent align="end">
+                                  <DropdownMenuItem
+                                    onClick={() => header.column.pin("left")}
+                                  >
+                                    <ArrowLeftToLineIcon
+                                      size={16}
+                                      className="opacity-60"
+                                      aria-hidden="true"
+                                    />
+                                    Stick to left
+                                  </DropdownMenuItem>
+                                  <DropdownMenuItem
+                                    onClick={() => header.column.pin("right")}
+                                  >
+                                    <ArrowRightToLineIcon
+                                      size={16}
+                                      className="opacity-60"
+                                      aria-hidden="true"
+                                    />
+                                    Stick to right
+                                  </DropdownMenuItem>
+                                </DropdownMenuContent>
+                              </DropdownMenu>
+                            ))}
+                        </div>
+                      </TableHead>
+                    );
+                  })}
+                </TableRow>
+              ))}
+            </TableHeader>
+            <TableBody>
+              {table.getRowModel().rows?.length ? (
+                table.getRowModel().rows.map((row) => (
+                  <TableRow
+                    key={row.id}
+                    data-state={row.getIsSelected() && "selected"}
+                  >
+                    {row.getVisibleCells().map((cell) => {
+                      const { column } = cell;
+                      const isPinned = column.getIsPinned();
+                      const isLastLeftPinned =
+                        isPinned === "left" && column.getIsLastColumn("left");
+                      const isFirstRightPinned =
+                        isPinned === "right" &&
+                        column.getIsFirstColumn("right");
+
+                      return (
+                        <TableCell
+                          key={cell.id}
+                          className="truncate data-pinned:bg-background/90 data-pinned:backdrop-blur-xs [&[data-pinned=left][data-last-col=left]]:border-r [&[data-pinned=right][data-last-col=right]]:border-l [&[data-pinned][data-last-col]]:border-border"
+                          style={{ ...getPinningStyles(column) }}
+                          data-pinned={isPinned || undefined}
+                          data-last-col={
+                            isLastLeftPinned
+                              ? "left"
+                              : isFirstRightPinned
+                                ? "right"
+                                : undefined
+                          }
+                        >
+                          {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                          )}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell
+                    colSpan={columns.length}
+                    className="h-24 text-center"
+                  >
+                    No results.
+                  </TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </div>
+
+        <div className=" w-full">
+          <h1 className="text-lg font-semibold text-foreground pb-4 text-left tracking-4 leading-normal">
+            Pagination Table
+          </h1>
+
+          <div className="overflow-hidden rounded-md border bg-background">
+            <Table className="table-fixed">
+              <TableHeader>
+                {table.getHeaderGroups().map((headerGroup) => (
+                  <TableRow
+                    key={headerGroup.id}
+                    className="hover:bg-transparent"
+                  >
+                    {headerGroup.headers.map((header) => {
+                      return (
+                        <TableHead
+                          key={header.id}
+                          style={{ width: `${header.getSize()}px` }}
+                          className="h-11"
+                        >
+                          {header.isPlaceholder ? null : header.column.getCanSort() ? (
+                            <div
+                              className={cn(
+                                header.column.getCanSort() &&
+                                  "flex h-full cursor-pointer items-center justify-between gap-2 select-none"
+                              )}
+                              onClick={header.column.getToggleSortingHandler()}
+                              onKeyDown={(e) => {
+                                // Enhanced keyboard handling for sorting
+                                if (
+                                  header.column.getCanSort() &&
+                                  (e.key === "Enter" || e.key === " ")
+                                ) {
+                                  e.preventDefault();
+                                  header.column.getToggleSortingHandler()?.(e);
+                                }
+                              }}
+                              tabIndex={
+                                header.column.getCanSort() ? 0 : undefined
+                              }
+                            >
+                              {flexRender(
+                                header.column.columnDef.header,
+                                header.getContext()
+                              )}
+                              {{
+                                asc: (
+                                  <ChevronUpIcon
+                                    className="shrink-0 opacity-60"
+                                    size={16}
+                                    aria-hidden="true"
+                                  />
+                                ),
+                                desc: (
+                                  <ChevronDownIcon
+                                    className="shrink-0 opacity-60"
+                                    size={16}
+                                    aria-hidden="true"
+                                  />
+                                ),
+                              }[header.column.getIsSorted() as string] ?? null}
+                            </div>
+                          ) : (
+                            flexRender(
+                              header.column.columnDef.header,
+                              header.getContext()
+                            )
+                          )}
+                        </TableHead>
+                      );
+                    })}
+                  </TableRow>
+                ))}
+              </TableHeader>
+              <TableBody>
+                {table.getRowModel().rows?.length ? (
+                  table.getRowModel().rows.map((row) => (
+                    <TableRow
+                      key={row.id}
+                      data-state={row.getIsSelected() && "selected"}
+                    >
+                      {row.getVisibleCells().map((cell) => (
+                        <TableCell key={cell.id}>
+                          {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                          )}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell
+                      colSpan={columns.length}
+                      className="h-24 text-center"
+                    >
+                      No results.
+                    </TableCell>
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+          </div>
+
+          <div className="flex items-center justify-between gap-8 pt-4">
+            <div className="flex items-center gap-3">
+              <Label htmlFor={id} className="max-sm:sr-only">
+                Rows per page
+              </Label>
+              <Select
+                value={table.getState().pagination.pageSize.toString()}
+                onValueChange={(value) => {
+                  table.setPageSize(Number(value));
+                }}
+              >
+                <SelectTrigger id={id} className="w-fit whitespace-nowrap">
+                  <SelectValue placeholder="Select number of results" />
+                </SelectTrigger>
+                <SelectContent className="[&_*[role=option]]:ps-2 [&_*[role=option]]:pe-8 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:end-2">
+                  {[5, 10, 25, 50].map((pageSize) => (
+                    <SelectItem key={pageSize} value={pageSize.toString()}>
+                      {pageSize}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="flex grow justify-end text-sm whitespace-nowrap text-muted-foreground ">
+              <p
+                className="text-sm whitespace-nowrap text-muted-foreground"
+                aria-live="polite"
+              >
+                <span className="text-foreground">
+                  {table.getState().pagination.pageIndex *
+                    table.getState().pagination.pageSize +
+                    1}
+                  -
+                  {Math.min(
+                    Math.max(
+                      table.getState().pagination.pageIndex *
+                        table.getState().pagination.pageSize +
+                        table.getState().pagination.pageSize,
+                      0
+                    ),
+                    table.getRowCount()
+                  )}
+                </span>{" "}
+                of{" "}
+                <span className="text-foreground">
+                  {table.getRowCount().toString()}
+                </span>
+              </p>
+            </div>
+            <div>
+              <Pagination>
+                <PaginationContent>
+                  <PaginationItem>
+                    <Button
+                      variant="outline"
+                      className="disabled:pointer-events-none disabled:opacity-50"
+                      onClick={() => table.firstPage()}
+                      disabled={!table.getCanPreviousPage()}
+                      aria-label="Go to first page"
+                    >
+                      <ChevronFirstIcon size={16} aria-hidden="true" />
+                    </Button>
+                  </PaginationItem>
+                  <PaginationItem>
+                    <Button
+                      variant="outline"
+                      className="disabled:pointer-events-none disabled:opacity-50"
+                      onClick={() => table.previousPage()}
+                      disabled={!table.getCanPreviousPage()}
+                      aria-label="Go to previous page"
+                    >
+                      <ChevronLeftIcon size={16} aria-hidden="true" />
+                    </Button>
+                  </PaginationItem>
+                  <PaginationItem>
+                    <Button
+                      variant="outline"
+                      className="disabled:pointer-events-none disabled:opacity-50"
+                      onClick={() => table.nextPage()}
+                      disabled={!table.getCanNextPage()}
+                      aria-label="Go to next page"
+                    >
+                      <ChevronRightIcon size={16} aria-hidden="true" />
+                    </Button>
+                  </PaginationItem>
+                  <PaginationItem>
+                    <Button
+                      variant="outline"
+                      className="disabled:pointer-events-none disabled:opacity-50"
+                      onClick={() => table.lastPage()}
+                      disabled={!table.getCanNextPage()}
+                      aria-label="Go to last page"
+                    >
+                      <ChevronLastIcon size={16} aria-hidden="true" />
+                    </Button>
+                  </PaginationItem>
+                </PaginationContent>
+              </Pagination>
+            </div>
+          </div>
         </div>
       </div>
     </div>
