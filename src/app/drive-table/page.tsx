@@ -19,327 +19,205 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ChevronDownIcon, ChevronUpIcon, Phone } from "lucide-react";
+import {
+  ArrowDownToLine,
+  ChevronDownIcon,
+  ChevronUpIcon,
+  CloudDownload,
+  Ellipsis,
+  FileCog,
+  Folder,
+  Phone,
+  Share,
+  Star,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ButtonGroup } from "@/components/ui/button-group";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface DealItem {
   name: string;
-  avatar: string;
-  organisation: string;
-  organisation_image: string;
-  status: string;
-  status_image: string;
-  email: string;
-  phone: string;
-  assigned_to: string;
-  assigned_Avatar: string;
-  last_modified: string;
+  owner: string;
+  owner_avatar: string;
+  size: string;
+  date_of_modified: string;
 }
 
 const data: DealItem[] = [
   {
-    name: "Jenny Wilson",
-    avatar: "https://mockmind-api.uifaces.co/content/human/222.jpg",
-    organisation: "Gumroad",
-    organisation_image: "/images/svg/gumroad.svg",
-    status: "Open",
-    status_image: "/images/svg/open.svg",
-    email: "stacy@example.com",
-    phone: "+91 9994445678",
-    assigned_to: "Avinash Goel",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/84.jpg",
-    last_modified: "2 days ago",
+    name: "Illustration",
+    owner: "Aaron Stevenson",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/222.jpg",
+    size: "47.4 MB",
+    date_of_modified: "2 days ago",
   },
   {
-    name: "Mariana Rodriguez",
-    avatar: "https://mockmind-api.uifaces.co/content/human/80.jpg",
-    organisation: "Attentive",
-    organisation_image: "/images/svg/attentive.svg",
-    status: "Contacted",
-    status_image: "/images/svg/contacted.svg",
-    email: "mariana@example.com",
-    phone: "+91 8885556789",
-    assigned_to: "Rahul Sharma",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/85.jpg",
-    last_modified: "1 week ago",
+    name: "Photography",
+    owner: "Jacob Collins",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/80.jpg",
+    size: "56.2 MB",
+    date_of_modified: "1 week ago",
   },
   {
-    name: "Sophie Chen",
-    avatar: "https://mockmind-api.uifaces.co/content/human/81.jpg",
-    organisation: "Evergreen",
-    organisation_image: "/images/svg/evergreen.svg",
-    status: "Nurture",
-    status_image: "/images/svg/nurture.svg",
-    email: "sophie@example.com",
-    phone: "+91 7777335678",
-    assigned_to: "Elena Petrova",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/86.jpg",
-    last_modified: "3 days ago",
+    name: "Graphic Design",
+    owner: "Emily Parker",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/98.jpg",
+    size: "32.8 MB",
+    date_of_modified: "5 days ago",
   },
   {
-    name: "David Lee",
-    avatar: "https://mockmind-api.uifaces.co/content/human/82.jpg",
-    organisation: "Dropbox",
-    organisation_image: "/images/svg/dropbox.svg",
-    status: "Qualified",
-    status_image: "/images/svg/qualified.svg",
-    email: "david@example.com",
-    phone: "+91 6662225678",
-    assigned_to: "Priya Patel",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/87.jpg",
-    last_modified: "4 days ago",
+    name: "Illustration",
+    owner: "Aaron Stevenson",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/222.jpg",
+    size: "47.4 MB",
+    date_of_modified: "2 days ago",
   },
   {
-    name: "Maria Gomez",
-    avatar: "https://mockmind-api.uifaces.co/content/human/83.jpg",
-    organisation: "Hourglass",
-    organisation_image: "/images/svg/hourglass.svg",
-    status: "Unqualified",
-    status_image: "/images/svg/unqualified.svg",
-    email: "maria@example.com",
-    phone: "+91 5554445678",
-    assigned_to: "James Smith",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/88.jpg",
-    last_modified: "5 days ago",
+    name: "Photography",
+    owner: "Jacob Collins",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/80.jpg",
+    size: "56.2 MB",
+    date_of_modified: "1 week ago",
   },
   {
-    name: "Anika Sharma",
-    avatar: "https://mockmind-api.uifaces.co/content/human/84.jpg",
-    organisation: "Miro",
-    organisation_image: "/images/svg/miro.svg",
-    status: "Nurture",
-    status_image: "/images/svg/nurture.svg",
-    email: "anika@example.com",
-    phone: "+91 4443335678",
-    assigned_to: "Mark Johnson",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/89.jpg",
-    last_modified: "6 days ago",
-  },
-  {
-    name: "Liam Brown",
-    avatar: "https://mockmind-api.uifaces.co/content/human/86.jpg",
-    organisation: "Zapier",
-    organisation_image: "/images/svg/zapier.svg",
-    status: "Junk",
-    status_image: "/images/svg/junk.svg",
-    email: "liam@example.com",
-    phone: "+91 3332225678",
-    assigned_to: "Olivia Martinez",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/90.jpg",
-    last_modified: "1 week ago",
-  },
-  {
-    name: "Daniel Kim",
-    avatar: "https://mockmind-api.uifaces.co/content/human/84.jpg",
-    organisation: "Figma",
-    organisation_image: "/images/svg/figma.svg",
-    status: "Contacted",
-    status_image: "/images/svg/contacted.svg",
-    email: "daniel@example.com",
-    phone: "+91 2221115678",
-    assigned_to: "Isabella Davis",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/91.jpg",
-    last_modified: "1 week ago",
-  },
-  {
-    name: "Nina Lee",
-    avatar: "https://mockmind-api.uifaces.co/content/human/88.jpg",
-    organisation: "1password",
-    organisation_image: "/images/svg/1password.svg",
-    status: "Open",
-    status_image: "/images/svg/open.svg",
-    email: "nina@example.com",
-    phone: "+91 1110005678",
-    assigned_to: "Ethan Wilson",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/92.jpg",
-    last_modified: "8 days ago",
-  },
-  {
-    name: "Avery Clark",
-    avatar: "https://mockmind-api.uifaces.co/content/human/89.jpg",
-    organisation: "Cooper",
-    organisation_image: "/images/svg/cooper.svg",
-    status: "Qualified",
-    status_image: "/images/svg/qualified.svg",
-    email: "avery@example.com",
-    phone: "+91 9998885678",
-    assigned_to: "Mia Thompson",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/93.jpg",
-    last_modified: "9 days ago",
-  },
-  {
-    name: "Lucas White",
-    avatar: "https://mockmind-api.uifaces.co/content/human/90.jpg",
-    organisation: "ChatGpt",
-    organisation_image: "/images/svg/chatGpt.svg",
-    status: "Junk",
-    status_image: "/images/svg/junk.svg",
-    email: "lucas@example.com",
-    phone: "+91 8887775678",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/94.jpg",
-    assigned_to: "Ella Hill",
-    last_modified: "10 days ago",
-  },
-  {
-    name: "Chloe Allen",
-    avatar: "https://mockmind-api.uifaces.co/content/human/91.jpg",
-    organisation: "Github",
-    organisation_image: "/images/svg/github.svg",
-    status: "Contacted",
-    status_image: "/images/svg/contacted.svg",
-    email: "chloe@example.com",
-    phone: "+91 7776665678",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/95.jpg",
-    assigned_to: "Noah Scott",
-    last_modified: "11 days ago",
-  },
-  {
-    name: "Evelyn Young",
-    avatar: "https://mockmind-api.uifaces.co/content/human/92.jpg",
-    organisation: "Metalab",
-    organisation_image: "/images/svg/metalab.svg",
-    status: "Open",
-    status_image: "/images/svg/open.svg",
-    email: "evelyn@example.com",
-    phone: "+91 6665555678",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/96.jpg",
-    assigned_to: "Alexander King",
-    last_modified: "12 days ago",
-  },
-  {
-    name: "Nathan Green",
-    avatar: "https://mockmind-api.uifaces.co/content/human/93.jpg",
-    organisation: "Adobe Express",
-    organisation_image: "/images/svg/adobeexpress.svg",
-    status: "Unqualified",
-    status_image: "/images/svg/unqualified.svg",
-    email: "nathan@example.com",
-    phone: "+91 5554445678",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/97.jpg",
-    assigned_to: "Sofia Walker",
-    last_modified: "13 days ago",
-  },
-  {
-    name: "Grace Roberts",
-    avatar: "https://mockmind-api.uifaces.co/content/human/94.jpg",
-    organisation: "Spotify",
-    organisation_image: "/images/svg/spotify.svg",
-    status: "Junk",
-    status_image: "/images/svg/junk.svg",
-    email: "grace@example.com",
-    phone: "+91 4443335678",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/98.jpg",
-    assigned_to: "Henry Allen",
-    last_modified: "14 days ago",
+    name: "Graphic Design",
+    owner: "Emily Parker",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/98.jpg",
+    size: "32.8 MB",
+    date_of_modified: "5 days ago",
   },
 ];
 
 export const columns: ColumnDef<DealItem>[] = [
   {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
-    ),
-    enableSorting: false,
-    enableHiding: false,
-    enableResizing: false,
-    size: 32,
-  },
-  {
     accessorKey: "name",
     header: "Name",
     cell: ({ row }) => (
       <>
-        <Avatar>
-          <AvatarImage src={row.original.avatar} />
-          <AvatarFallback>{row.original.name[0]}</AvatarFallback>
-        </Avatar>
+        <figure>
+          <Folder className="size-4" />
+        </figure>
         <span className="truncate">{row.original.name}</span>
       </>
     ),
   },
   {
-    accessorKey: "organisation",
-    header: "Organisation",
-    cell: ({ row }) => (
-      <>
-        <Avatar shape="square">
-          <AvatarImage src={row.original.organisation_image} />
-          <AvatarFallback>{row.original.organisation[0]}</AvatarFallback>
-        </Avatar>
-        <span className="truncate">{row.original.organisation}</span>
-      </>
-    ),
-  },
-  {
-    accessorKey: "status",
-    header: "Status",
-    cell: ({ row }) => (
-      <>
-        <Avatar size="xs">
-          <AvatarImage src={row.original.status_image} />
-          <AvatarFallback>{row.original.status[0]}</AvatarFallback>
-        </Avatar>
-        <span className="truncate">{row.original.status}</span>
-      </>
-    ),
-  },
-  {
-    accessorKey: "email",
-    header: "Email",
-    cell: ({ row }) => (
-      <>
-        <span className="truncate">{row.original.email}</span>
-      </>
-    ),
-  },
-  {
-    accessorKey: "phone",
-    header: "EmailMobile no.",
-    cell: ({ row }) => (
-      <>
-        <figure className="size-4">
-          <Phone className="size-4" />
-        </figure>
-        <span className="truncate">{row.original.phone}</span>
-      </>
-    ),
-  },
-  {
-    accessorKey: "assigned_to",
-    header: "Assigned to",
+    accessorKey: "owner",
+    header: "Owner",
     cell: ({ row }) => (
       <>
         <Avatar>
-          <AvatarImage src={row.original.assigned_Avatar} />
-          <AvatarFallback>{row.original.assigned_to[0]}</AvatarFallback>
+          <AvatarImage src={row.original.owner_avatar} />
+          <AvatarFallback>{row.original.owner[0]}</AvatarFallback>
         </Avatar>
-        <span className="truncate">{row.original.assigned_to}</span>
+        <span className="truncate">{row.original.owner}</span>
       </>
     ),
   },
   {
-    accessorKey: "last_modified",
-    header: "Last modified/Created",
+    accessorKey: "size",
+    header: "Size",
     cell: ({ row }) => (
       <>
-        <span className="truncate">{row.original.last_modified}</span>
+        <span className="truncate">{row.original.size}</span>
       </>
     ),
+  },
+  {
+    accessorKey: "date_of_modified",
+    header: "Date Of Modified",
+    cell: ({ row }) => (
+      <>
+        <span className="truncate">{row.original.date_of_modified}</span>
+      </>
+    ),
+  },
+  {
+    accessorKey: "rating",
+    header: ({ column }) => {
+      return (
+        <ButtonGroup destructive>
+          <Button iconOnly variant="ghost">
+            <Star className="size-4" />
+          </Button>
+          <Button iconOnly variant="ghost">
+            <Share className="size-4" />
+          </Button>
+          <Button iconOnly variant="ghost">
+            <ArrowDownToLine className="size-4" />
+          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <Button iconOnly variant="ghost">
+                <Ellipsis className="size-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem>
+                <Folder className="size-4" /> Actions
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <FileCog className="size-4" />
+                New File
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Share className="size-4" />
+                Share File
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <CloudDownload className="size-4" />
+                Download File
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </ButtonGroup>
+      );
+    },
+    cell: ({ row }) => {
+      return (
+        <ButtonGroup destructive>
+          <Button iconOnly variant="ghost">
+            <Star className="size-4" />
+          </Button>
+          <Button iconOnly variant="ghost">
+            <Share className="size-4" />
+          </Button>
+          <Button iconOnly variant="ghost">
+            <ArrowDownToLine className="size-4" />
+          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <Button iconOnly variant="ghost">
+                <Ellipsis className="size-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem>
+                <Folder className="size-4" /> Actions
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <FileCog className="size-4" />
+                New File
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Share className="size-4" />
+                Share File
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <CloudDownload className="size-4" />
+                Download File
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </ButtonGroup>
+      );
+    },
   },
 ];
 
@@ -446,7 +324,7 @@ const dataTabelDemo = () => {
               </TableRow>
             ))}
           </TableHeader>
-          <TableBody>
+          <TableBody borderNone>
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow
