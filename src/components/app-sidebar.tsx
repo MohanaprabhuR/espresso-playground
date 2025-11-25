@@ -166,11 +166,23 @@ const data = {
     { title: "Modals", url: "/modal", icon: Component },
     { title: "Sonner", url: "/sonner", icon: Megaphone },
     { title: "Forms", url: "/form", badge: "new", icon: FileText },
-    { title: "Data Table", url: "/table", badge: "new", icon: Table },
+    { title: "CRM Deals Table", url: "/table", badge: "Table", icon: Table },
+    {
+      title: "Help Desk Table",
+      url: "/help-desk-table",
+      badge: "Table",
+      icon: Table,
+    },
+    {
+      title: "Drive Table",
+      url: "/drive-table",
+      badge: "Table",
+      icon: Table,
+    },
     {
       title: "Data Table TanStack",
       url: "/table-tanstack",
-      badge: "new",
+      badge: "Table",
       icon: Table,
     },
   ],
@@ -337,7 +349,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           />
 
           <SidebarMenuItem>
-            <SidebarMenuButton asChild size="sm">
+            <SidebarMenuButton asChild>
               <a href="#">
                 <Home className="size-4" />
                 <span>Home</span>
@@ -361,7 +373,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SidebarMenuItem>
 
           <SidebarMenuItem>
-            <SidebarMenuButton asChild size="sm">
+            <SidebarMenuButton asChild>
               <a href="#">
                 <Plane className="size-4" />
                 <span>Travel</span>
