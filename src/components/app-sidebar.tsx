@@ -180,6 +180,12 @@ const data = {
       icon: Table,
     },
     {
+      title: "Mail Table",
+      url: "/mail-table",
+      badge: "Table",
+      icon: Table,
+    },
+    {
       title: "Data Table TanStack",
       url: "/table-tanstack",
       badge: "Table",

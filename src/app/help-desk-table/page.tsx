@@ -398,6 +398,7 @@ export const columns: ColumnDef<Ticket>[] = [
         <span className="truncate">{row.original.id}</span>
       </>
     ),
+    size: 100,
   },
   {
     accessorKey: "ticket",
@@ -407,6 +408,7 @@ export const columns: ColumnDef<Ticket>[] = [
         <span className="truncate">{row.original.ticket}</span>
       </>
     ),
+    size: 316,
   },
   {
     accessorKey: "status",
@@ -420,6 +422,7 @@ export const columns: ColumnDef<Ticket>[] = [
         <span className="truncate">{row.original.status}</span>
       </>
     ),
+    size: 120,
   },
   {
     accessorKey: "firstDue",
@@ -429,6 +432,7 @@ export const columns: ColumnDef<Ticket>[] = [
         <Badge variant="secondary">{row.original.firstDue}</Badge>
       </>
     ),
+    size: 88,
   },
   {
     accessorKey: "resolution",
@@ -438,6 +442,7 @@ export const columns: ColumnDef<Ticket>[] = [
         <Badge variant="secondary">{row.original.firstDue}</Badge>
       </>
     ),
+    size: 88,
   },
   {
     accessorKey: "Priority",
@@ -450,6 +455,7 @@ export const columns: ColumnDef<Ticket>[] = [
         <span className="truncate">{row.original.priority}</span>
       </>
     ),
+    size: 104,
   },
   {
     accessorKey: "type",
@@ -459,6 +465,7 @@ export const columns: ColumnDef<Ticket>[] = [
         <span className="truncate">{row.original.type}</span>
       </>
     ),
+    size: 88,
   },
   {
     accessorKey: "assignee",
@@ -472,6 +479,7 @@ export const columns: ColumnDef<Ticket>[] = [
         <span className="truncate">{row.original.assignee}</span>
       </>
     ),
+    size: 120,
   },
   {
     accessorKey: "team",
@@ -481,6 +489,7 @@ export const columns: ColumnDef<Ticket>[] = [
         <span className="truncate">{row.original.team}</span>
       </>
     ),
+    size: 104,
   },
   {
     accessorKey: "customer",
@@ -490,6 +499,7 @@ export const columns: ColumnDef<Ticket>[] = [
         <span className="truncate">{row.original.customer}</span>
       </>
     ),
+    size: 120,
   },
   {
     accessorKey: "rating",
@@ -535,10 +545,11 @@ export const columns: ColumnDef<Ticket>[] = [
         </ButtonGroup>
       );
     },
+    size: 200,
   },
 ];
 
-const dataTabelDemo = () => {
+const helpDeskTabelDemo = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const table = useReactTable({
     data,
@@ -675,4 +686,4 @@ const dataTabelDemo = () => {
   );
 };
 
-export default dataTabelDemo;
+export default helpDeskTabelDemo;

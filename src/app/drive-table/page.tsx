@@ -119,6 +119,7 @@ export const columns: ColumnDef<DealItem>[] = [
         <span className="truncate">{row.original.owner}</span>
       </>
     ),
+    size: 400,
   },
   {
     accessorKey: "size",
@@ -128,6 +129,7 @@ export const columns: ColumnDef<DealItem>[] = [
         <span className="truncate">{row.original.size}</span>
       </>
     ),
+    size: 200,
   },
   {
     accessorKey: "date_of_modified",
@@ -137,6 +139,7 @@ export const columns: ColumnDef<DealItem>[] = [
         <span className="truncate">{row.original.date_of_modified}</span>
       </>
     ),
+    size: 200,
   },
   {
     accessorKey: "rating",
@@ -221,7 +224,7 @@ export const columns: ColumnDef<DealItem>[] = [
   },
 ];
 
-const dataTabelDemo = () => {
+const driveTabelDemo = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const table = useReactTable({
     data,
@@ -358,4 +361,4 @@ const dataTabelDemo = () => {
   );
 };
 
-export default dataTabelDemo;
+export default driveTabelDemo;

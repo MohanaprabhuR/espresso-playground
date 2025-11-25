@@ -19,8 +19,9 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ChevronDownIcon, ChevronUpIcon, Phone } from "lucide-react";
+import { ChevronDownIcon, ChevronUpIcon, Phone, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 interface DealItem {
   name: string;
@@ -237,27 +238,22 @@ const data: DealItem[] = [
 export const columns: ColumnDef<DealItem>[] = [
   {
     id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
-    ),
     cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
+      <div className="flex gap-x-3">
+        <Checkbox
+          checked={row.getIsSelected()}
+          onCheckedChange={(value) => row.toggleSelected(!!value)}
+          aria-label="Select row"
+        />
+        <figure>
+          <Star className="size-4" />
+        </figure>
+      </div>
     ),
     enableSorting: false,
     enableHiding: false,
     enableResizing: false,
-    size: 32,
+    size: 60,
   },
   {
     accessorKey: "name",
@@ -271,7 +267,6 @@ export const columns: ColumnDef<DealItem>[] = [
         <span className="truncate">{row.original.name}</span>
       </>
     ),
-    size: 170,
   },
   {
     accessorKey: "organisation",
@@ -285,7 +280,6 @@ export const columns: ColumnDef<DealItem>[] = [
         <span className="truncate">{row.original.organisation}</span>
       </>
     ),
-    size: 144,
   },
   {
     accessorKey: "status",
@@ -299,7 +293,6 @@ export const columns: ColumnDef<DealItem>[] = [
         <span className="truncate">{row.original.status}</span>
       </>
     ),
-    size: 144,
   },
   {
     accessorKey: "email",
@@ -309,7 +302,6 @@ export const columns: ColumnDef<DealItem>[] = [
         <span className="truncate">{row.original.email}</span>
       </>
     ),
-    size: 216,
   },
   {
     accessorKey: "phone",
@@ -322,7 +314,6 @@ export const columns: ColumnDef<DealItem>[] = [
         <span className="truncate">{row.original.phone}</span>
       </>
     ),
-    size: 184,
   },
   {
     accessorKey: "assigned_to",
@@ -336,7 +327,6 @@ export const columns: ColumnDef<DealItem>[] = [
         <span className="truncate">{row.original.assigned_to}</span>
       </>
     ),
-    size: 168,
   },
   {
     accessorKey: "last_modified",
@@ -346,11 +336,10 @@ export const columns: ColumnDef<DealItem>[] = [
         <span className="truncate">{row.original.last_modified}</span>
       </>
     ),
-    size: 120,
   },
 ];
 
-const dataTabelDemo = () => {
+const mailTabelDemo = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const table = useReactTable({
     data,
@@ -363,7 +352,7 @@ const dataTabelDemo = () => {
   return (
     <div className="pt-10 ">
       <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
-        CRM Deals Table
+        Mail Table
       </h1>
       <div className="flex flex-col mx-auto gap-10 w-full  items-center justify-center">
         <Table
@@ -487,4 +476,4 @@ const dataTabelDemo = () => {
   );
 };
 
-export default dataTabelDemo;
+export default mailTabelDemo;
