@@ -19,223 +19,266 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ChevronDownIcon, ChevronUpIcon, Phone, Star } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronUp,
+  FileArchive,
+  FileText,
+  ImageIcon,
+  Star,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
-interface DealItem {
+interface Attachment {
   name: string;
-  avatar: string;
-  organisation: string;
-  organisation_image: string;
-  status: string;
-  status_image: string;
-  email: string;
-  phone: string;
-  assigned_to: string;
-  assigned_Avatar: string;
-  last_modified: string;
+  type: "zip" | "image" | "pdf" | "other";
+}
+interface MailItem {
+  name: string;
+  avatar: string[];
+  description: string;
+  attachments: Attachment[];
+  date: string;
 }
 
-const data: DealItem[] = [
+const data: MailItem[] = [
   {
-    name: "Jenny Wilson",
-    avatar: "https://mockmind-api.uifaces.co/content/human/222.jpg",
-    organisation: "Gumroad",
-    organisation_image: "/images/svg/gumroad.svg",
-    status: "Open",
-    status_image: "/images/svg/open.svg",
-    email: "stacy@example.com",
-    phone: "+91 9994445678",
-    assigned_to: "Avinash Goel",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/84.jpg",
-    last_modified: "2 days ago",
+    name: "Michael Nguyen",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/80.jpg"],
+    description: "Don't forget to complete the user testing feedback form.",
+    date: "Apr 10, 2024",
+    attachments: [],
   },
   {
-    name: "Mariana Rodriguez",
-    avatar: "https://mockmind-api.uifaces.co/content/human/80.jpg",
-    organisation: "Attentive",
-    organisation_image: "/images/svg/attentive.svg",
-    status: "Contacted",
-    status_image: "/images/svg/contacted.svg",
-    email: "mariana@example.com",
-    phone: "+91 8885556789",
-    assigned_to: "Rahul Sharma",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/85.jpg",
-    last_modified: "1 week ago",
+    name: "Sophie Rodriguez, Noah Brown",
+    avatar: [
+      "https://mockmind-api.uifaces.co/content/human/81.jpg",
+      "https://mockmind-api.uifaces.co/content/human/82.jpg",
+    ],
+    description: "Reminder Complete peer code review for sprint deliverables.",
+    date: "Apr 10, 2024",
+    attachments: [],
   },
   {
-    name: "Sophie Chen",
-    avatar: "https://mockmind-api.uifaces.co/content/human/81.jpg",
-    organisation: "Evergreen",
-    organisation_image: "/images/svg/evergreen.svg",
-    status: "Nurture",
-    status_image: "/images/svg/nurture.svg",
-    email: "sophie@example.com",
-    phone: "+91 7777335678",
-    assigned_to: "Elena Petrova",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/86.jpg",
-    last_modified: "3 days ago",
+    name: "Upstox daily",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/83.jpg"],
+    description:
+      "Asian Paints Q3 profit falls, Titan Q3 total income rises & more NIFTY sectoral indices, Oil and Gas (+2.70%) and",
+    date: "Apr 10, 2024",
+    attachments: [],
   },
   {
-    name: "David Lee",
-    avatar: "https://mockmind-api.uifaces.co/content/human/82.jpg",
-    organisation: "Dropbox",
-    organisation_image: "/images/svg/dropbox.svg",
-    status: "Qualified",
-    status_image: "/images/svg/qualified.svg",
-    email: "david@example.com",
-    phone: "+91 6662225678",
-    assigned_to: "Priya Patel",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/87.jpg",
-    last_modified: "4 days ago",
+    name: "Behance",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/84.jpg"],
+    description:
+      "New Inspiration For You: Feb 5, 2025 New projects from people you follow like TACTYC Studio, Danny Ivan, and more ",
+    date: "Apr 09, 2024",
+    attachments: [],
   },
   {
-    name: "Maria Gomez",
-    avatar: "https://mockmind-api.uifaces.co/content/human/83.jpg",
-    organisation: "Hourglass",
-    organisation_image: "/images/svg/hourglass.svg",
-    status: "Unqualified",
-    status_image: "/images/svg/unqualified.svg",
-    email: "maria@example.com",
-    phone: "+91 5554445678",
-    assigned_to: "James Smith",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/88.jpg",
-    last_modified: "5 days ago",
+    name: "Olivia Garcia",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/85.jpg"],
+    description: "Upcoming holiday: Office closed on Labor Day.",
+    date: "Apr 09, 2024",
+    attachments: [],
   },
   {
-    name: "Anika Sharma",
-    avatar: "https://mockmind-api.uifaces.co/content/human/84.jpg",
-    organisation: "Miro",
-    organisation_image: "/images/svg/miro.svg",
-    status: "Nurture",
-    status_image: "/images/svg/nurture.svg",
-    email: "anika@example.com",
-    phone: "+91 4443335678",
-    assigned_to: "Mark Johnson",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/89.jpg",
-    last_modified: "6 days ago",
+    name: "Coursera",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/86.jpg"],
+    description:
+      "We combed our catalog and found courses that we think match your interests. Browse our recommendations below, and start learning something new today!",
+    date: "Apr 08, 2024",
+    attachments: [],
   },
   {
-    name: "Liam Brown",
-    avatar: "https://mockmind-api.uifaces.co/content/human/86.jpg",
-    organisation: "Zapier",
-    organisation_image: "/images/svg/zapier.svg",
-    status: "Junk",
-    status_image: "/images/svg/junk.svg",
-    email: "liam@example.com",
-    phone: "+91 3332225678",
-    assigned_to: "Olivia Martinez",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/90.jpg",
-    last_modified: "1 week ago",
+    name: "ET money",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/87.jpg"],
+    description:
+      "Hey, it's reserved only for you Your family's dreams are unique & deserve a plan that's as special as the aspiration you have for their future.",
+    date: "Apr 08, 2024",
+    attachments: [],
   },
   {
-    name: "Daniel Kim",
-    avatar: "https://mockmind-api.uifaces.co/content/human/84.jpg",
-    organisation: "Figma",
-    organisation_image: "/images/svg/figma.svg",
-    status: "Contacted",
-    status_image: "/images/svg/contacted.svg",
-    email: "daniel@example.com",
-    phone: "+91 2221115678",
-    assigned_to: "Isabella Davis",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/91.jpg",
-    last_modified: "1 week ago",
+    name: "Olivia Garcia",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/89.jpg"],
+    description:
+      "The tool behind $5k+ app design wins Quick question: Would you like to peek behind the curtain of successful app designs that consistently win $5k+ projects?",
+    date: "Apr 08, 2024",
+    attachments: [
+      { name: "Screenshots.zip", type: "zip" },
+      { name: "image.jpg", type: "image" },
+      { name: "Invoice.pdf", type: "pdf" },
+    ],
   },
   {
-    name: "Nina Lee",
-    avatar: "https://mockmind-api.uifaces.co/content/human/88.jpg",
-    organisation: "1password",
-    organisation_image: "/images/svg/1password.svg",
-    status: "Open",
-    status_image: "/images/svg/open.svg",
-    email: "nina@example.com",
-    phone: "+91 1110005678",
-    assigned_to: "Ethan Wilson",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/92.jpg",
-    last_modified: "8 days ago",
+    name: "Ava Rodriguez",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/90.jpg"],
+    description:
+      "Project requirements I just open a new  Restaurant which i run now and i need a website for my business to grow, So i need you to go through this",
+    date: "Apr 07, 2024",
+    attachments: [],
   },
   {
-    name: "Avery Clark",
-    avatar: "https://mockmind-api.uifaces.co/content/human/89.jpg",
-    organisation: "Cooper",
-    organisation_image: "/images/svg/cooper.svg",
-    status: "Qualified",
-    status_image: "/images/svg/qualified.svg",
-    email: "avery@example.com",
-    phone: "+91 9998885678",
-    assigned_to: "Mia Thompson",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/93.jpg",
-    last_modified: "9 days ago",
+    name: "Sophie Rodriguez, Noah Brown",
+    avatar: [
+      "https://mockmind-api.uifaces.co/content/human/91.jpg",
+      "https://mockmind-api.uifaces.co/content/human/92.jpg",
+    ],
+    description: "Reminder: Complete peer code review for sprint deliverables.",
+    date: "Apr 06, 2024",
+    attachments: [],
   },
   {
-    name: "Lucas White",
-    avatar: "https://mockmind-api.uifaces.co/content/human/90.jpg",
-    organisation: "ChatGpt",
-    organisation_image: "/images/svg/chatGpt.svg",
-    status: "Junk",
-    status_image: "/images/svg/junk.svg",
-    email: "lucas@example.com",
-    phone: "+91 8887775678",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/94.jpg",
-    assigned_to: "Ella Hill",
-    last_modified: "10 days ago",
+    name: "Olivia Garcia",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/93.jpg"],
+    description:
+      "The tool behind $5k+ app design wins Quick question: Would you like to peek behind the curtain of successful app designs that consistently win $5k+ projects?",
+    date: "Apr 06, 2024",
+    attachments: [],
   },
   {
-    name: "Chloe Allen",
-    avatar: "https://mockmind-api.uifaces.co/content/human/91.jpg",
-    organisation: "Github",
-    organisation_image: "/images/svg/github.svg",
-    status: "Contacted",
-    status_image: "/images/svg/contacted.svg",
-    email: "chloe@example.com",
-    phone: "+91 7776665678",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/95.jpg",
-    assigned_to: "Noah Scott",
-    last_modified: "11 days ago",
+    name: "Mason Smith",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/94.jpg"],
+    description:
+      "New Inspiration For You: Feb 5, 2025 New projects from people you follow like TACTYC Studio, Danny Ivan, and more ",
+    date: "Apr 06, 2024",
+    attachments: [],
   },
   {
-    name: "Evelyn Young",
-    avatar: "https://mockmind-api.uifaces.co/content/human/92.jpg",
-    organisation: "Metalab",
-    organisation_image: "/images/svg/metalab.svg",
-    status: "Open",
-    status_image: "/images/svg/open.svg",
-    email: "evelyn@example.com",
-    phone: "+91 6665555678",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/96.jpg",
-    assigned_to: "Alexander King",
-    last_modified: "12 days ago",
+    name: "Evelyn Brown",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/95.jpg"],
+    description:
+      "We combed our catalog and found courses that we think match your interests. Browse our recommendations below, and start learning something new today!",
+    date: "Apr 05, 2024",
+    attachments: [],
   },
   {
-    name: "Nathan Green",
-    avatar: "https://mockmind-api.uifaces.co/content/human/93.jpg",
-    organisation: "Adobe Express",
-    organisation_image: "/images/svg/adobeexpress.svg",
-    status: "Unqualified",
-    status_image: "/images/svg/unqualified.svg",
-    email: "nathan@example.com",
-    phone: "+91 5554445678",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/97.jpg",
-    assigned_to: "Sofia Walker",
-    last_modified: "13 days ago",
+    name: "Behance",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/96.jpg"],
+    description:
+      "New Inspiration For You: Feb 5, 2025 New projects from people you follow like TACTYC Studio, Danny Ivan, and more ",
+    date: "Apr 04, 2024",
+    attachments: [],
   },
   {
-    name: "Grace Roberts",
-    avatar: "https://mockmind-api.uifaces.co/content/human/94.jpg",
-    organisation: "Spotify",
-    organisation_image: "/images/svg/spotify.svg",
-    status: "Junk",
-    status_image: "/images/svg/junk.svg",
-    email: "grace@example.com",
-    phone: "+91 4443335678",
-    assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/98.jpg",
-    assigned_to: "Henry Allen",
-    last_modified: "14 days ago",
+    name: "Coursera",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/97.jpg"],
+    description:
+      "We combed our catalog and found courses that we think match your interests. Browse our recommendations below, and start learning something new today!",
+    date: "Apr 08, 2024",
+    attachments: [],
+  },
+  {
+    name: "Scarlett Taylor",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/98.jpg"],
+    description:
+      "Hey, it's reserved only for you Your family's dreams are unique & deserve a plan that's as special as the aspiration you have for their future.",
+    date: "Apr 04, 2024",
+    attachments: [],
+  },
+  {
+    name: "Liam Martinez",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/99.jpg"],
+    description:
+      "Exciting news for you Exclusive early access to our upcoming product launch! Get a sneak peek at what's in store and be the first to try it out.",
+    date: "Apr 04, 2024",
+    attachments: [],
+  },
+  {
+    name: "Nora Clark",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/100.jpg"],
+    description:
+      "Your recent activity Your recent designs have been getting a lot of attention. Check out the feedback and reactions from the community.",
+    date: "Apr 10, 2024",
+    attachments: [],
+  },
+  {
+    name: "Upstox daily",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/101.jpg"],
+    description:
+      "Asian Paints Q3 profit falls, Titan Q3 total income rises & more NIFTY sectoral indices, Oil and Gas (+2.70%) and",
+    date: "Apr 10, 2024",
+    attachments: [],
+  },
+  {
+    name: "Olivia Garcia",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/102.jpg"],
+    description:
+      "Join our design challenge Participate in our latest design challenge and showcase your skills to the world. Win exciting prizes and recognition!",
+    date: "Apr 12, 2024",
+    attachments: [],
+  },
+  {
+    name: "Behance",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/103.jpg"],
+    description:
+      "New Inspiration For You: Feb 5, 2025 New projects from people you follow like TACTYC Studio, Danny Ivan, and more ",
+    date: "Apr 10, 2024",
+    attachments: [],
+  },
+  {
+    name: "Sophia Evans",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/104.jpg"],
+    description:
+      "Community spotlight Your work has been featured in our community spotlight! Explore how your designs are inspiring others and making an impact.",
+    date: "Apr 10, 2024",
+    attachments: [],
+  },
+  {
+    name: "Jack White",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/105.jpg"],
+    description: "Vendor meeting rescheduled to the afternoon.",
+    date: "Apr 20, 2024",
+    attachments: [],
+  },
+  {
+    name: "Upstox daily",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/106.jpg"],
+    description:
+      "Asian Paints Q3 profit falls, Titan Q3 total income rises & more NIFTY sectoral indices, Oil and Gas (+2.70%) and",
+    date: "Apr 10, 2024",
+    attachments: [],
+  },
+  {
+    name: "Coursera",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/107.jpg"],
+    description:
+      "We combed our catalog and found courses that we think match your interests. Browse our recommendations below, and start learning something new today!",
+    date: "Apr 10, 2024",
+    attachments: [],
+  },
+  {
+    name: "Upstox daily",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/108.jpg"],
+    description:
+      "Asian Paints Q3 profit falls, Titan Q3 total income rises & more NIFTY sectoral indices, Oil and Gas (+2.70%) and ",
+    date: "Apr 10, 2024",
+    attachments: [],
+  },
+  {
+    name: "David Lewis",
+    avatar: ["https://mockmind-api.uifaces.co/content/human/109.jpg"],
+    description: "Department town hall meeting on Thursday morning.",
+    date: "Apr 22, 2024",
+    attachments: [],
   },
 ];
 
-export const columns: ColumnDef<DealItem>[] = [
+const AttachmentIcon = ({ type }: { type: Attachment["type"] }) => {
+  switch (type) {
+    case "zip":
+      return <FileArchive className="size-4" />;
+    case "image":
+      return <ImageIcon className="size-4" />;
+    case "pdf":
+      return <FileText className="size-4" />;
+    default:
+      return <FileText className="size-4" />;
+  }
+};
+
+export const columns: ColumnDef<MailItem>[] = [
   {
     id: "select",
     cell: ({ row }) => (
@@ -253,94 +296,73 @@ export const columns: ColumnDef<DealItem>[] = [
     enableSorting: false,
     enableHiding: false,
     enableResizing: false,
-    size: 60,
+    size: 50,
   },
   {
     accessorKey: "name",
     header: "Name",
-    cell: ({ row }) => (
-      <>
-        <Avatar>
-          <AvatarImage src={row.original.avatar} />
-          <AvatarFallback>{row.original.name[0]}</AvatarFallback>
-        </Avatar>
-        <span className="truncate">{row.original.name}</span>
-      </>
-    ),
+    cell: ({ row }) => {
+      const avatars = row.original.avatar;
+
+      return (
+        <div className="flex items-center gap-3 min-w-0">
+          {avatars.length > 1 ? (
+            <div className="flex -space-x-2 shrink-0">
+              {avatars.slice(0, 3).map((img, index) => (
+                <Avatar key={index} className="border-2 border-background">
+                  <AvatarImage src={img} />
+                  <AvatarFallback>
+                    {row.original.name.split(",")[index]?.trim()?.[0]}
+                  </AvatarFallback>
+                </Avatar>
+              ))}
+            </div>
+          ) : (
+            <Avatar className="shrink-0">
+              <AvatarImage src={avatars[0]} />
+              <AvatarFallback>{row.original.name[0]}</AvatarFallback>
+            </Avatar>
+          )}
+
+          <span className="truncate w-full">{row.original.name}</span>
+        </div>
+      );
+    },
+    size: 214,
   },
   {
-    accessorKey: "organisation",
-    header: "Organisation",
+    accessorKey: "description",
+    header: "Description",
     cell: ({ row }) => (
-      <>
-        <Avatar shape="square">
-          <AvatarImage src={row.original.organisation_image} />
-          <AvatarFallback>{row.original.organisation[0]}</AvatarFallback>
-        </Avatar>
-        <span className="truncate">{row.original.organisation}</span>
-      </>
+      <div className="gap-y-2.5 flex flex-col min-w-0">
+        <span className="truncate w-full">{row.original.description}</span>
+        {row.original.attachments && row.original.attachments.length > 0 && (
+          <div className="flex flex-wrap gap-2 pb-px pl-px">
+            {row.original.attachments.map((attachment, index) => (
+              <Badge
+                key={`${row.id}-attachment-${index}`}
+                variant="outline"
+                className="text-xs"
+              >
+                <AttachmentIcon type={attachment.type} />
+                <span>{attachment.name}</span>
+              </Badge>
+            ))}
+          </div>
+        )}
+      </div>
     ),
+    size: 754,
   },
   {
-    accessorKey: "status",
-    header: "Status",
-    cell: ({ row }) => (
-      <>
-        <Avatar size="xs">
-          <AvatarImage src={row.original.status_image} />
-          <AvatarFallback>{row.original.status[0]}</AvatarFallback>
-        </Avatar>
-        <span className="truncate">{row.original.status}</span>
-      </>
-    ),
-  },
-  {
-    accessorKey: "email",
-    header: "Email",
-    cell: ({ row }) => (
-      <>
-        <span className="truncate">{row.original.email}</span>
-      </>
-    ),
-  },
-  {
-    accessorKey: "phone",
-    header: "EmailMobile no.",
-    cell: ({ row }) => (
-      <>
-        <figure className="size-4">
-          <Phone className="size-4" />
-        </figure>
-        <span className="truncate">{row.original.phone}</span>
-      </>
-    ),
-  },
-  {
-    accessorKey: "assigned_to",
-    header: "Assigned to",
-    cell: ({ row }) => (
-      <>
-        <Avatar>
-          <AvatarImage src={row.original.assigned_Avatar} />
-          <AvatarFallback>{row.original.assigned_to[0]}</AvatarFallback>
-        </Avatar>
-        <span className="truncate">{row.original.assigned_to}</span>
-      </>
-    ),
-  },
-  {
-    accessorKey: "last_modified",
-    header: "Last modified/Created",
-    cell: ({ row }) => (
-      <>
-        <span className="truncate">{row.original.last_modified}</span>
-      </>
-    ),
+    accessorKey: "date",
+    header: "Date",
+    cell: ({ row }) => <span className="truncate">{row.original.date}</span>,
+    size: 120,
   },
 ];
 
-const mailTabelDemo = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+const MailTableDemo = () => {
   const table = useReactTable({
     data,
     columns,
@@ -349,26 +371,22 @@ const mailTabelDemo = () => {
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
   });
+
   return (
-    <div className="pt-10 ">
-      <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
+    <div className="pt-10">
+      <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-tight leading-normal">
         Mail Table
       </h1>
-      <div className="flex flex-col mx-auto gap-10 w-full  items-center justify-center">
-        <Table
-          className="table-fixed w-full"
-          style={{
-            width: table.getCenterTotalSize(),
-          }}
-        >
+      <div className="flex flex-col mx-auto gap-10 w-full items-center justify-center">
+        <Table className="table-fixed w-full">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
+              <TableRow key={headerGroup.id} className="!border-0">
                 {headerGroup.headers.map((header) => {
                   return (
                     <TableHead
                       key={header.id}
-                      className="relative last:[&>.cursor-col-resize]:opacity-0 group"
+                      className="relative last:[&>.cursor-col-resize]:opacity-0 group border-0 p-0"
                       aria-sort={
                         header.column.getIsSorted() === "asc"
                           ? "ascending"
@@ -376,11 +394,9 @@ const mailTabelDemo = () => {
                             ? "descending"
                             : "none"
                       }
-                      {...{
-                        colSpan: header.colSpan,
-                        style: {
-                          width: header.getSize(),
-                        },
+                      colSpan={header.colSpan}
+                      style={{
+                        width: header.getSize(),
                       }}
                     >
                       {header.isPlaceholder ? null : (
@@ -400,41 +416,7 @@ const mailTabelDemo = () => {
                             }
                           }}
                           tabIndex={header.column.getCanSort() ? 0 : undefined}
-                        >
-                          <span className="truncate">
-                            {flexRender(
-                              header.column.columnDef.header,
-                              header.getContext()
-                            )}
-                          </span>
-                          {{
-                            asc: (
-                              <ChevronUpIcon
-                                className="shrink-0 opacity-60"
-                                size={16}
-                                aria-hidden="true"
-                              />
-                            ),
-                            desc: (
-                              <ChevronDownIcon
-                                className="shrink-0 opacity-60"
-                                size={16}
-                                aria-hidden="true"
-                              />
-                            ),
-                          }[header.column.getIsSorted() as string] ?? null}
-                        </div>
-                      )}
-                      {header.column.getCanResize() && (
-                        <div
-                          {...{
-                            onDoubleClick: () => header.column.resetSize(),
-                            onMouseDown: header.getResizeHandler(),
-                            onTouchStart: header.getResizeHandler(),
-                            className:
-                              "absolute top-1/2 -translate-y-2/4  group-hover:before:opacity-100 h-6  w-4 cursor-col-resize user-select-none touch-none -right-1.5 z-10 flex justify-center before:absolute  before:w-0.5 before:rounded-sm before:opacity-0 before:inset-y-0 before:bg-border before:translate-x-px",
-                          }}
-                        />
+                        ></div>
                       )}
                     </TableHead>
                   );
@@ -450,7 +432,7 @@ const mailTabelDemo = () => {
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="truncate">
+                    <TableCell key={cell.id} className="overflow-hidden">
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
@@ -476,4 +458,4 @@ const mailTabelDemo = () => {
   );
 };
 
-export default mailTabelDemo;
+export default MailTableDemo;
