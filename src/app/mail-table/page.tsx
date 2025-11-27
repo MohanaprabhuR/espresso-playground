@@ -10,7 +10,12 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarGroup,
+  AvatarImage,
+} from "@/components/ui/avatar";
 import {
   ColumnDef,
   flexRender,
@@ -305,18 +310,18 @@ export const columns: ColumnDef<MailItem>[] = [
       const avatars = row.original.avatar;
 
       return (
-        <div className="flex items-center gap-3 min-w-0">
+        <div className="flex items-center gap-3 min-w-0 ">
           {avatars.length > 1 ? (
-            <div className="flex -space-x-2 shrink-0">
-              {avatars.slice(0, 3).map((img, index) => (
-                <Avatar key={index} className="border-2 border-background">
+            <AvatarGroup>
+              {avatars.map((img, index) => (
+                <Avatar key={index}>
                   <AvatarImage src={img} />
                   <AvatarFallback>
                     {row.original.name.split(",")[index]?.trim()?.[0]}
                   </AvatarFallback>
                 </Avatar>
               ))}
-            </div>
+            </AvatarGroup>
           ) : (
             <Avatar className="shrink-0">
               <AvatarImage src={avatars[0]} />
@@ -357,7 +362,9 @@ export const columns: ColumnDef<MailItem>[] = [
   {
     accessorKey: "date",
     header: "Date",
-    cell: ({ row }) => <span className="truncate">{row.original.date}</span>,
+    cell: ({ row }) => (
+      <span className="truncate text-right w-full">{row.original.date}</span>
+    ),
     size: 120,
   },
 ];
@@ -432,7 +439,10 @@ const MailTableDemo = () => {
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="overflow-hidden">
+                    <TableCell
+                      key={cell.id}
+                      className="overflow-hidden align-top"
+                    >
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
@@ -445,7 +455,7 @@ const MailTableDemo = () => {
               <TableRow>
                 <TableCell
                   colSpan={columns.length}
-                  className="h-24 text-center"
+                  className="h-24 text-center "
                 >
                   No results.
                 </TableCell>

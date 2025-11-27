@@ -19,8 +19,37 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ChevronDownIcon, ChevronUpIcon, Phone } from "lucide-react";
+import {
+  ArrowDownUp,
+  ChevronDown,
+  ChevronDownIcon,
+  ChevronUpIcon,
+  CloudDownload,
+  Ellipsis,
+  EyeOff,
+  FileCog,
+  Folder,
+  ListFilter,
+  Logs,
+  Phone,
+  Share,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ButtonGroup } from "@/components/ui/button-group";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface DealItem {
   name: string;
@@ -365,7 +394,69 @@ const dataTabelDemo = () => {
       <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
         CRM Deals Table
       </h1>
-      <div className="flex flex-col mx-auto gap-10 w-full  items-center justify-center">
+
+      <div className="flex flex-col mx-auto gap-y-4.5 w-full  items-center justify-center">
+        <div className="flex justify-between items-center w-full">
+          <ButtonGroup destructive>
+            <Button variant="secondary">Lead Owner</Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="secondary">
+                  Status <ChevronDownIcon className="size-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>Gumroad</DropdownMenuItem>
+                <DropdownMenuItem>Attentive</DropdownMenuItem>
+                <DropdownMenuItem>Evergreen</DropdownMenuItem>
+                <DropdownMenuItem>Dropbox</DropdownMenuItem>
+                <DropdownMenuItem>Hourglass</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="secondary">
+                  Organization <ChevronDownIcon className="size-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>Open</DropdownMenuItem>
+                <DropdownMenuItem>Contacted</DropdownMenuItem>
+                <DropdownMenuItem>Nurture</DropdownMenuItem>
+                <DropdownMenuItem>Qualified</DropdownMenuItem>
+                <DropdownMenuItem>Unqualified</DropdownMenuItem>
+                <DropdownMenuItem>Junk</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </ButtonGroup>
+          <ButtonGroup destructive>
+            <Button variant="secondary">
+              <EyeOff className="size-4" /> Columns
+            </Button>
+            <Button variant="secondary">
+              <Logs className="size-4" /> Group
+            </Button>
+            <Button variant="secondary">
+              <ListFilter className="size-4" /> Filter
+            </Button>
+            <Button variant="secondary">
+              <ArrowDownUp className="size-4" /> Sort
+            </Button>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="secondary" iconOnly>
+                  <Ellipsis className="size-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>Open</DropdownMenuItem>
+                <DropdownMenuItem>Close</DropdownMenuItem>
+                <DropdownMenuItem>Edit</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </ButtonGroup>
+        </div>
         <Table
           className="table-fixed w-full"
           style={{

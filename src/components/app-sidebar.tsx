@@ -186,6 +186,12 @@ const data = {
       icon: Table,
     },
     {
+      title: "Game Plan Table",
+      url: "/game-plan-table",
+      badge: "Table",
+      icon: Table,
+    },
+    {
       title: "Data Table TanStack",
       url: "/table-tanstack",
       badge: "Table",

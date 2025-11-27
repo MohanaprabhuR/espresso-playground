@@ -24,17 +24,23 @@ import {
   VisibilityState,
 } from "@tanstack/react-table";
 import {
+  ChevronDown,
   ChevronDownIcon,
   ChevronUpIcon,
   CircleSmall,
+  Columns2,
+  ListFilter,
   Phone,
+  RefreshCcw,
   SignalMedium,
+  Sparkles,
   Star,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
+import { Input } from "@/components/ui/input";
 
 // TypeScript Interface Definitions
 interface Ticket {
@@ -564,7 +570,28 @@ const helpDeskTabelDemo = () => {
       <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
         Help Desk Table
       </h1>
-      <div className="flex flex-col mx-auto gap-10 w-full  items-center justify-center">
+      <div className="flex flex-col mx-auto gap-y-4.5 w-full  items-center justify-center">
+        <div className="flex justify-between items-center w-full">
+          <Input
+            className="max-w-[280px]"
+            placeholder="Try “first due” or ticket type"
+            prefix={<Sparkles />}
+          />
+          <ButtonGroup destructive>
+            <Button variant="secondary" iconOnly>
+              <RefreshCcw className="size-4" />
+            </Button>
+            <Button variant="secondary">
+              <ListFilter className="size-4" /> Filter
+            </Button>
+            <Button variant="secondary">
+              Last modified <ChevronDown className="size-4" />
+            </Button>
+            <Button variant="secondary">
+              <Columns2 className="size-4" /> Column
+            </Button>
+          </ButtonGroup>
+        </div>
         <Table
           className="table-fixed w-full"
           style={{

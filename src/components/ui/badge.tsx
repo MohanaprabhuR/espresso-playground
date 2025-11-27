@@ -114,22 +114,31 @@ function BadgeGroup({
   className,
   asChild = false,
   children,
+  max = 2,
   ...props
-}: React.ComponentProps<"div"> &
-  VariantProps<typeof badgeVariants> & {
-    theme?: keyof typeof themeVars;
-    asChild?: boolean;
-    showIcon?: boolean;
-  }) {
+}: React.ComponentProps<"div"> & {
+  theme?: keyof typeof themeVars;
+  asChild?: boolean;
+  max?: number;
+}) {
   const Comp = asChild ? Slot : "div";
+
+  const childrenArray = React.Children.toArray(children);
+  const visibleChildren = childrenArray.slice(0, max);
+  const remainingCount = childrenArray.length - max;
 
   return (
     <Comp
       data-slot="badge-group"
-      className={cn("flex gap-x-1", className)}
+      className={cn("flex gap-x-1 items-center", className)}
       {...props}
     >
-      {children}
+      {visibleChildren}
+      {remainingCount > 0 && (
+        <Badge size="sm" variant="secondary">
+          +{remainingCount}
+        </Badge>
+      )}
     </Comp>
   );
 }

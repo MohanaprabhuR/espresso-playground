@@ -21,15 +21,21 @@ import {
 } from "@tanstack/react-table";
 import {
   ArrowDownToLine,
+  ChevronDown,
   ChevronDownIcon,
   ChevronUpIcon,
   CloudDownload,
   Ellipsis,
   FileCog,
   Folder,
+  List,
+  ListFilter,
+  MoveHorizontal,
+  MoveVertical,
   Phone,
   Share,
   Star,
+  Ungroup,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ButtonGroup } from "@/components/ui/button-group";
@@ -40,6 +46,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface DealItem {
   name: string;
@@ -239,7 +246,37 @@ const driveTabelDemo = () => {
       <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
         Drive Table
       </h1>
-      <div className="flex flex-col mx-auto gap-10 w-full  items-center justify-center">
+      <div className="flex flex-col mx-auto gap-y-4.5 w-full  items-center justify-center">
+        <div className="flex justify-between items-center w-full">
+          <p className="text-foreground text-lg font-medium tracking-4 leading-tight">
+            All
+          </p>
+          <div className="flex gap-x-2">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="secondary">
+                  <ListFilter className="size-4" /> Filter
+                  <ChevronDown className="size-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>Open</DropdownMenuItem>
+                <DropdownMenuItem>Close</DropdownMenuItem>
+                <DropdownMenuItem>Edit</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <Tabs defaultValue="auto">
+              <TabsList>
+                <TabsTrigger value="auto">
+                  <Ungroup className="size-4" />
+                </TabsTrigger>
+                <TabsTrigger value="vertical">
+                  <List className="size-4" />
+                </TabsTrigger>
+              </TabsList>
+            </Tabs>
+          </div>
+        </div>
         <Table
           className="table-fixed w-full"
           style={{
