@@ -553,6 +553,7 @@ const helpDeskTabelDemo = () => {
   const table = useReactTable({
     data,
     columns,
+    enableColumnResizing: true,
     columnResizeMode: "onChange",
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
@@ -586,7 +587,7 @@ const helpDeskTabelDemo = () => {
           </ButtonGroup>
         </div>
         <Table
-          className="table-fixed w-full min-w-full"
+          className="table-fixed w-full min-w-full  "
           style={{
             width: table.getCenterTotalSize(),
           }}

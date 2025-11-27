@@ -372,6 +372,7 @@ const dataTabelDemo = () => {
   const table = useReactTable({
     data,
     columns,
+    enableColumnResizing: true,
     columnResizeMode: "onChange",
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
@@ -445,6 +446,7 @@ const dataTabelDemo = () => {
             </DropdownMenu>
           </ButtonGroup>
         </div>
+
         <Table
           className="table-fixed w-full min-w-full"
           style={{

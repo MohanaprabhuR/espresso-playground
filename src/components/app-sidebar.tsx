@@ -166,7 +166,12 @@ const data = {
     { title: "Modals", url: "/modal", icon: Component },
     { title: "Sonner", url: "/sonner", icon: Megaphone },
     { title: "Forms", url: "/form", badge: "new", icon: FileText },
-    { title: "CRM Deals Table", url: "/table", badge: "Table", icon: Table },
+    {
+      title: "CRM Deals Table",
+      url: "/crm-deal-table",
+      badge: "Table",
+      icon: Table,
+    },
     {
       title: "Help Desk Table",
       url: "/help-desk-table",

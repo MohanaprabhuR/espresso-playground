@@ -22,6 +22,7 @@ import {
   MessageCircleQuestionMark,
   ListFilter,
   ChevronDown,
+  AppWindow,
 } from "lucide-react";
 
 import {
@@ -31,6 +32,10 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator,
   DropdownMenuLabel,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuPortal,
+  DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu";
 import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
@@ -61,6 +66,7 @@ import {
 } from "@/components/ui/sidebar";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "./ui/input-group";
 import { Tabs, TabsList, TabsTrigger } from "./ui/tabs";
+import Link from "next/link";
 
 function SettingsDialogContent() {
   const { state } = useSidebar();
@@ -330,6 +336,31 @@ export function TeamSwitcher({
               </DropdownMenuLabel>
 
               <DropdownMenuSeparator />
+              <DropdownMenuSub>
+                <DropdownMenuSubTrigger>
+                  <AppWindow className="size-4" />
+                  App
+                </DropdownMenuSubTrigger>
+                <DropdownMenuPortal>
+                  <DropdownMenuSubContent>
+                    <Link href="/crm-deal-table">
+                      <DropdownMenuItem>CRM Deals</DropdownMenuItem>
+                    </Link>
+                    <Link href="/help-desk-table">
+                      <DropdownMenuItem>Helpdesk Tickets</DropdownMenuItem>
+                    </Link>
+                    <Link href="/drive-table">
+                      <DropdownMenuItem>Drive Files</DropdownMenuItem>
+                    </Link>
+                    <Link href="/mail-table">
+                      <DropdownMenuItem>Mail Inbox</DropdownMenuItem>
+                    </Link>
+                    <Link href="/game-plan-table">
+                      <DropdownMenuItem>Gameplan Tasks</DropdownMenuItem>
+                    </Link>
+                  </DropdownMenuSubContent>
+                </DropdownMenuPortal>
+              </DropdownMenuSub>
 
               <DropdownMenuItem>
                 <User className="size-4" />

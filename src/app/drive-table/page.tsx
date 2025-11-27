@@ -232,6 +232,7 @@ const driveTabelDemo = () => {
   const table = useReactTable({
     data,
     columns,
+    enableColumnResizing: true,
     columnResizeMode: "onChange",
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
