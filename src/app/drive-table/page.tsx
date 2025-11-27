@@ -9,7 +9,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   ColumnDef,
@@ -30,9 +29,6 @@ import {
   Folder,
   List,
   ListFilter,
-  MoveHorizontal,
-  MoveVertical,
-  Phone,
   Share,
   Star,
   Ungroup,

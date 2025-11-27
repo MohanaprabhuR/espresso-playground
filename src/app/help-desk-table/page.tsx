@@ -13,24 +13,18 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   ColumnDef,
-  ColumnFiltersState,
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
-  getPaginationRowModel,
   getSortedRowModel,
-  SortingState,
   useReactTable,
-  VisibilityState,
 } from "@tanstack/react-table";
 import {
   ChevronDown,
   ChevronDownIcon,
   ChevronUpIcon,
-  CircleSmall,
   Columns2,
   ListFilter,
-  Phone,
   RefreshCcw,
   SignalMedium,
   Sparkles,
@@ -42,7 +36,6 @@ import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
 import { Input } from "@/components/ui/input";
 
-// TypeScript Interface Definitions
 interface Ticket {
   id: string;
   ticket: string;

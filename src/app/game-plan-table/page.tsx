@@ -301,9 +301,9 @@ const driveTabelDemo = () => {
       </h1>
       <div className="flex flex-col mx-auto gap-y-4.5 w-full  items-center justify-center">
         <div className="flex justify-between items-center w-full max-w-[900px] mx-auto">
-          <p className="text-foreground text-lg font-medium tracking-4 leading-tight">
+          <span className="text-lg font-semibold tracking-4 leading-tight text-foreground">
             Tasks
-          </p>
+          </span>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="secondary">

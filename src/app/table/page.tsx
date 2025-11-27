@@ -21,18 +21,13 @@ import {
 } from "@tanstack/react-table";
 import {
   ArrowDownUp,
-  ChevronDown,
   ChevronDownIcon,
   ChevronUpIcon,
-  CloudDownload,
   Ellipsis,
   EyeOff,
-  FileCog,
-  Folder,
   ListFilter,
   Logs,
   Phone,
-  Share,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ButtonGroup } from "@/components/ui/button-group";
@@ -43,13 +38,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 interface DealItem {
   name: string;
