@@ -285,50 +285,13 @@ const AttachmentIcon = ({ type }: { type: Attachment["type"] }) => {
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { ButtonGroup } from "@/components/ui/button-group";
 
 export const columns: ColumnDef<MailItem>[] = [
   {
     id: "select",
-    header: ({ table }) => (
-      <div className="flex items-center gap-3">
-        <Checkbox
-          checked={
-            table.getIsAllPageRowsSelected() ||
-            (table.getIsSomePageRowsSelected() && "indeterminate")
-          }
-          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-          aria-label="Select all"
-        />
+    header: "",
 
-        <Button variant="ghost" iconOnly>
-          <ChevronDown className="size-4" />
-        </Button>
-
-        <Button variant="outline">
-          <Check className="size-4" />
-          Has attachment
-        </Button>
-        <Button variant="outline">
-          <Check className="size-4" />
-          Image
-        </Button>
-        <Button variant="outline">PDF</Button>
-        <Button variant="outline">
-          From
-          <ChevronDown className="size-4" />
-        </Button>
-        <Button variant="outline">
-          Any time
-          <ChevronDown className="size-4" />
-        </Button>
-        <Button variant="outline">
-          To
-          <ChevronDown className="size-4" />
-        </Button>
-        <Button variant="outline">Is unread</Button>
-        <Button variant="ghost">Advanced search</Button>
-      </div>
-    ),
     cell: ({ row }) => (
       <div className="flex gap-x-3">
         <Checkbox
@@ -344,7 +307,7 @@ export const columns: ColumnDef<MailItem>[] = [
     enableSorting: false,
     enableHiding: false,
     enableResizing: false,
-    size: 50,
+    size: 60,
   },
   {
     accessorKey: "name",
@@ -407,11 +370,7 @@ export const columns: ColumnDef<MailItem>[] = [
   },
   {
     accessorKey: "date",
-    header: () => (
-      <Label size="sm" className="text-right w-full block text-xs">
-        1-50 of 2,000
-      </Label>
-    ),
+    header: "",
     cell: ({ row }) => (
       <span className="truncate text-right w-full">{row.original.date}</span>
     ),
@@ -434,8 +393,54 @@ const MailTableDemo = () => {
       <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-tight leading-normal">
         Mail Table
       </h1>
-      <div className="flex flex-col mx-auto gap-y-4.5 w-full  items-center justify-center">
-        <div className="flex justify-between items-center w-full"></div>
+      <div className="flex flex-col mx-auto w-full  items-center justify-center">
+        <div className="flex justify-between items-center w-full px-3">
+          <div className="flex items-center gap-x-2.5">
+            <div className="flex items-center gap-x-1">
+              <Checkbox
+                checked={
+                  table.getIsAllPageRowsSelected() ||
+                  (table.getIsSomePageRowsSelected() && "indeterminate")
+                }
+                onCheckedChange={(value) =>
+                  table.toggleAllPageRowsSelected(!!value)
+                }
+                aria-label="Select all"
+              />
+              <Button variant="ghost" iconOnly>
+                <ChevronDown className="size-4" />
+              </Button>
+            </div>
+            <ButtonGroup destructive>
+              <Button variant="outline">
+                <Check className="size-4" />
+                Has attachment
+              </Button>
+              <Button variant="outline">
+                <Check className="size-4" />
+                Image
+              </Button>
+              <Button variant="outline">PDF</Button>
+              <Button variant="outline">
+                From
+                <ChevronDown className="size-4" />
+              </Button>
+              <Button variant="outline">
+                Any time
+                <ChevronDown className="size-4" />
+              </Button>
+              <Button variant="outline">
+                To
+                <ChevronDown className="size-4" />
+              </Button>
+              <Button variant="outline">Is unread</Button>
+              <Button variant="ghost">Advanced search</Button>
+            </ButtonGroup>
+          </div>
+          <Label size="sm" className="text-right w-full block text-xs">
+            1-50 of 2,000
+          </Label>
+        </div>
         <Table className="table-fixed w-full">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -444,7 +449,7 @@ const MailTableDemo = () => {
                   return (
                     <TableHead
                       key={header.id}
-                      className="relative last:[&>.cursor-col-resize]:opacity-0 group"
+                      className="relative last:[&>.cursor-col-resize]:opacity-0 group p-0"
                       {...{
                         colSpan: header.colSpan,
                         style: {
