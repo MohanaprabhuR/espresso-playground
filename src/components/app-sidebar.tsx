@@ -186,7 +186,7 @@ const data = {
       icon: Table,
     },
     {
-      title: "Game Plan Table",
+      title: "Game Planning Table",
       url: "/game-plan-table",
       badge: "Table",
       icon: Table,

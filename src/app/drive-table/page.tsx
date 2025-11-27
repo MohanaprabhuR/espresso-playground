@@ -274,7 +274,7 @@ const driveTabelDemo = () => {
           </div>
         </div>
         <Table
-          className="table-fixed w-full"
+          className="table-fixed w-full min-w-full"
           style={{
             width: table.getCenterTotalSize(),
           }}

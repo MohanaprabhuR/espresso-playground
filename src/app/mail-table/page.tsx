@@ -441,7 +441,7 @@ const MailTableDemo = () => {
             1-50 of 2,000
           </Label>
         </div>
-        <Table className="table-fixed w-full">
+        <Table className="table-fixed w-full min-w-full">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id} className="!border-0">

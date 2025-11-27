@@ -174,7 +174,7 @@ export const columns: ColumnDef<DealItem>[] = [
       return (
         <BadgeGroup max={2}>
           {tags.map((tag) => (
-            <Badge key={tag} variant="secondary" theme="violet">
+            <Badge key={tag} variant="secondary">
               {tag}
             </Badge>
           ))}
@@ -297,7 +297,7 @@ const driveTabelDemo = () => {
   return (
     <div className="pt-10 ">
       <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
-        Game Plan Table
+        Game Planning Table
       </h1>
       <div className="flex flex-col mx-auto gap-y-4.5 w-full  items-center justify-center">
         <div className="flex justify-between items-center w-full max-w-[900px] mx-auto">
@@ -319,7 +319,7 @@ const driveTabelDemo = () => {
           </DropdownMenu>
         </div>
         <Table
-          className="table-fixed w-full mx-auto"
+          className="table-fixed w-full mx-auto "
           style={{
             width: table.getCenterTotalSize(),
           }}
