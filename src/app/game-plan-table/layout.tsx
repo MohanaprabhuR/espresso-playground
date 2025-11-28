@@ -1,15 +1,8 @@
 import "@/app/globals.css";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "next-themes";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarHeader,
-  SidebarMenuAction,
-  SidebarMenuItem,
-  SidebarProvider,
-} from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar"; // import your sidebar component
-import { Toaster } from "@/components/ui/sonner"; // optional toast notifications
+import GamePlanSidebar from "./game-table-sidebar";
 
 export default function RootLayout({
   children,
@@ -22,13 +15,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system">
           <SidebarProvider>
             <div className="flex min-h-screen w-full">
-              <Sidebar>
-                <SidebarHeader>Game Plan Table</SidebarHeader>
-                <SidebarContent>
-                  <SidebarMenuItem>Table</SidebarMenuItem>
-                  <SidebarMenuItem>Link</SidebarMenuItem>
-                </SidebarContent>
-              </Sidebar>
+              <GamePlanSidebar />
               <main className="flex-1 p-6 overflow-auto">{children}</main>
 
               <Toaster />
