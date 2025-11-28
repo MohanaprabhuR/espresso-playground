@@ -181,36 +181,6 @@ const data = {
     { title: "Sonner", url: "/common/sonner", icon: Megaphone },
     { title: "Forms", url: "/common/form", badge: "new", icon: FileText },
     {
-      title: "CRM Deals Table",
-      url: "/crm-deal-table",
-      badge: "Table",
-      icon: Table,
-    },
-    {
-      title: "Help Desk Table",
-      url: "/help-desk-table",
-      badge: "Table",
-      icon: Table,
-    },
-    {
-      title: "Drive Table",
-      url: "/drive-table",
-      badge: "Table",
-      icon: Table,
-    },
-    {
-      title: "Mail Table",
-      url: "/mail-table",
-      badge: "Table",
-      icon: Table,
-    },
-    {
-      title: "Game Planning Table",
-      url: "/game-plan-table",
-      badge: "Table",
-      icon: Table,
-    },
-    {
       title: "Data Table TanStack",
       url: "/table-tanstack",
       badge: "Table",
