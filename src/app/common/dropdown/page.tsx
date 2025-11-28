@@ -22,15 +22,15 @@ import {
   UserPenIcon,
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { CommandIcon } from "../../../public/images/svg/commandIcon";
-import { AtIcon } from "../../../public/images/svg/atIcon";
-import { TableIcon } from "../../../public/images/svg/tableIcon";
-import { QuoteIcon } from "../../../public/images/svg/quoteIcon";
-import { ImageIcon } from "../../../public/images/svg/imageIcon";
-import { CodeIcon } from "../../../public/images/svg/codeIcon";
-import { BellIcon } from "../../../public/images/svg/bellIcon";
-import { Button } from "../../components/ui/button";
-import { Input } from "../../components/ui/input";
+import { CommandIcon } from "../../../../public/images/svg/commandIcon";
+import { AtIcon } from "../../../../public/images/svg/atIcon";
+import { TableIcon } from "../../../../public/images/svg/tableIcon";
+import { QuoteIcon } from "../../../../public/images/svg/quoteIcon";
+import { ImageIcon } from "../../../../public/images/svg/imageIcon";
+import { CodeIcon } from "../../../../public/images/svg/codeIcon";
+import { BellIcon } from "../../../../public/images/svg/bellIcon";
+import { Button } from "../../../components/ui/button";
+import { Input } from "../../../components/ui/input";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import { CloseIcon } from "../../../public/images/svg/closeIcon";
-import { ExclamationIcon } from "../../../public/images/svg/exclamationIcon";
+import { CloseIcon } from "../../../../public/images/svg/closeIcon";
+import { ExclamationIcon } from "../../../../public/images/svg/exclamationIcon";
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
 import {

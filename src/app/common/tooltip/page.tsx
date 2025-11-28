@@ -4,7 +4,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { CommandIcon } from "../../../public/images/svg/commandIcon";
+import { CommandIcon } from "../../../../public/images/svg/commandIcon";
 
 const toolTipDemo = () => {
   return (

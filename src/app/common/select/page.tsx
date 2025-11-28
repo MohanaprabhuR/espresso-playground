@@ -10,7 +10,7 @@ import {
   SelectLabel,
 } from "@/components/ui/select";
 
-import { CommandIcon } from "../../../public/images/svg/commandIcon";
+import { CommandIcon } from "../../../../public/images/svg/commandIcon";
 
 const SelectDemo = () => {
   return (

@@ -1,5 +1,5 @@
 import { Badge, BadgeGroup } from "@/components/ui/badge";
-import { CommandIcon } from "../../../public/images/svg/commandIcon";
+import { CommandIcon } from "../../../../public/images/svg/commandIcon";
 import { Check, CircleCheck, Flag } from "lucide-react";
 
 const Badges = () => {

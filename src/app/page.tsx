@@ -1,11 +1,5 @@
-import Avatar from "@/app/avatar/page";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return (
-    <>
-      <div className="flex flex-col justify-center items-center py-20 gap-[20px_0]">
-        <Avatar />
-      </div>
-    </>
-  );
+  return redirect("/common/avatar");
 }

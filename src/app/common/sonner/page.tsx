@@ -16,7 +16,7 @@ import {
   AlertDescription,
   AlertTitle,
 } from "@/components/ui/alert";
-import { ExclamationIcon } from "../../../public/images/svg/exclamationIcon";
+import { ExclamationIcon } from "../../../../public/images/svg/exclamationIcon";
 
 const SonnerDemo = () => {
   const handleShowToast = () => {

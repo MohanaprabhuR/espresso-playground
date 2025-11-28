@@ -15,7 +15,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { CommandIcon } from "../../../public/images/svg/commandIcon";
+import { CommandIcon } from "../../../../public/images/svg/commandIcon";
 
 const BreadcrumbDemo = () => {
   return (
