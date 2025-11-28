@@ -35,10 +35,8 @@ import { Button } from "@/components/ui/button";
 import {
   AlertCircleIcon,
   AppWindow,
-  ArrowRight,
   ArrowRightFromLine,
   Bell,
-  ChartPie,
   ChevronDown,
   ChevronRight,
   Clock3,

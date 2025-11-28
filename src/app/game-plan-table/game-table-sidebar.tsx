@@ -64,8 +64,6 @@ import {
   Zap,
 } from "lucide-react";
 import Link from "next/link";
-import { Progress } from "@/components/ui/progress";
-import { Label } from "@/components/ui/label";
 
 const teamMenus = [
   {
