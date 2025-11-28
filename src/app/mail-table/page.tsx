@@ -394,7 +394,7 @@ const MailTableDemo = () => {
         Mail Table
       </h1>
       <div className="flex flex-col mx-auto w-full  items-center justify-center">
-        <div className="flex justify-between items-center w-full px-3">
+        <div className="flex justify-between items-center w-full px-2.5">
           <div className="flex items-center gap-x-2.5">
             <div className="flex items-center gap-x-1">
               <Checkbox
