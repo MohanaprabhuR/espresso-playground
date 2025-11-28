@@ -358,6 +358,9 @@ export function TeamSwitcher({
                     <Link href="/game-plan-table">
                       <DropdownMenuItem>Gameplan Tasks</DropdownMenuItem>
                     </Link>
+                    <Link href="/common/avatar">
+                      <DropdownMenuItem>Components</DropdownMenuItem>
+                    </Link>
                   </DropdownMenuSubContent>
                 </DropdownMenuPortal>
               </DropdownMenuSub>
