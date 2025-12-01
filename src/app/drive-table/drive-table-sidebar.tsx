@@ -110,11 +110,11 @@ const DriveTableSidebar = () => {
                     </div>
                     {!isCollapsed && (
                       <>
-                        <div className="flex flex-col flex-1 text-left">
-                          <span className="truncate font-medium text-sm tracking-4 leading-tight text-foreground">
+                        <div className="flex flex-col flex-1 text-left gap-y-0.75">
+                          <span className="truncate font-medium text-base tracking-4 leading-tight text-foreground">
                             Drive
                           </span>
-                          <span className="truncate text-xs text-muted-foreground tracking-4 leading-tight font-normal">
+                          <span className="truncate text-sm text-muted-foreground tracking-4 leading-tight font-normal">
                             James fenimore
                           </span>
                         </div>
@@ -129,11 +129,11 @@ const DriveTableSidebar = () => {
                     <div className="bg-[#016E7D] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
                       <LogoDrive />
                     </div>
-                    <div className="flex flex-col flex-1 text-left">
-                      <span className="truncate font-medium text-sm tracking-4 leading-tight text-foreground">
+                    <div className="flex flex-col flex-1 text-left gap-y-0.75">
+                      <span className="truncate font-medium text-base tracking-4 leading-tight text-foreground">
                         Drive
                       </span>
-                      <span className="truncate text-xs text-muted-foreground tracking-4 leading-tight font-normal">
+                      <span className="truncate text-sm text-muted-foreground tracking-4 leading-tight font-normal">
                         James fenimore
                       </span>
                     </div>

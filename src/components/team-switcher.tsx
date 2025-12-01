@@ -314,11 +314,11 @@ export function TeamSwitcher({
                 <div className="bg-[#FF8F26] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
                   <activeTeam.logo />
                 </div>
-                <div className="flex flex-col flex-1 text-left text-sm gap-y-1 group-data-[collapsible=icon]:hidden">
+                <div className="flex flex-col flex-1 text-left text-sm gap-y-0.75 group-data-[collapsible=icon]:hidden">
                   <span className="truncate font-medium text-base tracking-4 leading-tight text-foreground">
                     {activeTeam.name}
                   </span>
-                  <span className="truncate text-xs text-muted-foreground tracking-4 leading-tight font-normal">
+                  <span className="truncate text-sm text-muted-foreground tracking-4 leading-tight font-normal">
                     {activeTeam.plan}
                   </span>
                 </div>
@@ -331,11 +331,11 @@ export function TeamSwitcher({
                 <div className="bg-[#FF8F26] flex aspect-square size-8 items-center justify-center rounded-lg">
                   <activeTeam.logo />
                 </div>
-                <div className="flex flex-col gap-y-1">
+                <div className="flex flex-col gap-y-0.75">
                   <span className="font-medium text-sm tracking-4 leading-tight text-foreground">
                     {activeTeam.name}
                   </span>
-                  <span className="text-xs text-muted-foreground tracking-4 leading-tight font-normal">
+                  <span className="text-sm text-muted-foreground tracking-4 leading-tight font-normal">
                     {activeTeam.plan}
                   </span>
                 </div>

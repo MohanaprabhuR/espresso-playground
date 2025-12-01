@@ -259,11 +259,11 @@ const GamePlanSidebar = () => {
                     </div>
                     {!isCollapsed && (
                       <>
-                        <div className="flex flex-col flex-1 text-left">
-                          <span className="truncate font-medium text-sm tracking-4 leading-tight text-foreground">
+                        <div className="flex flex-col flex-1 text-left gap-y-0.75">
+                          <span className="truncate font-medium text-base tracking-4 leading-tight text-foreground">
                             Gameplan
                           </span>
-                          <span className="truncate text-xs text-muted-foreground tracking-4 leading-tight font-normal">
+                          <span className="truncate text-sm text-muted-foreground tracking-4 leading-tight font-normal">
                             James fenimore
                           </span>
                         </div>
@@ -278,11 +278,11 @@ const GamePlanSidebar = () => {
                     <div className="bg-[#FF8F26] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
                       <LogoIcon />
                     </div>
-                    <div className="flex flex-col flex-1 text-left">
-                      <span className="truncate font-medium text-sm tracking-4 leading-tight text-foreground">
+                    <div className="flex flex-col flex-1 text-left gap-y-0.75">
+                      <span className="truncate font-medium text-base tracking-4 leading-tight text-foreground">
                         Gameplan
                       </span>
-                      <span className="truncate text-xs text-muted-foreground tracking-4 leading-tight font-normal">
+                      <span className="truncate text-sm text-muted-foreground tracking-4 leading-tight font-normal">
                         James fenimore
                       </span>
                     </div>

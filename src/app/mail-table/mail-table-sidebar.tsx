@@ -177,11 +177,11 @@ const MailTableSidebar = () => {
                     </div>
                     {!isCollapsed && (
                       <>
-                        <div className="flex flex-col flex-1 text-left">
+                        <div className="flex flex-col flex-1 text-left gap-y-0.75">
                           <span className="truncate font-medium text-base tracking-4 leading-tight text-foreground ">
                             Mail
                           </span>
-                          <span className="truncate text-xs text-muted-foreground tracking-4 leading-tight font-normal">
+                          <span className="truncate text-sm text-muted-foreground tracking-4 leading-tight font-normal">
                             Aditi Sharma
                           </span>
                         </div>
@@ -196,11 +196,11 @@ const MailTableSidebar = () => {
                     <div className="bg-[#0466DC] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
                       <LogoMail />
                     </div>
-                    <div className="flex flex-col flex-1 text-left">
-                      <span className="truncate font-medium text-sm tracking-4 leading-tight text-foreground">
+                    <div className="flex flex-col flex-1 text-left gap-y-0.75">
+                      <span className="truncate font-medium text-base tracking-4 leading-tight text-foreground">
                         Mail
                       </span>
-                      <span className="truncate text-xs text-muted-foreground tracking-4 leading-tight font-normal">
+                      <span className="truncate text-sm text-muted-foreground tracking-4 leading-tight font-normal">
                         Aditi Sharma
                       </span>
                     </div>
@@ -393,7 +393,7 @@ const MailTableSidebar = () => {
           <SidebarMenuItem className="gap-2.5 flex flex-col">
             {!isCollapsed && (
               <>
-                <SidebarGroup className="pb-5.5">
+                <SidebarGroup className="pb--4">
                   <SidebarMenuItem>
                     <SidebarMenuButton>Upcoming events</SidebarMenuButton>
                     <SidebarMenuBadge>5</SidebarMenuBadge>
