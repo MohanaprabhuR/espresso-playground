@@ -44,15 +44,21 @@ import {
   AlertCircleIcon,
   AppWindow,
   ArrowRightFromLine,
+  BowArrow,
   ChevronDown,
   ChevronRight,
+  Component,
+  FolderOpen,
+  Handshake,
   LogOut,
+  Mail,
   MessageCircleQuestionMark,
   Moon,
   PanelLeft,
   PanelLeftIcon,
   Plus,
   Sun,
+  Tickets,
   User,
   Zap,
 } from "lucide-react";
@@ -294,22 +300,39 @@ const GamePlanSidebar = () => {
                     <DropdownMenuPortal>
                       <DropdownMenuSubContent>
                         <Link href="/crm-deal-table">
-                          <DropdownMenuItem>CRM Deals</DropdownMenuItem>
+                          <DropdownMenuItem>
+                            <Handshake /> CRM Deals
+                          </DropdownMenuItem>
                         </Link>
                         <Link href="/help-desk-table">
-                          <DropdownMenuItem>Helpdesk Tickets</DropdownMenuItem>
+                          <DropdownMenuItem>
+                            <Tickets />
+                            Helpdesk Tickets
+                          </DropdownMenuItem>
                         </Link>
                         <Link href="/drive-table">
-                          <DropdownMenuItem>Drive Files</DropdownMenuItem>
+                          <DropdownMenuItem>
+                            <FolderOpen />
+                            Drive Files
+                          </DropdownMenuItem>
                         </Link>
                         <Link href="/mail-table">
-                          <DropdownMenuItem>Mail Inbox</DropdownMenuItem>
+                          <DropdownMenuItem>
+                            <Mail />
+                            Mail Inbox
+                          </DropdownMenuItem>
                         </Link>
                         <Link href="/game-plan-table">
-                          <DropdownMenuItem>Gameplan Tasks</DropdownMenuItem>
+                          <DropdownMenuItem>
+                            <BowArrow />
+                            Gameplan Tasks
+                          </DropdownMenuItem>
                         </Link>
                         <Link href="/common/avatar">
-                          <DropdownMenuItem>Components</DropdownMenuItem>
+                          <DropdownMenuItem>
+                            <Component />
+                            Components
+                          </DropdownMenuItem>
                         </Link>
                       </DropdownMenuSubContent>
                     </DropdownMenuPortal>
