@@ -393,7 +393,7 @@ const MailTableSidebar = () => {
           <SidebarMenuItem className="gap-2.5 flex flex-col">
             {!isCollapsed && (
               <>
-                <SidebarGroup className="pb-0">
+                <SidebarGroup className="pb-8">
                   <SidebarMenuItem>
                     <SidebarMenuButton>Upcoming events</SidebarMenuButton>
                     <SidebarMenuBadge>5</SidebarMenuBadge>
