@@ -17,7 +17,6 @@ export default function RootLayout({
             <div className="flex min-h-screen w-full">
               <MailTableSidebar />
               <main className="flex-1 p-6 overflow-auto">{children}</main>
-
               <Toaster />
             </div>
           </SidebarProvider>

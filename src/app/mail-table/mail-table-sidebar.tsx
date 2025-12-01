@@ -39,29 +39,14 @@ import {
   AlertCircleIcon,
   AppWindow,
   ArrowRightFromLine,
-  Bell,
-  BookOpen,
-  Calendar,
   ChevronDown,
   ChevronRight,
-  CircleCheck,
-  Clock3,
-  FileText,
-  House,
-  Inbox,
   LogOut,
-  Mails,
   MessageCircleQuestionMark,
   Moon,
   PanelLeft,
   PanelLeftIcon,
-  Pin,
-  Search,
-  Send,
-  SendHorizontal,
-  Star,
   Sun,
-  Trash,
   User,
   Zap,
 } from "lucide-react";
@@ -74,42 +59,71 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 
-const teamMenus = [
-  {
-    label: "Fashion",
-    icon: "Zap",
-    fill: "#7757EE",
-    items: [
-      { label: "General", href: "/product/general" },
-      { label: "Standups", href: "/product/standups" },
-      { label: "Training", href: "/product/training" },
-      { label: "Update", href: "/product/update" },
-    ],
-  },
-  {
-    label: "Projects",
-    icon: "Zap",
-    fill: "#E79913",
-    items: [
-      { label: "General", href: "/operations/general" },
-      { label: "Standups", href: "/operations/standups" },
-      { label: "Training", href: "/operations/training" },
-      { label: "Update", href: "/operations/update" },
-    ],
-  },
-  {
-    label: "Events",
-    icon: "Zap",
-    fill: "#84B346",
-    items: [
-      { label: "General", href: "/open-flc/general" },
-      { label: "Standups", href: "/open-flc/standups" },
-      { label: "Training", href: "/open-flc/training" },
-      { label: "Update", href: "/open-flc/update" },
-    ],
-  },
-];
-
+const menuConfig = {
+  quickActions: [
+    { label: "Search", icon: "Search", href: "#" },
+    { label: "Notifications", icon: "Bell", href: "#" },
+  ],
+  mainMenu: [
+    { label: "Dashboard", icon: "LayoutDashboard", href: "/dashboard" },
+    { label: "Tasks", icon: "CircleCheck", href: "/tasks" },
+    { label: "Notes", icon: "FileText", href: "/notes" },
+    { label: "Emails", icon: "Inbox", href: "/mail-table", badge: "5" },
+    { label: "Leads", icon: "Users", href: "/leads" },
+    { label: "Deals", icon: "Handshake", href: "/deals" },
+    { label: "Organization", icon: "Building2", href: "/organization" },
+    { label: "Calendar", icon: "Calendar", href: "/calendar" },
+    { label: "Contacts", icon: "User", href: "/contacts" },
+    { label: "Call & Event Logs", icon: "Phone", href: "/logs" },
+  ],
+  teams: [
+    {
+      label: "Teams",
+      icon: "ChevronRight",
+      expandable: true,
+      items: [
+        { label: "My leads", icon: "Users", href: "/my-leads" },
+        { label: "Deals flow", icon: "GitBranch", href: "/deals-flow" },
+        { label: "Qualified Deals", icon: "Shield", href: "/qualified-deals" },
+      ],
+    },
+  ],
+  labels: [
+    {
+      label: "Fashion",
+      icon: "Zap",
+      fill: "#7757EE",
+      items: [
+        { label: "General", href: "/product/general" },
+        { label: "Standups", href: "/product/standups" },
+        { label: "Training", href: "/product/training" },
+        { label: "Update", href: "/product/update" },
+      ],
+    },
+    {
+      label: "Projects",
+      icon: "Zap",
+      fill: "#E79913",
+      items: [
+        { label: "General", href: "/operations/general" },
+        { label: "Standups", href: "/operations/standups" },
+        { label: "Training", href: "/operations/training" },
+        { label: "Update", href: "/operations/update" },
+      ],
+    },
+    {
+      label: "Events",
+      icon: "Zap",
+      fill: "#84B346",
+      items: [
+        { label: "General", href: "/open-flc/general" },
+        { label: "Standups", href: "/open-flc/standups" },
+        { label: "Training", href: "/open-flc/training" },
+        { label: "Update", href: "/open-flc/update" },
+      ],
+    },
+  ],
+};
 const scheduleData = [
   {
     time: "4:00 - 4:30PM",
@@ -278,85 +292,47 @@ const MailTableSidebar = () => {
 
         <SidebarContent>
           <SidebarGroup>
-            <SidebarMenuButton tooltip="Search">
-              <Search /> <span className="flex-1 truncate ">Search</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Notifications">
-              <Bell /> <span className="flex-1 truncate ">Notifications</span>
-            </SidebarMenuButton>
+            {menuConfig.quickActions.map((item, idx) => {
+              const Icon = Icons[item.icon];
+              return (
+                <SidebarMenuButton key={idx} tooltip={item.label} asChild>
+                  <Link href={item.href}>
+                    <Icon className="size-4" />
+                    <span className="flex-1 truncate">{item.label}</span>
+                  </Link>
+                </SidebarMenuButton>
+              );
+            })}
           </SidebarGroup>
 
           <SidebarGroup>
-            <SidebarMenuButton tooltip="Home">
-              <House />
-              <span className="flex-1 truncate ">Home</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton
-              tooltip="Inbox"
-              isActive={pathname === "/mail-table"}
-            >
-              <Inbox />
-              <span className="flex-1 truncate ">Inbox</span>
-              <SidebarMenuBadge>5</SidebarMenuBadge>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Starred">
-              <Star />
-              <span className="flex-1 truncate ">Starred</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Important">
-              <SendHorizontal />
-              <span className="flex-1 truncate ">Important</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Send">
-              <Send />
-              <span className="flex-1 truncate ">Send</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Drafts">
-              <FileText />
-              <span className="flex-1 truncate ">Drafts</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Categories">
-              <Pin />
-              <span className="flex-1 truncate ">Categories</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Contacts">
-              <User />
-              <span className="flex-1 truncate ">Contacts</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Calendar">
-              <Calendar />
-              <span className="flex-1 truncate ">Calendar</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Shedules">
-              <Clock3 />
-              <span className="flex-1 truncate ">Shedules</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Notebook">
-              <BookOpen />
-              <span className="flex-1 truncate ">Notebook</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="To-do’s">
-              <CircleCheck />
-              <span className="flex-1 truncate ">To-do’s</span>
-            </SidebarMenuButton>
-          </SidebarGroup>
-          <SidebarGroup>
-            <SidebarMenuButton tooltip="Spam">
-              <Mails />
-              <span className="flex-1 truncate ">Spam</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Trash">
-              <Trash />
-              <span className="flex-1 truncate ">Trash</span>
-            </SidebarMenuButton>
+            {menuConfig.mainMenu.map((item, idx) => {
+              const Icon = Icons[item.icon];
+              return (
+                <SidebarMenuButton
+                  key={idx}
+                  tooltip={item.label}
+                  isActive={pathname === item.href}
+                  asChild
+                >
+                  <Link href={item.href}>
+                    <Icon className="size-4" />
+                    <span className="flex-1 truncate">{item.label}</span>
+                    {item.badge && (
+                      <SidebarMenuBadge>{item.badge}</SidebarMenuBadge>
+                    )}
+                  </Link>
+                </SidebarMenuButton>
+              );
+            })}
           </SidebarGroup>
 
-          <SidebarGroup>
+          <SidebarGroup className="gap-1">
             <SidebarGroupLabel>
               <span className="flex-1 truncate">Labels</span>
             </SidebarGroupLabel>
 
-            {teamMenus.map((menu, idx) => {
+            {menuConfig.labels.map((menu, idx) => {
               const Icon = Icons[menu.icon];
 
               return (
@@ -374,10 +350,9 @@ const MailTableSidebar = () => {
                         <div className="flex items-center gap-2 flex-1">
                           {Icon ? (
                             <Icon
-                              className={`size-4`}
+                              className="size-4"
                               style={{ color: menu.fill }}
                               fill={menu.fill}
-                              path={menu.fill}
                             />
                           ) : null}
                           <span className="truncate">{menu.label}</span>
@@ -386,13 +361,13 @@ const MailTableSidebar = () => {
                     </CollapsibleTrigger>
 
                     <CollapsibleContent>
-                      {menu.items.map((item, i) => (
-                        <SidebarMenuSub key={i}>
-                          <SidebarMenuSubButton asChild>
+                      <SidebarMenuSub className="gap-1">
+                        {menu.items.map((item, i) => (
+                          <SidebarMenuSubButton key={i} asChild>
                             <Link href={item.href}>{item.label}</Link>
                           </SidebarMenuSubButton>
-                        </SidebarMenuSub>
-                      ))}
+                        ))}
+                      </SidebarMenuSub>
                     </CollapsibleContent>
                   </SidebarMenuItem>
                 </Collapsible>

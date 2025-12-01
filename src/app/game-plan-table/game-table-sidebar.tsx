@@ -44,180 +44,184 @@ import {
   AlertCircleIcon,
   AppWindow,
   ArrowRightFromLine,
-  Bell,
   ChevronDown,
   ChevronRight,
-  CircleCheckBig,
-  Files,
-  House,
-  Inbox,
   LogOut,
   MessageCircleQuestionMark,
   Moon,
   PanelLeft,
   PanelLeftIcon,
   Plus,
-  Search,
-  Settings,
   Sun,
   User,
   Zap,
 } from "lucide-react";
 import Link from "next/link";
 
-const teamMenus = [
-  {
-    label: "Product",
-    icon: "Fan",
-    badge: 43,
-    items: [
-      { label: "General", href: "/product/general" },
-      { label: "Standups", href: "/product/standups" },
-      { label: "Training", href: "/product/training" },
-      { label: "Update", href: "/product/update" },
-    ],
-  },
-  {
-    label: "Operations",
-    icon: "KeyRound",
-    badge: 26,
-    items: [
-      { label: "General", href: "/operations/general" },
-      { label: "Standups", href: "/operations/standups" },
-      { label: "Training", href: "/operations/training" },
-      { label: "Update", href: "/operations/update" },
-    ],
-  },
-  {
-    label: "Open FLC",
-    icon: "SquareArrowOutUpRight",
-    badge: 13,
-    items: [
-      { label: "General", href: "/open-flc/general" },
-      { label: "Standups", href: "/open-flc/standups" },
-      { label: "Training", href: "/open-flc/training" },
-      { label: "Update", href: "/open-flc/update" },
-    ],
-  },
-  {
-    label: "Delivery team",
-    icon: "Truck",
-    badge: 8,
-    items: [
-      { label: "General", href: "/open-flc/general" },
-      { label: "Standups", href: "/open-flc/standups" },
-      { label: "Training", href: "/open-flc/training" },
-      { label: "Update", href: "/open-flc/update" },
-    ],
-  },
-  {
-    label: "Sales",
-    icon: "Percent",
-    badge: 26,
-    items: [
-      { label: "General", href: "/open-flc/general" },
-      { label: "Standups", href: "/open-flc/standups" },
-      { label: "Training", href: "/open-flc/training" },
-      { label: "Update", href: "/open-flc/update" },
-    ],
-  },
-  {
-    label: "Framework",
-    icon: "Frame",
-    badge: 12,
-    items: [
-      { label: "General", href: "/open-flc/general" },
-      { label: "Standups", href: "/open-flc/standups" },
-      { label: "Training", href: "/open-flc/training" },
-      { label: "Update", href: "/open-flc/update" },
-    ],
-  },
-  {
-    label: "Team coffee",
-    icon: "Vault",
-    badge: 9,
-    items: [
-      { label: "General", href: "/open-flc/general" },
-      { label: "Standups", href: "/open-flc/standups" },
-      { label: "Training", href: "/open-flc/training" },
-      { label: "Update", href: "/open-flc/update" },
-    ],
-  },
-  {
-    label: "Vacation",
-    icon: "TicketsPlane",
-    badge: 24,
-    items: [
-      { label: "General", href: "/open-flc/general" },
-      { label: "Standups", href: "/open-flc/standups" },
-      { label: "Training", href: "/open-flc/training" },
-      { label: "Update", href: "/open-flc/update" },
-    ],
-  },
-  {
-    label: "Frappe analytics",
-    icon: "TChartPie",
-    badge: 17,
-    items: [
-      { label: "General", href: "/open-flc/general" },
-      { label: "Standups", href: "/open-flc/standups" },
-      { label: "Training", href: "/open-flc/training" },
-      { label: "Update", href: "/open-flc/update" },
-    ],
-  },
-  {
-    label: "Goals",
-    icon: "Goal",
-    badge: 9,
-    items: [
-      { label: "General", href: "/open-flc/general" },
-      { label: "Standups", href: "/open-flc/standups" },
-      { label: "Training", href: "/open-flc/training" },
-      { label: "Update", href: "/open-flc/update" },
-    ],
-  },
-  {
-    label: "Quality",
-    icon: "Infinity",
-    badge: 3,
-    items: [
-      { label: "General", href: "/open-flc/general" },
-      { label: "Standups", href: "/open-flc/standups" },
-      { label: "Training", href: "/open-flc/training" },
-      { label: "Update", href: "/open-flc/update" },
-    ],
-  },
-  {
-    label: "Team out",
-    icon: "ShieldHalf",
-    items: [
-      { label: "General", href: "/open-flc/general" },
-      { label: "Standups", href: "/open-flc/standups" },
-      { label: "Training", href: "/open-flc/training" },
-      { label: "Update", href: "/open-flc/update" },
-    ],
-  },
-  {
-    label: "Adventure",
-    icon: "Kayak",
-    items: [
-      { label: "General", href: "/open-flc/general" },
-      { label: "Standups", href: "/open-flc/standups" },
-      { label: "Training", href: "/open-flc/training" },
-      { label: "Update", href: "/open-flc/update" },
-    ],
-  },
-  {
-    label: "DevOps",
-    icon: "FileScan",
-    items: [
-      { label: "General", href: "/open-flc/general" },
-      { label: "Standups", href: "/open-flc/standups" },
-      { label: "Training", href: "/open-flc/training" },
-      { label: "Update", href: "/open-flc/update" },
-    ],
-  },
-];
+const menuConfig = {
+  mainMenu: [
+    { label: "Search", icon: "Search", href: "#", badge: "⌘ K" },
+    { label: "Notifications", icon: "Bell", href: "/notifications" },
+    { label: "Inbox", icon: "Inbox", href: "/inbox" },
+    { label: "Home", icon: "House", href: "/game-plan-table", badge: "23" },
+    { label: "Drafts", icon: "CircleCheckBig", href: "/drafts" },
+    { label: "Tasks", icon: "Settings", href: "/tasks" },
+    { label: "Pages", icon: "Files", href: "/pages" },
+  ],
+  teams: [
+    {
+      label: "Product",
+      icon: "Fan",
+      badge: 43,
+      items: [
+        { label: "General", href: "/product/general" },
+        { label: "Standups", href: "/product/standups" },
+        { label: "Training", href: "/product/training" },
+        { label: "Update", href: "/product/update" },
+      ],
+    },
+    {
+      label: "Operations",
+      icon: "KeyRound",
+      badge: 26,
+      items: [
+        { label: "General", href: "/operations/general" },
+        { label: "Standups", href: "/operations/standups" },
+        { label: "Training", href: "/operations/training" },
+        { label: "Update", href: "/operations/update" },
+      ],
+    },
+    {
+      label: "Open FLC",
+      icon: "SquareArrowOutUpRight",
+      badge: 13,
+      items: [
+        { label: "General", href: "/open-flc/general" },
+        { label: "Standups", href: "/open-flc/standups" },
+        { label: "Training", href: "/open-flc/training" },
+        { label: "Update", href: "/open-flc/update" },
+      ],
+    },
+    {
+      label: "Delivery team",
+      icon: "Truck",
+      badge: 8,
+      items: [
+        { label: "General", href: "/delivery/general" },
+        { label: "Standups", href: "/delivery/standups" },
+        { label: "Training", href: "/delivery/training" },
+        { label: "Update", href: "/delivery/update" },
+      ],
+    },
+    {
+      label: "Sales",
+      icon: "Percent",
+      badge: 26,
+      items: [
+        { label: "General", href: "/sales/general" },
+        { label: "Standups", href: "/sales/standups" },
+        { label: "Training", href: "/sales/training" },
+        { label: "Update", href: "/sales/update" },
+      ],
+    },
+    {
+      label: "Framework",
+      icon: "Frame",
+      badge: 12,
+      items: [
+        { label: "General", href: "/framework/general" },
+        { label: "Standups", href: "/framework/standups" },
+        { label: "Training", href: "/framework/training" },
+        { label: "Update", href: "/framework/update" },
+      ],
+    },
+    {
+      label: "Team coffee",
+      icon: "Vault",
+      badge: 9,
+      items: [
+        { label: "General", href: "/coffee/general" },
+        { label: "Standups", href: "/coffee/standups" },
+        { label: "Training", href: "/coffee/training" },
+        { label: "Update", href: "/coffee/update" },
+      ],
+    },
+    {
+      label: "Vacation",
+      icon: "TicketsPlane",
+      badge: 24,
+      items: [
+        { label: "General", href: "/vacation/general" },
+        { label: "Standups", href: "/vacation/standups" },
+        { label: "Training", href: "/vacation/training" },
+        { label: "Update", href: "/vacation/update" },
+      ],
+    },
+    {
+      label: "Frappe analytics",
+      icon: "ChartPie",
+      badge: 17,
+      items: [
+        { label: "General", href: "/analytics/general" },
+        { label: "Standups", href: "/analytics/standups" },
+        { label: "Training", href: "/analytics/training" },
+        { label: "Update", href: "/analytics/update" },
+      ],
+    },
+    {
+      label: "Goals",
+      icon: "Goal",
+      badge: 9,
+      items: [
+        { label: "General", href: "/goals/general" },
+        { label: "Standups", href: "/goals/standups" },
+        { label: "Training", href: "/goals/training" },
+        { label: "Update", href: "/goals/update" },
+      ],
+    },
+    {
+      label: "Quality",
+      icon: "Infinity",
+      badge: 3,
+      items: [
+        { label: "General", href: "/quality/general" },
+        { label: "Standups", href: "/quality/standups" },
+        { label: "Training", href: "/quality/training" },
+        { label: "Update", href: "/quality/update" },
+      ],
+    },
+    {
+      label: "Team out",
+      icon: "ShieldHalf",
+      items: [
+        { label: "General", href: "/teamout/general" },
+        { label: "Standups", href: "/teamout/standups" },
+        { label: "Training", href: "/teamout/training" },
+        { label: "Update", href: "/teamout/update" },
+      ],
+    },
+    {
+      label: "Adventure",
+      icon: "Kayak",
+      items: [
+        { label: "General", href: "/adventure/general" },
+        { label: "Standups", href: "/adventure/standups" },
+        { label: "Training", href: "/adventure/training" },
+        { label: "Update", href: "/adventure/update" },
+      ],
+    },
+    {
+      label: "DevOps",
+      icon: "FileScan",
+      items: [
+        { label: "General", href: "/devops/general" },
+        { label: "Standups", href: "/devops/standups" },
+        { label: "Training", href: "/devops/training" },
+        { label: "Update", href: "/devops/update" },
+      ],
+    },
+  ],
+};
 
 const GamePlanSidebar = () => {
   const { theme, setTheme } = useTheme();
@@ -228,6 +232,7 @@ const GamePlanSidebar = () => {
   const pathname = usePathname();
   const { state } = useSidebar();
   const isCollapsed = state === "collapsed";
+
   return (
     <>
       {isMobile && (
@@ -348,34 +353,35 @@ const GamePlanSidebar = () => {
 
         <SidebarContent>
           <SidebarGroup>
-            <SidebarMenuButton tooltip="Search">
-              <Search /> <span className="flex-1 truncate ">Search</span>
-              <SidebarMenuBadge>⌘ K</SidebarMenuBadge>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Notifications">
-              <Bell /> <span className="flex-1 truncate ">Notifications</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Inbox">
-              <Inbox />
-              <span className="flex-1 truncate ">Inbox</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Home">
-              <House />
-              <span className="flex-1 truncate ">Home</span>
-              <SidebarMenuBadge>23</SidebarMenuBadge>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Drafts">
-              <CircleCheckBig />
-              <span className="flex-1 truncate ">Drafts</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Tasks">
-              <Settings />
-              <span className="flex-1 truncate ">Tasks</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Pages">
-              <Files />
-              <span className="flex-1 truncate ">Pages</span>
-            </SidebarMenuButton>
+            {menuConfig.mainMenu.map((item, idx) => {
+              const Icon = Icons[item.icon];
+              return (
+                <SidebarMenuButton
+                  key={idx}
+                  tooltip={item.label}
+                  isActive={pathname === item.href}
+                  asChild={item.href !== "#"}
+                >
+                  {item.href !== "#" ? (
+                    <Link href={item.href} className="flex items-center gap-2">
+                      <Icon className="size-4" />
+                      <span className="flex-1 truncate">{item.label}</span>
+                      {item.badge && (
+                        <SidebarMenuBadge>{item.badge}</SidebarMenuBadge>
+                      )}
+                    </Link>
+                  ) : (
+                    <>
+                      <Icon className="size-4" />
+                      <span className="flex-1 truncate">{item.label}</span>
+                      {item.badge && (
+                        <SidebarMenuBadge>{item.badge}</SidebarMenuBadge>
+                      )}
+                    </>
+                  )}
+                </SidebarMenuButton>
+              );
+            })}
           </SidebarGroup>
 
           <SidebarGroup>
@@ -385,7 +391,7 @@ const GamePlanSidebar = () => {
                 <Plus className="size-4" />
               </SidebarMenuButton>
             </SidebarGroupLabel>
-            {teamMenus.map((menu, idx) => {
+            {menuConfig.teams.map((menu, idx) => {
               const Icon = Icons[menu.icon];
 
               return (
@@ -402,20 +408,22 @@ const GamePlanSidebar = () => {
                           <span className="truncate">{menu.label}</span>
                         </div>
 
-                        <SidebarMenuBadge className="ml-auto">
-                          {menu.badge}
-                        </SidebarMenuBadge>
+                        {menu.badge && (
+                          <SidebarMenuBadge className="ml-auto">
+                            {menu.badge}
+                          </SidebarMenuBadge>
+                        )}
                       </SidebarMenuButton>
                     </CollapsibleTrigger>
 
                     <CollapsibleContent>
-                      {menu.items.map((item, i) => (
-                        <SidebarMenuSub key={i}>
-                          <SidebarMenuSubButton asChild>
+                      <SidebarMenuSub className="gap-1">
+                        {menu.items.map((item, i) => (
+                          <SidebarMenuSubButton key={i} asChild>
                             <Link href={item.href}>{item.label}</Link>
                           </SidebarMenuSubButton>
-                        </SidebarMenuSub>
-                      ))}
+                        ))}
+                      </SidebarMenuSub>
                     </CollapsibleContent>
                   </SidebarMenuItem>
                 </Collapsible>

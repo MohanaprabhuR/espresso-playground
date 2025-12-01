@@ -3,6 +3,8 @@
 import React from "react";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
+import * as Icons from "lucide-react";
+
 import {
   Sidebar,
   SidebarContent,
@@ -59,6 +61,27 @@ import {
 import Link from "next/link";
 import { Progress } from "@/components/ui/progress";
 import { Label } from "@/components/ui/label";
+
+const menuConfig = {
+  quickActions: [
+    { label: "Search", icon: "Search", href: "#" },
+    { label: "Notifications", icon: "Bell", href: "#" },
+  ],
+  mainMenu: [
+    { label: "Home", icon: "House", href: "/drive-table", badge: "5" },
+    { label: "Recents", icon: "Clock3", href: "/recents" },
+    { label: "Shared", icon: "Users", href: "/shared" },
+    { label: "Trash", icon: "Trash2", href: "/trash" },
+  ],
+  views: {
+    label: "views",
+    icon: "ChevronRight",
+    items: [
+      { label: "Favorites", icon: "Star", href: "/favorites" },
+      { label: "Documents", icon: "FileText", href: "/documents" },
+    ],
+  },
+};
 
 const DriveTableSidebar = () => {
   const { theme, setTheme } = useTheme();
@@ -211,35 +234,34 @@ const DriveTableSidebar = () => {
 
         <SidebarContent>
           <SidebarGroup>
-            <SidebarMenuButton tooltip="Search">
-              <Search /> <span className="flex-1 truncate ">Search</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Notifications">
-              <Bell /> <span className="flex-1 truncate ">Notifications</span>
-            </SidebarMenuButton>
+            {menuConfig.quickActions.map((item, idx) => {
+              const Icon = Icons[item.icon];
+              return (
+                <SidebarMenuButton key={idx} tooltip={item.label}>
+                  <Icon className="size-4" />
+                  <span className="flex-1 truncate">{item.label}</span>
+                </SidebarMenuButton>
+              );
+            })}
           </SidebarGroup>
 
           <SidebarGroup>
-            <SidebarMenuButton
-              tooltip="Home"
-              isActive={pathname === "/drive-table"}
-            >
-              <House />
-              <span className="flex-1 truncate ">Home</span>
-              <SidebarMenuBadge>5</SidebarMenuBadge>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Recents">
-              <Clock3 />
-              <span className="flex-1 truncate ">Recents</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Shared">
-              <Users />
-              <span className="flex-1 truncate ">Shared</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Trash">
-              <Trash2 />
-              <span className="flex-1 truncate ">Trash</span>
-            </SidebarMenuButton>
+            {menuConfig.mainMenu.map((item, idx) => {
+              const Icon = Icons[item.icon];
+              return (
+                <SidebarMenuButton
+                  key={idx}
+                  tooltip={item.label}
+                  isActive={pathname === item.href}
+                  asChild
+                >
+                  <Link href={item.href} className="flex items-center gap-2">
+                    <Icon className="size-4" />
+                    <span className="flex-1 truncate">{item.label}</span>
+                  </Link>
+                </SidebarMenuButton>
+              );
+            })}
           </SidebarGroup>
 
           <SidebarGroup>
@@ -250,14 +272,17 @@ const DriveTableSidebar = () => {
                 <Plus className="size-4" />
               </SidebarMenuButton>
             </SidebarGroupLabel>
-            <SidebarMenuButton tooltip="My leads">
-              <Star />
-              <span className="flex-1 truncate ">Favorites</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Deals flow">
-              <FileText />
-              <span className="flex-1 truncate ">Documents</span>
-            </SidebarMenuButton>
+            {menuConfig.views.items.map((item, idx) => {
+              const Icon = Icons[item.icon];
+              return (
+                <SidebarMenuButton key={idx} tooltip={item.label} asChild>
+                  <Link href={item.href} className="flex items-center gap-2">
+                    <Icon className="size-4" />
+                    <span className="flex-1 truncate">{item.label}</span>
+                  </Link>
+                </SidebarMenuButton>
+              );
+            })}
           </SidebarGroup>
         </SidebarContent>
         <SidebarFooter>

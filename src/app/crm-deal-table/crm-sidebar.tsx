@@ -3,6 +3,8 @@
 import React from "react";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
+import * as Icons from "lucide-react";
+
 import {
   Sidebar,
   SidebarContent,
@@ -65,6 +67,38 @@ import {
   Zap,
 } from "lucide-react";
 import Link from "next/link";
+
+const menuConfig = {
+  quickActions: [
+    { label: "Search", icon: "Search", href: "#" },
+    { label: "Notifications", icon: "Bell", href: "#" },
+  ],
+  mainMenu: [
+    { label: "Dashboard", icon: "LayoutDashboard", href: "/dashboard" },
+    { label: "Tasks", icon: "CircleCheck", href: "/tasks" },
+    { label: "Notes", icon: "NotebookPen", href: "/notes" },
+    { label: "Emails", icon: "Mail", href: "/emails" },
+    { label: "Leads", icon: "Weight", href: "/leads" },
+    { label: "Deals", icon: "Handshake", href: "/crm-deal-table" },
+    { label: "Organization", icon: "Building2", href: "/organization" },
+    { label: "Calendar", icon: "Calendar", href: "/calendar" },
+    { label: "Contacts", icon: "SquareUser", href: "/contacts" },
+    { label: "Call & Event Logs", icon: "Phone", href: "/logs" },
+  ],
+  teams: {
+    label: "Teams",
+    icon: "ChevronRight",
+    items: [
+      { label: "My leads", icon: "Headset", href: "/my-leads" },
+      { label: "Deals flow", icon: "HeartHandshake", href: "/deals-flow" },
+      {
+        label: "Qualified Deals",
+        icon: "ShieldCheck",
+        href: "/qualified-deals",
+      },
+    ],
+  },
+};
 
 const CrmSidebar = () => {
   const { theme, setTheme } = useTheme();
@@ -215,54 +249,34 @@ const CrmSidebar = () => {
 
         <SidebarContent>
           <SidebarGroup>
-            <SidebarMenuButton tooltip="Search">
-              <Search /> <span className="flex-1 truncate ">Search</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Notifications">
-              <Bell /> <span className="flex-1 truncate ">Notifications</span>
-            </SidebarMenuButton>
+            {menuConfig.quickActions.map((item, idx) => {
+              const Icon = Icons[item.icon];
+              return (
+                <SidebarMenuButton key={idx} tooltip={item.label}>
+                  <Icon className="size-4" />
+                  <span className="flex-1 truncate">{item.label}</span>
+                </SidebarMenuButton>
+              );
+            })}
           </SidebarGroup>
 
           <SidebarGroup>
-            <SidebarMenuButton tooltip="Dashboard">
-              <LayoutDashboard />
-              <span className="flex-1 truncate ">Dashboard</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Tasks">
-              <CircleCheck /> <span className="flex-1 truncate ">Tasks</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Notes">
-              <NotebookPen /> <span className="flex-1 truncate ">Notes</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Emails">
-              <Mail /> <span className="flex-1 truncate ">Emails</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Leads">
-              <Weight /> <span className="flex-1 truncate ">Leads</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton
-              tooltip="Deals"
-              isActive={pathname === "/crm-deal-table"}
-            >
-              <Link href="/crm-deal-table" className="flex items-center gap-2">
-                <Handshake className="size-4" />
-                <span className="flex-1 truncate ">Deals</span>
-              </Link>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Organization">
-              <Building2 />{" "}
-              <span className="flex-1 truncate ">Organization</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Calendar">
-              <Calendar /> <span className="flex-1 truncate ">Calendar</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Contacts">
-              <SquareUser /> <span className="flex-1 truncate ">Contacts</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Call & Event Logs">
-              <Phone />
-              <span className="flex-1 truncate ">Call & Event Logs</span>
-            </SidebarMenuButton>
+            {menuConfig.mainMenu.map((item, idx) => {
+              const Icon = Icons[item.icon];
+              return (
+                <SidebarMenuButton
+                  key={idx}
+                  tooltip={item.label}
+                  isActive={pathname === item.href}
+                  asChild
+                >
+                  <Link href={item.href} className="flex items-center gap-2">
+                    <Icon className="size-4" />
+                    <span className="flex-1 truncate">{item.label}</span>
+                  </Link>
+                </SidebarMenuButton>
+              );
+            })}
           </SidebarGroup>
 
           <SidebarGroup>
@@ -273,17 +287,17 @@ const CrmSidebar = () => {
                 <Plus className="size-4" />
               </SidebarMenuButton>
             </SidebarGroupLabel>
-            <SidebarMenuButton tooltip="My leads">
-              <Headset /> <span className="flex-1 truncate ">My leads</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Deals flow">
-              <HeartHandshake />
-              <span className="flex-1 truncate ">Deals flow</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Qualified Deals">
-              <ShieldCheck />
-              <span className="flex-1 truncate ">Qualified Deals</span>
-            </SidebarMenuButton>
+            {menuConfig.teams.items.map((item, idx) => {
+              const Icon = Icons[item.icon];
+              return (
+                <SidebarMenuButton key={idx} tooltip={item.label} asChild>
+                  <Link href={item.href} className="flex items-center gap-2">
+                    <Icon className="size-4" />
+                    <span className="flex-1 truncate">{item.label}</span>
+                  </Link>
+                </SidebarMenuButton>
+              );
+            })}
           </SidebarGroup>
         </SidebarContent>
         <SidebarFooter>

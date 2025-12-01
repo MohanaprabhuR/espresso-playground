@@ -3,6 +3,8 @@
 import React from "react";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
+import * as Icons from "lucide-react";
+
 import {
   Sidebar,
   SidebarContent,
@@ -60,6 +62,37 @@ import {
   Zap,
 } from "lucide-react";
 import Link from "next/link";
+
+const menuConfig = {
+  quickActions: [
+    { label: "Search", icon: "Search", href: "#" },
+    { label: "Notifications", icon: "Bell", href: "#" },
+  ],
+  mainMenu: [
+    { label: "Tickets", icon: "Ticket", href: "/help-desk-table" },
+    { label: "Knowledge Base", icon: "BookOpen", href: "/knowledge-base" },
+    {
+      label: "Canned response",
+      icon: "MessageCircleReply",
+      href: "/canned-response",
+    },
+    { label: "Customers", icon: "CircleUserRound", href: "/customers" },
+    { label: "Contacts", icon: "SquareUserRound", href: "/contacts" },
+  ],
+  savedViews: {
+    label: "Saved views",
+    icon: "ChevronRight",
+    items: [
+      {
+        label: "Resolved tickets",
+        icon: "TicketCheck",
+        href: "/resolved-tickets",
+      },
+      { label: "Closed tickets", icon: "TicketX", href: "/closed-tickets" },
+      { label: "My tickets", icon: "TicketPlus", href: "/my-tickets" },
+    ],
+  },
+};
 
 const HelpDeskSidebar = () => {
   const { theme, setTheme } = useTheme();
@@ -212,38 +245,34 @@ const HelpDeskSidebar = () => {
 
         <SidebarContent>
           <SidebarGroup>
-            <SidebarMenuButton tooltip="Search">
-              <Search /> <span className="flex-1 truncate ">Search</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Notifications">
-              <Bell /> <span className="flex-1 truncate ">Notifications</span>
-            </SidebarMenuButton>
+            {menuConfig.quickActions.map((item, idx) => {
+              const Icon = Icons[item.icon];
+              return (
+                <SidebarMenuButton key={idx} tooltip={item.label}>
+                  <Icon className="size-4" />
+                  <span className="flex-1 truncate">{item.label}</span>
+                </SidebarMenuButton>
+              );
+            })}
           </SidebarGroup>
 
           <SidebarGroup>
-            <SidebarMenuButton
-              tooltip="Tickets"
-              isActive={pathname === "/help-desk-table"}
-            >
-              <Ticket />
-              <span className="flex-1 truncate ">Tickets</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Knowledge Base">
-              <BookOpen />
-              <span className="flex-1 truncate ">Knowledge Base</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Canned response">
-              <MessageCircleReply />
-              <span className="flex-1 truncate ">Canned response</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Cusotmers">
-              <CircleUserRound />
-              <span className="flex-1 truncate ">Cusotmers</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Contacts">
-              <SquareUserRound />{" "}
-              <span className="flex-1 truncate ">Contacts</span>
-            </SidebarMenuButton>
+            {menuConfig.mainMenu.map((item, idx) => {
+              const Icon = Icons[item.icon];
+              return (
+                <SidebarMenuButton
+                  key={idx}
+                  tooltip={item.label}
+                  isActive={pathname === item.href}
+                  asChild
+                >
+                  <Link href={item.href} className="flex items-center gap-2">
+                    <Icon className="size-4" />
+                    <span className="flex-1 truncate">{item.label}</span>
+                  </Link>
+                </SidebarMenuButton>
+              );
+            })}
           </SidebarGroup>
 
           <SidebarGroup>
@@ -254,18 +283,17 @@ const HelpDeskSidebar = () => {
                 <Plus className="size-4" />
               </SidebarMenuButton>
             </SidebarGroupLabel>
-            <SidebarMenuButton tooltip="My leads">
-              <TicketCheck />
-              <span className="flex-1 truncate ">Resolved tickets</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Deals flow">
-              <TicketX />
-              <span className="flex-1 truncate ">Closed tickets</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Qualified Deals">
-              <TicketPlus />
-              <span className="flex-1 truncate ">My tickets</span>
-            </SidebarMenuButton>
+            {menuConfig.savedViews.items.map((item, idx) => {
+              const Icon = Icons[item.icon];
+              return (
+                <SidebarMenuButton key={idx} tooltip={item.label} asChild>
+                  <Link href={item.href} className="flex items-center gap-2">
+                    <Icon className="size-4" />
+                    <span className="flex-1 truncate">{item.label}</span>
+                  </Link>
+                </SidebarMenuButton>
+              );
+            })}
           </SidebarGroup>
         </SidebarContent>
         <SidebarFooter>
