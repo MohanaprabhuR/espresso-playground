@@ -302,7 +302,7 @@ const CrmSidebar = () => {
           <SidebarMenuItem className="gap-2.5 flex flex-col">
             {!isCollapsed && (
               <>
-                <div className="px-3 py-2.5 rounded-2xl border bg-white">
+                <div className="px-3 py-2.5 rounded-2xl border bg-background">
                   <div className="flex gap-x-2 pb-3.5">
                     <div className="py-1">
                       <ChartPie className="size-4" />

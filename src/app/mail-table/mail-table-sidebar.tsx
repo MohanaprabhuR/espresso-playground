@@ -402,7 +402,7 @@ const MailTableSidebar = () => {
                     {scheduleData.map((item, index) => (
                       <div
                         key={index}
-                        className="rounded-lg shadow-lg p-2 bg-white flex gap-x-1.5"
+                        className="rounded-lg shadow-lg p-2 bg-background flex gap-x-1.5"
                       >
                         <div
                           className="min-w-0.5 h-full rounded-full"
