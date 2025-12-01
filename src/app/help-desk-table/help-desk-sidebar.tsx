@@ -66,14 +66,14 @@ const menuConfig = {
   ],
   mainMenu: [
     { label: "Tickets", icon: "Ticket", href: "/help-desk-table" },
-    { label: "Knowledge Base", icon: "BookOpen", href: "/knowledge-base" },
+    { label: "Knowledge Base", icon: "BookOpen", href: "#" },
     {
       label: "Canned response",
       icon: "MessageCircleReply",
       href: "/canned-response",
     },
-    { label: "Customers", icon: "CircleUserRound", href: "/customers" },
-    { label: "Contacts", icon: "SquareUserRound", href: "/contacts" },
+    { label: "Customers", icon: "CircleUserRound", href: "#" },
+    { label: "Contacts", icon: "SquareUserRound", href: "#" },
   ],
   savedViews: {
     label: "Saved views",
@@ -84,8 +84,8 @@ const menuConfig = {
         icon: "TicketCheck",
         href: "/resolved-tickets",
       },
-      { label: "Closed tickets", icon: "TicketX", href: "/closed-tickets" },
-      { label: "My tickets", icon: "TicketPlus", href: "/my-tickets" },
+      { label: "Closed tickets", icon: "TicketX", href: "#" },
+      { label: "My tickets", icon: "TicketPlus", href: "#" },
     ],
   },
 };

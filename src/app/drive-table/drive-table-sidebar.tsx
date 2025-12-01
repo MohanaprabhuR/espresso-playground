@@ -66,16 +66,16 @@ const menuConfig = {
   ],
   mainMenu: [
     { label: "Home", icon: "House", href: "/drive-table", badge: "5" },
-    { label: "Recents", icon: "Clock3", href: "/recents" },
-    { label: "Shared", icon: "Users", href: "/shared" },
-    { label: "Trash", icon: "Trash2", href: "/trash" },
+    { label: "Recents", icon: "Clock3", href: "#" },
+    { label: "Shared", icon: "Users", href: "#" },
+    { label: "Trash", icon: "Trash2", href: "#" },
   ],
   views: {
     label: "views",
     icon: "ChevronRight",
     items: [
-      { label: "Favorites", icon: "Star", href: "/favorites" },
-      { label: "Documents", icon: "FileText", href: "/documents" },
+      { label: "Favorites", icon: "Star", href: "#" },
+      { label: "Documents", icon: "FileText", href: "#" },
     ],
   },
 };
