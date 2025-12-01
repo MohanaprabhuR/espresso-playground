@@ -37,27 +37,27 @@ import {
   AlertCircleIcon,
   AppWindow,
   ArrowRightFromLine,
-  BowArrow,
   ChevronDown,
   ChevronRight,
   Component,
-  FolderOpen,
-  Handshake,
   LogOut,
-  Mail,
   MessageCircleQuestionMark,
   Moon,
   PanelLeft,
   PanelLeftIcon,
   Plus,
   Sun,
-  Tickets,
   User,
   Zap,
 } from "lucide-react";
 import Link from "next/link";
 import { Progress } from "@/components/ui/progress";
 import { Label } from "@/components/ui/label";
+import { LogoCrm } from "../../../public/images/svg/logo-crm";
+import { LogoHelpDesk } from "../../../public/images/svg/logo-help-desk";
+import { LogoMail } from "../../../public/images/svg/logo-mail";
+import { LogoIcon } from "../../../public/images/svg/logo-game-plan";
+import { LogoDrive } from "../../../public/images/svg/logo-deive-table";
 
 const menuConfig = {
   quickActions: [
@@ -106,26 +106,15 @@ const DriveTableSidebar = () => {
                 <DropdownMenuTrigger asChild>
                   <Button className="w-full" variant="ghost">
                     <div className="bg-[#016E7D] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
-                      <svg
-                        width="18"
-                        height="15"
-                        viewBox="0 0 18 15"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M14.1821 1.79632H9.29565L8.3284 0H0V2.51234H6.821L7.78825 4.30866H14.8479C15.0866 4.30866 15.2876 4.50964 15.2876 4.74832V11.5442C15.2876 11.7829 15.0866 11.9838 14.8479 11.9838H2.952C2.71332 11.9838 2.51234 11.7829 2.51234 11.5442V5.33872H0V10.8659C0 12.8632 1.62046 14.4962 3.61777 14.4962H14.1821C16.1795 14.4962 17.7999 12.8757 17.7999 10.8659V5.41409C17.7999 3.41678 16.1795 1.78376 14.1821 1.78376V1.79632Z"
-                          fill="white"
-                        />
-                      </svg>
+                      <LogoDrive />
                     </div>
                     {!isCollapsed && (
                       <>
                         <div className="flex flex-col flex-1 text-left">
-                          <span className="truncate font-medium text-base">
+                          <span className="truncate font-medium text-sm tracking-4 leading-tight text-foreground">
                             Drive
                           </span>
-                          <span className="truncate text-xs text-muted-foreground">
+                          <span className="truncate text-xs text-muted-foreground tracking-4 leading-tight font-normal">
                             James fenimore
                           </span>
                         </div>
@@ -138,18 +127,7 @@ const DriveTableSidebar = () => {
                 <DropdownMenuContent align="start" className="w-[220px]">
                   <DropdownMenuLabel className="flex items-center gap-2">
                     <div className="bg-[#016E7D] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
-                      <svg
-                        width="18"
-                        height="15"
-                        viewBox="0 0 18 15"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M14.1821 1.79632H9.29565L8.3284 0H0V2.51234H6.821L7.78825 4.30866H14.8479C15.0866 4.30866 15.2876 4.50964 15.2876 4.74832V11.5442C15.2876 11.7829 15.0866 11.9838 14.8479 11.9838H2.952C2.71332 11.9838 2.51234 11.7829 2.51234 11.5442V5.33872H0V10.8659C0 12.8632 1.62046 14.4962 3.61777 14.4962H14.1821C16.1795 14.4962 17.7999 12.8757 17.7999 10.8659V5.41409C17.7999 3.41678 16.1795 1.78376 14.1821 1.78376V1.79632Z"
-                          fill="white"
-                        />
-                      </svg>
+                      <LogoDrive />
                     </div>
                     <div className="flex flex-col flex-1 text-left">
                       <span className="truncate font-medium text-sm tracking-4 leading-tight text-foreground">
@@ -173,36 +151,49 @@ const DriveTableSidebar = () => {
                       <DropdownMenuSubContent>
                         <Link href="/crm-deal-table">
                           <DropdownMenuItem>
-                            <Handshake /> CRM Deals
+                            <div className="bg-[#DB4EE0] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
+                              <LogoCrm />
+                            </div>
+                            CRM Deals
                           </DropdownMenuItem>
                         </Link>
                         <Link href="/help-desk-table">
                           <DropdownMenuItem>
-                            <Tickets />
+                            <div className="bg-[#7D42FB] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
+                              <LogoHelpDesk />
+                            </div>
                             Helpdesk Tickets
                           </DropdownMenuItem>
                         </Link>
                         <Link href="/drive-table">
                           <DropdownMenuItem>
-                            <FolderOpen />
+                            <div className="bg-[#016E7D] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
+                              <LogoDrive />
+                            </div>
                             Drive Files
                           </DropdownMenuItem>
                         </Link>
                         <Link href="/mail-table">
                           <DropdownMenuItem>
-                            <Mail />
+                            <div className="bg-[#0466DC] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
+                              <LogoMail />
+                            </div>
                             Mail Inbox
                           </DropdownMenuItem>
                         </Link>
                         <Link href="/game-plan-table">
                           <DropdownMenuItem>
-                            <BowArrow />
+                            <div className="bg-[#FF8F26] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
+                              <LogoIcon />
+                            </div>
                             Gameplan Tasks
                           </DropdownMenuItem>
                         </Link>
                         <Link href="/common/avatar">
                           <DropdownMenuItem>
-                            <Component />
+                            <div className="bg-[#84B346] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
+                              <Component className="size-4 text-white" />
+                            </div>
                             Components
                           </DropdownMenuItem>
                         </Link>

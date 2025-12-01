@@ -39,20 +39,15 @@ import {
   AlertCircleIcon,
   AppWindow,
   ArrowRightFromLine,
-  BowArrow,
   ChevronDown,
   ChevronRight,
   Component,
-  FolderOpen,
-  Handshake,
   LogOut,
-  Mail,
   MessageCircleQuestionMark,
   Moon,
   PanelLeft,
   PanelLeftIcon,
   Sun,
-  Tickets,
   User,
   Zap,
 } from "lucide-react";
@@ -64,6 +59,11 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import { LogoIcon } from "../../../public/images/svg/logo-game-plan";
+import { LogoMail } from "../../../public/images/svg/logo-mail";
+import { LogoDrive } from "../../../public/images/svg/logo-deive-table";
+import { LogoHelpDesk } from "../../../public/images/svg/logo-help-desk";
+import { LogoCrm } from "../../../public/images/svg/logo-crm";
 
 const menuConfig = {
   quickActions: [
@@ -173,26 +173,15 @@ const MailTableSidebar = () => {
                 <DropdownMenuTrigger asChild>
                   <Button className="w-full" variant="ghost">
                     <div className="bg-[#0466DC] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
-                      <svg
-                        width="19"
-                        height="14"
-                        viewBox="0 0 19 14"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M0 0V1.69143L2.28571 3.55429L6.65143 7.10857C7.34857 7.68 8.24 8 9.14286 8C10.0457 8 10.9371 7.68 11.6343 7.10857L16 3.54286V11.4171H2.28571V6.51429L0 4.65143V10.8457C0 12.4229 1.28 13.7029 2.85714 13.7029H15.4286C17.0057 13.7029 18.2857 12.4229 18.2857 10.8457V0H0ZM10.1943 5.33714C9.6 5.81714 8.68571 5.81714 8.10286 5.33714L4.35429 2.28571H13.9429L10.1943 5.33714Z"
-                          fill="white"
-                        />
-                      </svg>
+                      <LogoMail />
                     </div>
                     {!isCollapsed && (
                       <>
                         <div className="flex flex-col flex-1 text-left">
-                          <span className="truncate font-medium text-base">
+                          <span className="truncate font-medium text-base tracking-4 leading-tight text-foreground ">
                             Mail
                           </span>
-                          <span className="truncate text-xs text-muted-foreground">
+                          <span className="truncate text-xs text-muted-foreground tracking-4 leading-tight font-normal">
                             Aditi Sharma
                           </span>
                         </div>
@@ -205,18 +194,7 @@ const MailTableSidebar = () => {
                 <DropdownMenuContent align="start" className="w-[220px]">
                   <DropdownMenuLabel className="flex items-center gap-2">
                     <div className="bg-[#0466DC] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
-                      <svg
-                        width="19"
-                        height="14"
-                        viewBox="0 0 19 14"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M0 0V1.69143L2.28571 3.55429L6.65143 7.10857C7.34857 7.68 8.24 8 9.14286 8C10.0457 8 10.9371 7.68 11.6343 7.10857L16 3.54286V11.4171H2.28571V6.51429L0 4.65143V10.8457C0 12.4229 1.28 13.7029 2.85714 13.7029H15.4286C17.0057 13.7029 18.2857 12.4229 18.2857 10.8457V0H0ZM10.1943 5.33714C9.6 5.81714 8.68571 5.81714 8.10286 5.33714L4.35429 2.28571H13.9429L10.1943 5.33714Z"
-                          fill="white"
-                        />
-                      </svg>
+                      <LogoMail />
                     </div>
                     <div className="flex flex-col flex-1 text-left">
                       <span className="truncate font-medium text-sm tracking-4 leading-tight text-foreground">
@@ -240,36 +218,49 @@ const MailTableSidebar = () => {
                       <DropdownMenuSubContent>
                         <Link href="/crm-deal-table">
                           <DropdownMenuItem>
-                            <Handshake /> CRM Deals
+                            <div className="bg-[#DB4EE0] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
+                              <LogoCrm />
+                            </div>
+                            CRM Deals
                           </DropdownMenuItem>
                         </Link>
                         <Link href="/help-desk-table">
                           <DropdownMenuItem>
-                            <Tickets />
+                            <div className="bg-[#7D42FB] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
+                              <LogoHelpDesk />
+                            </div>
                             Helpdesk Tickets
                           </DropdownMenuItem>
                         </Link>
                         <Link href="/drive-table">
                           <DropdownMenuItem>
-                            <FolderOpen />
+                            <div className="bg-[#016E7D] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
+                              <LogoDrive />
+                            </div>
                             Drive Files
                           </DropdownMenuItem>
                         </Link>
                         <Link href="/mail-table">
                           <DropdownMenuItem>
-                            <Mail />
+                            <div className="bg-[#0466DC] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
+                              <LogoMail />
+                            </div>
                             Mail Inbox
                           </DropdownMenuItem>
                         </Link>
                         <Link href="/game-plan-table">
                           <DropdownMenuItem>
-                            <BowArrow />
+                            <div className="bg-[#FF8F26] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
+                              <LogoIcon />
+                            </div>
                             Gameplan Tasks
                           </DropdownMenuItem>
                         </Link>
                         <Link href="/common/avatar">
                           <DropdownMenuItem>
-                            <Component />
+                            <div className="bg-[#84B346] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
+                              <Component className="size-4 text-white" />
+                            </div>
                             Components
                           </DropdownMenuItem>
                         </Link>

@@ -52,7 +52,7 @@ import {
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
 import { TeamSwitcher } from "@/components/team-switcher";
-import { LogoIcon } from "../../public/images/svg/logo";
+import { LogoIcon } from "../../public/images/svg/logo-game-plan";
 import {
   Sidebar,
   SidebarContent,

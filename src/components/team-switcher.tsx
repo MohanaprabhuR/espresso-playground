@@ -23,10 +23,6 @@ import {
   ListFilter,
   ChevronDown,
   AppWindow,
-  Handshake,
-  Tickets,
-  FolderOpen,
-  BowArrow,
   Component,
 } from "lucide-react";
 
@@ -72,6 +68,11 @@ import {
 import { InputGroup, InputGroupAddon, InputGroupInput } from "./ui/input-group";
 import { Tabs, TabsList, TabsTrigger } from "./ui/tabs";
 import Link from "next/link";
+import { LogoIcon } from "../../public/images/svg/logo-game-plan";
+import { LogoMail } from "../../public/images/svg/logo-mail";
+import { LogoDrive } from "../../public/images/svg/logo-deive-table";
+import { LogoHelpDesk } from "../../public/images/svg/logo-help-desk";
+import { LogoCrm } from "../../public/images/svg/logo-crm";
 
 function SettingsDialogContent() {
   const { state } = useSidebar();
@@ -350,36 +351,49 @@ export function TeamSwitcher({
                   <DropdownMenuSubContent>
                     <Link href="/crm-deal-table">
                       <DropdownMenuItem>
-                        <Handshake /> CRM Deals
+                        <div className="bg-[#DB4EE0] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
+                          <LogoCrm />
+                        </div>
+                        CRM Deals
                       </DropdownMenuItem>
                     </Link>
                     <Link href="/help-desk-table">
                       <DropdownMenuItem>
-                        <Tickets />
+                        <div className="bg-[#7D42FB] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
+                          <LogoHelpDesk />
+                        </div>
                         Helpdesk Tickets
                       </DropdownMenuItem>
                     </Link>
                     <Link href="/drive-table">
                       <DropdownMenuItem>
-                        <FolderOpen />
+                        <div className="bg-[#016E7D] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
+                          <LogoDrive />
+                        </div>
                         Drive Files
                       </DropdownMenuItem>
                     </Link>
                     <Link href="/mail-table">
                       <DropdownMenuItem>
-                        <Mail />
+                        <div className="bg-[#0466DC] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
+                          <LogoMail />
+                        </div>
                         Mail Inbox
                       </DropdownMenuItem>
                     </Link>
                     <Link href="/game-plan-table">
                       <DropdownMenuItem>
-                        <BowArrow />
+                        <div className="bg-[#FF8F26] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
+                          <LogoIcon />
+                        </div>
                         Gameplan Tasks
                       </DropdownMenuItem>
                     </Link>
                     <Link href="/common/avatar">
                       <DropdownMenuItem>
-                        <Component />
+                        <div className="bg-[#84B346] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
+                          <Component className="size-4 text-white" />
+                        </div>
                         Components
                       </DropdownMenuItem>
                     </Link>

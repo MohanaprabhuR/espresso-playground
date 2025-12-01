@@ -1,0 +1,14 @@
+import { Icon } from "@/components/BaseComponents/Icon/page";
+import { JSX, SVGProps } from "react";
+
+export const LogoCrm = (
+  props: JSX.IntrinsicAttributes &
+    SVGProps<SVGSVGElement> & { ariaLabel?: string | false }
+) => (
+  <Icon fill="none" viewBox="0 0 18 15" {...props}>
+    <path
+      d="M0 0V2.51234H15.4383V4.39659L9.98912 9.79812V12.7376H7.94316V9.79812C7.94316 9.79812 4.76088 6.59489 3.6052 5.46433H0.0125617L4.99116 10.4262C5.28008 10.7026 5.44338 11.092 5.44338 11.4939V14.4585L12.5015 14.4836V11.4939C12.5015 11.092 12.6648 10.7026 12.9537 10.4262L17.9506 5.45177V0H0Z"
+      fill="#F1FCFF"
+    />
+  </Icon>
+);
