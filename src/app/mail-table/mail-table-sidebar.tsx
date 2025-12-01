@@ -3,6 +3,7 @@
 import React from "react";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
+import * as Icons from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -16,6 +17,8 @@ import {
   SidebarMenuItem,
   SidebarTrigger,
   useSidebar,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
 } from "@/components/ui/sidebar";
 
 import {
@@ -65,7 +68,65 @@ import {
 import Link from "next/link";
 import { Progress } from "@/components/ui/progress";
 import { Label } from "@/components/ui/label";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
+const teamMenus = [
+  {
+    label: "Fashion",
+    icon: "Zap",
+    fill: "#7757EE",
+    items: [
+      { label: "General", href: "/product/general" },
+      { label: "Standups", href: "/product/standups" },
+      { label: "Training", href: "/product/training" },
+      { label: "Update", href: "/product/update" },
+    ],
+  },
+  {
+    label: "Projects",
+    icon: "Zap",
+    fill: "#E79913",
+    items: [
+      { label: "General", href: "/operations/general" },
+      { label: "Standups", href: "/operations/standups" },
+      { label: "Training", href: "/operations/training" },
+      { label: "Update", href: "/operations/update" },
+    ],
+  },
+  {
+    label: "Events",
+    icon: "Zap",
+    fill: "#84B346",
+    items: [
+      { label: "General", href: "/open-flc/general" },
+      { label: "Standups", href: "/open-flc/standups" },
+      { label: "Training", href: "/open-flc/training" },
+      { label: "Update", href: "/open-flc/update" },
+    ],
+  },
+];
+
+const scheduleData = [
+  {
+    time: "4:00 - 4:30PM",
+    title: "Branding changes",
+    color: "#0289F7",
+  },
+  {
+    time: "4:00 - 4:30PM",
+    title: "Website design meeting",
+    color: "#B35309",
+  },
+  {
+    time: "4:00 - 4:30PM",
+    title: "Feedback loops within the design process",
+    color: "#E79913",
+  },
+];
 const MailTableSidebar = () => {
   const { theme, setTheme } = useTheme();
 
@@ -295,32 +356,86 @@ const MailTableSidebar = () => {
               <span className="flex-1 truncate">Labels</span>
             </SidebarGroupLabel>
 
-            <SidebarMenuButton tooltip="Fashion">
-              {!isCollapsed && <ChevronRight />}
-              <Zap />
-              <span className="flex-1 truncate">Fashion</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Projects">
-              {!isCollapsed && <ChevronRight />}
-              <Zap />
-              <span className="flex-1 truncate">Projects</span>
-            </SidebarMenuButton>
-            <SidebarMenuButton tooltip="Events">
-              {!isCollapsed && <ChevronRight />}
-              <Zap />
-              <span className="flex-1 truncate">Events</span>
-            </SidebarMenuButton>
+            {teamMenus.map((menu, idx) => {
+              const Icon = Icons[menu.icon];
+
+              return (
+                <Collapsible key={idx} className="group/collapsible">
+                  <SidebarMenuItem>
+                    <CollapsibleTrigger asChild>
+                      <SidebarMenuButton
+                        tooltip={menu.label}
+                        className="gap-x-0.5"
+                      >
+                        {!isCollapsed && (
+                          <ChevronRight className="w-4 h-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                        )}
+
+                        <div className="flex items-center gap-2 flex-1">
+                          {Icon ? (
+                            <Icon
+                              className={`size-4`}
+                              style={{ color: menu.fill }}
+                              fill={menu.fill}
+                              path={menu.fill}
+                            />
+                          ) : null}
+                          <span className="truncate">{menu.label}</span>
+                        </div>
+                      </SidebarMenuButton>
+                    </CollapsibleTrigger>
+
+                    <CollapsibleContent>
+                      {menu.items.map((item, i) => (
+                        <SidebarMenuSub key={i}>
+                          <SidebarMenuSubButton asChild>
+                            <Link href={item.href}>{item.label}</Link>
+                          </SidebarMenuSubButton>
+                        </SidebarMenuSub>
+                      ))}
+                    </CollapsibleContent>
+                  </SidebarMenuItem>
+                </Collapsible>
+              );
+            })}
           </SidebarGroup>
         </SidebarContent>
         <SidebarFooter>
           <SidebarMenuItem className="gap-2.5 flex flex-col">
             {!isCollapsed && (
               <>
+                <SidebarGroup className="pb-0">
+                  <SidebarMenuItem>
+                    <SidebarMenuButton>Upcoming events</SidebarMenuButton>
+                    <SidebarMenuBadge>5</SidebarMenuBadge>
+                  </SidebarMenuItem>
+                  <div className="flex flex-col gap-y-1.5 pt-2">
+                    {scheduleData.map((item, index) => (
+                      <div
+                        key={index}
+                        className="rounded-lg shadow-lg p-2 bg-white flex gap-x-1.5"
+                      >
+                        <div
+                          className="min-w-0.5 h-full rounded-full"
+                          style={{ backgroundColor: item.color }}
+                        ></div>
+                        <div className="flex flex-col gap-y-0.5 min-w-0">
+                          <p className="text-xs font-medium text-muted-foreground tracking-4 leading-tight truncate">
+                            {item.time}
+                          </p>
+                          <p className="text-sm font-medium text-accent-foreground tracking-4 leading-tight truncate">
+                            {item.title}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </SidebarGroup>
                 <Label className="text-secondary-foreground font-medium">
                   Storage
                 </Label>
                 <Progress
-                  value={80}
+                  value={90}
                   showLabel
                   size="xs"
                   labelName="679 GB of 2 TB"
