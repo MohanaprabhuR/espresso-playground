@@ -3,6 +3,15 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "next-themes";
 import DriveTableSidebar from "./drive-table-sidebar";
+import { Header } from "@/components/ui/header";
+import {
+  Breadcrumb,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb";
+import { Button } from "@/components/ui/button";
+import { ArrowUpToLine, ChevronDown, Plus } from "lucide-react";
 
 export default function RootLayout({
   children,
@@ -16,7 +25,24 @@ export default function RootLayout({
           <SidebarProvider>
             <div className="flex min-h-screen w-full">
               <DriveTableSidebar />
-              <main className="flex-1 p-6 overflow-auto">{children}</main>
+              <div className="w-full min-w-0">
+                <Header>
+                  <Breadcrumb>
+                    <BreadcrumbList size="md">
+                      <BreadcrumbPage>
+                        <BreadcrumbLink href="#">My drive</BreadcrumbLink>
+                      </BreadcrumbPage>
+                    </BreadcrumbList>
+                  </Breadcrumb>
+                  <Button>
+                    <ArrowUpToLine /> Upload
+                    <ChevronDown />
+                  </Button>
+                </Header>
+                <main className="flex-1 flex px-5 py-2.5 overflow-auto">
+                  {children}
+                </main>
+              </div>
 
               <Toaster />
             </div>
