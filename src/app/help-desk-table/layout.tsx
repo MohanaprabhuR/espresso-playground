@@ -26,7 +26,7 @@ export default function RootLayout({
           <SidebarProvider>
             <div className="flex min-h-screen w-full">
               <HelpDeskSidebar />
-              <div className="w-full">
+              <div className="w-full min-w-0">
                 <Header>
                   <Breadcrumb>
                     <BreadcrumbList size="md">
