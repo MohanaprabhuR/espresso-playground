@@ -41,7 +41,7 @@ function TableBody({ className, borderNone, ...props }: TableBodyProps) {
     <tbody
       data-slot="table-body"
       className={cn(
-        "[&_tr:last-child]:border-0  before:h-2 before:table-row  before:w-full  before:content-['']",
+        "[&_tr:last-child]:border-0",
         borderNone &&
           "[&_tr]:border-0 [&_td]:first:rounded-l-lg [&_td]:last:rounded-r-lg [&_td]:first:overflow-hidden",
         className
