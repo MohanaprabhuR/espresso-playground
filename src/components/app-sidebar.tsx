@@ -47,6 +47,7 @@ import {
   PanelLeftIcon,
   FileText,
   Table,
+  Newspaper,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -180,6 +181,7 @@ const data = {
     { title: "Modals", url: "/common/modal", icon: Component },
     { title: "Sonner", url: "/common/sonner", icon: Megaphone },
     { title: "Forms", url: "/common/form", badge: "new", icon: FileText },
+    { title: "Header", url: "/common/header", badge: "new", icon: Newspaper },
     {
       title: "Data Table TanStack",
       url: "/table-tanstack",

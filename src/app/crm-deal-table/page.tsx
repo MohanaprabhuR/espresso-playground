@@ -38,6 +38,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Kbd, KbdGroup } from "@/components/ui/kbd";
 
 interface DealItem {
   name: string;
@@ -379,46 +380,42 @@ const dataTabelDemo = () => {
     getFilteredRowModel: getFilteredRowModel(),
   });
   return (
-    <div className="pt-10 ">
-      <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
-        CRM Deals Table
-      </h1>
-
-      <div className="flex flex-col mx-auto gap-y-4.5 w-full  items-center justify-center">
-        <div className="flex justify-between items-center w-full">
-          <ButtonGroup destructive>
-            <Button variant="secondary">Lead Owner</Button>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="secondary">
-                  Status <ChevronDownIcon className="size-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>Gumroad</DropdownMenuItem>
-                <DropdownMenuItem>Attentive</DropdownMenuItem>
-                <DropdownMenuItem>Evergreen</DropdownMenuItem>
-                <DropdownMenuItem>Dropbox</DropdownMenuItem>
-                <DropdownMenuItem>Hourglass</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="secondary">
-                  Organization <ChevronDownIcon className="size-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>Open</DropdownMenuItem>
-                <DropdownMenuItem>Contacted</DropdownMenuItem>
-                <DropdownMenuItem>Nurture</DropdownMenuItem>
-                <DropdownMenuItem>Qualified</DropdownMenuItem>
-                <DropdownMenuItem>Unqualified</DropdownMenuItem>
-                <DropdownMenuItem>Junk</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </ButtonGroup>
-          <ButtonGroup destructive>
+    <div className="flex flex-col mx-auto gap-y-4.5 w-full  items-center justify-center">
+      <div className="flex justify-between items-center w-full">
+        <ButtonGroup destructive className="gap-x-2">
+          <Button variant="secondary">Lead Owner</Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="secondary">
+                Organization <ChevronDownIcon className="size-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem>Gumroad</DropdownMenuItem>
+              <DropdownMenuItem>Attentive</DropdownMenuItem>
+              <DropdownMenuItem>Evergreen</DropdownMenuItem>
+              <DropdownMenuItem>Dropbox</DropdownMenuItem>
+              <DropdownMenuItem>Hourglass</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="secondary">
+                Status <ChevronDownIcon className="size-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem>Open</DropdownMenuItem>
+              <DropdownMenuItem>Contacted</DropdownMenuItem>
+              <DropdownMenuItem>Nurture</DropdownMenuItem>
+              <DropdownMenuItem>Qualified</DropdownMenuItem>
+              <DropdownMenuItem>Unqualified</DropdownMenuItem>
+              <DropdownMenuItem>Junk</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </ButtonGroup>
+        <div className="flex gap-x-2 items-center">
+          <ButtonGroup destructive className="gap-x-2">
             <Button variant="secondary">
               <EyeOff className="size-4" /> Columns
             </Button>
@@ -431,139 +428,146 @@ const dataTabelDemo = () => {
             <Button variant="secondary">
               <ArrowDownUp className="size-4" /> Sort
             </Button>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="secondary" iconOnly>
-                  <Ellipsis className="size-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>Open</DropdownMenuItem>
-                <DropdownMenuItem>Close</DropdownMenuItem>
-                <DropdownMenuItem>Edit</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
           </ButtonGroup>
-        </div>
 
-        <Table
-          className="table-fixed w-full min-w-full"
-          style={{
-            width: table.getCenterTotalSize(),
-          }}
-        >
-          <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => {
-                  return (
-                    <TableHead
-                      key={header.id}
-                      className="relative last:[&>.cursor-col-resize]:opacity-0 group"
-                      aria-sort={
-                        header.column.getIsSorted() === "asc"
-                          ? "ascending"
-                          : header.column.getIsSorted() === "desc"
-                            ? "descending"
-                            : "none"
-                      }
-                      {...{
-                        colSpan: header.colSpan,
-                        style: {
-                          width: header.getSize(),
-                        },
-                      }}
-                    >
-                      {header.isPlaceholder ? null : (
-                        <div
-                          className={cn(
-                            header.column.getCanSort() &&
-                              "flex h-full cursor-pointer items-center justify-between gap-2 select-none"
-                          )}
-                          onClick={header.column.getToggleSortingHandler()}
-                          onKeyDown={(e) => {
-                            if (
-                              header.column.getCanSort() &&
-                              (e.key === "Enter" || e.key === " ")
-                            ) {
-                              e.preventDefault();
-                              header.column.getToggleSortingHandler()?.(e);
-                            }
-                          }}
-                          tabIndex={header.column.getCanSort() ? 0 : undefined}
-                        >
-                          <span className="truncate">
-                            {flexRender(
-                              header.column.columnDef.header,
-                              header.getContext()
-                            )}
-                          </span>
-                          {{
-                            asc: (
-                              <ChevronUpIcon
-                                className="shrink-0 opacity-60"
-                                size={16}
-                                aria-hidden="true"
-                              />
-                            ),
-                            desc: (
-                              <ChevronDownIcon
-                                className="shrink-0 opacity-60"
-                                size={16}
-                                aria-hidden="true"
-                              />
-                            ),
-                          }[header.column.getIsSorted() as string] ?? null}
-                        </div>
-                      )}
-                      {header.column.getCanResize() && (
-                        <div
-                          {...{
-                            onDoubleClick: () => header.column.resetSize(),
-                            onMouseDown: header.getResizeHandler(),
-                            onTouchStart: header.getResizeHandler(),
-                            className:
-                              "absolute top-1/2 -translate-y-2/4  group-hover:before:opacity-100 h-6  w-4 cursor-col-resize user-select-none touch-none -right-1.5 z-10 flex justify-center before:absolute  before:w-0.5 before:rounded-sm before:opacity-0 before:inset-y-0 before:bg-border before:translate-x-px",
-                          }}
-                        />
-                      )}
-                    </TableHead>
-                  );
-                })}
-              </TableRow>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="truncate">
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center"
-                >
-                  No results.
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="secondary" iconOnly>
+                <Ellipsis className="size-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem>Import</DropdownMenuItem>
+              <DropdownMenuItem>User Permissions</DropdownMenuItem>
+              <DropdownMenuItem>Role Permissions Manager</DropdownMenuItem>
+              <DropdownMenuItem>
+                Customize
+                <KbdGroup className="ml-auto">
+                  <Kbd>⌘+Y</Kbd>
+                </KbdGroup>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                Toggle Sidebar
+                <KbdGroup className="ml-auto">
+                  <Kbd>⌘+G</Kbd>
+                </KbdGroup>
+              </DropdownMenuItem>
+              <DropdownMenuItem>List Settings</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
+
+      <Table
+        className="table-fixed w-full min-w-full"
+        style={{
+          width: table.getCenterTotalSize(),
+        }}
+      >
+        <TableHeader>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <TableRow key={headerGroup.id}>
+              {headerGroup.headers.map((header) => {
+                return (
+                  <TableHead
+                    key={header.id}
+                    className="relative last:[&>.cursor-col-resize]:opacity-0 group"
+                    aria-sort={
+                      header.column.getIsSorted() === "asc"
+                        ? "ascending"
+                        : header.column.getIsSorted() === "desc"
+                          ? "descending"
+                          : "none"
+                    }
+                    {...{
+                      colSpan: header.colSpan,
+                      style: {
+                        width: header.getSize(),
+                      },
+                    }}
+                  >
+                    {header.isPlaceholder ? null : (
+                      <div
+                        className={cn(
+                          header.column.getCanSort() &&
+                            "flex h-full cursor-pointer items-center justify-between gap-2 select-none"
+                        )}
+                        onClick={header.column.getToggleSortingHandler()}
+                        onKeyDown={(e) => {
+                          if (
+                            header.column.getCanSort() &&
+                            (e.key === "Enter" || e.key === " ")
+                          ) {
+                            e.preventDefault();
+                            header.column.getToggleSortingHandler()?.(e);
+                          }
+                        }}
+                        tabIndex={header.column.getCanSort() ? 0 : undefined}
+                      >
+                        <span className="truncate">
+                          {flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                        </span>
+                        {{
+                          asc: (
+                            <ChevronUpIcon
+                              className="shrink-0 opacity-60"
+                              size={16}
+                              aria-hidden="true"
+                            />
+                          ),
+                          desc: (
+                            <ChevronDownIcon
+                              className="shrink-0 opacity-60"
+                              size={16}
+                              aria-hidden="true"
+                            />
+                          ),
+                        }[header.column.getIsSorted() as string] ?? null}
+                      </div>
+                    )}
+                    {header.column.getCanResize() && (
+                      <div
+                        {...{
+                          onDoubleClick: () => header.column.resetSize(),
+                          onMouseDown: header.getResizeHandler(),
+                          onTouchStart: header.getResizeHandler(),
+                          className:
+                            "absolute top-1/2 -translate-y-2/4  group-hover:before:opacity-100 h-6  w-4 cursor-col-resize user-select-none touch-none -right-1.5 z-10 flex justify-center before:absolute  before:w-0.5 before:rounded-sm before:opacity-0 before:inset-y-0 before:bg-border before:translate-x-px",
+                        }}
+                      />
+                    )}
+                  </TableHead>
+                );
+              })}
+            </TableRow>
+          ))}
+        </TableHeader>
+        <TableBody>
+          {table.getRowModel().rows?.length ? (
+            table.getRowModel().rows.map((row) => (
+              <TableRow
+                key={row.id}
+                data-state={row.getIsSelected() && "selected"}
+              >
+                {row.getVisibleCells().map((cell) => (
+                  <TableCell key={cell.id} className="truncate">
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))
+          ) : (
+            <TableRow>
+              <TableCell colSpan={columns.length} className="h-24 text-center">
+                No results.
+              </TableCell>
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
     </div>
   );
 };

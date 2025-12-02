@@ -560,12 +560,9 @@ const helpDeskTabelDemo = () => {
     getFilteredRowModel: getFilteredRowModel(),
   });
   return (
-    <div className="pt-10 ">
-      <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
-        Help Desk Table
-      </h1>
-      <div className="flex flex-col mx-auto gap-y-4.5 w-full  items-center justify-center">
-        <div className="flex justify-between items-center w-full">
+    <div>
+      <div className="flex flex-col mx-auto gap-y-4.5">
+        <div className="flex justify-between items-center w-full ">
           <Input
             className="max-w-[280px]"
             placeholder="Try “first due” or ticket type"
@@ -587,7 +584,7 @@ const helpDeskTabelDemo = () => {
           </ButtonGroup>
         </div>
         <Table
-          className="table-fixed w-full min-w-full  "
+          className="table-fixed w-full min-w-full"
           style={{
             width: table.getCenterTotalSize(),
           }}

@@ -35,6 +35,11 @@ const buttonGroupVariants = cva(
         false: "flex-nowrap",
         true: "flex-wrap",
       },
+      size: {
+        sm: "gap-1",
+        md: "gap-1.5",
+        lg: "gap-1.5",
+      },
     },
 
     compoundVariants: [
@@ -55,6 +60,7 @@ const buttonGroupVariants = cva(
       destructive: false,
       wrapLayout: false,
       variant: "default",
+      size: "sm",
     },
   }
 );
@@ -71,6 +77,7 @@ function ButtonGroup({
   variant,
   destructive,
   wrapLayout,
+  size,
   ...props
 }: ButtonGroupProps) {
   return (
@@ -79,7 +86,13 @@ function ButtonGroup({
       data-slot="button-group"
       data-orientation={orientation}
       className={cn(
-        buttonGroupVariants({ orientation, variant, destructive, wrapLayout }),
+        buttonGroupVariants({
+          orientation,
+          variant,
+          destructive,
+          wrapLayout,
+          size,
+        }),
         className
       )}
       {...props}

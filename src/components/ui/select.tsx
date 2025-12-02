@@ -62,12 +62,20 @@ function SelectTrigger({
   status,
   variant = "default",
   children,
+  icon,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Trigger> & {
   size?: "sm" | "md" | "lg";
   status?: "success" | "warning" | "error";
   variant?: "default" | "outline" | "ghost";
+  icon?: React.ReactNode;
 }) {
+  const iconSizeMap = {
+    sm: 12,
+    md: 16,
+    lg: 20,
+  };
+
   return (
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
@@ -75,7 +83,7 @@ function SelectTrigger({
       data-size={size}
       data-status={status}
       className={cn(
-        "flex w-fit items-center justify-between text-accent-foreground gap-2 px-3 py-2  text-base whitespace-nowrap transition-[color,box-shadow]  focus:ring-2 focus:ring-ring focus:ring-offset-0  focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 aria-invalid:ring-destructive/20 aria-invalid:border-destructive data-[size=default]:h-9 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 data-[placeholder]:text-primary/50",
+        "flex w-fit items-center justify-between text-accent-foreground gap-2 px-3 py-2 text-base whitespace-nowrap transition-[color,box-shadow] focus:ring-2 focus:ring-ring focus:ring-offset-0 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 aria-invalid:ring-destructive/20 aria-invalid:border-destructive *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 data-[placeholder]:text-primary/50",
         variantClassMap[variant],
         sizeClassMap[size],
         variant === "outline" && status ? statusOutlineMap[status] : null,
@@ -86,20 +94,23 @@ function SelectTrigger({
     >
       {children}
       <SelectPrimitive.Icon asChild>
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M5.85355 10.6464C5.65829 10.4512 5.34171 10.4512 5.14645 10.6464C4.95118 10.8417 4.95118 11.1583 5.14645 11.3536L7.64645 13.8536C7.84171 14.0488 8.15829 14.0488 8.35355 13.8536L10.8536 11.3536C11.0488 11.1583 11.0488 10.8417 10.8536 10.6464C10.6583 10.4512 10.3417 10.4512 10.1464 10.6464L8 12.7929L5.85355 10.6464ZM5.85355 5.35355C5.65829 5.54882 5.34171 5.54882 5.14645 5.35355C4.95118 5.15829 4.95118 4.84171 5.14645 4.64645L7.64645 2.14645C7.84171 1.95118 8.15829 1.95118 8.35355 2.14645L10.8536 4.64645C11.0488 4.84171 11.0488 5.15829 10.8536 5.35355C10.6583 5.54882 10.3417 5.54882 10.1464 5.35355L8 3.20711L5.85355 5.35355Z"
-            fill="currentcolor"
-          />
-        </svg>
+        {icon ?? (
+          <svg
+            width={iconSizeMap[size]}
+            height={iconSizeMap[size]}
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M5.85355 10.6464C5.65829 10.4512 5.34171 10.4512 5.14645 10.6464C4.95118 10.8417 4.95118 11.1583 5.14645 11.3536L7.64645 13.8536C7.84171 14.0488 8.15829 14.0488 8.35355 13.8536L10.8536 11.3536C11.0488 11.1583 11.0488 10.8417 10.8536 10.6464C10.6583 10.4512 10.3417 10.4512 10.1464 10.6464L8 12.7929L5.85355 10.6464ZM5.85355 5.35355C5.65829 5.54882 5.34171 5.54882 5.14645 5.35355C4.95118 5.15829 4.95118 4.84171 5.14645 4.64645L7.64645 2.14645C7.84171 1.95118 8.15829 1.95118 8.35355 2.14645L10.8536 4.64645C11.0488 4.84171 11.0488 5.15829 10.8536 5.35355C10.6583 5.54882 10.3417 5.54882 10.1464 5.35355L8 3.20711L5.85355 5.35355Z"
+              fill="currentColor"
+            />
+          </svg>
+        )}
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   );

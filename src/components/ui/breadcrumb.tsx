@@ -14,8 +14,8 @@ const BreadcrumbContext = React.createContext<{ size: BreadcrumbSize }>({
 });
 
 const breadcrumbSizeMap: Record<BreadcrumbSize, string> = {
-  sm: "text-base font-normal tracking-4 [&>svg]:size-4",
-  md: "text-lg font-normal tracking-4 [&>svg]:size-5",
+  sm: "text-base font-normal tracking-4",
+  md: "text-lg font-normal tracking-4",
 };
 
 function Breadcrumb(props: React.ComponentProps<"nav">) {
@@ -57,23 +57,25 @@ function BreadcrumbLink({
   className,
   children,
   ...props
-}: React.ComponentProps<"a"> & {
-  asChild?: boolean;
-  prefix?: boolean;
-}) {
+}: React.ComponentProps<"a"> & { asChild?: boolean; prefix?: boolean }) {
   const Comp = asChild ? Slot : "a";
+  const { size } = React.useContext(BreadcrumbContext);
+  const svgSizeClass = size === "sm" ? "[&_svg]:size-4" : "[&_svg]:size-5";
+  const paddingSizeClass =
+    size === "sm" ? "px-2 py-1.5 font-normal" : "p-1.25 font-medium";
 
   return (
     <Comp
       data-slot="breadcrumb-link"
       className={cn(
-        "transition-colors gap-1.5 px-2 py-1.5 rounded-lg hover:bg-accent leading-tight tracking-4 hover:text-accent-foreground focus:bg-secondary focus:text-accent-foreground focus:shadow-shadow active:bg-transparent active:text-foreground",
-        asChild && "inline-flex",
+        "transition-colors flex items-center gap-x-1 tracking-4 leading-tight rounded-lg hover:bg-accent hover:text-accent-foreground focus:bg-secondary focus:text-accent-foreground focus:shadow-shadow active:bg-transparent active:text-foreground",
+        svgSizeClass,
+        paddingSizeClass,
         className
       )}
       {...props}
     >
-      <span className="flex items-center gap-2">{children}</span>
+      {children}
     </Comp>
   );
 }
@@ -85,6 +87,11 @@ function BreadcrumbPage({
 }: React.ComponentProps<"span"> & {
   prefix?: boolean;
 }) {
+  const { size } = React.useContext(BreadcrumbContext);
+  const svgSizeClass = size === "sm" ? "[&_svg]:size-4" : "[&_svg]:size-5";
+  const paddingSizeClass =
+    size === "sm" ? "px-2 py-1.5 font-normal" : "p-1.25 font-medium";
+
   return (
     <span
       data-slot="breadcrumb-page"
@@ -92,7 +99,9 @@ function BreadcrumbPage({
       aria-disabled="true"
       aria-current="page"
       className={cn(
-        "text-foreground leading-tight tracking-4 font-normal inline-flex items-center  gap-1.5 px-2 py-1.5",
+        "text-foreground leading-tight tracking-4  inline-flex items-center gap-x-1 px-2 py-1.5",
+        svgSizeClass,
+        paddingSizeClass,
         className
       )}
       {...props}
@@ -117,7 +126,7 @@ function BreadcrumbSeparator({
       data-slot="breadcrumb-separator"
       role="presentation"
       aria-hidden="true"
-      className={cn("-ml-[1px]", className)}
+      className={cn("-ml-0.5", className)}
       {...props}
     >
       {children ?? <Icon />}

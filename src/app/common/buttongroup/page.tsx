@@ -62,6 +62,7 @@ const ButtonGroupDemo = () => {
               <Button>Button</Button>
               <Button>Button</Button>
             </ButtonGroup>
+
             <ButtonGroup destructive>
               <Button variant="secondary">Button</Button>
               <Button variant="secondary">Button</Button>

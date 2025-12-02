@@ -13,87 +13,87 @@ const ButtonDemo = () => {
           <div className="flex flex-col justify-center items-center gap-[10px_0]">
             <div className="flex gap-[0_20px]">
               <Button variant="primary" size="sm">
-                <Diamond className="size-4" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4" />
+                <Diamond />
               </Button>
               <Button variant="primary" size="sm" disabled>
-                <Diamond className="size-4" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4" />
+                <Diamond />
               </Button>
               <Button variant="primary" size="sm" iconOnly>
-                <Diamond className="size-4" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4" />
+                <Diamond />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="secondary" size="sm">
-                <Diamond className="size-4" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4" />
+                <Diamond />
               </Button>
               <Button variant="secondary" size="sm" disabled>
-                <Diamond className="size-4" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4" />
+                <Diamond />
               </Button>
               <Button variant="secondary" size="sm" iconOnly>
-                <Diamond className="size-4" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4" />
+                <Diamond />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="outline" size="sm">
-                <Diamond className="size-4" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4" />
+                <Diamond />
               </Button>
               <Button variant="outline" size="sm" disabled>
-                <Diamond className="size-4" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4" />
+                <Diamond />
               </Button>
               <Button variant="outline" size="sm" iconOnly>
-                <Diamond className="size-4" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4" />
+                <Diamond />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="ghost" size="sm">
-                <Diamond className="size-4" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4" />
+                <Diamond />
               </Button>
               <Button variant="ghost" size="sm" disabled>
-                <Diamond className="size-4" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4" />
+                <Diamond />
               </Button>
               <Button variant="ghost" size="sm" iconOnly>
-                <Diamond className="size-4" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4" />
+                <Diamond />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="destructive" size="sm">
-                <Diamond className="size-4" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4" />
+                <Diamond />
               </Button>
               <Button variant="destructive" size="sm" disabled>
-                <Diamond className="size-4" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4" />
+                <Diamond />
               </Button>
               <Button variant="destructive" size="sm" iconOnly>
-                <Diamond className="size-4" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4" />
+                <Diamond />
               </Button>
             </div>
           </div>
@@ -117,331 +117,331 @@ const ButtonDemo = () => {
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="secondary" size="md">
-                <Diamond className="size-4.5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4.5" />
+                <Diamond />
               </Button>
               <Button variant="secondary" size="md" disabled>
-                <Diamond className="size-4.5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4.5" />
+                <Diamond />
               </Button>
               <Button variant="secondary" size="md" iconOnly>
-                <Diamond className="size-4.5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4.5" />
+                <Diamond />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="outline" size="md">
-                <Diamond className="size-4.5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4.5" />
+                <Diamond />
               </Button>
               <Button variant="outline" size="md" disabled>
-                <Diamond className="size-4.5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4.5" />
+                <Diamond />
               </Button>
               <Button variant="outline" size="md" iconOnly>
-                <Diamond className="size-4.5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4.5" />
+                <Diamond />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="ghost" size="md">
-                <Diamond className="size-4.5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4.5" />
+                <Diamond />
               </Button>
               <Button variant="ghost" size="md" disabled>
-                <Diamond className="size-4.5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4.5" />
+                <Diamond />
               </Button>
               <Button variant="ghost" size="md" iconOnly>
-                <Diamond className="size-4.5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4.5" />
+                <Diamond />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="destructive" size="md">
-                <Diamond className="size-4.5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4.5" />
+                <Diamond />
               </Button>
               <Button variant="destructive" size="md" disabled>
-                <Diamond className="size-4.5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4.5" />
+                <Diamond />
               </Button>
               <Button variant="destructive" size="md" iconOnly>
-                <Diamond className="size-4.5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-4.5" />
+                <Diamond />
               </Button>
             </div>
           </div>
           <div className="flex flex-col justify-center items-center gap-[10px_0]">
             <div className="flex gap-[0_20px]">
               <Button variant="primary" size="lg">
-                <Diamond className="size-5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-5" />
+                <Diamond />
               </Button>
               <Button variant="primary" size="lg" disabled>
-                <Diamond className="size-5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-5" />
+                <Diamond />
               </Button>
               <Button variant="primary" size="lg" iconOnly>
-                <Diamond className="size-5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-5" />
+                <Diamond />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="secondary" size="lg">
-                <Diamond className="size-5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-5" />
+                <Diamond />
               </Button>
               <Button variant="secondary" size="lg" disabled>
-                <Diamond className="size-5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-5" />
+                <Diamond />
               </Button>
               <Button variant="secondary" size="lg" iconOnly>
-                <Diamond className="size-5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-5" />
+                <Diamond />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="outline" size="lg">
-                <Diamond className="size-5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-5" />
+                <Diamond />
               </Button>
               <Button variant="outline" size="lg" disabled>
-                <Diamond className="size-5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-5" />
+                <Diamond />
               </Button>
               <Button variant="outline" size="lg" iconOnly>
-                <Diamond className="size-5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-5" />
+                <Diamond />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="ghost" size="lg">
-                <Diamond className="size-5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-5" />
+                <Diamond />
               </Button>
               <Button variant="ghost" size="lg" disabled>
-                <Diamond className="size-5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-5" />
+                <Diamond />
               </Button>
               <Button variant="ghost" size="lg" iconOnly>
-                <Diamond className="size-5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-5" />
+                <Diamond />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="destructive" size="lg">
-                <Diamond className="size-5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-5" />
+                <Diamond />
               </Button>
               <Button variant="destructive" size="lg" disabled>
-                <Diamond className="size-5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-5" />
+                <Diamond />
               </Button>
               <Button variant="destructive" size="lg" iconOnly>
-                <Diamond className="size-5" />
+                <Diamond />
                 Discover
-                <Diamond className="size-5" />
+                <Diamond />
               </Button>
             </div>
           </div>
           <div className="flex flex-col justify-center items-center gap-[10px_0]">
             <div className="flex gap-[0_20px]">
               <Button variant="primary" size="xl">
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
               <Button variant="primary" size="xl" disabled>
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
               <Button variant="primary" size="xl" iconOnly>
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="secondary" size="xl">
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
               <Button variant="secondary" size="xl" disabled>
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
               <Button variant="secondary" size="xl" iconOnly>
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="outline" size="xl">
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
               <Button variant="outline" size="xl" disabled>
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
               <Button variant="outline" size="xl" iconOnly>
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="ghost" size="xl">
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
               <Button variant="ghost" size="xl" disabled>
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
               <Button variant="ghost" size="xl" iconOnly>
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="destructive" size="xl">
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
               <Button variant="destructive" size="xl" disabled>
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
               <Button variant="destructive" size="xl" iconOnly>
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
             </div>
           </div>
           <div className="flex flex-col justify-center items-center gap-[10px_0]">
             <div className="flex gap-[0_20px]">
               <Button variant="primary" size="2xl">
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
               <Button variant="primary" size="2xl" disabled>
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
               <Button variant="primary" size="2xl" iconOnly>
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="secondary" size="2xl">
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
               <Button variant="secondary" size="2xl" disabled>
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
               <Button variant="secondary" size="2xl" iconOnly>
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="outline" size="2xl">
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
               <Button variant="outline" size="2xl" disabled>
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
               <Button variant="outline" size="2xl" iconOnly>
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="ghost" size="2xl">
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
               <Button variant="ghost" size="2xl" disabled>
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
               <Button variant="ghost" size="2xl" iconOnly>
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
             </div>
             <div className="flex gap-[0_20px]">
               <Button variant="destructive" size="2xl">
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
               <Button variant="destructive" size="2xl" disabled>
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
               <Button variant="destructive" size="2xl" iconOnly>
-                <Diamond className="size-6" />
+                <Diamond />
                 Discover
-                <Diamond className="size-6" />
+                <Diamond />
               </Button>
             </div>
           </div>

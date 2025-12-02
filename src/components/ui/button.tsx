@@ -6,7 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center   gap-[0_8px] w-fit hover:z-1 justify-center whitespace-nowrap transition-all ease-in-out disabled:pointer-events-none pointer-events-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0",
+  "inline-flex items-center cursor-pointer gap-[0_8px] w-fit hover:z-1 justify-center whitespace-nowrap transition-all ease-in-out disabled:pointer-events-none pointer-events-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0",
   {
     variants: {
       variant: {
@@ -22,11 +22,12 @@ const buttonVariants = cva(
           "bg-transparent hover:bg-accent  text-accent-foreground  active:bg-primary/12 focus:bg-secondary focus-visible:bg-secondary  disabled:bg-transparent disabled:text-primary/42",
       },
       size: {
-        sm: " rounded-lg text-base font-normal tracking-4 leading-tight",
-        md: " rounded-lg text-base font-normal tracking-4 leading-tight",
-        lg: "rounded-xl text-lg font-medium tracking-4 leading-tight",
-        xl: "rounded-2xl text-xl font-medium tracking-4 leading-tight",
-        "2xl": "rounded-3xl text-2xl font-medium tracking-4 leading-tight",
+        sm: " rounded-lg text-base font-normal tracking-4 leading-tight [&_svg]:size-4",
+        md: " rounded-lg text-base font-normal tracking-4 leading-tight [&_svg]:size-4.5",
+        lg: "rounded-xl text-lg font-medium tracking-4 leading-tight [&_svg]:size-5",
+        xl: "rounded-2xl text-xl font-medium tracking-4 leading-tight [&_svg]:size-6",
+        "2xl":
+          "rounded-3xl text-2xl font-medium tracking-4 leading-tight [&_svg]:size-6",
       },
       iconOnly: {
         true: "",
