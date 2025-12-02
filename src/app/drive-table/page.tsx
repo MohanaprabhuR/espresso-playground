@@ -283,7 +283,7 @@ const driveTabelDemo = () => {
                 return (
                   <TableHead
                     key={header.id}
-                    className="relative last:[&>.cursor-col-resize]:opacity-0 group"
+                    className="relative last:[&>.cursor-col-resize]:opacity-0 group last:text-right [&:last-child>*]:justify-end"
                     aria-sort={
                       header.column.getIsSorted() === "asc"
                         ? "ascending"
@@ -365,7 +365,10 @@ const driveTabelDemo = () => {
                 data-state={row.getIsSelected() && "selected"}
               >
                 {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id} className="truncate">
+                  <TableCell
+                    key={cell.id}
+                    className="truncate last:text-right [&:last-child>*]:justify-end"
+                  >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
                 ))}

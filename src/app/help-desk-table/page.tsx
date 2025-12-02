@@ -583,7 +583,7 @@ const helpDeskTabelDemo = () => {
         </ButtonGroup>
       </div>
       <Table
-        className="table-fixed w-full min-w-full"
+        className="table-fixed w-full min-w-0"
         style={{
           width: table.getCenterTotalSize(),
         }}
@@ -595,7 +595,7 @@ const helpDeskTabelDemo = () => {
                 return (
                   <TableHead
                     key={header.id}
-                    className="relative  group"
+                    className="relative  group last:text-right [&:last-child>*]:justify-end"
                     aria-sort={
                       header.column.getIsSorted() === "asc"
                         ? "ascending"
@@ -677,7 +677,10 @@ const helpDeskTabelDemo = () => {
                 data-state={row.getIsSelected() && "selected"}
               >
                 {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id} className="truncate">
+                  <TableCell
+                    key={cell.id}
+                    className="truncate last:text-right [&:last-child>*]:justify-end"
+                  >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
                 ))}
