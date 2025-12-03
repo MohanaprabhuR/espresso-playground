@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Grip, Pencil, RefreshCcw, Search } from "lucide-react";
+import { Tabs, TabsTrigger, TabsList } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
 
 export default function RootLayout({
   children,
@@ -27,15 +29,32 @@ export default function RootLayout({
             <div className="flex min-h-screen w-full">
               <MailTableSidebar />
               <div className="w-full min-w-0">
-                <Header>
+                <Header className="py-0">
                   <Breadcrumb>
                     <BreadcrumbList size="md">
-                      <BreadcrumbPage>
+                      <BreadcrumbPage className="p-0">
                         <BreadcrumbLink href="#">Inbox</BreadcrumbLink>
                       </BreadcrumbPage>
                     </BreadcrumbList>
                   </Breadcrumb>
-                  <div></div>
+                  <div>
+                    <Tabs defaultValue="primary" variant="underline">
+                      <TabsList className="border-none">
+                        <TabsTrigger value="primary" className="py-4">
+                          Primary <Badge variant="secondary">24</Badge>
+                        </TabsTrigger>
+                        <TabsTrigger value="updates" className="py-4">
+                          Updates
+                        </TabsTrigger>
+                        <TabsTrigger value="social" className="py-4">
+                          Social
+                        </TabsTrigger>
+                        <TabsTrigger value="promotions" className="py-4">
+                          Promotions
+                        </TabsTrigger>
+                      </TabsList>
+                    </Tabs>
+                  </div>
                   <div className="flex gap-x-2">
                     <Button iconOnly variant="ghost">
                       <Search />

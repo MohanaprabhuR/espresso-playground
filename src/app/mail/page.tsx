@@ -387,7 +387,7 @@ const MailTableDemo = () => {
 
   return (
     <div className="flex flex-col mx-auto w-full">
-      <div className="flex items-center justify-between px-6 py-2">
+      <div className="flex items-center justify-between px-6 py-3">
         <div className="flex items-center gap-2">
           <Checkbox
             checked={

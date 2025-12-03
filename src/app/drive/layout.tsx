@@ -29,7 +29,7 @@ export default function RootLayout({
                 <Header>
                   <Breadcrumb>
                     <BreadcrumbList size="md">
-                      <BreadcrumbPage>
+                      <BreadcrumbPage className="p-0">
                         <BreadcrumbLink href="#">My drive</BreadcrumbLink>
                       </BreadcrumbPage>
                     </BreadcrumbList>
