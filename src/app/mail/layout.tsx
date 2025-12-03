@@ -35,6 +35,7 @@ export default function RootLayout({
                       </BreadcrumbPage>
                     </BreadcrumbList>
                   </Breadcrumb>
+                  <div></div>
                   <div className="flex gap-x-2">
                     <Button iconOnly variant="ghost">
                       <Search />

@@ -275,7 +275,7 @@ export const columns: ColumnDef<DealItem>[] = [
     enableSorting: false,
     enableHiding: false,
     enableResizing: false,
-    size: 32,
+    size: 35,
   },
   {
     accessorKey: "name",

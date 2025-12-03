@@ -349,52 +349,52 @@ export function TeamSwitcher({
                 </DropdownMenuSubTrigger>
                 <DropdownMenuPortal>
                   <DropdownMenuSubContent>
-                    <Link href="/crm-deal-table">
+                    <Link href="/crm">
                       <DropdownMenuItem>
                         <div className="bg-[#DB4EE0] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                           <LogoCrm />
                         </div>
-                        CRM Deals
+                        CRM
                       </DropdownMenuItem>
                     </Link>
-                    <Link href="/help-desk-table">
+                    <Link href="/helpdesk">
                       <DropdownMenuItem>
                         <div className="bg-[#7D42FB] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                           <LogoHelpDesk />
                         </div>
-                        Helpdesk Tickets
+                        Helpdesk
                       </DropdownMenuItem>
                     </Link>
-                    <Link href="/drive-table">
+                    <Link href="/drive">
                       <DropdownMenuItem>
                         <div className="bg-[#016E7D] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                           <LogoDrive />
                         </div>
-                        Drive Files
+                        Drive
                       </DropdownMenuItem>
                     </Link>
-                    <Link href="/mail-table">
+                    <Link href="/mail">
                       <DropdownMenuItem>
                         <div className="bg-[#0466DC] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                           <LogoMail />
                         </div>
-                        Mail Inbox
+                        Mail
                       </DropdownMenuItem>
                     </Link>
-                    <Link href="/game-plan-table">
+                    <Link href="/gameplan">
                       <DropdownMenuItem>
                         <div className="bg-[#FF8F26] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                           <LogoIcon />
                         </div>
-                        Gameplan Tasks
+                        Gameplan
                       </DropdownMenuItem>
                     </Link>
-                    <Link href="/common/avatar">
+                    <Link href="/ui/avatar">
                       <DropdownMenuItem>
                         <div className="bg-[#84B346] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                           <Component className="size-4 text-white" />
                         </div>
-                        Components
+                        UI
                       </DropdownMenuItem>
                     </Link>
                   </DropdownMenuSubContent>

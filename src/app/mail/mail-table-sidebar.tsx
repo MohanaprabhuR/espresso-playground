@@ -4,7 +4,6 @@ import React from "react";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
 import * as Icons from "lucide-react";
-
 import {
   Sidebar,
   SidebarContent,
@@ -13,10 +12,13 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
+  SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarTrigger,
   useSidebar,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
 } from "@/components/ui/sidebar";
 
 import {
@@ -36,9 +38,7 @@ import { Button } from "@/components/ui/button";
 import {
   AlertCircleIcon,
   AppWindow,
-  ArrowRight,
   ArrowRightFromLine,
-  ChartPie,
   ChevronDown,
   ChevronRight,
   Component,
@@ -47,17 +47,23 @@ import {
   Moon,
   PanelLeft,
   PanelLeftIcon,
-  Plus,
   Sun,
   User,
   Zap,
 } from "lucide-react";
 import Link from "next/link";
-import { LogoCrm } from "../../../public/images/svg/logo-crm";
-import { LogoHelpDesk } from "../../../public/images/svg/logo-help-desk";
-import { LogoDrive } from "../../../public/images/svg/logo-deive-table";
-import { LogoMail } from "../../../public/images/svg/logo-mail";
+import { Progress } from "@/components/ui/progress";
+import { Label } from "@/components/ui/label";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import { LogoIcon } from "../../../public/images/svg/logo-game-plan";
+import { LogoMail } from "../../../public/images/svg/logo-mail";
+import { LogoDrive } from "../../../public/images/svg/logo-deive-table";
+import { LogoHelpDesk } from "../../../public/images/svg/logo-help-desk";
+import { LogoCrm } from "../../../public/images/svg/logo-crm";
 
 const menuConfig = {
   quickActions: [
@@ -65,32 +71,83 @@ const menuConfig = {
     { label: "Notifications", icon: "Bell", href: "#" },
   ],
   mainMenu: [
-    { label: "Tickets", icon: "Ticket", href: "/help-desk-table" },
-    { label: "Knowledge Base", icon: "BookOpen", href: "#" },
-    {
-      label: "Canned response",
-      icon: "MessageCircleReply",
-      href: "/canned-response",
-    },
-    { label: "Customers", icon: "CircleUserRound", href: "#" },
-    { label: "Contacts", icon: "SquareUserRound", href: "#" },
+    { label: "Dashboard", icon: "LayoutDashboard", href: "#" },
+    { label: "Tasks", icon: "CircleCheck", href: "#" },
+    { label: "Notes", icon: "FileText", href: "#" },
+    { label: "Emails", icon: "Inbox", href: "/mail-table", badge: "5" },
+    { label: "Leads", icon: "Users", href: "#" },
+    { label: "Deals", icon: "Handshake", href: "#" },
+    { label: "Organization", icon: "Building2", href: "#" },
+    { label: "Calendar", icon: "Calendar", href: "#" },
+    { label: "Contacts", icon: "User", href: "#" },
+    { label: "Call & Event Logs", icon: "Phone", href: "#" },
   ],
-  savedViews: {
-    label: "Saved views",
-    icon: "ChevronRight",
-    items: [
-      {
-        label: "Resolved tickets",
-        icon: "TicketCheck",
-        href: "/resolved-tickets",
-      },
-      { label: "Closed tickets", icon: "TicketX", href: "#" },
-      { label: "My tickets", icon: "TicketPlus", href: "#" },
-    ],
-  },
+  teams: [
+    {
+      label: "Teams",
+      icon: "ChevronRight",
+      expandable: true,
+      items: [
+        { label: "My leads", icon: "Users", href: "#" },
+        { label: "Deals flow", icon: "GitBranch", href: "#" },
+        { label: "Qualified Deals", icon: "Shield", href: "#" },
+      ],
+    },
+  ],
+  labels: [
+    {
+      label: "Fashion",
+      icon: "Zap",
+      fill: "#7757EE",
+      items: [
+        { label: "General", href: "#" },
+        { label: "Standups", href: "#" },
+        { label: "Training", href: "#" },
+        { label: "Update", href: "#" },
+      ],
+    },
+    {
+      label: "Projects",
+      icon: "Zap",
+      fill: "#E79913",
+      items: [
+        { label: "General", href: "#" },
+        { label: "Standups", href: "#" },
+        { label: "Training", href: "#" },
+        { label: "Update", href: "#" },
+      ],
+    },
+    {
+      label: "Events",
+      icon: "Zap",
+      fill: "#84B346",
+      items: [
+        { label: "General", href: "#" },
+        { label: "Standups", href: "#" },
+        { label: "Training", href: "#" },
+        { label: "Update", href: "#" },
+      ],
+    },
+  ],
 };
-
-const HelpDeskSidebar = () => {
+const scheduleData = [
+  {
+    time: "4:00 - 4:30PM",
+    title: "Branding changes",
+    color: "#0289F7",
+  },
+  {
+    time: "4:00 - 4:30PM",
+    title: "Website design meeting",
+    color: "#B35309",
+  },
+  {
+    time: "4:00 - 4:30PM",
+    title: "Feedback loops within the design process",
+    color: "#E79913",
+  },
+];
+const MailTableSidebar = () => {
   const { theme, setTheme } = useTheme();
 
   const { openMobile, setOpenMobile, isMobile } = useSidebar();
@@ -115,17 +172,17 @@ const HelpDeskSidebar = () => {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button className="w-full" variant="ghost">
-                    <div className="bg-[#7D42FB] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
-                      <LogoHelpDesk />
+                    <div className="bg-[#0466DC] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
+                      <LogoMail />
                     </div>
                     {!isCollapsed && (
                       <>
                         <div className="flex flex-col flex-1 text-left gap-y-0.75">
-                          <span className="truncate font-medium text-base tracking-4 leading-tight text-foreground">
-                            Helpdesk
+                          <span className="truncate font-medium text-base tracking-4 leading-tight text-foreground ">
+                            Mail
                           </span>
                           <span className="truncate text-sm text-muted-foreground tracking-4 leading-tight font-normal">
-                            James fenimore
+                            Aditi Sharma
                           </span>
                         </div>
                         <ChevronDown className="ml-auto size-4" />
@@ -136,15 +193,15 @@ const HelpDeskSidebar = () => {
 
                 <DropdownMenuContent align="start" className="w-[220px]">
                   <DropdownMenuLabel className="flex items-center gap-2">
-                    <div className="bg-[#7D42FB] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
-                      <LogoHelpDesk />
+                    <div className="bg-[#0466DC] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
+                      <LogoMail />
                     </div>
                     <div className="flex flex-col flex-1 text-left gap-y-0.75">
                       <span className="truncate font-medium text-base tracking-4 leading-tight text-foreground">
-                        Helpdesk
+                        Mail
                       </span>
                       <span className="truncate text-sm text-muted-foreground tracking-4 leading-tight font-normal">
-                        James fenimore
+                        Aditi Sharma
                       </span>
                     </div>
                   </DropdownMenuLabel>
@@ -159,52 +216,52 @@ const HelpDeskSidebar = () => {
 
                     <DropdownMenuPortal>
                       <DropdownMenuSubContent>
-                        <Link href="/crm-deal-table">
+                        <Link href="/crm">
                           <DropdownMenuItem>
                             <div className="bg-[#DB4EE0] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                               <LogoCrm />
                             </div>
-                            CRM Deals
+                            CRM
                           </DropdownMenuItem>
                         </Link>
-                        <Link href="/help-desk-table">
+                        <Link href="/helpdesk">
                           <DropdownMenuItem>
                             <div className="bg-[#7D42FB] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                               <LogoHelpDesk />
                             </div>
-                            Helpdesk Tickets
+                            Helpdesk
                           </DropdownMenuItem>
                         </Link>
-                        <Link href="/drive-table">
+                        <Link href="/drive">
                           <DropdownMenuItem>
                             <div className="bg-[#016E7D] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                               <LogoDrive />
                             </div>
-                            Drive Files
+                            Drive
                           </DropdownMenuItem>
                         </Link>
-                        <Link href="/mail-table">
+                        <Link href="/mail">
                           <DropdownMenuItem>
                             <div className="bg-[#0466DC] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                               <LogoMail />
                             </div>
-                            Mail Inbox
+                            Mail
                           </DropdownMenuItem>
                         </Link>
-                        <Link href="/game-plan-table">
+                        <Link href="/gameplan">
                           <DropdownMenuItem>
                             <div className="bg-[#FF8F26] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                               <LogoIcon />
                             </div>
-                            Gameplan Tasks
+                            Gameplan
                           </DropdownMenuItem>
                         </Link>
-                        <Link href="/common/avatar">
+                        <Link href="/ui/avatar">
                           <DropdownMenuItem>
                             <div className="bg-[#84B346] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                               <Component className="size-4 text-white" />
                             </div>
-                            Components
+                            UI
                           </DropdownMenuItem>
                         </Link>
                       </DropdownMenuSubContent>
@@ -252,9 +309,11 @@ const HelpDeskSidebar = () => {
             {menuConfig.quickActions.map((item, idx) => {
               const Icon = Icons[item.icon];
               return (
-                <SidebarMenuButton key={idx} tooltip={item.label}>
-                  <Icon className="size-4" />
-                  <span className="flex-1 truncate">{item.label}</span>
+                <SidebarMenuButton key={idx} tooltip={item.label} asChild>
+                  <Link href={item.href}>
+                    <Icon className="size-4" />
+                    <span className="flex-1 truncate">{item.label}</span>
+                  </Link>
                 </SidebarMenuButton>
               );
             })}
@@ -270,32 +329,62 @@ const HelpDeskSidebar = () => {
                   isActive={pathname === item.href}
                   asChild
                 >
-                  <Link href={item.href} className="flex items-center gap-2">
+                  <Link href={item.href}>
                     <Icon className="size-4" />
                     <span className="flex-1 truncate">{item.label}</span>
+                    {item.badge && (
+                      <SidebarMenuBadge>{item.badge}</SidebarMenuBadge>
+                    )}
                   </Link>
                 </SidebarMenuButton>
               );
             })}
           </SidebarGroup>
 
-          <SidebarGroup>
+          <SidebarGroup className="gap-1">
             <SidebarGroupLabel>
-              <ChevronRight />
-              <span className="flex-1 truncate"> Saved views</span>
-              <SidebarMenuButton className="w-auto">
-                <Plus className="size-4" />
-              </SidebarMenuButton>
+              <span className="flex-1 truncate">Labels</span>
             </SidebarGroupLabel>
-            {menuConfig.savedViews.items.map((item, idx) => {
-              const Icon = Icons[item.icon];
+
+            {menuConfig.labels.map((menu, idx) => {
+              const Icon = Icons[menu.icon];
+
               return (
-                <SidebarMenuButton key={idx} tooltip={item.label} asChild>
-                  <Link href={item.href} className="flex items-center gap-2">
-                    <Icon className="size-4" />
-                    <span className="flex-1 truncate">{item.label}</span>
-                  </Link>
-                </SidebarMenuButton>
+                <Collapsible key={idx} className="group/collapsible">
+                  <SidebarMenuItem>
+                    <CollapsibleTrigger asChild>
+                      <SidebarMenuButton
+                        tooltip={menu.label}
+                        className="gap-x-0.5"
+                      >
+                        {!isCollapsed && (
+                          <ChevronRight className="w-4 h-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                        )}
+
+                        <div className="flex items-center gap-2 flex-1">
+                          {Icon ? (
+                            <Icon
+                              className="size-4"
+                              style={{ color: menu.fill }}
+                              fill={menu.fill}
+                            />
+                          ) : null}
+                          <span className="truncate">{menu.label}</span>
+                        </div>
+                      </SidebarMenuButton>
+                    </CollapsibleTrigger>
+
+                    <CollapsibleContent>
+                      <SidebarMenuSub className="gap-1">
+                        {menu.items.map((item, i) => (
+                          <SidebarMenuSubButton key={i} asChild>
+                            <Link href={item.href}>{item.label}</Link>
+                          </SidebarMenuSubButton>
+                        ))}
+                      </SidebarMenuSub>
+                    </CollapsibleContent>
+                  </SidebarMenuItem>
+                </Collapsible>
               );
             })}
           </SidebarGroup>
@@ -304,24 +393,42 @@ const HelpDeskSidebar = () => {
           <SidebarMenuItem className="gap-2.5 flex flex-col">
             {!isCollapsed && (
               <>
-                <div className="px-3 py-2.5 rounded-2xl border bg-background">
-                  <div className="flex gap-x-2 pb-3.5">
-                    <div className="py-1">
-                      <ChartPie className="size-4" />
-                    </div>
-                    <div className="flex flex-col gap-y-0.5">
-                      <p className="text-sm tracking-4 leading-normal font-medium text-foreground">
-                        Getting Started
-                      </p>
-                      <span className="text-xs tracking-4 leading-normal font-medium text-secondary-foreground">
-                        0/4
-                      </span>
-                    </div>
+                <SidebarGroup className="pb--4">
+                  <SidebarMenuItem>
+                    <SidebarMenuButton>Upcoming events</SidebarMenuButton>
+                    <SidebarMenuBadge>5</SidebarMenuBadge>
+                  </SidebarMenuItem>
+                  <div className="flex flex-col gap-y-1.5 pt-2">
+                    {scheduleData.map((item, index) => (
+                      <div
+                        key={index}
+                        className="rounded-lg shadow-lg p-2 bg-background flex gap-x-1.5"
+                      >
+                        <div
+                          className="min-w-0.5 h-full rounded-full"
+                          style={{ backgroundColor: item.color }}
+                        ></div>
+                        <div className="flex flex-col gap-y-0.5 min-w-0">
+                          <p className="text-xs font-medium text-muted-foreground tracking-4 leading-tight truncate">
+                            {item.time}
+                          </p>
+                          <p className="text-sm font-medium text-accent-foreground tracking-4 leading-tight truncate">
+                            {item.title}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                  <Button variant="secondary" className="w-full">
-                    Contuine <ArrowRight className="size-4" />
-                  </Button>
-                </div>
+                </SidebarGroup>
+                <Label className="text-secondary-foreground font-medium">
+                  Storage
+                </Label>
+                <Progress
+                  value={90}
+                  showLabel
+                  size="xs"
+                  labelName="679 GB of 2 TB"
+                ></Progress>
                 <div className="flex gap-1 justify-between w-full">
                   <div className="flex items-center gap-1">
                     <SidebarMenuButton>
@@ -331,8 +438,6 @@ const HelpDeskSidebar = () => {
                       <MessageCircleQuestionMark className="size-4" />
                     </SidebarMenuButton>
                   </div>
-
-                  {/* 👇 Dynamic trigger icon */}
                   <SidebarMenuButton asChild className="w-auto">
                     <SidebarTrigger
                       icon={isCollapsed ? ArrowRightFromLine : PanelLeft}
@@ -356,4 +461,4 @@ const HelpDeskSidebar = () => {
   );
 };
 
-export default HelpDeskSidebar;
+export default MailTableSidebar;

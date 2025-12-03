@@ -4,9 +4,7 @@ import React from "react";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
 import * as Icons from "lucide-react";
-import { LogoIcon } from "../../../public/images/svg/logo-game-plan";
-import { LogoCrm } from "../../../public/images/svg/logo-crm";
-import { LogoHelpDesk } from "../../../public/images/svg/logo-help-desk";
+
 import {
   Sidebar,
   SidebarContent,
@@ -38,9 +36,7 @@ import { Button } from "@/components/ui/button";
 import {
   AlertCircleIcon,
   AppWindow,
-  ArrowRight,
   ArrowRightFromLine,
-  ChartPie,
   ChevronDown,
   ChevronRight,
   Component,
@@ -55,7 +51,12 @@ import {
   Zap,
 } from "lucide-react";
 import Link from "next/link";
+import { Progress } from "@/components/ui/progress";
+import { Label } from "@/components/ui/label";
+import { LogoCrm } from "../../../public/images/svg/logo-crm";
+import { LogoHelpDesk } from "../../../public/images/svg/logo-help-desk";
 import { LogoMail } from "../../../public/images/svg/logo-mail";
+import { LogoIcon } from "../../../public/images/svg/logo-game-plan";
 import { LogoDrive } from "../../../public/images/svg/logo-deive-table";
 
 const menuConfig = {
@@ -64,35 +65,26 @@ const menuConfig = {
     { label: "Notifications", icon: "Bell", href: "#" },
   ],
   mainMenu: [
-    { label: "Dashboard", icon: "LayoutDashboard", href: "#" },
-    { label: "Tasks", icon: "CircleCheck", href: "#" },
-    { label: "Notes", icon: "NotebookPen", href: "#" },
-    { label: "Emails", icon: "Mail", href: "#" },
-    { label: "Leads", icon: "Weight", href: "#" },
-    { label: "Deals", icon: "Handshake", href: "/crm-deal-table" },
-    { label: "Organization", icon: "Building2", href: "#" },
-    { label: "Calendar", icon: "Calendar", href: "#" },
-    { label: "Contacts", icon: "SquareUser", href: "#" },
-    { label: "Call & Event Logs", icon: "Phone", href: "#" },
+    { label: "Home", icon: "House", href: "/drive-table", badge: "5" },
+    { label: "Recents", icon: "Clock3", href: "#" },
+    { label: "Shared", icon: "Users", href: "#" },
+    { label: "Trash", icon: "Trash2", href: "#" },
   ],
-  teams: {
-    label: "Teams",
+  views: {
+    label: "views",
     icon: "ChevronRight",
     items: [
-      { label: "My leads", icon: "Headset", href: "/my-leads" },
-      { label: "Deals flow", icon: "HeartHandshake", href: "/deals-flow" },
-      {
-        label: "Qualified Deals",
-        icon: "ShieldCheck",
-        href: "/qualified-deals",
-      },
+      { label: "Favorites", icon: "Star", href: "#" },
+      { label: "Documents", icon: "FileText", href: "#" },
     ],
   },
 };
 
-const CrmSidebar = () => {
+const DriveTableSidebar = () => {
   const { theme, setTheme } = useTheme();
+
   const { openMobile, setOpenMobile, isMobile } = useSidebar();
+
   const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
   const pathname = usePathname();
   const { state } = useSidebar();
@@ -113,14 +105,14 @@ const CrmSidebar = () => {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button className="w-full" variant="ghost">
-                    <div className="bg-[#DB4EE0] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
-                      <LogoCrm />
+                    <div className="bg-[#016E7D] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
+                      <LogoDrive />
                     </div>
                     {!isCollapsed && (
                       <>
                         <div className="flex flex-col flex-1 text-left gap-y-0.75">
                           <span className="truncate font-medium text-base tracking-4 leading-tight text-foreground">
-                            CRM
+                            Drive
                           </span>
                           <span className="truncate text-sm text-muted-foreground tracking-4 leading-tight font-normal">
                             James fenimore
@@ -134,12 +126,12 @@ const CrmSidebar = () => {
 
                 <DropdownMenuContent align="start" className="w-[220px]">
                   <DropdownMenuLabel className="flex items-center gap-2">
-                    <div className="bg-[#DB4EE0] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
-                      <LogoCrm />
+                    <div className="bg-[#016E7D] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
+                      <LogoDrive />
                     </div>
                     <div className="flex flex-col flex-1 text-left gap-y-0.75">
                       <span className="truncate font-medium text-base tracking-4 leading-tight text-foreground">
-                        CRM
+                        Drive
                       </span>
                       <span className="truncate text-sm text-muted-foreground tracking-4 leading-tight font-normal">
                         James fenimore
@@ -157,52 +149,52 @@ const CrmSidebar = () => {
 
                     <DropdownMenuPortal>
                       <DropdownMenuSubContent>
-                        <Link href="/crm-deal-table">
+                        <Link href="/crm">
                           <DropdownMenuItem>
                             <div className="bg-[#DB4EE0] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                               <LogoCrm />
                             </div>
-                            CRM Deals
+                            CRM
                           </DropdownMenuItem>
                         </Link>
-                        <Link href="/help-desk-table">
+                        <Link href="/helpdesk">
                           <DropdownMenuItem>
                             <div className="bg-[#7D42FB] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                               <LogoHelpDesk />
                             </div>
-                            Helpdesk Tickets
+                            Helpdesk
                           </DropdownMenuItem>
                         </Link>
-                        <Link href="/drive-table">
+                        <Link href="/drive">
                           <DropdownMenuItem>
                             <div className="bg-[#016E7D] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                               <LogoDrive />
                             </div>
-                            Drive Files
+                            Drive
                           </DropdownMenuItem>
                         </Link>
-                        <Link href="/mail-table">
+                        <Link href="/mail">
                           <DropdownMenuItem>
                             <div className="bg-[#0466DC] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                               <LogoMail />
                             </div>
-                            Mail Inbox
+                            Mail
                           </DropdownMenuItem>
                         </Link>
-                        <Link href="/game-plan-table">
+                        <Link href="/gameplan">
                           <DropdownMenuItem>
                             <div className="bg-[#FF8F26] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                               <LogoIcon />
                             </div>
-                            Gameplan Tasks
+                            Gameplan
                           </DropdownMenuItem>
                         </Link>
-                        <Link href="/common/avatar">
+                        <Link href="/ui/avatar">
                           <DropdownMenuItem>
                             <div className="bg-[#84B346] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                               <Component className="size-4 text-white" />
                             </div>
-                            Components
+                            UI
                           </DropdownMenuItem>
                         </Link>
                       </DropdownMenuSubContent>
@@ -280,12 +272,12 @@ const CrmSidebar = () => {
           <SidebarGroup>
             <SidebarGroupLabel>
               <ChevronRight />
-              <span className="flex-1 truncate"> Teams</span>
+              <span className="flex-1 truncate">views</span>
               <SidebarMenuButton className="w-auto">
                 <Plus className="size-4" />
               </SidebarMenuButton>
             </SidebarGroupLabel>
-            {menuConfig.teams.items.map((item, idx) => {
+            {menuConfig.views.items.map((item, idx) => {
               const Icon = Icons[item.icon];
               return (
                 <SidebarMenuButton key={idx} tooltip={item.label} asChild>
@@ -302,24 +294,15 @@ const CrmSidebar = () => {
           <SidebarMenuItem className="gap-2.5 flex flex-col">
             {!isCollapsed && (
               <>
-                <div className="px-3 py-2.5 rounded-2xl border bg-background">
-                  <div className="flex gap-x-2 pb-3.5">
-                    <div className="py-1">
-                      <ChartPie className="size-4" />
-                    </div>
-                    <div className="flex flex-col gap-y-0.5">
-                      <p className="text-sm tracking-4 leading-normal font-medium text-foreground">
-                        Getting Started
-                      </p>
-                      <span className="text-xs tracking-4 leading-normal font-medium text-secondary-foreground">
-                        0/4
-                      </span>
-                    </div>
-                  </div>
-                  <Button variant="secondary" className="w-full">
-                    Contuine <ArrowRight className="size-4" />
-                  </Button>
-                </div>
+                <Label className="text-secondary-foreground font-medium">
+                  Storage
+                </Label>
+                <Progress
+                  value={80}
+                  showLabel
+                  size="xs"
+                  labelName="679 GB of 2 TB"
+                ></Progress>
                 <div className="flex gap-1 justify-between w-full">
                   <div className="flex items-center gap-1">
                     <SidebarMenuButton>
@@ -329,7 +312,6 @@ const CrmSidebar = () => {
                       <MessageCircleQuestionMark className="size-4" />
                     </SidebarMenuButton>
                   </div>
-
                   <SidebarMenuButton asChild className="w-auto">
                     <SidebarTrigger
                       icon={isCollapsed ? ArrowRightFromLine : PanelLeft}
@@ -353,4 +335,4 @@ const CrmSidebar = () => {
   );
 };
 
-export default CrmSidebar;
+export default DriveTableSidebar;

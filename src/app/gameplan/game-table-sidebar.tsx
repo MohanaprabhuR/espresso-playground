@@ -13,12 +13,19 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
+  SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
   SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar";
-
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -31,7 +38,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
+import { LogoIcon } from "../../../public/images/svg/logo-game-plan";
 import { Button } from "@/components/ui/button";
 import {
   AlertCircleIcon,
@@ -51,36 +58,177 @@ import {
   Zap,
 } from "lucide-react";
 import Link from "next/link";
-import { Progress } from "@/components/ui/progress";
-import { Label } from "@/components/ui/label";
 import { LogoCrm } from "../../../public/images/svg/logo-crm";
 import { LogoHelpDesk } from "../../../public/images/svg/logo-help-desk";
-import { LogoMail } from "../../../public/images/svg/logo-mail";
-import { LogoIcon } from "../../../public/images/svg/logo-game-plan";
 import { LogoDrive } from "../../../public/images/svg/logo-deive-table";
+import { LogoMail } from "../../../public/images/svg/logo-mail";
 
 const menuConfig = {
-  quickActions: [
-    { label: "Search", icon: "Search", href: "#" },
-    { label: "Notifications", icon: "Bell", href: "#" },
-  ],
   mainMenu: [
-    { label: "Home", icon: "House", href: "/drive-table", badge: "5" },
-    { label: "Recents", icon: "Clock3", href: "#" },
-    { label: "Shared", icon: "Users", href: "#" },
-    { label: "Trash", icon: "Trash2", href: "#" },
+    { label: "Search", icon: "Search", href: "#", badge: "⌘ K" },
+    { label: "Notifications", icon: "Bell", href: "#" },
+    { label: "Inbox", icon: "Inbox", href: "#" },
+    { label: "Home", icon: "House", href: "/game-plan-table", badge: "23" },
+    { label: "Drafts", icon: "CircleCheckBig", href: "#" },
+    { label: "Tasks", icon: "Settings", href: "#" },
+    { label: "Pages", icon: "Files", href: "#" },
   ],
-  views: {
-    label: "views",
-    icon: "ChevronRight",
-    items: [
-      { label: "Favorites", icon: "Star", href: "#" },
-      { label: "Documents", icon: "FileText", href: "#" },
-    ],
-  },
+  teams: [
+    {
+      label: "Product",
+      icon: "Fan",
+      badge: 43,
+      items: [
+        { label: "General", href: "#" },
+        { label: "Standups", href: "#" },
+        { label: "Training", href: "#" },
+        { label: "Update", href: "#" },
+      ],
+    },
+    {
+      label: "Operations",
+      icon: "KeyRound",
+      badge: 26,
+      items: [
+        { label: "General", href: "#" },
+        { label: "Standups", href: "#" },
+        { label: "Training", href: "#" },
+        { label: "Update", href: "#" },
+      ],
+    },
+    {
+      label: "Open FLC",
+      icon: "SquareArrowOutUpRight",
+      badge: 13,
+      items: [
+        { label: "General", href: "#" },
+        { label: "Standups", href: "#" },
+        { label: "Training", href: "#" },
+        { label: "Update", href: "#" },
+      ],
+    },
+    {
+      label: "Delivery team",
+      icon: "Truck",
+      badge: 8,
+      items: [
+        { label: "General", href: "#" },
+        { label: "Standups", href: "#" },
+        { label: "Training", href: "#" },
+        { label: "Update", href: "#" },
+      ],
+    },
+    {
+      label: "Sales",
+      icon: "Percent",
+      badge: 26,
+      items: [
+        { label: "General", href: "#" },
+        { label: "Standups", href: "#" },
+        { label: "Training", href: "#" },
+        { label: "Update", href: "#" },
+      ],
+    },
+    {
+      label: "Framework",
+      icon: "Frame",
+      badge: 12,
+      items: [
+        { label: "General", href: "#" },
+        { label: "Standups", href: "#" },
+        { label: "Training", href: "#" },
+        { label: "Update", href: "#" },
+      ],
+    },
+    {
+      label: "Team coffee",
+      icon: "Vault",
+      badge: 9,
+      items: [
+        { label: "General", href: "#" },
+        { label: "Standups", href: "#" },
+        { label: "Training", href: "#" },
+        { label: "Update", href: "#" },
+      ],
+    },
+    {
+      label: "Vacation",
+      icon: "TicketsPlane",
+      badge: 24,
+      items: [
+        { label: "General", href: "#" },
+        { label: "Standups", href: "#" },
+        { label: "Training", href: "#" },
+        { label: "Update", href: "#" },
+      ],
+    },
+    {
+      label: "Frappe analytics",
+      icon: "ChartPie",
+      badge: 17,
+      items: [
+        { label: "General", href: "#" },
+        { label: "Standups", href: "#" },
+        { label: "Training", href: "#" },
+        { label: "Update", href: "#" },
+      ],
+    },
+    {
+      label: "Goals",
+      icon: "Goal",
+      badge: 9,
+      items: [
+        { label: "General", href: "#" },
+        { label: "Standups", href: "#" },
+        { label: "Training", href: "#" },
+        { label: "Update", href: "#" },
+      ],
+    },
+    {
+      label: "Quality",
+      icon: "Infinity",
+      badge: 3,
+      items: [
+        { label: "General", href: "#" },
+        { label: "Standups", href: "#" },
+        { label: "Training", href: "#" },
+        { label: "Update", href: "#" },
+      ],
+    },
+    {
+      label: "Team out",
+      icon: "ShieldHalf",
+      items: [
+        { label: "General", href: "#" },
+        { label: "Standups", href: "#" },
+        { label: "Training", href: "#" },
+        { label: "Update", href: "#" },
+      ],
+    },
+    {
+      label: "Adventure",
+      icon: "Kayak",
+      items: [
+        { label: "General", href: "#" },
+        { label: "Standups", href: "#" },
+        { label: "Training", href: "#" },
+        { label: "Update", href: "#" },
+      ],
+    },
+    {
+      label: "DevOps",
+      icon: "FileScan",
+      items: [
+        { label: "General", href: "#" },
+        { label: "Standups", href: "#" },
+        { label: "Training", href: "#" },
+        { label: "Update", href: "#" },
+      ],
+    },
+  ],
 };
 
-const DriveTableSidebar = () => {
+const GamePlanSidebar = () => {
   const { theme, setTheme } = useTheme();
 
   const { openMobile, setOpenMobile, isMobile } = useSidebar();
@@ -89,6 +237,7 @@ const DriveTableSidebar = () => {
   const pathname = usePathname();
   const { state } = useSidebar();
   const isCollapsed = state === "collapsed";
+
   return (
     <>
       {isMobile && (
@@ -105,14 +254,14 @@ const DriveTableSidebar = () => {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button className="w-full" variant="ghost">
-                    <div className="bg-[#016E7D] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
-                      <LogoDrive />
+                    <div className="bg-[#FF8F26] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
+                      <LogoIcon />
                     </div>
                     {!isCollapsed && (
                       <>
                         <div className="flex flex-col flex-1 text-left gap-y-0.75">
                           <span className="truncate font-medium text-base tracking-4 leading-tight text-foreground">
-                            Drive
+                            Gameplan
                           </span>
                           <span className="truncate text-sm text-muted-foreground tracking-4 leading-tight font-normal">
                             James fenimore
@@ -126,12 +275,12 @@ const DriveTableSidebar = () => {
 
                 <DropdownMenuContent align="start" className="w-[220px]">
                   <DropdownMenuLabel className="flex items-center gap-2">
-                    <div className="bg-[#016E7D] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
-                      <LogoDrive />
+                    <div className="bg-[#FF8F26] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
+                      <LogoIcon />
                     </div>
                     <div className="flex flex-col flex-1 text-left gap-y-0.75">
                       <span className="truncate font-medium text-base tracking-4 leading-tight text-foreground">
-                        Drive
+                        Gameplan
                       </span>
                       <span className="truncate text-sm text-muted-foreground tracking-4 leading-tight font-normal">
                         James fenimore
@@ -149,52 +298,52 @@ const DriveTableSidebar = () => {
 
                     <DropdownMenuPortal>
                       <DropdownMenuSubContent>
-                        <Link href="/crm-deal-table">
+                        <Link href="/crm">
                           <DropdownMenuItem>
                             <div className="bg-[#DB4EE0] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                               <LogoCrm />
                             </div>
-                            CRM Deals
+                            CRM
                           </DropdownMenuItem>
                         </Link>
-                        <Link href="/help-desk-table">
+                        <Link href="/helpdesk">
                           <DropdownMenuItem>
                             <div className="bg-[#7D42FB] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                               <LogoHelpDesk />
                             </div>
-                            Helpdesk Tickets
+                            Helpdesk
                           </DropdownMenuItem>
                         </Link>
-                        <Link href="/drive-table">
+                        <Link href="/drive">
                           <DropdownMenuItem>
                             <div className="bg-[#016E7D] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                               <LogoDrive />
                             </div>
-                            Drive Files
+                            Drive
                           </DropdownMenuItem>
                         </Link>
-                        <Link href="/mail-table">
+                        <Link href="/mail">
                           <DropdownMenuItem>
                             <div className="bg-[#0466DC] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                               <LogoMail />
                             </div>
-                            Mail Inbox
+                            Mail
                           </DropdownMenuItem>
                         </Link>
-                        <Link href="/game-plan-table">
+                        <Link href="/gameplan">
                           <DropdownMenuItem>
                             <div className="bg-[#FF8F26] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                               <LogoIcon />
                             </div>
-                            Gameplan Tasks
+                            Gameplan
                           </DropdownMenuItem>
                         </Link>
-                        <Link href="/common/avatar">
+                        <Link href="/ui/avatar">
                           <DropdownMenuItem>
                             <div className="bg-[#84B346] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                               <Component className="size-4 text-white" />
                             </div>
-                            Components
+                            UI
                           </DropdownMenuItem>
                         </Link>
                       </DropdownMenuSubContent>
@@ -239,18 +388,6 @@ const DriveTableSidebar = () => {
 
         <SidebarContent>
           <SidebarGroup>
-            {menuConfig.quickActions.map((item, idx) => {
-              const Icon = Icons[item.icon];
-              return (
-                <SidebarMenuButton key={idx} tooltip={item.label}>
-                  <Icon className="size-4" />
-                  <span className="flex-1 truncate">{item.label}</span>
-                </SidebarMenuButton>
-              );
-            })}
-          </SidebarGroup>
-
-          <SidebarGroup>
             {menuConfig.mainMenu.map((item, idx) => {
               const Icon = Icons[item.icon];
               return (
@@ -258,12 +395,25 @@ const DriveTableSidebar = () => {
                   key={idx}
                   tooltip={item.label}
                   isActive={pathname === item.href}
-                  asChild
+                  asChild={item.href !== "#"}
                 >
-                  <Link href={item.href} className="flex items-center gap-2">
-                    <Icon className="size-4" />
-                    <span className="flex-1 truncate">{item.label}</span>
-                  </Link>
+                  {item.href !== "#" ? (
+                    <Link href={item.href} className="flex items-center gap-2">
+                      <Icon className="size-4" />
+                      <span className="flex-1 truncate">{item.label}</span>
+                      {item.badge && (
+                        <SidebarMenuBadge>{item.badge}</SidebarMenuBadge>
+                      )}
+                    </Link>
+                  ) : (
+                    <>
+                      <Icon className="size-4" />
+                      <span className="flex-1 truncate">{item.label}</span>
+                      {item.badge && (
+                        <SidebarMenuBadge>{item.badge}</SidebarMenuBadge>
+                      )}
+                    </>
+                  )}
                 </SidebarMenuButton>
               );
             })}
@@ -271,38 +421,56 @@ const DriveTableSidebar = () => {
 
           <SidebarGroup>
             <SidebarGroupLabel>
-              <ChevronRight />
-              <span className="flex-1 truncate">views</span>
+              <span className="flex-1 truncate">Teams</span>
               <SidebarMenuButton className="w-auto">
                 <Plus className="size-4" />
               </SidebarMenuButton>
             </SidebarGroupLabel>
-            {menuConfig.views.items.map((item, idx) => {
-              const Icon = Icons[item.icon];
+            {menuConfig.teams.map((menu, idx) => {
+              const Icon = Icons[menu.icon];
+
               return (
-                <SidebarMenuButton key={idx} tooltip={item.label} asChild>
-                  <Link href={item.href} className="flex items-center gap-2">
-                    <Icon className="size-4" />
-                    <span className="flex-1 truncate">{item.label}</span>
-                  </Link>
-                </SidebarMenuButton>
+                <Collapsible key={idx} className="group/collapsible">
+                  <SidebarMenuItem>
+                    <CollapsibleTrigger asChild>
+                      <SidebarMenuButton tooltip={menu.label}>
+                        {!isCollapsed && (
+                          <ChevronRight className="w-4 h-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                        )}
+
+                        <div className="flex items-center gap-2 flex-1">
+                          {Icon ? <Icon className="size-4" /> : null}
+                          <span className="truncate">{menu.label}</span>
+                        </div>
+
+                        {menu.badge && (
+                          <SidebarMenuBadge className="ml-auto">
+                            {menu.badge}
+                          </SidebarMenuBadge>
+                        )}
+                      </SidebarMenuButton>
+                    </CollapsibleTrigger>
+
+                    <CollapsibleContent>
+                      <SidebarMenuSub className="gap-1">
+                        {menu.items.map((item, i) => (
+                          <SidebarMenuSubButton key={i} asChild>
+                            <Link href={item.href}>{item.label}</Link>
+                          </SidebarMenuSubButton>
+                        ))}
+                      </SidebarMenuSub>
+                    </CollapsibleContent>
+                  </SidebarMenuItem>
+                </Collapsible>
               );
             })}
+            <SidebarMenuButton>More archived teams</SidebarMenuButton>
           </SidebarGroup>
         </SidebarContent>
         <SidebarFooter>
           <SidebarMenuItem className="gap-2.5 flex flex-col">
             {!isCollapsed && (
               <>
-                <Label className="text-secondary-foreground font-medium">
-                  Storage
-                </Label>
-                <Progress
-                  value={80}
-                  showLabel
-                  size="xs"
-                  labelName="679 GB of 2 TB"
-                ></Progress>
                 <div className="flex gap-1 justify-between w-full">
                   <div className="flex items-center gap-1">
                     <SidebarMenuButton>
@@ -335,4 +503,4 @@ const DriveTableSidebar = () => {
   );
 };
 
-export default DriveTableSidebar;
+export default GamePlanSidebar;

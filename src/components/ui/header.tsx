@@ -1,4 +1,5 @@
 "use client";
+import { cn } from "@/lib/utils";
 import React from "react";
 
 function Header({
@@ -10,7 +11,10 @@ function Header({
 }) {
   return (
     <header
-      className={`w-full border-b bg-background py-2.25 pl-3 pr-5 flex items-center justify-between ${className}`}
+      className={cn(
+        "w-full border-b bg-background py-2.5 pl-3 pr-5 flex items-center justify-between",
+        className
+      )}
     >
       {children}
     </header>

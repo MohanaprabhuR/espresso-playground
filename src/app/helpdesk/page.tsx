@@ -387,7 +387,7 @@ export const columns: ColumnDef<Ticket>[] = [
     enableSorting: false,
     enableHiding: false,
     enableResizing: false,
-    size: 32,
+    size: 35,
   },
   {
     accessorKey: "id",

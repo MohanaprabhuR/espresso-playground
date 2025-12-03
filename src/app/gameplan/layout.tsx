@@ -47,7 +47,7 @@ export default function RootLayout({
             <div className="flex min-h-screen w-full">
               <GamePlanSidebar />
               <div className="w-full min-w-0">
-                <Header>
+                <Header className="pr-2.5">
                   <Breadcrumb>
                     <BreadcrumbList size="md">
                       <BreadcrumbItem>
