@@ -16,7 +16,8 @@ import {
   AvatarGroup,
   AvatarImage,
 } from "@/components/ui/avatar";
-
+import { ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   ColumnDef,
   flexRender,
@@ -283,27 +284,9 @@ const AttachmentIcon = ({ type }: { type: Attachment["type"] }) => {
   }
 };
 
-import { ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { ButtonGroup } from "@/components/ui/button-group";
-
 export const columns: ColumnDef<MailItem>[] = [
   {
     id: "select",
-    header: ({ table }) => (
-      <div className="flex gap-x-3">
-        <Checkbox
-          checked={table.getIsAllPageRowsSelected()}
-          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-          aria-label="Select all"
-        />
-
-        <figure>
-          <Star className="size-4" />
-        </figure>
-      </div>
-    ),
 
     cell: ({ row }) => (
       <div className="flex gap-x-3">
@@ -322,11 +305,11 @@ export const columns: ColumnDef<MailItem>[] = [
     enableSorting: false,
     enableHiding: false,
     enableResizing: false,
-    size: 60,
+    size: 75,
   },
   {
     accessorKey: "name",
-    header: null,
+    header: "",
     cell: ({ row }) => {
       const avatars = row.original.avatar;
 
@@ -397,66 +380,114 @@ const MailTableDemo = () => {
   const table = useReactTable({
     data,
     columns,
-    columnResizeMode: "onChange",
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
   });
 
   return (
-    <div className="flex flex-col mx-auto w-full h-[calc(100vh-60px)]  relative pb-11">
-      <Table
-        className="table-fixed w-full min-w-full"
-        style={{
-          width: table.getCenterTotalSize(),
-        }}
-      >
+    <div className="flex flex-col mx-auto w-full">
+      <div className="flex items-center justify-between px-6 py-2">
+        <div className="flex items-center gap-2">
+          <Checkbox
+            checked={
+              table.getIsAllPageRowsSelected() ||
+              (table.getIsSomePageRowsSelected() && "indeterminate")
+            }
+            onCheckedChange={(value) =>
+              table.toggleAllPageRowsSelected(!!value)
+            }
+            aria-label="Select all"
+          />
+          <Button variant="ghost" iconOnly>
+            <ChevronDown />
+          </Button>
+          <div className="flex items-center gap-1">
+            <Button variant="outline">
+              <Check />
+              Has attachment
+            </Button>
+            <Button variant="outline">
+              <Check />
+              Image
+            </Button>
+            <Button variant="outline">PDF</Button>
+            <Button variant="outline">
+              From
+              <ChevronDown />
+            </Button>
+            <Button variant="outline">
+              Any time
+              <ChevronDown />
+            </Button>
+            <Button variant="outline">
+              To
+              <ChevronDown />
+            </Button>
+            <Button variant="outline">Is unread</Button>
+            <Button variant="ghost">Advanced search</Button>
+          </div>
+        </div>
+        <div className="text-sm text-muted-foreground">
+          1-50 of {data.length.toLocaleString()}
+        </div>
+      </div>
+      <Table className="table-fixed w-full min-w-full">
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
-              <TableHead colSpan={4} className="p-0">
-                <div className="flex items-center justify-between px-4 py-2">
-                  <div className="flex items-center gap-2">
-                    <Checkbox
-                      checked={table.getIsAllPageRowsSelected()}
-                      onCheckedChange={(value) =>
-                        table.toggleAllPageRowsSelected(!!value)
-                      }
-                    />
-                    <Button variant="ghost" iconOnly>
-                      <ChevronDown />
-                    </Button>
-                    <div className="flex items-center gap-1">
-                      <Button variant="outline">
-                        <Check />
-                        Has attachment
-                      </Button>
-                      <Button variant="outline">
-                        <Check />
-                        Image
-                      </Button>
-                      <Button variant="outline">PDF</Button>
-                      <Button variant="outline">
-                        From
-                        <ChevronDown />
-                      </Button>
-                      <Button variant="outline">
-                        Any time
-                        <ChevronDown />
-                      </Button>
-                      <Button variant="outline">
-                        To
-                        <ChevronDown />
-                      </Button>
-                      <Button variant="outline">Is unread</Button>
-                      <Button variant="ghost">Advanced search</Button>
-                    </div>
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    1-50 of {data.length.toLocaleString()}
-                  </div>
-                </div>
-              </TableHead>
+              {headerGroup.headers.map((header) => {
+                return (
+                  <TableHead
+                    key={header.id}
+                    className="p-0"
+                    {...{
+                      colSpan: header.colSpan,
+                      style: {
+                        width: header.getSize(),
+                      },
+                    }}
+                  >
+                    {header.isPlaceholder ? null : (
+                      <div
+                        className={cn(
+                          header.column.getCanSort() &&
+                            "flex h-full cursor-pointer items-center justify-between gap-2 select-none"
+                        )}
+                        onClick={header.column.getToggleSortingHandler()}
+                        onKeyDown={(e) => {
+                          if (
+                            header.column.getCanSort() &&
+                            (e.key === "Enter" || e.key === " ")
+                          ) {
+                            e.preventDefault();
+                            header.column.getToggleSortingHandler()?.(e);
+                          }
+                        }}
+                        tabIndex={header.column.getCanSort() ? 0 : undefined}
+                      >
+                        <span className="truncate">
+                          {flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                        </span>
+                      </div>
+                    )}
+                    {header.column.getCanResize() && (
+                      <div
+                        {...{
+                          onDoubleClick: () => header.column.resetSize(),
+                          onMouseDown: header.getResizeHandler(),
+                          onTouchStart: header.getResizeHandler(),
+                          className:
+                            "absolute top-1/2 -translate-y-2/4  group-hover:before:opacity-100 h-6  w-4 cursor-col-resize user-select-none touch-none -right-1.5 z-10 flex justify-center before:absolute  before:w-0.5 before:rounded-sm before:opacity-0 before:inset-y-0 before:bg-border before:translate-x-px",
+                        }}
+                      />
+                    )}
+                  </TableHead>
+                );
+              })}
             </TableRow>
           ))}
         </TableHeader>
@@ -471,7 +502,7 @@ const MailTableDemo = () => {
                 {row.getVisibleCells().map((cell) => (
                   <TableCell
                     key={cell.id}
-                    className="overflow-hidden align-top [&:last-child>*]:pr-3.5 [&:first-child>*]:pl-3.5"
+                    className="overflow-hidden align-top [&:last-child>*]:pr-3 [&:first-child>*]:pl-3"
                   >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
