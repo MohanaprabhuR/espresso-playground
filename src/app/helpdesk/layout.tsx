@@ -9,6 +9,7 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
+  BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
@@ -30,7 +31,7 @@ export default function RootLayout({
                   <Breadcrumb>
                     <BreadcrumbList size="md">
                       <BreadcrumbItem>
-                        <BreadcrumbLink href="#">Tickets</BreadcrumbLink>
+                        <BreadcrumbPage>Tickets</BreadcrumbPage>
                       </BreadcrumbItem>
                     </BreadcrumbList>
                   </Breadcrumb>

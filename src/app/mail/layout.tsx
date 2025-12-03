@@ -7,6 +7,7 @@ import { Header } from "@/components/ui/header";
 import { LogoStart } from "../../../public/images/svg/logo-star";
 import {
   Breadcrumb,
+  BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
@@ -32,9 +33,9 @@ export default function RootLayout({
                 <Header className="py-0">
                   <Breadcrumb>
                     <BreadcrumbList size="md">
-                      <BreadcrumbPage className="p-0">
-                        <BreadcrumbLink href="#">Inbox</BreadcrumbLink>
-                      </BreadcrumbPage>
+                      <BreadcrumbItem>
+                        <BreadcrumbPage>Income</BreadcrumbPage>
+                      </BreadcrumbItem>
                     </BreadcrumbList>
                   </Breadcrumb>
                   <div>

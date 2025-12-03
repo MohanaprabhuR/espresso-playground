@@ -6,6 +6,7 @@ import DriveTableSidebar from "./drive-table-sidebar";
 import { Header } from "@/components/ui/header";
 import {
   Breadcrumb,
+  BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
@@ -29,9 +30,9 @@ export default function RootLayout({
                 <Header>
                   <Breadcrumb>
                     <BreadcrumbList size="md">
-                      <BreadcrumbPage className="p-0">
-                        <BreadcrumbLink href="#">My drive</BreadcrumbLink>
-                      </BreadcrumbPage>
+                      <BreadcrumbItem>
+                        <BreadcrumbPage>My drive</BreadcrumbPage>
+                      </BreadcrumbItem>
                     </BreadcrumbList>
                   </Breadcrumb>
                   <Button>
