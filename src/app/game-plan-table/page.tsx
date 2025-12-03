@@ -295,112 +295,96 @@ const driveTabelDemo = () => {
     getFilteredRowModel: getFilteredRowModel(),
   });
   return (
-    <div className="pt-10 ">
-      <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
-        Game Planning Table
-      </h1>
-      <div className="flex flex-col mx-auto gap-y-4.5 w-full  items-center justify-center">
-        <div className="flex justify-between items-center w-full max-w-[900px] mx-auto">
-          <span className="text-lg font-semibold tracking-4 leading-tight text-foreground">
-            Tasks
-          </span>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="secondary">
-                <ArrowDownUp className="size-4" /> Newest
-                <ChevronDown className="size-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem>Open</DropdownMenuItem>
-              <DropdownMenuItem>Close</DropdownMenuItem>
-              <DropdownMenuItem>Edit</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-        <Table
-          className="table-fixed w-full mx-auto "
-          style={{
-            width: table.getCenterTotalSize(),
-          }}
-        >
-          <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id} className="group">
-                {headerGroup.headers.map((header) => {
-                  return (
-                    <TableHead
-                      key={header.id}
-                      className="relative last:[&>.cursor-col-resize]:opacity-0 group"
-                      {...{
-                        colSpan: header.colSpan,
-                        style: {
-                          width: header.getSize(),
-                        },
-                      }}
-                    >
-                      {header.isPlaceholder ? null : (
-                        <div
-                          className={cn(
-                            header.column.getCanSort() &&
-                              "flex h-full cursor-pointer items-center justify-between gap-2 select-none"
-                          )}
-                          onKeyDown={(e) => {
-                            if (
-                              header.column.getCanSort() &&
-                              (e.key === "Enter" || e.key === " ")
-                            ) {
-                              e.preventDefault();
-                              header.column.getToggleSortingHandler()?.(e);
-                            }
-                          }}
-                          tabIndex={header.column.getCanSort() ? 0 : undefined}
-                        >
-                          <span className="truncate">
-                            {flexRender(
-                              header.column.columnDef.header,
-                              header.getContext()
-                            )}
-                          </span>
-                        </div>
-                      )}
-                    </TableHead>
-                  );
-                })}
-              </TableRow>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  className="group"
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="truncate">
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center"
-                >
-                  No results.
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
+    <div className="flex flex-col mx-auto gap-y-4.5 w-full  items-center justify-center">
+      <div className="flex justify-between items-center w-full max-w-[900px] mx-auto">
+        <span className="text-lg font-semibold tracking-4 leading-tight text-foreground">
+          Tasks
+        </span>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="secondary">
+              <ArrowDownUp className="size-4" /> Newest
+              <ChevronDown className="size-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuItem>Open</DropdownMenuItem>
+            <DropdownMenuItem>Close</DropdownMenuItem>
+            <DropdownMenuItem>Edit</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
+      <Table className="table-fixed w-full mx-auto max-w-[900px]">
+        <TableHeader>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <TableRow key={headerGroup.id} className="group">
+              {headerGroup.headers.map((header) => {
+                return (
+                  <TableHead
+                    key={header.id}
+                    className="relative last:[&>.cursor-col-resize]:opacity-0 group"
+                    {...{
+                      colSpan: header.colSpan,
+                      style: {
+                        width: header.getSize(),
+                      },
+                    }}
+                  >
+                    {header.isPlaceholder ? null : (
+                      <div
+                        className={cn(
+                          header.column.getCanSort() &&
+                            "flex h-full cursor-pointer items-center justify-between gap-2 select-none"
+                        )}
+                        onKeyDown={(e) => {
+                          if (
+                            header.column.getCanSort() &&
+                            (e.key === "Enter" || e.key === " ")
+                          ) {
+                            e.preventDefault();
+                            header.column.getToggleSortingHandler()?.(e);
+                          }
+                        }}
+                        tabIndex={header.column.getCanSort() ? 0 : undefined}
+                      >
+                        <span className="truncate">
+                          {flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                        </span>
+                      </div>
+                    )}
+                  </TableHead>
+                );
+              })}
+            </TableRow>
+          ))}
+        </TableHeader>
+        <TableBody>
+          {table.getRowModel().rows?.length ? (
+            table.getRowModel().rows.map((row) => (
+              <TableRow
+                className="group"
+                key={row.id}
+                data-state={row.getIsSelected() && "selected"}
+              >
+                {row.getVisibleCells().map((cell) => (
+                  <TableCell key={cell.id} className="truncate">
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))
+          ) : (
+            <TableRow>
+              <TableCell colSpan={columns.length} className="h-24 text-center">
+                No results.
+              </TableCell>
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
     </div>
   );
 };

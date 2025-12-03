@@ -308,7 +308,7 @@ export const columns: ColumnDef<MailItem>[] = [
     enableSorting: false,
     enableHiding: false,
     enableResizing: false,
-    size: 55,
+    size: 60,
   },
   {
     accessorKey: "name",
@@ -390,134 +390,123 @@ const MailTableDemo = () => {
   });
 
   return (
-    <div className="pt-10">
-      <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-tight leading-normal">
-        Mail Table
-      </h1>
-      <div className="flex flex-col mx-auto w-full  items-center justify-center">
-        <div className="flex justify-between items-center w-full px-2.5 py-3 border-t border-b">
-          <div className="flex items-center gap-x-2.5">
-            <div className="flex items-center gap-x-1">
-              <Checkbox
-                checked={
-                  table.getIsAllPageRowsSelected() ||
-                  (table.getIsSomePageRowsSelected() && "indeterminate")
-                }
-                onCheckedChange={(value) =>
-                  table.toggleAllPageRowsSelected(!!value)
-                }
-                aria-label="Select all"
-              />
-              <Button variant="ghost" iconOnly>
-                <ChevronDown className="size-4" />
-              </Button>
-            </div>
-            <ButtonGroup destructive>
-              <Button variant="outline">
-                <Check className="size-4" />
-                Has attachment
-              </Button>
-              <Button variant="outline">
-                <Check className="size-4" />
-                Image
-              </Button>
-              <Button variant="outline">PDF</Button>
-              <Button variant="outline">
-                From
-                <ChevronDown className="size-4" />
-              </Button>
-              <Button variant="outline">
-                Any time
-                <ChevronDown className="size-4" />
-              </Button>
-              <Button variant="outline">
-                To
-                <ChevronDown className="size-4" />
-              </Button>
-              <Button variant="outline">Is unread</Button>
-              <Button variant="ghost">Advanced search</Button>
-            </ButtonGroup>
+    <div className="flex flex-col mx-auto w-full">
+      <div className="flex justify-between items-center w-full px-6 py-3  border-b">
+        <div className="flex items-center gap-x-2.5">
+          <div className="flex items-center gap-x-1">
+            <Checkbox
+              checked={
+                table.getIsAllPageRowsSelected() ||
+                (table.getIsSomePageRowsSelected() && "indeterminate")
+              }
+              onCheckedChange={(value) =>
+                table.toggleAllPageRowsSelected(!!value)
+              }
+              aria-label="Select all"
+            />
+            <Button variant="ghost" iconOnly>
+              <ChevronDown className="size-4" />
+            </Button>
           </div>
-          <Label size="sm" className="text-right w-full block text-xs">
-            1-50 of 2,000
-          </Label>
+          <ButtonGroup destructive>
+            <Button variant="outline">
+              <Check className="size-4" />
+              Has attachment
+            </Button>
+            <Button variant="outline">
+              <Check className="size-4" />
+              Image
+            </Button>
+            <Button variant="outline">PDF</Button>
+            <Button variant="outline">
+              From
+              <ChevronDown className="size-4" />
+            </Button>
+            <Button variant="outline">
+              Any time
+              <ChevronDown className="size-4" />
+            </Button>
+            <Button variant="outline">
+              To
+              <ChevronDown className="size-4" />
+            </Button>
+            <Button variant="outline">Is unread</Button>
+            <Button variant="ghost">Advanced search</Button>
+          </ButtonGroup>
         </div>
-        <Table className="table-fixed w-full min-w-full">
-          <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id} className="!border-0">
-                {headerGroup.headers.map((header) => {
-                  return (
-                    <TableHead
-                      key={header.id}
-                      className="relative last:[&>.cursor-col-resize]:opacity-0 group p-0"
-                      {...{
-                        colSpan: header.colSpan,
-                        style: {
-                          width: header.getSize(),
-                        },
-                      }}
-                    >
-                      {header.isPlaceholder ? null : (
-                        <div
-                          onKeyDown={(e) => {
-                            if (
-                              header.column.getCanSort() &&
-                              (e.key === "Enter" || e.key === " ")
-                            ) {
-                              e.preventDefault();
-                              header.column.getToggleSortingHandler()?.(e);
-                            }
-                          }}
-                          tabIndex={header.column.getCanSort() ? 0 : undefined}
-                        >
-                          <span className="truncate">
-                            {flexRender(
-                              header.column.columnDef.header,
-                              header.getContext()
-                            )}
-                          </span>
-                        </div>
-                      )}
-                    </TableHead>
-                  );
-                })}
-              </TableRow>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell
-                      key={cell.id}
-                      className="overflow-hidden align-top"
-                    >
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center "
-                >
-                  No results.
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
+        <Label size="sm" className="text-right w-full block text-xs">
+          1-50 of 2,000
+        </Label>
       </div>
+      <Table className="table-fixed w-full min-w-full">
+        <TableHeader>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <TableRow key={headerGroup.id} className="!border-0">
+              {headerGroup.headers.map((header) => {
+                return (
+                  <TableHead
+                    key={header.id}
+                    className="relative last:[&>.cursor-col-resize]:opacity-0 group p-0 "
+                    {...{
+                      colSpan: header.colSpan,
+                      style: {
+                        width: header.getSize(),
+                      },
+                    }}
+                  >
+                    {header.isPlaceholder ? null : (
+                      <div
+                        onKeyDown={(e) => {
+                          if (
+                            header.column.getCanSort() &&
+                            (e.key === "Enter" || e.key === " ")
+                          ) {
+                            e.preventDefault();
+                            header.column.getToggleSortingHandler()?.(e);
+                          }
+                        }}
+                        tabIndex={header.column.getCanSort() ? 0 : undefined}
+                      >
+                        <span className="truncate">
+                          {flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                        </span>
+                      </div>
+                    )}
+                  </TableHead>
+                );
+              })}
+            </TableRow>
+          ))}
+        </TableHeader>
+        <TableBody>
+          {table.getRowModel().rows?.length ? (
+            table.getRowModel().rows.map((row) => (
+              <TableRow
+                key={row.id}
+                data-state={row.getIsSelected() && "selected"}
+              >
+                {row.getVisibleCells().map((cell) => (
+                  <TableCell
+                    key={cell.id}
+                    className="overflow-hidden align-top [&:last-child>*]:pr-3.5 [&:first-child>*]:pl-3.5"
+                  >
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))
+          ) : (
+            <TableRow>
+              <TableCell colSpan={columns.length} className="h-24 text-center ">
+                No results.
+              </TableCell>
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
     </div>
   );
 };
