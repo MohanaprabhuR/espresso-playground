@@ -9,7 +9,6 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
-  BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
@@ -30,18 +29,16 @@ export default function RootLayout({
                 <Header>
                   <Breadcrumb>
                     <BreadcrumbList size="md">
-                      <BreadcrumbPage>
+                      <BreadcrumbItem>
                         <BreadcrumbLink href="#">Tickets</BreadcrumbLink>
-                      </BreadcrumbPage>
+                      </BreadcrumbItem>
                     </BreadcrumbList>
                   </Breadcrumb>
                   <Button>
                     <Plus /> New Ticket
                   </Button>
                 </Header>
-                <main className="flex-1 flex px-5 py-2.5 overflow-auto">
-                  {children}
-                </main>
+                <main className="flex-1 flex   overflow-auto">{children}</main>
               </div>
               <Toaster />
             </div>

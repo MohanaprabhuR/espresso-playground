@@ -39,9 +39,7 @@ export default function RootLayout({
                     <ChevronDown />
                   </Button>
                 </Header>
-                <main className="flex-1 flex px-5 py-2.5 overflow-auto">
-                  {children}
-                </main>
+                <main className="flex-1 flex   overflow-auto">{children}</main>
               </div>
 
               <Toaster />

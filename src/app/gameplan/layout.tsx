@@ -14,8 +14,6 @@ import {
 } from "@/components/ui/breadcrumb";
 import {
   Check,
-  ChevronLeft,
-  ChevronRight,
   Ellipsis,
   FileArchive,
   Files,
@@ -26,7 +24,6 @@ import {
   Trash,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ButtonGroup } from "@/components/ui/button-group";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -105,9 +102,7 @@ export default function RootLayout({
                     </Button>
                   </div>
                 </Header>
-                <main className="flex-1 py-6 pl-3 pr-5 overflow-auto">
-                  {children}
-                </main>
+                <main className="flex-1  overflow-auto">{children}</main>
               </div>
               <Toaster />
             </div>

@@ -295,7 +295,7 @@ const driveTabelDemo = () => {
     getFilteredRowModel: getFilteredRowModel(),
   });
   return (
-    <div className="flex flex-col mx-auto gap-y-4.5 w-full  items-center justify-center">
+    <div className="flex flex-col mx-auto gap-y-4.5 w-full  h-[calc(100vh-60px)] relative pb-11 py-6 pl-3 pr-5">
       <div className="flex justify-between items-center w-full max-w-[900px] mx-auto">
         <span className="text-lg font-semibold tracking-4 leading-tight text-foreground">
           Tasks

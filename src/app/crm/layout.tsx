@@ -9,7 +9,6 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
-  BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import {
@@ -17,7 +16,6 @@ import {
   ChevronDown,
   CircleGauge,
   FileText,
-  LayoutDashboard,
   LayoutGrid,
   Plus,
 } from "lucide-react";
@@ -103,9 +101,7 @@ export default function RootLayout({
                     Create
                   </Button>
                 </Header>
-                <main className="flex-1 flex px-5 py-2.5 overflow-auto">
-                  {children}
-                </main>
+                <main className="flex-1 flex overflow-auto">{children}</main>
               </div>
               <Toaster />
             </div>

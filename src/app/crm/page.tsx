@@ -39,6 +39,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Kbd, KbdGroup } from "@/components/ui/kbd";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Label } from "@/components/ui/label";
 
 interface DealItem {
   name: string;
@@ -380,7 +382,7 @@ const dataTabelDemo = () => {
     getFilteredRowModel: getFilteredRowModel(),
   });
   return (
-    <div className="flex flex-col mx-auto gap-y-4.5 w-full  items-center justify-center">
+    <div className="flex flex-col mx-auto gap-y-4.5 w-full  h-[calc(100vh-50px)] px-5 relative pb-11 pt-2.5">
       <div className="flex justify-between items-center w-full">
         <ButtonGroup destructive className="gap-x-2">
           <Button variant="secondary">Lead Owner</Button>
@@ -568,6 +570,16 @@ const dataTabelDemo = () => {
           )}
         </TableBody>
       </Table>
+      <div className="absolute bottom-0 border-t px-2 py-1.5 flex items-center justify-between w-full bg-background">
+        <Tabs defaultValue="20">
+          <TabsList>
+            <TabsTrigger value="20">20</TabsTrigger>
+            <TabsTrigger value="50">50</TabsTrigger>
+            <TabsTrigger value="80">80</TabsTrigger>
+          </TabsList>
+        </Tabs>
+        <Label>18 of 32</Label>
+      </div>
     </div>
   );
 };

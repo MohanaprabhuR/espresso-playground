@@ -404,7 +404,7 @@ const MailTableDemo = () => {
   });
 
   return (
-    <div className="flex flex-col mx-auto w-full">
+    <div className="flex flex-col mx-auto w-full h-[calc(100vh-60px)]  relative pb-11">
       <Table
         className="table-fixed w-full min-w-full"
         style={{

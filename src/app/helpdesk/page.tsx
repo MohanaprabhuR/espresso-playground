@@ -1,6 +1,6 @@
 "use client";
 
-import React, { CSSProperties, useState } from "react";
+import React from "react";
 import {
   Table,
   TableBody,
@@ -22,6 +22,8 @@ import {
 import {
   ChevronDown,
   ChevronDownIcon,
+  ChevronLeft,
+  ChevronRight,
   ChevronUpIcon,
   Columns2,
   ListFilter,
@@ -35,6 +37,14 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface Ticket {
   id: string;
@@ -560,7 +570,7 @@ const helpDeskTabelDemo = () => {
     getFilteredRowModel: getFilteredRowModel(),
   });
   return (
-    <div className="flex flex-col mx-auto gap-y-4.5 w-full  items-center justify-center">
+    <div className="flex flex-col mx-auto gap-y-4.5 w-full  h-[calc(100vh-60px)] px-5 relative pb-11 pt-2.5">
       <div className="flex justify-between items-center w-full ">
         <Input
           className="max-w-[280px]"
@@ -695,6 +705,37 @@ const helpDeskTabelDemo = () => {
           )}
         </TableBody>
       </Table>
+      <div className="absolute bottom-0 border-t px-7 py-1.5 flex items-center justify-between w-full bg-background">
+        <div className="flex gap-x-2 items-center">
+          <Label className="text-muted-foreground">Show rows per page</Label>
+          <Select>
+            <SelectTrigger
+              variant="outline"
+              icon={<ChevronDown />}
+              defaultValue="15"
+            >
+              <SelectValue placeholder="15" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="15">15</SelectItem>
+              <SelectItem value="25">25</SelectItem>
+              <SelectItem value="35">35</SelectItem>
+              <SelectItem value="45">45</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="flex items-center gap-x-2">
+          <Label className="text-muted-foreground">1-15 of 150</Label>
+          <ButtonGroup destructive>
+            <Button variant="ghost" iconOnly>
+              <ChevronLeft />
+            </Button>
+            <Button variant="ghost" iconOnly>
+              <ChevronRight />
+            </Button>
+          </ButtonGroup>
+        </div>
+      </div>
     </div>
   );
 };

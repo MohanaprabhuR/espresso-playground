@@ -294,9 +294,7 @@ const DriveTableSidebar = () => {
           <SidebarMenuItem className="gap-2.5 flex flex-col">
             {!isCollapsed && (
               <>
-                <Label className="text-secondary-foreground font-medium">
-                  Storage
-                </Label>
+                <Label className="font-medium">Storage</Label>
                 <Progress
                   value={80}
                   showLabel

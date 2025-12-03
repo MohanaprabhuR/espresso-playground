@@ -420,9 +420,7 @@ const MailTableSidebar = () => {
                     ))}
                   </div>
                 </SidebarGroup>
-                <Label className="text-secondary-foreground font-medium">
-                  Storage
-                </Label>
+                <Label className="font-medium">Storage</Label>
                 <Progress
                   value={90}
                   showLabel
