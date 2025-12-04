@@ -570,8 +570,8 @@ const helpDeskTabelDemo = () => {
     getFilteredRowModel: getFilteredRowModel(),
   });
   return (
-    <div className="flex flex-col mx-auto gap-y-4.5 w-full  h-[calc(100vh-60px)] px-5 relative pb-11 pt-2.5">
-      <div className="flex justify-between items-center w-full ">
+    <div className="flex flex-col mx-auto gap-y-4.5 w-full  h-[calc(100vh-60px)]  relative pb-11 pt-2.5">
+      <div className="flex justify-between items-center w-full px-5">
         <Input
           className="max-w-[280px]"
           placeholder="Try “first due” or ticket type"
@@ -592,119 +592,127 @@ const helpDeskTabelDemo = () => {
           </Button>
         </ButtonGroup>
       </div>
-      <Table
-        className="table-fixed w-full min-w-0"
-        style={{
-          width: table.getCenterTotalSize(),
-        }}
-      >
-        <TableHeader>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => {
-                return (
-                  <TableHead
-                    key={header.id}
-                    className="relative  group last:text-right [&:last-child>*]:justify-end"
-                    aria-sort={
-                      header.column.getIsSorted() === "asc"
-                        ? "ascending"
-                        : header.column.getIsSorted() === "desc"
-                          ? "descending"
-                          : "none"
-                    }
-                    {...{
-                      colSpan: header.colSpan,
-                      style: {
-                        width: header.getSize(),
-                      },
-                    }}
-                  >
-                    {header.isPlaceholder ? null : (
-                      <div
-                        className={cn(
-                          header.column.getCanSort() &&
-                            "flex h-full cursor-pointer items-center justify-between gap-2 select-none"
-                        )}
-                        onClick={header.column.getToggleSortingHandler()}
-                        onKeyDown={(e) => {
-                          if (
+      <div className="px-5">
+        <Table
+          className="table-fixed w-full min-w-0"
+          style={{
+            width: table.getCenterTotalSize(),
+          }}
+        >
+          <TableHeader>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id}>
+                {headerGroup.headers.map((header) => {
+                  return (
+                    <TableHead
+                      key={header.id}
+                      className="relative  group last:text-right [&:last-child>*]:justify-end"
+                      aria-sort={
+                        header.column.getIsSorted() === "asc"
+                          ? "ascending"
+                          : header.column.getIsSorted() === "desc"
+                            ? "descending"
+                            : "none"
+                      }
+                      {...{
+                        colSpan: header.colSpan,
+                        style: {
+                          width: header.getSize(),
+                        },
+                      }}
+                    >
+                      {header.isPlaceholder ? null : (
+                        <div
+                          className={cn(
                             header.column.getCanSort() &&
-                            (e.key === "Enter" || e.key === " ")
-                          ) {
-                            e.preventDefault();
-                            header.column.getToggleSortingHandler()?.(e);
-                          }
-                        }}
-                        tabIndex={header.column.getCanSort() ? 0 : undefined}
-                      >
-                        <span className="truncate">
-                          {flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
+                              "flex h-full cursor-pointer items-center justify-between gap-2 select-none"
                           )}
-                        </span>
-                        {{
-                          asc: (
-                            <ChevronUpIcon
-                              className="shrink-0 opacity-60"
-                              size={16}
-                              aria-hidden="true"
-                            />
-                          ),
-                          desc: (
-                            <ChevronDownIcon
-                              className="shrink-0 opacity-60"
-                              size={16}
-                              aria-hidden="true"
-                            />
-                          ),
-                        }[header.column.getIsSorted() as string] ?? null}
-                      </div>
-                    )}
-                    {header.column.getCanResize() && (
-                      <div
-                        {...{
-                          onDoubleClick: () => header.column.resetSize(),
-                          onMouseDown: header.getResizeHandler(),
-                          onTouchStart: header.getResizeHandler(),
-                          className:
-                            "absolute top-1/2 -translate-y-2/4  group-hover:before:opacity-100 h-6  w-4 cursor-col-resize user-select-none touch-none -right-1.5 z-10 flex justify-center before:absolute  before:w-0.5 before:rounded-sm before:opacity-0 before:inset-y-0 before:bg-border before:translate-x-px",
-                        }}
-                      />
-                    )}
-                  </TableHead>
-                );
-              })}
-            </TableRow>
-          ))}
-        </TableHeader>
-        <TableBody>
-          {table.getRowModel().rows?.length ? (
-            table.getRowModel().rows.map((row) => (
-              <TableRow
-                key={row.id}
-                data-state={row.getIsSelected() && "selected"}
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell
-                    key={cell.id}
-                    className="truncate last:text-right [&:last-child>*]:justify-end"
-                  >
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TableCell>
-                ))}
+                          onClick={header.column.getToggleSortingHandler()}
+                          onKeyDown={(e) => {
+                            if (
+                              header.column.getCanSort() &&
+                              (e.key === "Enter" || e.key === " ")
+                            ) {
+                              e.preventDefault();
+                              header.column.getToggleSortingHandler()?.(e);
+                            }
+                          }}
+                          tabIndex={header.column.getCanSort() ? 0 : undefined}
+                        >
+                          <span className="truncate">
+                            {flexRender(
+                              header.column.columnDef.header,
+                              header.getContext()
+                            )}
+                          </span>
+                          {{
+                            asc: (
+                              <ChevronUpIcon
+                                className="shrink-0 opacity-60"
+                                size={16}
+                                aria-hidden="true"
+                              />
+                            ),
+                            desc: (
+                              <ChevronDownIcon
+                                className="shrink-0 opacity-60"
+                                size={16}
+                                aria-hidden="true"
+                              />
+                            ),
+                          }[header.column.getIsSorted() as string] ?? null}
+                        </div>
+                      )}
+                      {header.column.getCanResize() && (
+                        <div
+                          {...{
+                            onDoubleClick: () => header.column.resetSize(),
+                            onMouseDown: header.getResizeHandler(),
+                            onTouchStart: header.getResizeHandler(),
+                            className:
+                              "absolute top-1/2 -translate-y-2/4  group-hover:before:opacity-100 h-6  w-4 cursor-col-resize user-select-none touch-none -right-1.5 z-10 flex justify-center before:absolute  before:w-0.5 before:rounded-sm before:opacity-0 before:inset-y-0 before:bg-border before:translate-x-px",
+                          }}
+                        />
+                      )}
+                    </TableHead>
+                  );
+                })}
               </TableRow>
-            ))
-          ) : (
-            <TableRow>
-              <TableCell colSpan={columns.length} className="h-24 text-center">
-                No results.
-              </TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
+            ))}
+          </TableHeader>
+          <TableBody>
+            {table.getRowModel().rows?.length ? (
+              table.getRowModel().rows.map((row) => (
+                <TableRow
+                  key={row.id}
+                  data-state={row.getIsSelected() && "selected"}
+                >
+                  {row.getVisibleCells().map((cell) => (
+                    <TableCell
+                      key={cell.id}
+                      className="truncate last:text-right [&:last-child>*]:justify-end"
+                    >
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))
+            ) : (
+              <TableRow>
+                <TableCell
+                  colSpan={columns.length}
+                  className="h-24 text-center"
+                >
+                  No results.
+                </TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </div>
       <div className="absolute bottom-0 border-t px-7 py-1.5 flex items-center justify-between w-full bg-background">
         <div className="flex gap-x-2 items-center">
           <Label className="text-muted-foreground">Show rows per page</Label>
