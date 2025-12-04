@@ -68,7 +68,7 @@ const menuConfig = {
     { label: "Search", icon: "Search", href: "#", badge: "⌘ K" },
     { label: "Notifications", icon: "Bell", href: "#" },
     { label: "Inbox", icon: "Inbox", href: "#" },
-    { label: "Home", icon: "House", href: "/game-plan-table", badge: "23" },
+    { label: "Home", icon: "House", href: "/gameplan", badge: "23" },
     { label: "Drafts", icon: "CircleCheckBig", href: "#" },
     { label: "Tasks", icon: "Settings", href: "#" },
     { label: "Pages", icon: "Files", href: "#" },

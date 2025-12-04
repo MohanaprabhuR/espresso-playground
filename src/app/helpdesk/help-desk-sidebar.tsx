@@ -65,7 +65,7 @@ const menuConfig = {
     { label: "Notifications", icon: "Bell", href: "#" },
   ],
   mainMenu: [
-    { label: "Tickets", icon: "Ticket", href: "/help-desk-table" },
+    { label: "Tickets", icon: "Ticket", href: "/helpdesk" },
     { label: "Knowledge Base", icon: "BookOpen", href: "#" },
     {
       label: "Canned response",

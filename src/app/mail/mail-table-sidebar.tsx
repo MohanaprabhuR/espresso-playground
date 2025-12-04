@@ -74,7 +74,7 @@ const menuConfig = {
     { label: "Dashboard", icon: "LayoutDashboard", href: "#" },
     { label: "Tasks", icon: "CircleCheck", href: "#" },
     { label: "Notes", icon: "FileText", href: "#" },
-    { label: "Emails", icon: "Inbox", href: "/mail-table", badge: "5" },
+    { label: "Emails", icon: "Inbox", href: "/mail", badge: "5" },
     { label: "Leads", icon: "Users", href: "#" },
     { label: "Deals", icon: "Handshake", href: "#" },
     { label: "Organization", icon: "Building2", href: "#" },

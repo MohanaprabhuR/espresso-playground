@@ -69,7 +69,7 @@ const menuConfig = {
     { label: "Notes", icon: "NotebookPen", href: "#" },
     { label: "Emails", icon: "Mail", href: "#" },
     { label: "Leads", icon: "Weight", href: "#" },
-    { label: "Deals", icon: "Handshake", href: "/crm-deal-table" },
+    { label: "Deals", icon: "Handshake", href: "/crm" },
     { label: "Organization", icon: "Building2", href: "#" },
     { label: "Calendar", icon: "Calendar", href: "#" },
     { label: "Contacts", icon: "SquareUser", href: "#" },
