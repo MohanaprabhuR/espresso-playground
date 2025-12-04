@@ -336,7 +336,7 @@ export const columns: ColumnDef<MailItem>[] = [
     cell: ({ row }) => (
       <div className="gap-y-2.5 flex flex-col min-w-0">
         <span
-          className="truncate w-full [&_strong]:text-foreground [&_strong]:font-medium"
+          className="truncate w-full text-muted-foreground [&_strong]:text-foreground  [&_strong]:font-medium"
           dangerouslySetInnerHTML={{ __html: row.original.description }}
         />
         {row.original.attachments && row.original.attachments.length > 0 && (

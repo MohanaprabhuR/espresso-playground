@@ -72,7 +72,7 @@ interface Ticket {
 const data: Ticket[] = [
   {
     id: "#06070",
-    ticket: "Update website content for new products",
+    ticket: "<strong>Update website content for new products</strong>",
     status: "New",
     status_image: "/images/svg/new.svg",
     firstDue: "22h 30m",
@@ -413,9 +413,12 @@ export const columns: ColumnDef<Ticket>[] = [
     accessorKey: "ticket",
     header: "Ticket",
     cell: ({ row }) => (
-      <>
-        <span className="truncate">{row.original.ticket}</span>
-      </>
+      <div className="min-w-0 flex flex-col">
+        <span
+          className="truncate w-full text-secondary-foreground [&_strong]:text-accent-foreground [&_strong]:font-medium"
+          dangerouslySetInnerHTML={{ __html: row.original.ticket }}
+        />
+      </div>
     ),
     size: 316,
   },
