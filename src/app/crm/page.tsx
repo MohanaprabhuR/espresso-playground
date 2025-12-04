@@ -382,7 +382,7 @@ const dataTabelDemo = () => {
     getFilteredRowModel: getFilteredRowModel(),
   });
   return (
-    <div className="flex flex-col mx-auto gap-y-4.5 w-full  h-[calc(100vh-50px)]  relative pb-11 pt-2.5">
+    <div className="flex flex-col mx-auto gap-y-4.5 w-full  h-[calc(100vh-50px)]  relative pb-11 pt-2.5 overflow-scroll">
       <div className="flex justify-between items-center w-full px-5">
         <ButtonGroup destructive className="gap-x-2">
           <Button variant="secondary">Lead Owner</Button>
@@ -577,7 +577,7 @@ const dataTabelDemo = () => {
           </TableBody>
         </Table>
       </div>
-      <div className="absolute bottom-0 border-t px-2 py-1.5 flex items-center justify-between w-full bg-background">
+      <div className="fixed bottom-0 border-t px-2 py-1.5 flex items-center justify-between w-full bg-background">
         <Tabs defaultValue="20">
           <TabsList>
             <TabsTrigger value="20">20</TabsTrigger>

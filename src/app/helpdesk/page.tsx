@@ -359,7 +359,7 @@ const data: Ticket[] = [
   },
   {
     id: "06054",
-    ticket: "<strong>Optimize website load time and performance</strong>",
+    ticket: "<strong>Optimize website load time and performance<strong>",
     status: "Not Started",
     status_image: "/images/svg/resolved.svg",
     firstDue: "Pending",
@@ -415,7 +415,7 @@ export const columns: ColumnDef<Ticket>[] = [
     cell: ({ row }) => (
       <div className="min-w-0 flex flex-col">
         <span
-          className="truncate w-full text-secondary-foreground"
+          className="truncate w-full text-secondary-foreground [&_strong]:text-accent-foreground [&_strong]:font-medium"
           dangerouslySetInnerHTML={{ __html: row.original.ticket }}
         />
       </div>
@@ -573,7 +573,7 @@ const helpDeskTabelDemo = () => {
     getFilteredRowModel: getFilteredRowModel(),
   });
   return (
-    <div className="flex flex-col mx-auto gap-y-4.5 w-full  h-[calc(100vh-60px)]  relative pb-11 pt-2.5">
+    <div className="flex flex-col mx-auto gap-y-4.5 w-full  h-[calc(100vh-60px)]  relative pb-11 pt-2.5 overflow-scroll">
       <div className="flex justify-between items-center w-full px-5">
         <Input
           className="max-w-[280px]"
@@ -716,7 +716,7 @@ const helpDeskTabelDemo = () => {
           </TableBody>
         </Table>
       </div>
-      <div className="absolute bottom-0 border-t px-7 py-1.5 flex items-center justify-between w-full bg-background">
+      <div className="fixed bottom-0 border-t px-7 py-1.5 flex items-center justify-between w-full bg-background">
         <div className="flex gap-x-2 items-center">
           <Label className="text-muted-foreground">Show rows per page</Label>
           <Select>
