@@ -287,34 +287,20 @@ const AttachmentIcon = ({ type }: { type: Attachment["type"] }) => {
 export const columns: ColumnDef<MailItem>[] = [
   {
     id: "select",
-
-    cell: ({ row }) => (
-      <div className="flex gap-x-3">
-        <Checkbox
-          checked={row.getIsSelected()}
-          onCheckedChange={(value) => row.toggleSelected(!!value)}
-          aria-label="Select row"
-        />
-
-        <figure>
-          <Star className="size-4" />
-        </figure>
-      </div>
-    ),
-
-    enableSorting: false,
-    enableHiding: false,
-    enableResizing: false,
-    size: 75,
-  },
-  {
-    accessorKey: "name",
-    header: "",
+    size: 260,
     cell: ({ row }) => {
       const avatars = row.original.avatar;
 
       return (
-        <div className="flex items-center gap-3 min-w-0">
+        <div className="flex items-center gap-x-3 min-w-0">
+          <Checkbox
+            checked={row.getIsSelected()}
+            onCheckedChange={(value) => row.toggleSelected(!!value)}
+            aria-label="Select row"
+          />
+
+          <Star className="size-4 shrink-0" />
+
           {avatars.length > 1 ? (
             <AvatarGroup>
               {avatars.map((img, index) => (
@@ -333,12 +319,17 @@ export const columns: ColumnDef<MailItem>[] = [
             </Avatar>
           )}
 
+          {/* Name */}
           <span className="truncate w-full">{row.original.name}</span>
         </div>
       );
     },
-    size: 214,
+
+    enableSorting: false,
+    enableHiding: false,
+    enableResizing: false,
   },
+
   {
     accessorKey: "description",
     header: "",
@@ -454,17 +445,6 @@ const MailTableDemo = () => {
                           header.column.getCanSort() &&
                             "flex h-full cursor-pointer items-center justify-between gap-2 select-none"
                         )}
-                        onClick={header.column.getToggleSortingHandler()}
-                        onKeyDown={(e) => {
-                          if (
-                            header.column.getCanSort() &&
-                            (e.key === "Enter" || e.key === " ")
-                          ) {
-                            e.preventDefault();
-                            header.column.getToggleSortingHandler()?.(e);
-                          }
-                        }}
-                        tabIndex={header.column.getCanSort() ? 0 : undefined}
                       >
                         <span className="truncate">
                           {flexRender(
