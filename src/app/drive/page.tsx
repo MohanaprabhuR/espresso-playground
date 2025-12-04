@@ -159,7 +159,7 @@ export const columns: ColumnDef<DealItem>[] = [
             <ArrowDownToLine className="size-4" />
           </Button>
           <DropdownMenu>
-            <DropdownMenuTrigger>
+            <DropdownMenuTrigger asChild>
               <Button iconOnly variant="ghost">
                 <Ellipsis className="size-4" />
               </Button>
@@ -198,7 +198,7 @@ export const columns: ColumnDef<DealItem>[] = [
             <ArrowDownToLine className="size-4" />
           </Button>
           <DropdownMenu>
-            <DropdownMenuTrigger>
+            <DropdownMenuTrigger asChild>
               <Button iconOnly variant="ghost">
                 <Ellipsis className="size-4" />
               </Button>

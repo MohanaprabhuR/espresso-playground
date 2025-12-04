@@ -249,7 +249,10 @@ const BreadcrumbDemo = () => {
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <DropdownMenu>
-                    <DropdownMenuTrigger className="flex items-center gap-1">
+                    <DropdownMenuTrigger
+                      asChild
+                      className="flex items-center gap-1"
+                    >
                       <BreadcrumbEllipsis className="size-4" />
                       <span className="sr-only">Toggle menu</span>
                     </DropdownMenuTrigger>
@@ -280,7 +283,10 @@ const BreadcrumbDemo = () => {
                 <BreadcrumbSeparator type="slash" />
                 <BreadcrumbItem>
                   <DropdownMenu>
-                    <DropdownMenuTrigger className="flex items-center gap-1">
+                    <DropdownMenuTrigger
+                      asChild
+                      className="flex items-center gap-1"
+                    >
                       <BreadcrumbEllipsis className="size-4" />
                       <span className="sr-only">Toggle menu</span>
                     </DropdownMenuTrigger>
@@ -311,7 +317,10 @@ const BreadcrumbDemo = () => {
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <DropdownMenu>
-                    <DropdownMenuTrigger className="flex items-center gap-1">
+                    <DropdownMenuTrigger
+                      asChild
+                      className="flex items-center gap-1"
+                    >
                       <BreadcrumbEllipsis className="size-4" />
                       <span className="sr-only">Toggle menu</span>
                     </DropdownMenuTrigger>
@@ -342,7 +351,10 @@ const BreadcrumbDemo = () => {
                 <BreadcrumbSeparator type="slash" />
                 <BreadcrumbItem>
                   <DropdownMenu>
-                    <DropdownMenuTrigger className="flex items-center gap-1">
+                    <DropdownMenuTrigger
+                      asChild
+                      className="flex items-center gap-1"
+                    >
                       <BreadcrumbEllipsis className="size-4" />
                       <span className="sr-only">Toggle menu</span>
                     </DropdownMenuTrigger>
@@ -376,7 +388,10 @@ const BreadcrumbDemo = () => {
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <DropdownMenu>
-                    <DropdownMenuTrigger className="flex items-center gap-1">
+                    <DropdownMenuTrigger
+                      asChild
+                      className="flex items-center gap-1"
+                    >
                       <BreadcrumbEllipsis className="size-4" />
                       <span className="sr-only">Toggle menu</span>
                     </DropdownMenuTrigger>
@@ -415,7 +430,10 @@ const BreadcrumbDemo = () => {
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <DropdownMenu>
-                    <DropdownMenuTrigger className="flex items-center gap-1">
+                    <DropdownMenuTrigger
+                      asChild
+                      className="flex items-center gap-1"
+                    >
                       <BreadcrumbEllipsis className="size-4" />
                       <span className="sr-only">Toggle menu</span>
                     </DropdownMenuTrigger>
@@ -447,7 +465,10 @@ const BreadcrumbDemo = () => {
               <BreadcrumbList size="sm">
                 <BreadcrumbItem>
                   <DropdownMenu>
-                    <DropdownMenuTrigger className="flex items-center gap-1">
+                    <DropdownMenuTrigger
+                      asChild
+                      className="flex items-center gap-1"
+                    >
                       <BreadcrumbEllipsis className="size-4" />
                       <span className="sr-only">Toggle menu</span>
                     </DropdownMenuTrigger>
@@ -487,7 +508,10 @@ const BreadcrumbDemo = () => {
               <BreadcrumbList size="md">
                 <BreadcrumbItem>
                   <DropdownMenu>
-                    <DropdownMenuTrigger className="flex items-center gap-1">
+                    <DropdownMenuTrigger
+                      asChild
+                      className="flex items-center gap-1"
+                    >
                       <BreadcrumbEllipsis className="size-4" />
                       <span className="sr-only">Toggle menu</span>
                     </DropdownMenuTrigger>

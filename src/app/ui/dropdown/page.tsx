@@ -503,7 +503,7 @@ function DropdownDemo() {
             </DropdownMenuContent>
           </DropdownMenu>
           <DropdownMenu>
-            <DropdownMenuTrigger>
+            <DropdownMenuTrigger asChild>
               <Button variant="destructive">Select Option</Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>

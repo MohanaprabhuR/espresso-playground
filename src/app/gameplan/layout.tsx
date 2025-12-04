@@ -65,7 +65,7 @@ export default function RootLayout({
                   </Breadcrumb>
                   <div className="flex items-center gap-x-2">
                     <DropdownMenu>
-                      <DropdownMenuTrigger>
+                      <DropdownMenuTrigger asChild>
                         <Button iconOnly variant="ghost">
                           <Ellipsis className="size-4" />
                         </Button>

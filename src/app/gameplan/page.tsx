@@ -200,7 +200,7 @@ export const columns: ColumnDef<DealItem>[] = [
       return (
         <div className="group">
           <DropdownMenu>
-            <DropdownMenuTrigger>
+            <DropdownMenuTrigger asChild>
               <Button
                 iconOnly
                 variant="ghost"
@@ -242,7 +242,7 @@ export const columns: ColumnDef<DealItem>[] = [
       return (
         <div className="group">
           <DropdownMenu>
-            <DropdownMenuTrigger>
+            <DropdownMenuTrigger asChild>
               <Button
                 iconOnly
                 variant="ghost"
