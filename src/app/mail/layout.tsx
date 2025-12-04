@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Grip, Pencil, RefreshCcw, Search } from "lucide-react";
 import { Tabs, TabsTrigger, TabsList } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
 export default function RootLayout({
   children,
@@ -38,24 +39,29 @@ export default function RootLayout({
                       </BreadcrumbItem>
                     </BreadcrumbList>
                   </Breadcrumb>
-                  <div>
-                    <Tabs defaultValue="primary" variant="underline">
-                      <TabsList className="border-none">
-                        <TabsTrigger value="primary" className="py-4">
-                          Primary <Badge variant="secondary">24</Badge>
-                        </TabsTrigger>
-                        <TabsTrigger value="updates" className="py-4">
-                          Updates
-                        </TabsTrigger>
-                        <TabsTrigger value="social" className="py-4">
-                          Social
-                        </TabsTrigger>
-                        <TabsTrigger value="promotions" className="py-4">
-                          Promotions
-                        </TabsTrigger>
-                      </TabsList>
-                    </Tabs>
+
+                  <div className="flex gap-x-4 ">
+                    {[
+                      { label: "Primary", badge: 24 },
+                      { label: "Updates" },
+                      { label: "Social" },
+                      { label: "Promotions" },
+                    ].map((item) => (
+                      <Link
+                        key={item.label}
+                        href="#"
+                        className="py-4 px-2 flex items-center gap-x-2 hover:text-accent-foreground transition-all ease-in-out duration-200  text-muted-foreground text-base tracking-4 leading-tight font-normal relative after:absolute after:left-0 after:-bottom-px after:h-px after:w-full after:bg-transparent
+       data-[active=true]:text-accent-foreground  data-[active=true]:after:bg-accent-foreground  "
+                        data-active={item.label === "Primary"}
+                      >
+                        {item.label}
+                        {item.badge && (
+                          <Badge variant="secondary">{item.badge}</Badge>
+                        )}
+                      </Link>
+                    ))}
                   </div>
+
                   <div className="flex gap-x-2">
                     <Button iconOnly variant="ghost">
                       <Search />
