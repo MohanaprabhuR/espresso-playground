@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { ArrowUpToLine, ChevronDown, Plus } from "lucide-react";
+import RightDriveTableSidebar from "./rigth-sidebar";
 
 export default function RootLayout({
   children,
@@ -26,22 +27,28 @@ export default function RootLayout({
             <div className="flex min-h-screen w-full">
               <DriveTableSidebar />
               <div className="w-full min-w-0">
-                <Header>
-                  <Breadcrumb>
-                    <BreadcrumbList size="md">
-                      <BreadcrumbItem>
-                        <BreadcrumbPage>My drive</BreadcrumbPage>
-                      </BreadcrumbItem>
-                    </BreadcrumbList>
-                  </Breadcrumb>
-                  <Button>
-                    <ArrowUpToLine /> Upload
-                    <ChevronDown />
-                  </Button>
-                </Header>
-                <main className="flex-1 flex   overflow-auto">{children}</main>
+                <div>
+                  <Header>
+                    <Breadcrumb>
+                      <BreadcrumbList size="md">
+                        <BreadcrumbItem>
+                          <BreadcrumbPage>My drive</BreadcrumbPage>
+                        </BreadcrumbItem>
+                      </BreadcrumbList>
+                    </Breadcrumb>
+                    <Button>
+                      <ArrowUpToLine /> Upload
+                      <ChevronDown />
+                    </Button>
+                  </Header>
+                  <div className="flex">
+                    <main className="flex-1 flex overflow-auto">
+                      {children}
+                    </main>
+                    <RightDriveTableSidebar />
+                  </div>
+                </div>
               </div>
-
               <Toaster />
             </div>
           </SidebarProvider>
