@@ -13,7 +13,6 @@ import {
   List,
   LogOutIcon,
   MapPin,
-  MapPinCheck,
   PinIcon,
   Plus,
   PlusIcon,

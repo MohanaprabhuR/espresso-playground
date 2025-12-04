@@ -8,13 +8,11 @@ import { LogoStart } from "../../../public/images/svg/logo-star";
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Grip, Pencil, RefreshCcw, Search } from "lucide-react";
-import { Tabs, TabsTrigger, TabsList } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 

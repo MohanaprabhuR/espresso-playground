@@ -4,7 +4,6 @@ import React, { CSSProperties } from "react";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableFooter,
   TableHead,
