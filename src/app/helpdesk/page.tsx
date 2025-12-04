@@ -103,7 +103,7 @@ const data: Ticket[] = [
 
   {
     id: "06065",
-    ticket: "Analyze competitors' marketing strategies",
+    ticket: "<strong>Analyze competitors' marketing strategies</strong>",
     status: "New",
     status_image: "/images/svg/new.svg",
     firstDue: "2h 30m",
@@ -119,7 +119,7 @@ const data: Ticket[] = [
 
   {
     id: "06063",
-    ticket: "Create marketing materials for the campaign",
+    ticket: "<strong>Create marketing materials for the campaign</strong>",
     status: "New",
     status_image: "/images/svg/new.svg",
     firstDue: "0h 35m",
@@ -149,7 +149,7 @@ const data: Ticket[] = [
   },
   {
     id: "06058",
-    ticket: "Develop social media strategy for next quarter",
+    ticket: "<strong>Develop social media strategy for next quarter</strong>",
     status: "Awaiting approval",
     status_image: "/images/svg/waiting.svg",
     firstDue: "Failed",
@@ -164,7 +164,7 @@ const data: Ticket[] = [
   },
   {
     id: "06056",
-    ticket: "Develop social media strategy for next quarter",
+    ticket: "<strong>Develop social media strategy for next quarter</strong>",
     status: "Awaiting approval",
     status_image: "/images/svg/waiting.svg",
     firstDue: "Failed",
@@ -179,7 +179,7 @@ const data: Ticket[] = [
   },
   {
     id: "06066",
-    ticket: "Conduct user feedback sessions for product",
+    ticket: "<strong>Conduct user feedback sessions for product</strong>",
     status: "Quotation",
     status_image: "/images/svg/quotation.svg",
     firstDue: "Failed",
@@ -209,7 +209,7 @@ const data: Ticket[] = [
   },
   {
     id: "06054",
-    ticket: "Update website content for new products",
+    ticket: "<strong>Update website content for new products</strong>",
     status: "Closed",
     status_image: "/images/svg/closed.svg",
     firstDue: "Failed",
@@ -269,7 +269,7 @@ const data: Ticket[] = [
   },
   {
     id: "06050",
-    ticket: "Launch email campaign targeting new subscribers",
+    ticket: "<strong>Launch email campaign targeting new subscribers</strong>",
     status: "New",
     status_image: "/images/svg/new.svg",
     firstDue: "1h 45m",
@@ -284,7 +284,7 @@ const data: Ticket[] = [
   },
   {
     id: "06049",
-    ticket: "Conduct A/B testing for website landing page",
+    ticket: "<strong>Conduct A/B testing for website landing page</strong>",
     status: "In Progress",
     status_image: "/images/svg/new.svg",
     firstDue: "Fulfilled",
@@ -359,7 +359,7 @@ const data: Ticket[] = [
   },
   {
     id: "06054",
-    ticket: "Optimize website load time and performance",
+    ticket: "<strong>Optimize website load time and performance</strong>",
     status: "Not Started",
     status_image: "/images/svg/resolved.svg",
     firstDue: "Pending",
@@ -415,7 +415,7 @@ export const columns: ColumnDef<Ticket>[] = [
     cell: ({ row }) => (
       <div className="min-w-0 flex flex-col">
         <span
-          className="truncate w-full text-secondary-foreground [&_strong]:text-accent-foreground [&_strong]:font-medium"
+          className="truncate w-full text-secondary-foreground"
           dangerouslySetInnerHTML={{ __html: row.original.ticket }}
         />
       </div>
