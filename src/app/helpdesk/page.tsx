@@ -38,13 +38,7 @@ import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface Ticket {
   id: string;
@@ -74,7 +68,7 @@ const data: Ticket[] = [
     id: "#06070",
     ticket: "<strong>Update website content for new products</strong>",
     status: "New",
-    status_image: "/images/svg/new.svg",
+    status_image: "/images/svg/open.svg",
     firstDue: "22h 30m",
     resolution: "3d 2h",
     priority: "Medium",
@@ -89,7 +83,7 @@ const data: Ticket[] = [
     id: "#06069",
     ticket: "Prepare presentation for client pitch",
     status: "Resolved",
-    status_image: "/images/svg/resolved.svg",
+    status_image: "/images/svg/qualified.svg",
     firstDue: "Fulfilled",
     resolution: "Fulfilled",
     priority: "Medium",
@@ -105,7 +99,7 @@ const data: Ticket[] = [
     id: "06065",
     ticket: "<strong>Analyze competitors' marketing strategies</strong>",
     status: "New",
-    status_image: "/images/svg/new.svg",
+    status_image: "/images/svg/open.svg",
     firstDue: "2h 30m",
     resolution: "3d 2h",
     priority: "Low",
@@ -121,7 +115,7 @@ const data: Ticket[] = [
     id: "06063",
     ticket: "<strong>Create marketing materials for the campaign</strong>",
     status: "New",
-    status_image: "/images/svg/new.svg",
+    status_image: "/images/svg/open.svg",
     firstDue: "0h 35m",
     resolution: "2d 2h",
     priority: "High",
@@ -136,7 +130,7 @@ const data: Ticket[] = [
     id: "06059",
     ticket: "Create marketing materials for the campaign",
     status: "Resolved",
-    status_image: "/images/svg/resolved.svg",
+    status_image: "/images/svg/qualified.svg",
     firstDue: "Fulfilled",
     resolution: "Fulfilled",
     priority: "Low",
@@ -151,7 +145,7 @@ const data: Ticket[] = [
     id: "06058",
     ticket: "<strong>Develop social media strategy for next quarter</strong>",
     status: "Awaiting approval",
-    status_image: "/images/svg/waiting.svg",
+    status_image: "images/svg/contacted.svg",
     firstDue: "Failed",
     resolution: "3d 2h",
     priority: "High",
@@ -166,7 +160,7 @@ const data: Ticket[] = [
     id: "06056",
     ticket: "<strong>Develop social media strategy for next quarter</strong>",
     status: "Awaiting approval",
-    status_image: "/images/svg/waiting.svg",
+    status_image: "images/svg/contacted.svg",
     firstDue: "Failed",
     resolution: "3d 2h",
     priority: "Medium",
@@ -181,7 +175,7 @@ const data: Ticket[] = [
     id: "06066",
     ticket: "<strong>Conduct user feedback sessions for product</strong>",
     status: "Quotation",
-    status_image: "/images/svg/quotation.svg",
+    status_image: "images/svg/junk.svg",
     firstDue: "Failed",
     resolution: "3d 2h",
     priority: "Medium",
@@ -196,7 +190,7 @@ const data: Ticket[] = [
     id: "06055",
     ticket: "Optimise website SEO for better visibility",
     status: "Resolved",
-    status_image: "/images/svg/resolved.svg",
+    status_image: "/images/svg/qualified.svg",
     firstDue: "Fulfilled",
     resolution: "Fulfilled",
     priority: "Low",
@@ -211,7 +205,7 @@ const data: Ticket[] = [
     id: "06054",
     ticket: "<strong>Update website content for new products</strong>",
     status: "Closed",
-    status_image: "/images/svg/closed.svg",
+    status_image: "/images/svg/unqualified.svg",
     firstDue: "Failed",
     resolution: "3d 2h",
     priority: "Low",
@@ -226,7 +220,7 @@ const data: Ticket[] = [
     id: "06053",
     ticket: "Prepare presentation for client pitch",
     status: "Awaiting Customer",
-    status_image: "/images/svg/waiting-closed.svg",
+    status_image: "/images/svg/contacted.svg",
     firstDue: "Fulfilled",
     resolution: "Fulfilled",
     priority: "Medium",
@@ -241,7 +235,7 @@ const data: Ticket[] = [
     id: "06052",
     ticket: "Analyze competitors' marketing strategies",
     status: "New",
-    status_image: "/images/svg/new.svg",
+    status_image: "/images/svg/open.svg",
     firstDue: "Fulfilled",
     resolution: "Fulfilled",
     priority: "Medium",
@@ -256,7 +250,7 @@ const data: Ticket[] = [
     id: "06051",
     ticket: "Create marketing materials for the campaign",
     status: "Replied",
-    status_image: "/images/svg/resolved.svg",
+    status_image: "/images/svg/qualified.svg",
     firstDue: "Fulfilled",
     resolution: "Fulfilled",
     priority: "Medium",
@@ -271,7 +265,7 @@ const data: Ticket[] = [
     id: "06050",
     ticket: "<strong>Launch email campaign targeting new subscribers</strong>",
     status: "New",
-    status_image: "/images/svg/new.svg",
+    status_image: "/images/svg/open.svg",
     firstDue: "1h 45m",
     resolution: "3d 2h",
     priority: "High",
@@ -286,7 +280,7 @@ const data: Ticket[] = [
     id: "06049",
     ticket: "<strong>Conduct A/B testing for website landing page</strong>",
     status: "In Progress",
-    status_image: "/images/svg/new.svg",
+    status_image: "/images/svg/open.svg",
     firstDue: "Fulfilled",
     resolution: "1d 3h",
     priority: "Medium",
@@ -301,7 +295,7 @@ const data: Ticket[] = [
     id: "06050",
     ticket: "Revamp mobile app interface for improved",
     status: "Resolved",
-    status_image: "/images/svg/resolved.svg",
+    status_image: "/images/svg/qualified.svg",
     firstDue: "Fulfilled",
     resolution: "Fulfilled",
     priority: "High",
@@ -316,7 +310,7 @@ const data: Ticket[] = [
     id: "06051",
     ticket: "Integrate payment gateway for e-commerce",
     status: "Resolved",
-    status_image: "/images/svg/resolved.svg",
+    status_image: "/images/svg/qualified.svg",
     firstDue: "Fulfilled",
     resolution: "Fulfilled",
     priority: "High",
@@ -331,7 +325,7 @@ const data: Ticket[] = [
     id: "06052",
     ticket: "Conduct user research for new product features",
     status: "Resolved",
-    status_image: "/images/svg/resolved.svg",
+    status_image: "/images/svg/qualified.svg",
     firstDue: "Fulfilled",
     resolution: "Fulfilled",
     priority: "Medium",
@@ -346,7 +340,7 @@ const data: Ticket[] = [
     id: "06053",
     ticket: "Update content strategy for social media channels",
     status: "Resolved",
-    status_image: "/images/svg/resolved.svg",
+    status_image: "/images/svg/qualified.svg",
     firstDue: "Fulfilled",
     resolution: "Fulfilled",
     priority: "Low",
@@ -361,7 +355,7 @@ const data: Ticket[] = [
     id: "06054",
     ticket: "<strong>Optimize website load time and performance<strong>",
     status: "Not Started",
-    status_image: "/images/svg/resolved.svg",
+    status_image: "/images/svg/qualified.svg",
     firstDue: "Pending",
     resolution: "4d 8h",
     priority: "High",
@@ -427,7 +421,7 @@ export const columns: ColumnDef<Ticket>[] = [
     header: "Status",
     cell: ({ row }) => (
       <>
-        <Avatar>
+        <Avatar size="xs">
           <AvatarImage src={row.original.status_image}></AvatarImage>
           <AvatarFallback>{row.original.status}</AvatarFallback>
         </Avatar>
@@ -597,7 +591,7 @@ const helpDeskTabelDemo = () => {
       </div>
       <div className="px-5">
         <Table
-          className="table-fixed w-full min-w-0"
+          className="table-fixed w-full min-w-full"
           style={{
             width: table.getCenterTotalSize(),
           }}
@@ -716,36 +710,15 @@ const helpDeskTabelDemo = () => {
           </TableBody>
         </Table>
       </div>
-      <div className="fixed bottom-0 border-t px-7 py-1.5 flex items-center justify-between w-full bg-background">
-        <div className="flex gap-x-2 items-center">
-          <Label className="text-muted-foreground">Show rows per page</Label>
-          <Select>
-            <SelectTrigger
-              variant="outline"
-              icon={<ChevronDown />}
-              defaultValue="15"
-            >
-              <SelectValue placeholder="15" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="15">15</SelectItem>
-              <SelectItem value="25">25</SelectItem>
-              <SelectItem value="35">35</SelectItem>
-              <SelectItem value="45">45</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        <div className="flex items-center gap-x-2">
-          <Label className="text-muted-foreground">1-15 of 150</Label>
-          <ButtonGroup destructive>
-            <Button variant="ghost" iconOnly>
-              <ChevronLeft />
-            </Button>
-            <Button variant="ghost" iconOnly>
-              <ChevronRight />
-            </Button>
-          </ButtonGroup>
-        </div>
+      <div className="fixed bottom-0 left-0 right-0 md:left-[var(--sidebar-width)] md:right-0border-t px-2 py-1.5 flex items-center justify-between bg-background border-t">
+        <Tabs defaultValue="20">
+          <TabsList>
+            <TabsTrigger value="20">20</TabsTrigger>
+            <TabsTrigger value="50">50</TabsTrigger>
+            <TabsTrigger value="80">80</TabsTrigger>
+          </TabsList>
+        </Tabs>
+        <Label>18 of 32</Label>
       </div>
     </div>
   );

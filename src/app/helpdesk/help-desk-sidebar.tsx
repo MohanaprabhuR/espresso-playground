@@ -10,11 +10,12 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
   SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar";
@@ -58,6 +59,11 @@ import { LogoHelpDesk } from "../../../public/images/svg/logo-help-desk";
 import { LogoDrive } from "../../../public/images/svg/logo-deive-table";
 import { LogoMail } from "../../../public/images/svg/logo-mail";
 import { LogoIcon } from "../../../public/images/svg/logo-game-plan";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 const menuConfig = {
   quickActions: [
@@ -75,26 +81,26 @@ const menuConfig = {
     { label: "Customers", icon: "CircleUserRound", href: "#" },
     { label: "Contacts", icon: "SquareUserRound", href: "#" },
   ],
-  savedViews: {
-    label: "Saved views",
-    icon: "ChevronRight",
-    items: [
-      {
-        label: "Resolved tickets",
-        icon: "TicketCheck",
-        href: "/resolved-tickets",
-      },
-      { label: "Closed tickets", icon: "TicketX", href: "#" },
-      { label: "My tickets", icon: "TicketPlus", href: "#" },
-    ],
-  },
+  savedViews: [
+    {
+      label: "Saved views",
+      icon: "ChevronRight",
+      items: [
+        {
+          label: "Resolved tickets",
+          icon: "TicketCheck",
+          href: "/resolved-tickets",
+        },
+        { label: "Closed tickets", icon: "TicketX", href: "#" },
+        { label: "My tickets", icon: "TicketPlus", href: "#" },
+      ],
+    },
+  ],
 };
 
 const HelpDeskSidebar = () => {
   const { theme, setTheme } = useTheme();
-
   const { openMobile, setOpenMobile, isMobile } = useSidebar();
-
   const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
   const pathname = usePathname();
   const { state } = useSidebar();
@@ -280,22 +286,49 @@ const HelpDeskSidebar = () => {
           </SidebarGroup>
 
           <SidebarGroup>
-            <SidebarGroupLabel>
-              <ChevronRight />
-              <span className="flex-1 truncate"> Saved views</span>
-              <SidebarMenuButton className="w-auto">
-                <Plus className="size-4" />
-              </SidebarMenuButton>
-            </SidebarGroupLabel>
-            {menuConfig.savedViews.items.map((item, idx) => {
-              const Icon = Icons[item.icon];
+            {menuConfig.savedViews.map((team, idx) => {
               return (
-                <SidebarMenuButton key={idx} tooltip={item.label} asChild>
-                  <Link href={item.href} className="flex items-center gap-2">
-                    <Icon className="size-4" />
-                    <span className="flex-1 truncate">{item.label}</span>
-                  </Link>
-                </SidebarMenuButton>
+                <Collapsible key={idx} className="group/collapsible">
+                  <SidebarMenuItem>
+                    <CollapsibleTrigger asChild>
+                      <SidebarMenuButton
+                        className="flex items-center gap-2 w-full text-muted-foreground"
+                        tooltip={team.label}
+                      >
+                        {!isCollapsed && (
+                          <>
+                            <ChevronRight className="w-4 h-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                            <span className="flex-1 ">{team.label}</span>
+                          </>
+                        )}
+
+                        <Plus className="size-4 ml-auto " />
+                      </SidebarMenuButton>
+                    </CollapsibleTrigger>
+
+                    <CollapsibleContent>
+                      <SidebarMenuSub>
+                        {team.items.map((item, i) => {
+                          const Icon = Icons[item.icon];
+
+                          return (
+                            <SidebarMenuSubButton key={i} asChild>
+                              <Link
+                                href={item.href}
+                                className="flex items-center gap-2"
+                              >
+                                {Icon && <Icon className="size-4" />}
+                                <span className="flex-1 truncate">
+                                  {item.label}
+                                </span>
+                              </Link>
+                            </SidebarMenuSubButton>
+                          );
+                        })}
+                      </SidebarMenuSub>
+                    </CollapsibleContent>
+                  </SidebarMenuItem>
+                </Collapsible>
               );
             })}
           </SidebarGroup>
@@ -332,7 +365,6 @@ const HelpDeskSidebar = () => {
                     </SidebarMenuButton>
                   </div>
 
-                  {/* 👇 Dynamic trigger icon */}
                   <SidebarMenuButton asChild className="w-auto">
                     <SidebarTrigger
                       icon={isCollapsed ? ArrowRightFromLine : PanelLeft}

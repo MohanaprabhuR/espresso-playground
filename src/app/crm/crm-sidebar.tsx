@@ -12,11 +12,12 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
   SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar";
@@ -57,6 +58,11 @@ import {
 import Link from "next/link";
 import { LogoMail } from "../../../public/images/svg/logo-mail";
 import { LogoDrive } from "../../../public/images/svg/logo-deive-table";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 const menuConfig = {
   quickActions: [
@@ -75,19 +81,21 @@ const menuConfig = {
     { label: "Contacts", icon: "SquareUser", href: "#" },
     { label: "Call & Event Logs", icon: "Phone", href: "#" },
   ],
-  teams: {
-    label: "Teams",
-    icon: "ChevronRight",
-    items: [
-      { label: "My leads", icon: "Headset", href: "/my-leads" },
-      { label: "Deals flow", icon: "HeartHandshake", href: "/deals-flow" },
-      {
-        label: "Qualified Deals",
-        icon: "ShieldCheck",
-        href: "/qualified-deals",
-      },
-    ],
-  },
+  teams: [
+    {
+      label: "Saved views",
+      icon: "ChevronRight",
+      items: [
+        { label: "My leads", icon: "Headset", href: "#" },
+        { label: "Deals flow", icon: "HeartHandshake", href: "#" },
+        {
+          label: "Qualified Deals",
+          icon: "ShieldCheck",
+          href: "#",
+        },
+      ],
+    },
+  ],
 };
 
 const CrmSidebar = () => {
@@ -278,22 +286,49 @@ const CrmSidebar = () => {
           </SidebarGroup>
 
           <SidebarGroup>
-            <SidebarGroupLabel>
-              <ChevronRight />
-              <span className="flex-1 truncate"> Teams</span>
-              <SidebarMenuButton className="w-auto">
-                <Plus className="size-4" />
-              </SidebarMenuButton>
-            </SidebarGroupLabel>
-            {menuConfig.teams.items.map((item, idx) => {
-              const Icon = Icons[item.icon];
+            {menuConfig.teams.map((team, idx) => {
               return (
-                <SidebarMenuButton key={idx} tooltip={item.label} asChild>
-                  <Link href={item.href} className="flex items-center gap-2">
-                    <Icon className="size-4" />
-                    <span className="flex-1 truncate">{item.label}</span>
-                  </Link>
-                </SidebarMenuButton>
+                <Collapsible key={idx} className="group/collapsible">
+                  <SidebarMenuItem>
+                    <CollapsibleTrigger asChild>
+                      <SidebarMenuButton
+                        className="flex items-center gap-2 w-full text-muted-foreground"
+                        tooltip={team.label}
+                      >
+                        {!isCollapsed && (
+                          <>
+                            <ChevronRight className="w-4 h-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                            <span className="flex-1">{team.label}</span>
+                          </>
+                        )}
+
+                        <Plus className="size-4 ml-auto " />
+                      </SidebarMenuButton>
+                    </CollapsibleTrigger>
+
+                    <CollapsibleContent>
+                      <SidebarMenuSub>
+                        {team.items.map((item, i) => {
+                          const Icon = Icons[item.icon];
+
+                          return (
+                            <SidebarMenuSubButton key={i} asChild>
+                              <Link
+                                href={item.href}
+                                className="flex items-center gap-2"
+                              >
+                                {Icon && <Icon className="size-4" />}
+                                <span className="flex-1 truncate">
+                                  {item.label}
+                                </span>
+                              </Link>
+                            </SidebarMenuSubButton>
+                          );
+                        })}
+                      </SidebarMenuSub>
+                    </CollapsibleContent>
+                  </SidebarMenuItem>
+                </Collapsible>
               );
             })}
           </SidebarGroup>

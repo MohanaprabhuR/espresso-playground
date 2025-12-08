@@ -19,6 +19,7 @@ import {
   useSidebar,
   SidebarMenuSub,
   SidebarMenuSubButton,
+  SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 
 import {
@@ -47,6 +48,7 @@ import {
   Moon,
   PanelLeft,
   PanelLeftIcon,
+  Plus,
   Sun,
   User,
   Zap,
@@ -82,53 +84,45 @@ const menuConfig = {
     { label: "Contacts", icon: "User", href: "#" },
     { label: "Call & Event Logs", icon: "Phone", href: "#" },
   ],
-  teams: [
-    {
-      label: "Teams",
-      icon: "ChevronRight",
-      expandable: true,
-      items: [
-        { label: "My leads", icon: "Users", href: "#" },
-        { label: "Deals flow", icon: "GitBranch", href: "#" },
-        { label: "Qualified Deals", icon: "Shield", href: "#" },
-      ],
-    },
-  ],
-  labels: [
-    {
-      label: "Fashion",
-      icon: "Zap",
-      fill: "#7757EE",
-      items: [
-        { label: "General", href: "#" },
-        { label: "Standups", href: "#" },
-        { label: "Training", href: "#" },
-        { label: "Update", href: "#" },
-      ],
-    },
-    {
-      label: "Projects",
-      icon: "Zap",
-      fill: "#E79913",
-      items: [
-        { label: "General", href: "#" },
-        { label: "Standups", href: "#" },
-        { label: "Training", href: "#" },
-        { label: "Update", href: "#" },
-      ],
-    },
-    {
-      label: "Events",
-      icon: "Zap",
-      fill: "#84B346",
-      items: [
-        { label: "General", href: "#" },
-        { label: "Standups", href: "#" },
-        { label: "Training", href: "#" },
-        { label: "Update", href: "#" },
-      ],
-    },
-  ],
+
+  labels: {
+    title: "Labels",
+    items: [
+      {
+        label: "Fashion",
+        icon: "Zap",
+        fill: "#7757EE",
+        items: [
+          { label: "General", href: "#" },
+          { label: "Standups", href: "#" },
+          { label: "Training", href: "#" },
+          { label: "Update", href: "#" },
+        ],
+      },
+      {
+        label: "Projects",
+        icon: "Zap",
+        fill: "#E79913",
+        items: [
+          { label: "General", href: "#" },
+          { label: "Standups", href: "#" },
+          { label: "Training", href: "#" },
+          { label: "Update", href: "#" },
+        ],
+      },
+      {
+        label: "Events",
+        icon: "Zap",
+        fill: "#84B346",
+        items: [
+          { label: "General", href: "#" },
+          { label: "Standups", href: "#" },
+          { label: "Training", href: "#" },
+          { label: "Update", href: "#" },
+        ],
+      },
+    ],
+  },
 };
 const scheduleData = [
   {
@@ -341,118 +335,136 @@ const MailTableSidebar = () => {
             })}
           </SidebarGroup>
 
-          <SidebarGroup className="gap-1">
-            <SidebarGroupLabel>
-              <span className="flex-1 truncate">Labels</span>
-            </SidebarGroupLabel>
+          <SidebarGroup>
+            {/* ✅ FIRST LEVEL: LABELS WRAPPER */}
+            <Collapsible className="group/collapsible">
+              <SidebarMenuItem>
+                <CollapsibleTrigger asChild>
+                  <SidebarMenuButton className="flex items-center gap-2 w-full text-muted-foreground">
+                    {!isCollapsed && (
+                      <>
+                        <ChevronRight className="w-4 h-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                        <span className="flex-1">
+                          {menuConfig.labels.title}
+                        </span>
+                      </>
+                    )}
+                    <Plus className="size-4 ml-auto" />
+                  </SidebarMenuButton>
+                </CollapsibleTrigger>
 
-            {menuConfig.labels.map((menu, idx) => {
-              const Icon = Icons[menu.icon];
+                {/* ✅ FIRST COLLAPSE CONTENT */}
+                <CollapsibleContent>
+                  <SidebarMenuSub>
+                    {menuConfig.labels.items.map((group, gIdx) => {
+                      const GroupIcon = Icons[group.icon];
 
-              return (
-                <Collapsible key={idx} className="group/collapsible">
-                  <SidebarMenuItem>
-                    <CollapsibleTrigger asChild>
-                      <SidebarMenuButton
-                        tooltip={menu.label}
-                        className="gap-x-0.5"
-                      >
-                        {!isCollapsed && (
-                          <ChevronRight className="w-4 h-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                        )}
+                      return (
+                        <Collapsible
+                          key={gIdx}
+                          className="group/nested-collapsible"
+                        >
+                          <SidebarMenuSubItem>
+                            {/* ✅ SECOND LEVEL: Fashion / Projects / Events */}
+                            <CollapsibleTrigger asChild>
+                              <SidebarMenuSubButton className="flex items-center gap-2 w-full">
+                                <ChevronRight className="w-3 h-3 transition-transform duration-200 group-data-[state=open]/nested-collapsible:rotate-90" />
 
-                        <div className="flex items-center gap-2 flex-1">
-                          {Icon ? (
-                            <Icon
-                              className="size-4"
-                              style={{ color: menu.fill }}
-                              fill={menu.fill}
-                            />
-                          ) : null}
-                          <span className="truncate">{menu.label}</span>
-                        </div>
-                      </SidebarMenuButton>
-                    </CollapsibleTrigger>
+                                {GroupIcon && (
+                                  <GroupIcon
+                                    className="size-3"
+                                    style={{ color: group.fill }}
+                                  />
+                                )}
 
-                    <CollapsibleContent>
-                      <SidebarMenuSub className="gap-1">
-                        {menu.items.map((item, i) => (
-                          <SidebarMenuSubButton key={i} asChild>
-                            <Link href={item.href}>{item.label}</Link>
-                          </SidebarMenuSubButton>
-                        ))}
-                      </SidebarMenuSub>
-                    </CollapsibleContent>
-                  </SidebarMenuItem>
-                </Collapsible>
-              );
-            })}
+                                <span className="flex-1 truncate">
+                                  {group.label}
+                                </span>
+                              </SidebarMenuSubButton>
+                            </CollapsibleTrigger>
+
+                            {/* ✅ THIRD LEVEL: General / Standups / Training / Update */}
+                            <CollapsibleContent>
+                              <div className="ml-6 mt-1 flex flex-col gap-1">
+                                {group.items.map((item, i) => (
+                                  <SidebarMenuSubButton key={i} asChild>
+                                    <Link href={item.href}>{item.label}</Link>
+                                  </SidebarMenuSubButton>
+                                ))}
+                              </div>
+                            </CollapsibleContent>
+                          </SidebarMenuSubItem>
+                        </Collapsible>
+                      );
+                    })}
+                  </SidebarMenuSub>
+                </CollapsibleContent>
+              </SidebarMenuItem>
+            </Collapsible>
           </SidebarGroup>
         </SidebarContent>
         <SidebarFooter>
-          <SidebarMenuItem className="gap-2.5 flex flex-col">
-            {!isCollapsed && (
-              <>
-                <SidebarGroup className="pb--4">
-                  <SidebarMenuItem>
-                    <SidebarMenuButton>Upcoming events</SidebarMenuButton>
-                    <SidebarMenuBadge>5</SidebarMenuBadge>
-                  </SidebarMenuItem>
-                  <div className="flex flex-col gap-y-1.5 pt-2">
-                    {scheduleData.map((item, index) => (
+          {!isCollapsed && (
+            <>
+              <SidebarGroup className="pb--4">
+                <SidebarMenuItem>
+                  <SidebarMenuButton>Upcoming events</SidebarMenuButton>
+                  <SidebarMenuBadge>5</SidebarMenuBadge>
+                </SidebarMenuItem>
+                <div className="flex flex-col gap-y-1.5 pt-2">
+                  {scheduleData.map((item, index) => (
+                    <div
+                      key={index}
+                      className="rounded-lg shadow-lg p-2 bg-background flex gap-x-1.5"
+                    >
                       <div
-                        key={index}
-                        className="rounded-lg shadow-lg p-2 bg-background flex gap-x-1.5"
-                      >
-                        <div
-                          className="min-w-0.5 h-full rounded-full"
-                          style={{ backgroundColor: item.color }}
-                        ></div>
-                        <div className="flex flex-col gap-y-0.5 min-w-0">
-                          <p className="text-xs font-medium text-muted-foreground tracking-4 leading-tight truncate">
-                            {item.time}
-                          </p>
-                          <p className="text-sm font-medium text-accent-foreground tracking-4 leading-tight truncate">
-                            {item.title}
-                          </p>
-                        </div>
+                        className="min-w-0.5 h-full rounded-full"
+                        style={{ backgroundColor: item.color }}
+                      ></div>
+                      <div className="flex flex-col gap-y-0.5 min-w-0">
+                        <p className="text-xs font-medium text-muted-foreground tracking-4 leading-tight truncate">
+                          {item.time}
+                        </p>
+                        <p className="text-sm font-medium text-accent-foreground tracking-4 leading-tight truncate">
+                          {item.title}
+                        </p>
                       </div>
-                    ))}
-                  </div>
-                </SidebarGroup>
-                <Label className="font-medium">Storage</Label>
-                <Progress
-                  value={90}
-                  showLabel
-                  size="xs"
-                  labelName="679 GB of 2 TB"
-                ></Progress>
-                <div className="flex gap-1 justify-between w-full">
-                  <div className="flex items-center gap-1">
-                    <SidebarMenuButton>
-                      <Zap className="size-4" />
-                    </SidebarMenuButton>
-                    <SidebarMenuButton>
-                      <MessageCircleQuestionMark className="size-4" />
-                    </SidebarMenuButton>
-                  </div>
-                  <SidebarMenuButton asChild className="w-auto">
-                    <SidebarTrigger
-                      icon={isCollapsed ? ArrowRightFromLine : PanelLeft}
-                    />
+                    </div>
+                  ))}
+                </div>
+              </SidebarGroup>
+              <Label className="font-medium">Storage</Label>
+              <Progress
+                value={90}
+                showLabel
+                size="xs"
+                labelName="679 GB of 2 TB"
+              ></Progress>
+              <div className="flex gap-1 justify-between w-full">
+                <div className="flex items-center gap-1">
+                  <SidebarMenuButton>
+                    <Zap className="size-4" />
+                  </SidebarMenuButton>
+                  <SidebarMenuButton>
+                    <MessageCircleQuestionMark className="size-4" />
                   </SidebarMenuButton>
                 </div>
-              </>
-            )}
+                <SidebarMenuButton asChild className="w-auto">
+                  <SidebarTrigger
+                    icon={isCollapsed ? ArrowRightFromLine : PanelLeft}
+                  />
+                </SidebarMenuButton>
+              </div>
+            </>
+          )}
 
-            {isCollapsed && (
-              <SidebarMenuButton asChild className="w-auto mx-auto">
-                <SidebarTrigger
-                  icon={isCollapsed ? ArrowRightFromLine : PanelLeft}
-                />
-              </SidebarMenuButton>
-            )}
-          </SidebarMenuItem>
+          {isCollapsed && (
+            <SidebarMenuButton asChild className="w-auto mx-auto">
+              <SidebarTrigger
+                icon={isCollapsed ? ArrowRightFromLine : PanelLeft}
+              />
+            </SidebarMenuButton>
+          )}
         </SidebarFooter>
       </Sidebar>
     </>

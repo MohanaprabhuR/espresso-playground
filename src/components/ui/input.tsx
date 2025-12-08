@@ -106,7 +106,7 @@ function Input({
 
   const statusClasses = statusMap[variant]?.[status] ?? "";
   const iconSize = iconSizeMap[size];
-  const iconColor = hasValue ? "text-primary" : "text-primary/50";
+  const iconColor = hasValue ? "text-foreground" : "text-primary/50";
   const iconOffset = sizeMap[size].iconOffset;
 
   return (

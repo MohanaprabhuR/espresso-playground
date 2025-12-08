@@ -13,10 +13,14 @@ import {
 } from "@/components/ui/breadcrumb";
 import {
   AlignJustify,
+  Calendar,
   ChevronDown,
   CircleGauge,
+  Columns2,
   FileText,
   LayoutGrid,
+  List,
+  MapPin,
   Plus,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -24,6 +28,7 @@ import {
   Select,
   SelectContent,
   SelectItem,
+  SelectSeparator,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -64,7 +69,7 @@ export default function RootLayout({
             <div className="flex min-h-screen w-full">
               <CrmSidebar />
               <div className="w-full min-w-0">
-                <Header className="pl-5">
+                <Header>
                   <Breadcrumb>
                     <BreadcrumbList size="md">
                       <BreadcrumbItem>
@@ -72,7 +77,7 @@ export default function RootLayout({
                       </BreadcrumbItem>
                       <BreadcrumbSeparator type="slash" />
                       <BreadcrumbItem>
-                        <Select defaultValue="list-view">
+                        <Select defaultValue="list">
                           <SelectTrigger
                             variant="ghost"
                             icon={<ChevronDown />}
@@ -81,15 +86,30 @@ export default function RootLayout({
                             <SelectValue placeholder="List View" />
                           </SelectTrigger>
                           <SelectContent>
-                            {viewOptions.map((option) => (
-                              <SelectItem
-                                key={option.value}
-                                value={option.value}
-                              >
-                                {option.icon}
-                                {option.label}
-                              </SelectItem>
-                            ))}
+                            <SelectItem value="list">
+                              <List className="size-4" /> List view
+                            </SelectItem>
+                            <SelectItem value="kanban">
+                              <Columns2 className="size-4" />
+                              Kanban view
+                            </SelectItem>
+                            <SelectItem value="calendar">
+                              <Calendar className="size-4" />
+                              Calendar
+                            </SelectItem>
+                            <SelectSeparator />
+                            <SelectItem value="product">
+                              <span>🔆</span> Product - sales
+                            </SelectItem>
+                            <SelectItem value="support">
+                              <span>⚓</span>Support
+                            </SelectItem>
+                            <SelectItem value="board">
+                              <span>📌</span>Board- highest sales
+                            </SelectItem>
+                            <SelectItem value="pinned">
+                              <MapPin className="size-4" /> Board pinned
+                            </SelectItem>
                           </SelectContent>
                         </Select>
                       </BreadcrumbItem>

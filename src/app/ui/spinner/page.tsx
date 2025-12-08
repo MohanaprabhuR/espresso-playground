@@ -62,23 +62,19 @@ const SpinnerDemo = () => {
           </div>
 
           <div className="flex flex-col items-center gap-4">
-            <Button disabled size="sm">
-              <Spinner />
+            <Button disabled>
+              <Spinner variant="red" track size="lg" />
               Loading...
             </Button>
-            <Button variant="outline" size="sm">
-              <Spinner track variant="red" />
+            <Button variant="outline" size="md">
+              <Spinner variant="red" track size="xl" />
               Please wait
-            </Button>
-            <Button variant="secondary" size="sm">
-              <Spinner track variant="green" />
-              Processing
             </Button>
           </div>
 
           <div className="flex items-center gap-4 [--radius:1.2rem]">
             <Badge theme="violet">
-              <Spinner track />
+              <Spinner variant="red" track />
               Syncing
             </Badge>
             <Badge variant="secondary" theme="violet">

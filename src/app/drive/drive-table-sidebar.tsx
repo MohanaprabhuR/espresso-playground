@@ -15,6 +15,8 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
   SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar";
@@ -58,6 +60,11 @@ import { LogoHelpDesk } from "../../../public/images/svg/logo-help-desk";
 import { LogoMail } from "../../../public/images/svg/logo-mail";
 import { LogoIcon } from "../../../public/images/svg/logo-game-plan";
 import { LogoDrive } from "../../../public/images/svg/logo-deive-table";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 const menuConfig = {
   quickActions: [
@@ -70,14 +77,16 @@ const menuConfig = {
     { label: "Shared", icon: "Users", href: "#" },
     { label: "Trash", icon: "Trash2", href: "#" },
   ],
-  views: {
-    label: "views",
-    icon: "ChevronRight",
-    items: [
-      { label: "Favorites", icon: "Star", href: "#" },
-      { label: "Documents", icon: "FileText", href: "#" },
-    ],
-  },
+  views: [
+    {
+      label: "views",
+      icon: "ChevronRight",
+      items: [
+        { label: "Favorites", icon: "Star", href: "#" },
+        { label: "Documents", icon: "FileText", href: "#" },
+      ],
+    },
+  ],
 };
 
 const DriveTableSidebar = () => {
@@ -270,22 +279,49 @@ const DriveTableSidebar = () => {
           </SidebarGroup>
 
           <SidebarGroup>
-            <SidebarGroupLabel>
-              <ChevronRight />
-              <span className="flex-1 truncate">views</span>
-              <SidebarMenuButton className="w-auto">
-                <Plus className="size-4" />
-              </SidebarMenuButton>
-            </SidebarGroupLabel>
-            {menuConfig.views.items.map((item, idx) => {
-              const Icon = Icons[item.icon];
+            {menuConfig.views.map((team, idx) => {
               return (
-                <SidebarMenuButton key={idx} tooltip={item.label} asChild>
-                  <Link href={item.href} className="flex items-center gap-2">
-                    <Icon className="size-4" />
-                    <span className="flex-1 truncate">{item.label}</span>
-                  </Link>
-                </SidebarMenuButton>
+                <Collapsible key={idx} className="group/collapsible">
+                  <SidebarMenuItem>
+                    <CollapsibleTrigger asChild>
+                      <SidebarMenuButton
+                        className="flex items-center gap-2 w-full text-muted-foreground"
+                        tooltip={team.label}
+                      >
+                        {!isCollapsed && (
+                          <>
+                            <ChevronRight className="w-4 h-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                            <span className="flex-1 ">{team.label}</span>
+                          </>
+                        )}
+
+                        <Plus className="size-4 ml-auto " />
+                      </SidebarMenuButton>
+                    </CollapsibleTrigger>
+
+                    <CollapsibleContent>
+                      <SidebarMenuSub>
+                        {team.items.map((item, i) => {
+                          const Icon = Icons[item.icon];
+
+                          return (
+                            <SidebarMenuSubButton key={i} asChild>
+                              <Link
+                                href={item.href}
+                                className="flex items-center gap-2"
+                              >
+                                {Icon && <Icon className="size-4" />}
+                                <span className="flex-1 truncate">
+                                  {item.label}
+                                </span>
+                              </Link>
+                            </SidebarMenuSubButton>
+                          );
+                        })}
+                      </SidebarMenuSub>
+                    </CollapsibleContent>
+                  </SidebarMenuItem>
+                </Collapsible>
               );
             })}
           </SidebarGroup>

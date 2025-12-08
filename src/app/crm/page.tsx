@@ -577,7 +577,7 @@ const dataTabelDemo = () => {
           </TableBody>
         </Table>
       </div>
-      <div className="fixed bottom-0 border-t px-2 py-1.5 flex items-center justify-between w-full bg-background">
+      <div className="fixed bottom-0 left-0 right-0 md:left-[var(--sidebar-width)] md:right-0border-t px-2 py-1.5 flex items-center justify-between bg-background border-t">
         <Tabs defaultValue="20">
           <TabsList>
             <TabsTrigger value="20">20</TabsTrigger>

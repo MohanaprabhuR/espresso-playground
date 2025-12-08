@@ -3,6 +3,7 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
 @layer base {
   * {
     border-color: var(--border);
@@ -23,8 +24,12 @@
   --tw-leading: 1rem;
   /* Fonts */
   --font-sans: "Inter-V", sans-serif;
+
   /* Variations Fonts */
-  --font-sans--font-variation-settings: "opsz" 24;
+  --font-sans--font-variation-settings: "opsz" 24, "wght" 420;
+
+  /* Fonts Weight */
+  --font-sans-weight: 420;
 
   /* Theme colors */
   --color-background: var(--background);
@@ -844,7 +849,7 @@
 
 @layer utilities {
   .font-normal {
-    font-weight: 400;
+    font-weight: 420;
   }
 }
 

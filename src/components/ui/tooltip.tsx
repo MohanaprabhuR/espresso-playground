@@ -71,7 +71,7 @@ function TooltipContent({
         {arrow && (
           <span
             className={cn(
-              "absolute text-primary",
+              "absolute text-foreground",
               "group-data-[side=top]:-bottom-[8px] group-data-[side=top]:left-1/2 group-data-[side=top]:-translate-x-1/2 group-data-[side=top]:-rotate-90",
               "group-data-[side=bottom]:-top-[8px] group-data-[side=bottom]:left-1/2 group-data-[side=bottom]:-translate-x-1/2 group-data-[side=bottom]:rotate-90",
               "group-data-[side=left]:-right-[4px] group-data-[side=left]:top-1/2 group-data-[side=left]:-translate-y-1/2 group-data-[side=left]:-rotate-180",
