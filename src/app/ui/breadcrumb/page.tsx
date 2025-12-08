@@ -240,7 +240,7 @@ const BreadcrumbDemo = () => {
               </BreadcrumbList>
             </Breadcrumb>
           </div>
-          <div className="flex flex-col justify-center items-center gap-[10px_0]">
+          {/* <div className="flex flex-col justify-center items-center gap-[10px_0]">
             <Breadcrumb>
               <BreadcrumbList size="sm">
                 <BreadcrumbItem>
@@ -253,8 +253,10 @@ const BreadcrumbDemo = () => {
                       asChild
                       className="flex items-center gap-1"
                     >
-                      <BreadcrumbEllipsis className="size-4" />
-                      <span className="sr-only">Toggle menu</span>
+                      <>
+                        <BreadcrumbEllipsis className="size-4" />
+                        <span className="sr-only">Toggle menu</span>
+                      </>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="start">
                       <DropdownMenuItem>Documentation</DropdownMenuItem>
@@ -287,8 +289,10 @@ const BreadcrumbDemo = () => {
                       asChild
                       className="flex items-center gap-1"
                     >
-                      <BreadcrumbEllipsis className="size-4" />
-                      <span className="sr-only">Toggle menu</span>
+                      <>
+                        <BreadcrumbEllipsis className="size-4" />
+                        <span className="sr-only">Toggle menu</span>
+                      </>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="start">
                       <DropdownMenuItem>Documentation</DropdownMenuItem>
@@ -321,8 +325,10 @@ const BreadcrumbDemo = () => {
                       asChild
                       className="flex items-center gap-1"
                     >
-                      <BreadcrumbEllipsis className="size-4" />
-                      <span className="sr-only">Toggle menu</span>
+                      <>
+                        <BreadcrumbEllipsis className="size-4" />
+                        <span className="sr-only">Toggle menu</span>
+                      </>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="start">
                       <DropdownMenuItem>Documentation</DropdownMenuItem>
@@ -355,8 +361,10 @@ const BreadcrumbDemo = () => {
                       asChild
                       className="flex items-center gap-1"
                     >
-                      <BreadcrumbEllipsis className="size-4" />
-                      <span className="sr-only">Toggle menu</span>
+                      <>
+                        <BreadcrumbEllipsis className="size-4" />
+                        <span className="sr-only">Toggle menu</span>
+                      </>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="start">
                       <DropdownMenuItem>Documentation</DropdownMenuItem>
@@ -392,8 +400,10 @@ const BreadcrumbDemo = () => {
                       asChild
                       className="flex items-center gap-1"
                     >
-                      <BreadcrumbEllipsis className="size-4" />
-                      <span className="sr-only">Toggle menu</span>
+                      <>
+                        <BreadcrumbEllipsis className="size-4" />
+                        <span className="sr-only">Toggle menu</span>
+                      </>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="start">
                       <DropdownMenuItem>Documentation</DropdownMenuItem>
@@ -434,8 +444,10 @@ const BreadcrumbDemo = () => {
                       asChild
                       className="flex items-center gap-1"
                     >
-                      <BreadcrumbEllipsis className="size-4" />
-                      <span className="sr-only">Toggle menu</span>
+                      <>
+                        <BreadcrumbEllipsis className="size-4" />
+                        <span className="sr-only">Toggle menu</span>
+                      </>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="start">
                       <DropdownMenuItem>Documentation</DropdownMenuItem>
@@ -469,51 +481,10 @@ const BreadcrumbDemo = () => {
                       asChild
                       className="flex items-center gap-1"
                     >
-                      <BreadcrumbEllipsis className="size-4" />
-                      <span className="sr-only">Toggle menu</span>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="start">
-                      <DropdownMenuItem>Documentation</DropdownMenuItem>
-                      <DropdownMenuItem>Themes</DropdownMenuItem>
-                      <DropdownMenuItem>GitHub</DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                  <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
-                    Home
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                  <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
-                    Components
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                  <BreadcrumbPage>
-                    <CommandIcon fill="currentColor" /> Breadcrumb
-                  </BreadcrumbPage>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb>
-          </div>
-          <div className="flex flex-col justify-center items-center gap-[10px_0]">
-            <Breadcrumb>
-              <BreadcrumbList size="md">
-                <BreadcrumbItem>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger
-                      asChild
-                      className="flex items-center gap-1"
-                    >
-                      <BreadcrumbEllipsis className="size-4" />
-                      <span className="sr-only">Toggle menu</span>
+                      <>
+                        <BreadcrumbEllipsis className="size-4" />
+                        <span className="sr-only">Toggle menu</span>
+                      </>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="start">
                       <DropdownMenuItem>Documentation</DropdownMenuItem>
@@ -546,6 +517,51 @@ const BreadcrumbDemo = () => {
               </BreadcrumbList>
             </Breadcrumb>
           </div>
+          <div className="flex flex-col justify-center items-center gap-[10px_0]">
+            <Breadcrumb>
+              <BreadcrumbList size="md">
+                <BreadcrumbItem>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger
+                      asChild
+                      className="flex items-center gap-1"
+                    >
+                      <>
+                        <BreadcrumbEllipsis className="size-4" />
+                        <span className="sr-only">Toggle menu</span>
+                      </>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="start">
+                      <DropdownMenuItem>Documentation</DropdownMenuItem>
+                      <DropdownMenuItem>Themes</DropdownMenuItem>
+                      <DropdownMenuItem>GitHub</DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="#">
+                    <CommandIcon fill="currentColor" />
+                    Home
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="#">
+                    <CommandIcon fill="currentColor" />
+                    Components
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>
+                    <CommandIcon fill="currentColor" /> Breadcrumb
+                  </BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+          </div> */}
         </div>
       </div>
     </div>
