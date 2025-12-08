@@ -66,8 +66,8 @@ const SpinnerDemo = () => {
               <Spinner variant="red" track size="lg" />
               Loading...
             </Button>
-            <Button variant="outline" size="md">
-              <Spinner variant="red" track size="xl" />
+            <Button variant="outline">
+              <Spinner variant="red" track size="lg" />
               Please wait
             </Button>
           </div>

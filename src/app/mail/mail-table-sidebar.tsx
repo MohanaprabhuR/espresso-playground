@@ -336,7 +336,6 @@ const MailTableSidebar = () => {
           </SidebarGroup>
 
           <SidebarGroup>
-            {/* ✅ FIRST LEVEL: LABELS WRAPPER */}
             <Collapsible className="group/collapsible">
               <SidebarMenuItem>
                 <CollapsibleTrigger asChild>
@@ -353,7 +352,6 @@ const MailTableSidebar = () => {
                   </SidebarMenuButton>
                 </CollapsibleTrigger>
 
-                {/* ✅ FIRST COLLAPSE CONTENT */}
                 <CollapsibleContent>
                   <SidebarMenuSub>
                     {menuConfig.labels.items.map((group, gIdx) => {
@@ -365,7 +363,6 @@ const MailTableSidebar = () => {
                           className="group/nested-collapsible"
                         >
                           <SidebarMenuSubItem>
-                            {/* ✅ SECOND LEVEL: Fashion / Projects / Events */}
                             <CollapsibleTrigger asChild>
                               <SidebarMenuSubButton className="flex items-center gap-2 w-full">
                                 <ChevronRight className="w-3 h-3 transition-transform duration-200 group-data-[state=open]/nested-collapsible:rotate-90" />
@@ -383,7 +380,6 @@ const MailTableSidebar = () => {
                               </SidebarMenuSubButton>
                             </CollapsibleTrigger>
 
-                            {/* ✅ THIRD LEVEL: General / Standups / Training / Update */}
                             <CollapsibleContent>
                               <div className="ml-6 mt-1 flex flex-col gap-1">
                                 {group.items.map((item, i) => (
