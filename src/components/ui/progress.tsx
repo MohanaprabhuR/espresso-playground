@@ -41,7 +41,7 @@ function Progress({
   const heightClass = sizeMap[size];
 
   return (
-    <div className="flex flex-col gap-1 w-full">
+    <div className={cn("flex gap-1 w-full flex-col", className)}>
       {showLabel && (
         <Label className={cn("flex justify-between items-center")}>
           <span className="flex items-center gap-x-2 text-base text-accent-foreground tracking-4 leading-tight font-medium">

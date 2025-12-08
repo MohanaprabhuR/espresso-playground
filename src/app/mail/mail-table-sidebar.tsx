@@ -9,7 +9,6 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuBadge,
@@ -429,13 +428,16 @@ const MailTableSidebar = () => {
                   ))}
                 </div>
               </SidebarGroup>
-              <Label className="font-medium">Storage</Label>
-              <Progress
-                value={90}
-                showLabel
-                size="xs"
-                labelName="679 GB of 2 TB"
-              ></Progress>
+              <div className="flex flex-col gap-y-2">
+                <Label className="font-medium">Storage</Label>
+                <Progress
+                  value={80}
+                  showLabel
+                  size="xs"
+                  labelName="679 GB of 2 TB"
+                  className="flex-col-reverse"
+                ></Progress>
+              </div>
               <div className="flex gap-1 justify-between w-full">
                 <div className="flex items-center gap-1">
                   <SidebarMenuButton>

@@ -8,13 +8,13 @@ const cardVariants = cva(
   {
     variants: {
       size: {
-        sm: "rounded-lg p-3 gap-4",
+        sm: "rounded-lg px-3 py-2.5 gap-3.5",
         md: "rounded-xl p-4 gap-5",
         lg: "rounded-2xl p-4 gap-5",
       },
     },
     defaultVariants: {
-      size: "md",
+      size: "sm",
     },
   }
 );
@@ -64,7 +64,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-description"
       className={cn(
-        "text-muted-foreground pt-1.25 text-xs leading-tight tracking-4 font-normal",
+        "text-muted-foreground pt-1 text-xs leading-tight tracking-4 font-normal",
         className
       )}
       {...props}
@@ -100,7 +100,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-footer"
       className={cn(
-        "flex items-center px-6 [.border-t]:pt-6 leading-normal tracking-4 font-normal",
+        "flex items-center  [.border-t]:pt-6 leading-normal tracking-4 font-normal",
         className
       )}
       {...props}

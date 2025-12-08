@@ -173,24 +173,19 @@ function SelectLabel({
 function SelectItem({
   className,
   children,
-  size = "md",
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Item> & {
-  size?: "sm" | "md" | "lg";
-}) {
+}: React.ComponentProps<typeof SelectPrimitive.Item> & {}) {
   return (
     <SelectPrimitive.Item
       data-slot="select-item"
-      data-size={size}
       className={cn(
-        "data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground",
-        "text-secondary-foreground hover:bg-secondary font-normal relative flex w-full cursor-default items-center gap-2 py-1.5 px-2 text-base leading-none outline-hidden select-none     [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2",
-        sizeClassMap[size],
+        "data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground rounded-lg",
+        "text-secondary-foreground hover:bg-secondary font-normal relative flex w-full cursor-default items-center gap-2 py-1.5 px-2 text-base leading-tight tracking-4 outline-hidden select-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2",
         className
       )}
       {...props}
     >
-      <span className="absolute right-2 flex size-3.5 items-center justify-center">
+      <span className="absolute right-2 flex size-4 items-center justify-center">
         <SelectPrimitive.ItemIndicator>
           <svg
             width="16"
