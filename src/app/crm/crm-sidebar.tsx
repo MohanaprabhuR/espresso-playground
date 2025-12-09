@@ -351,7 +351,9 @@ const CrmSidebar = () => {
                     </div>
                     <div className="flex flex-col gap-y-0.5">
                       <CardTitle>Getting Started</CardTitle>
-                      <CardDescription>0/4</CardDescription>
+                      <CardDescription className="text-secondary-foreground">
+                        0/4
+                      </CardDescription>
                     </div>
                   </CardContent>
                   <CardFooter>
