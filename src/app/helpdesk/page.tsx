@@ -22,8 +22,6 @@ import {
 import {
   ChevronDown,
   ChevronDownIcon,
-  ChevronLeft,
-  ChevronRight,
   ChevronUpIcon,
   Columns2,
   ListFilter,
@@ -39,6 +37,7 @@ import { ButtonGroup } from "@/components/ui/button-group";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Rating, RatingButton } from "@/components/ui/shadcn-io/rating";
 
 interface Ticket {
   id: string;
@@ -509,46 +508,22 @@ export const columns: ColumnDef<Ticket>[] = [
   },
   {
     accessorKey: "rating",
-    header: ({ column }) => {
+    header: ({}) => {
       return (
-        <ButtonGroup destructive>
-          <Button variant="ghost" iconOnly>
-            <Star className="size-4" />
-          </Button>
-          <Button variant="ghost" iconOnly className="-ml-2.5">
-            <Star className="size-4" />
-          </Button>
-          <Button variant="ghost" iconOnly className="-ml-2.5">
-            <Star className="size-4" />
-          </Button>
-          <Button variant="ghost" iconOnly className="-ml-2.5">
-            <Star className="size-4" />
-          </Button>
-          <Button variant="ghost" iconOnly className="-ml-2.5">
-            <Star className="size-4" />
-          </Button>
-        </ButtonGroup>
+        <Rating defaultValue={1}>
+          {Array.from({ length: 5 }).map((_, index) => (
+            <RatingButton key={index} className="-ml-2" />
+          ))}
+        </Rating>
       );
     },
-    cell: ({ row }) => {
+    cell: ({}) => {
       return (
-        <ButtonGroup destructive>
-          <Button variant="ghost" iconOnly>
-            <Star className="size-4" />
-          </Button>
-          <Button variant="ghost" iconOnly className="-ml-2.5">
-            <Star className="size-4" />
-          </Button>
-          <Button variant="ghost" iconOnly className="-ml-2.5">
-            <Star className="size-4" />
-          </Button>
-          <Button variant="ghost" iconOnly className="-ml-2.5">
-            <Star className="size-4" />
-          </Button>
-          <Button variant="ghost" iconOnly className="-ml-2.5">
-            <Star className="size-4" />
-          </Button>
-        </ButtonGroup>
+        <Rating defaultValue={1}>
+          {Array.from({ length: 5 }).map((_, index) => (
+            <RatingButton key={index} className="-ml-2" />
+          ))}
+        </Rating>
       );
     },
     size: 200,

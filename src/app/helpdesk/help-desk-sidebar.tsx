@@ -76,7 +76,7 @@ const menuConfig = {
     {
       label: "Canned response",
       icon: "MessageCircleReply",
-      href: "/canned-response",
+      href: "#",
     },
     { label: "Customers", icon: "CircleUserRound", href: "#" },
     { label: "Contacts", icon: "SquareUserRound", href: "#" },

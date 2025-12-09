@@ -48,6 +48,7 @@ import {
   FileText,
   Table,
   Newspaper,
+  Star,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -182,6 +183,7 @@ const data = {
     { title: "Sonner", url: "/ui/sonner", icon: Megaphone },
     { title: "Forms", url: "/ui/form", badge: "new", icon: FileText },
     { title: "Header", url: "/ui/header", badge: "new", icon: Newspaper },
+    { title: "Rating", url: "/ui/rating", badge: "new", icon: Star },
     {
       title: "Data Table TanStack",
       url: "/ui/table-tanstack",

@@ -117,7 +117,7 @@ function SettingsDialogContent() {
                       <item.icon className="w-4 h-4" />
                       <span className="flex-1">{item.label}</span>
                       {item.count && (
-                        <span className="text-xs text-muted-foreground">
+                        <span className="text-xs text-muted-foreground tracking-4">
                           {item.count}
                         </span>
                       )}
@@ -190,7 +190,7 @@ function SettingsDialogContent() {
                   <div className="flex items-center justify-between">
                     <div>
                       <Label className="text-sm font-normal">Property</Label>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-xs text-muted-foreground tracking-4">
                         Description
                       </p>
                     </div>
@@ -209,7 +209,7 @@ function SettingsDialogContent() {
                   <div className="flex items-center justify-between">
                     <div>
                       <Label className="text-sm font-normal">Property</Label>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-xs text-muted-foreground tracking-4">
                         Description
                       </p>
                     </div>
@@ -236,7 +236,9 @@ function SettingsDialogContent() {
               <div className="flex items-center justify-between">
                 <div>
                   <Label className="text-sm font-normal">Property</Label>
-                  <p className="text-xs text-muted-foreground">Description</p>
+                  <p className="text-xs text-muted-foreground tracking-4">
+                    Description
+                  </p>
                 </div>
                 <Select>
                   <SelectTrigger variant="outline">
@@ -253,7 +255,9 @@ function SettingsDialogContent() {
               <div className="flex items-center justify-between">
                 <div>
                   <Label className="text-sm font-normal">Property</Label>
-                  <p className="text-xs text-muted-foreground">Description</p>
+                  <p className="text-xs text-muted-foreground tracking-4">
+                    Description
+                  </p>
                 </div>
                 <Switch />
               </div>
@@ -261,7 +265,9 @@ function SettingsDialogContent() {
               <div className="flex items-center justify-between">
                 <div className="flex-1 mr-4">
                   <Label className="text-sm font-normal">Property</Label>
-                  <p className="text-xs text-muted-foreground">Description</p>
+                  <p className="text-xs text-muted-foreground tracking-4">
+                    Description
+                  </p>
                 </div>
                 <div className="flex items-center gap-2 w-[240px]">
                   <InputGroup size="sm">
@@ -279,7 +285,9 @@ function SettingsDialogContent() {
               <div className="flex items-center justify-between">
                 <div>
                   <Label className="text-sm font-normal">Property</Label>
-                  <p className="text-xs text-muted-foreground">Description</p>
+                  <p className="text-xs text-muted-foreground tracking-4">
+                    Description
+                  </p>
                 </div>
                 <Switch />
               </div>
