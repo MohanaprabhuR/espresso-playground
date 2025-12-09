@@ -14,7 +14,7 @@ const cardVariants = cva(
       },
     },
     defaultVariants: {
-      size: "sm",
+      size: "md",
     },
   }
 );

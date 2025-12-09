@@ -44,6 +44,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardTitle,
+} from "@/components/ui/card";
+import Image from "next/image";
 
 interface DealItem {
   name: string;
@@ -55,46 +62,151 @@ interface DealItem {
 
 const data: DealItem[] = [
   {
-    name: "Illustration",
-    owner: "Aaron Stevenson",
+    name: "Tax submission documents",
+    owner: "Just you",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/222.jpg",
+    size: "47.4 MB",
+    date_of_modified: "Yesterday",
+  },
+  {
+    name: "Photos",
+    owner: "Just you",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/80.jpg",
+    size: "47.4 MB",
+    date_of_modified: "2 days ago",
+  },
+  {
+    name: "Abcd",
+    owner: "8 People",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/98.jpg",
+    size: "47.4 MB",
+    date_of_modified: "2 days ago",
+  },
+  {
+    name: "Abode collections",
+    owner: "Just you",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/222.jpg",
+    size: "47.4 MB",
+    date_of_modified: "1 week ago",
+  },
+  {
+    name: "Mango mist - outing",
+    owner: "3 People",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/80.jpg",
+    size: "47.4 MB",
+    date_of_modified: "1 week ago",
+  },
+  {
+    name: "Procreate illustrations",
+    owner: "Just you",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/98.jpg",
+    size: "47.4 MB",
+    date_of_modified: "3 weeks ago",
+  },
+  {
+    name: "video2023081822p54.mp4",
+    owner: "Just you",
     owner_avatar: "https://mockmind-api.uifaces.co/content/human/222.jpg",
     size: "47.4 MB",
     date_of_modified: "2 days ago",
   },
   {
-    name: "Photography",
-    owner: "Jacob Collins",
+    name: "Satoshi.zip",
+    owner: "Just you",
     owner_avatar: "https://mockmind-api.uifaces.co/content/human/80.jpg",
-    size: "56.2 MB",
-    date_of_modified: "1 week ago",
+    size: "74 KB",
+    date_of_modified: "22 Jun 2023",
   },
   {
-    name: "Graphic Design",
-    owner: "Emily Parker",
+    name: "Ball.jpg",
+    owner: "Just you",
     owner_avatar: "https://mockmind-api.uifaces.co/content/human/98.jpg",
-    size: "32.8 MB",
-    date_of_modified: "5 days ago",
+    size: "47.4 MB",
+    date_of_modified: "Jan 16 2023",
   },
   {
-    name: "Illustration",
-    owner: "Aaron Stevenson",
+    name: "Untitled2023.psd",
+    owner: "Just you",
     owner_avatar: "https://mockmind-api.uifaces.co/content/human/222.jpg",
     size: "47.4 MB",
-    date_of_modified: "2 days ago",
+    date_of_modified: "May 28 2023",
   },
   {
-    name: "Photography",
-    owner: "Jacob Collins",
+    name: "Orginal_image.jpg",
+    owner: "Just you",
     owner_avatar: "https://mockmind-api.uifaces.co/content/human/80.jpg",
-    size: "56.2 MB",
-    date_of_modified: "1 week ago",
+    size: "47.4 MB",
+    date_of_modified: "May 28 2023",
   },
   {
-    name: "Graphic Design",
-    owner: "Emily Parker",
+    name: "New_catalogue.pdf",
+    owner: "11 People",
     owner_avatar: "https://mockmind-api.uifaces.co/content/human/98.jpg",
-    size: "32.8 MB",
-    date_of_modified: "5 days ago",
+    size: "47.4 MB",
+    date_of_modified: "May 28 2023",
+  },
+  {
+    name: "Illustration.aed",
+    owner: "Just you",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/222.jpg",
+    size: "47.4 MB",
+    date_of_modified: "May 22 2023",
+  },
+  {
+    name: "Illustration.skt",
+    owner: "Just you",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/80.jpg",
+    size: "58.9 mb",
+    date_of_modified: "May 1 2023",
+  },
+  {
+    name: "town-10169.mp3",
+    owner: "Just you",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/98.jpg",
+    size: "47.4 MB",
+    date_of_modified: "May 1 2023",
+  },
+  {
+    name: "Orginal_list.xlsx",
+    owner: "Just you",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/222.jpg",
+    size: "47.4 MB",
+    date_of_modified: "Apr 12 2023",
+  },
+  {
+    name: "Illustration_updel...pdf",
+    owner: "2 People",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/80.jpg",
+    size: "47.4 MB",
+    date_of_modified: "May 31 2023",
+  },
+  {
+    name: "Mosaic menu.pdf",
+    owner: "Just you",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/98.jpg",
+    size: "47.4 MB",
+    date_of_modified: "Jan 1 2023",
+  },
+  {
+    name: "Sample doc.doc",
+    owner: "Just you",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/222.jpg",
+    size: "47.4 MB",
+    date_of_modified: "Jan 1 2023",
+  },
+  {
+    name: "IMG3200976002I.jpg",
+    owner: "Just you",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/80.jpg",
+    size: "47.4 MB",
+    date_of_modified: "Dec 12 2022",
+  },
+  {
+    name: "Audio324588",
+    owner: "Just you",
+    owner_avatar: "https://mockmind-api.uifaces.co/content/human/98.jpg",
+    size: "47.4 MB",
+    date_of_modified: "Dec 9 2022",
   },
 ];
 
@@ -240,7 +352,7 @@ const driveTabelDemo = () => {
     getFilteredRowModel: getFilteredRowModel(),
   });
   return (
-    <div className="flex flex-col mx-auto gap-y-4.5 w-full relative  pb-1 pt-6 px-5 h-[calc(100vh-50px)] overflow-scroll">
+    <div className="flex flex-col mx-auto gap-y-4.5 w-full relative  pb-1 pt-6 px-5 h-[calc(100vh-50px)] overflow-y-auto">
       <div className="flex justify-between items-center w-full">
         <p className="text-foreground text-lg font-medium tracking-4 leading-tight">
           All
@@ -271,6 +383,7 @@ const driveTabelDemo = () => {
           </Tabs>
         </div>
       </div>
+
       <Table
         className="table-fixed w-full min-w-full"
         style={{
@@ -358,7 +471,7 @@ const driveTabelDemo = () => {
             </TableRow>
           ))}
         </TableHeader>
-        <TableBody borderNone>
+        <TableBody>
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map((row) => (
               <TableRow
@@ -384,6 +497,295 @@ const driveTabelDemo = () => {
           )}
         </TableBody>
       </Table>
+      {/* <div className="flex flex-col gap-y-2">
+        <Label>Folders</Label>
+        <div className="flex flex-wrap gap-5">
+          <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2">
+            <div className="min-h-30 flex items-center justify-center">
+              <Folder />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>Tax submission document</CardTitle>
+              <CardDescription>20 Files</CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2">
+            <div className="min-h-30 flex items-center justify-center">
+              <Folder />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>Photos</CardTitle>
+              <CardDescription>572 Files</CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2">
+            <div className="min-h-30 flex items-center justify-center">
+              <Folder />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>Abcd</CardTitle>
+              <CardDescription>2 Files</CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2">
+            <div className="min-h-30 flex items-center justify-center">
+              <Folder />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>Abode collections</CardTitle>
+              <CardDescription>8 Files</CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2">
+            <div className="min-h-30 flex items-center justify-center">
+              <Folder />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>Mango mist - outing</CardTitle>
+              <CardDescription>19 Files</CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2">
+            <div className="min-h-30 flex items-center justify-center">
+              <Folder />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>Procreate illustrations</CardTitle>
+              <CardDescription>25 Files</CardDescription>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+      <div className="flex flex-col gap-y-2">
+        <Label>Files</Label>
+        <div className="flex flex-wrap gap-5">
+          <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2 overflow-hidden">
+            <div className="min-h-30 flex">
+              <Image
+                src="/images/Illustration.png"
+                alt="Illustration"
+                width="172"
+                height="120"
+                className="object-cover"
+              />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>Illustration.aed</CardTitle>
+              <CardDescription>After effects · May 22</CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2 overflow-hidden">
+            <div className="min-h-30 flex">
+              <Image
+                src="/images/video.png"
+                alt="Illustration"
+                width="172"
+                height="120"
+                className="object-cover"
+              />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>video202306182.mp4</CardTitle>
+              <CardDescription>Video · 2 days ago</CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2 overflow-hidden">
+            <div className="min-h-30 flex">
+              <Image
+                src="/images/untitled.png"
+                alt="Illustration"
+                width="172"
+                height="120"
+                className="object-cover"
+              />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>Untitled2023.psd</CardTitle>
+              <CardDescription>Photoshop · May 28</CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2 overflow-hidden">
+            <div className="min-h-30 flex">
+              <Image
+                src="/images/zip.png"
+                alt="Illustration"
+                width="172"
+                height="120"
+                className="object-cover"
+              />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>Satoshi.zip</CardTitle>
+              <CardDescription>Zip ·22 Jun</CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2 overflow-hidden">
+            <div className="min-h-30 flex">
+              <Image
+                src="/images/ball.png"
+                alt="Illustration"
+                width="172"
+                height="120"
+                className="object-cover"
+              />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>Ball.jpg</CardTitle>
+              <CardDescription>Image · Jan 16</CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2 overflow-hidden">
+            <div className="min-h-30 flex">
+              <Image
+                src="/images/image_orginal.png"
+                alt="Illustration"
+                width="172"
+                height="120"
+                className="object-cover"
+              />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>Orginal_image.jpg</CardTitle>
+              <CardDescription>Image · May 28</CardDescription>
+            </CardContent>
+          </Card>
+          {/* <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2 overflow-hidden">
+            <div className="min-h-30 flex">
+              <Image
+                src="/images/pdf.png"
+                alt="Illustration"
+                width="172"
+                height="120"
+                className="object-cover"
+              />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>New_catalogue.pdf</CardTitle>
+              <CardDescription>Pdf · Mar 16 </CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2 overflow-hidden">
+            <div className="min-h-30 flex">
+              <Image
+                src="/images/audio.png"
+                alt="Illustration"
+                width="172"
+                height="120"
+                className="object-cover"
+              />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>Audio324588</CardTitle>
+              <CardDescription>Audio · Dec 9 2022</CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2 overflow-hidden">
+            <div className="min-h-30 flex">
+              <Image
+                src="/images/sketch.png"
+                alt="Illustration"
+                width="172"
+                height="120"
+                className="object-cover"
+              />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>Illustration.skt</CardTitle>
+              <CardDescription>Sketch · May 1</CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2 overflow-hidden">
+            <div className="min-h-30 flex">
+              <Image
+                src="/images/image_orginal.png"
+                alt="Illustration"
+                width="172"
+                height="120"
+                className="object-cover"
+              />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>IMG32009760021.jpg</CardTitle>
+              <CardDescription>Image · Dec 12 2022</CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2 overflow-hidden">
+            <div className="min-h-30 flex">
+              <Image
+                src="/images/music.png"
+                alt="Illustration"
+                width="172"
+                height="120"
+                className="object-cover"
+              />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>town-10169.mp3</CardTitle>
+              <CardDescription>Audio · May 1</CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2 overflow-hidden">
+            <div className="min-h-30 flex">
+              <Image
+                src="/images/document.png"
+                alt="Illustration"
+                width="172"
+                height="120"
+                className="object-cover"
+              />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>Sample doc.doc</CardTitle>
+              <CardDescription>Doc · Jan 1</CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2 overflow-hidden">
+            <div className="min-h-30 flex">
+              <Image
+                src="/images/pdf.png"
+                alt="Illustration"
+                width="172"
+                height="120"
+                className="object-cover"
+              />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>Plan_product_gu.pdf</CardTitle>
+              <CardDescription>Pdf · May 31</CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2 overflow-hidden">
+            <div className="min-h-30 flex">
+              <Image
+                src="/images/pdf.png"
+                alt="Illustration"
+                width="172"
+                height="120"
+                className="object-cover"
+              />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>Mosaic menu.pdf</CardTitle>
+              <CardDescription>Pdf · Jan 1</CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="w-full max-w-43 p-0 pb-1.5 gap-y-2 overflow-hidden">
+            <div className="min-h-30 flex">
+              <Image
+                src="/images/excel.png"
+                alt="Illustration"
+                width="172"
+                height="120"
+                className="object-cover"
+              />
+            </div>
+            <CardContent className="px-2.5">
+              <CardTitle>Orginal_list.xlxs</CardTitle>
+              <CardDescription>Excel · Apr 12</CardDescription>
+            </CardContent>
+          </Card> 
+        </div>
+      </div> */}
     </div>
   );
 };
