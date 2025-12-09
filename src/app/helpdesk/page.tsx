@@ -526,7 +526,7 @@ export const columns: ColumnDef<Ticket>[] = [
         </Rating>
       );
     },
-    size: 200,
+    size: 130,
   },
 ];
 

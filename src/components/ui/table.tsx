@@ -6,10 +6,7 @@ import { cn } from "@/lib/utils";
 
 function Table({ className, ...props }: React.ComponentProps<"table">) {
   return (
-    <div
-      data-slot="table-container"
-      className="relative w-full overflow-x-auto "
-    >
+    <div data-slot="table-container" className="relative w-full">
       <table
         data-slot="table"
         className={cn(
@@ -41,7 +38,7 @@ function TableBody({ className, borderNone, ...props }: TableBodyProps) {
     <tbody
       data-slot="table-body"
       className={cn(
-        "[&_tr:last-child]:border-0 [&_td]:first:rounded-l-lg [&_td]:last:rounded-r-lg [&_td]:first:overflow-hidden ",
+        "[&_tr:last-child]:border-0 [&_td]:first:rounded-l-lg [&_td]:last:rounded-r-lg [&_td]:first:overflow-hidden  [&_tr[data-state=selected]_td:first-child]:rounded-none [&_tr[data-state=selected]_td:last-child]:rounded-none",
         borderNone && "[&_tr]:border-0 ",
         className
       )}
