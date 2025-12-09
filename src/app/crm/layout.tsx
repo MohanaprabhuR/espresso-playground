@@ -19,8 +19,8 @@ import {
   Columns2,
   FileText,
   LayoutGrid,
-  List,
   MapPin,
+  Menu,
   Plus,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -32,29 +32,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
-const viewOptions = [
-  {
-    value: "list-view",
-    label: "List View",
-    icon: <AlignJustify />,
-  },
-  {
-    value: "report-view",
-    label: "Report View",
-    icon: <FileText />,
-  },
-  {
-    value: "kanban-view",
-    label: "Kanban View",
-    icon: <LayoutGrid />,
-  },
-  {
-    value: "dashboard-view",
-    label: "Dashboard View",
-    icon: <CircleGauge />,
-  },
-];
 
 export default function RootLayout({
   children,
@@ -87,7 +64,7 @@ export default function RootLayout({
                           </SelectTrigger>
                           <SelectContent>
                             <SelectItem value="list">
-                              <List className="size-4" /> List view
+                              <Menu className="size-4" /> List view
                             </SelectItem>
                             <SelectItem value="kanban">
                               <Columns2 className="size-4" />

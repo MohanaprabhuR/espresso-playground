@@ -344,7 +344,7 @@ const CrmSidebar = () => {
           <SidebarMenuItem className="gap-2.5 flex flex-col">
             {!isCollapsed && (
               <>
-                <Card className="bg-background ">
+                {/* <Card className="bg-background ">
                   <CardContent className="flex gap-x-2 ">
                     <div className="py-1">
                       <ChartPie className="size-4" />
@@ -361,7 +361,7 @@ const CrmSidebar = () => {
                       Contuine <ArrowRight className="size-4" />
                     </Button>
                   </CardFooter>
-                </Card>
+                </Card> */}
                 <div className="px-3 py-2.5 rounded-2xl border bg-background">
                   <div className="flex gap-x-2 pb-3.5">
                     <div className="py-1">
