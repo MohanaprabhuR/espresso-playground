@@ -78,11 +78,11 @@ const SpinnerDemo = () => {
               Syncing
             </Badge>
             <Badge variant="secondary" theme="violet">
-              <Spinner />
+              <Spinner track />
               Updating
             </Badge>
             <Badge variant="outline" theme="violet">
-              <Spinner />
+              <Spinner track />
               Processing
             </Badge>
           </div>
