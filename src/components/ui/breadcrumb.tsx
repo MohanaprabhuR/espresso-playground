@@ -143,7 +143,10 @@ function BreadcrumbEllipsis({
       data-slot="breadcrumb-ellipsis"
       role="presentation"
       aria-hidden="true"
-      className={cn("flex size-5 items-center justify-center", className)}
+      className={cn(
+        "flex size-5 items-center justify-center mt-0.75",
+        className
+      )}
       {...props}
     >
       <BreadcrumbEllipsisIcon />

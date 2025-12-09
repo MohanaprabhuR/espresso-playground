@@ -81,7 +81,7 @@ const ButtonGroupDemo = () => {
               <Button variant="outline">Button</Button>
               <Button variant="outline">Button</Button>
             </ButtonGroup>
-            <ButtonGroup destructive>
+            <ButtonGroup>
               <Button variant="ghost">Button</Button>
               <Button variant="ghost">Button</Button>
               <Button variant="ghost">Button</Button>
@@ -92,7 +92,7 @@ const ButtonGroupDemo = () => {
             </ButtonGroup>
           </div>
           <div className="flex flex-col gap-4">
-            <ButtonGroup destructive>
+            <ButtonGroup destructive size="md">
               <Button size="md">Button</Button>
               <Button size="md">Button</Button>
               <Button size="md">Button</Button>
@@ -101,7 +101,7 @@ const ButtonGroupDemo = () => {
               <Button size="md">Button</Button>
               <Button size="md">Button</Button>
             </ButtonGroup>
-            <ButtonGroup destructive>
+            <ButtonGroup destructive size="md">
               <Button size="md" variant="secondary">
                 Button
               </Button>
@@ -124,7 +124,7 @@ const ButtonGroupDemo = () => {
                 Button
               </Button>
             </ButtonGroup>
-            <ButtonGroup destructive>
+            <ButtonGroup destructive size="md">
               <Button size="md" variant="outline">
                 Button
               </Button>
@@ -147,7 +147,7 @@ const ButtonGroupDemo = () => {
                 Button
               </Button>
             </ButtonGroup>
-            <ButtonGroup destructive>
+            <ButtonGroup destructive size="md">
               <Button size="md" variant="ghost">
                 Button
               </Button>
@@ -172,7 +172,7 @@ const ButtonGroupDemo = () => {
             </ButtonGroup>
           </div>
           <div className="flex flex-col gap-4">
-            <ButtonGroup destructive>
+            <ButtonGroup destructive size="lg">
               <Button size="lg">Button</Button>
               <Button size="lg">Button</Button>
               <Button size="lg">Button</Button>
@@ -181,7 +181,7 @@ const ButtonGroupDemo = () => {
               <Button size="lg">Button</Button>
               <Button size="lg">Button</Button>
             </ButtonGroup>
-            <ButtonGroup destructive>
+            <ButtonGroup destructive size="lg">
               <Button size="lg" variant="secondary">
                 Button
               </Button>
@@ -204,7 +204,7 @@ const ButtonGroupDemo = () => {
                 Button
               </Button>
             </ButtonGroup>
-            <ButtonGroup destructive>
+            <ButtonGroup destructive size="lg">
               <Button size="lg" variant="outline">
                 Button
               </Button>
@@ -227,7 +227,7 @@ const ButtonGroupDemo = () => {
                 Button
               </Button>
             </ButtonGroup>
-            <ButtonGroup destructive>
+            <ButtonGroup destructive size="lg">
               <Button size="lg" variant="ghost">
                 Button
               </Button>
@@ -770,7 +770,7 @@ const ButtonGroupDemo = () => {
                     <PlusIcon className="size-4" />
                   </Button>
                 </ButtonGroup>
-                <ButtonGroup destructive>
+                <ButtonGroup destructive size="lg">
                   <Button variant="outline" size="lg">
                     Large
                   </Button>
@@ -784,7 +784,7 @@ const ButtonGroupDemo = () => {
                     <PlusIcon className="size-4" />
                   </Button>
                 </ButtonGroup>
-                <ButtonGroup destructive>
+                <ButtonGroup destructive size="lg">
                   <Button variant="ghost" size="xl">
                     Large
                   </Button>
@@ -798,7 +798,7 @@ const ButtonGroupDemo = () => {
                     <PlusIcon className="size-5" />
                   </Button>
                 </ButtonGroup>
-                <ButtonGroup destructive>
+                <ButtonGroup destructive size="lg">
                   <Button variant="destructive" size="2xl">
                     Large
                   </Button>

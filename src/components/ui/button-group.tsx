@@ -21,7 +21,6 @@ const buttonGroupVariants = cva(
       destructive: {
         false: "",
         true: `
-          gap-1
           [&>*:not(:first-child):not(:last-child)]:rounded-lg
           [&>*:not(:first-child)]:rounded-lg
           [&>*:not(:last-child)]:rounded-lg
@@ -36,13 +35,28 @@ const buttonGroupVariants = cva(
         true: "flex-wrap",
       },
       size: {
-        sm: "gap-1",
-        md: "gap-1.5",
-        lg: "gap-1.5",
+        sm: "",
+        md: "",
+        lg: "",
       },
     },
 
     compoundVariants: [
+      {
+        destructive: true,
+        size: "sm",
+        className: "gap-1",
+      },
+      {
+        destructive: true,
+        size: "md",
+        className: "gap-1.5",
+      },
+      {
+        destructive: true,
+        size: "lg",
+        className: "gap-1.5",
+      },
       {
         orientation: "horizontal",
         variant: "outline",
