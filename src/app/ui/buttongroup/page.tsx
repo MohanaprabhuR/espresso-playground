@@ -454,6 +454,7 @@ const ButtonGroupDemo = () => {
               wrapLayout={true}
               className="max-w-[400px] justify-center"
               destructive
+              size="lg"
             >
               <Button size="lg">Button</Button>
               <Button size="lg">Button</Button>
@@ -467,6 +468,7 @@ const ButtonGroupDemo = () => {
               wrapLayout={true}
               className="max-w-[400px] justify-center"
               destructive
+              size="lg"
             >
               <Button size="lg" variant="secondary">
                 Button
@@ -495,6 +497,7 @@ const ButtonGroupDemo = () => {
               wrapLayout={true}
               className="max-w-[400px] justify-center"
               destructive
+              size="lg"
             >
               <Button size="lg" variant="outline">
                 Button
@@ -522,6 +525,7 @@ const ButtonGroupDemo = () => {
               wrapLayout={true}
               className="max-w-[400px] justify-center"
               destructive
+              size="lg"
             >
               <Button size="lg" variant="ghost">
                 Button
