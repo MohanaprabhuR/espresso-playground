@@ -286,7 +286,7 @@ export const columns: ColumnDef<DealItem>[] = [
     enableSorting: false,
     enableHiding: false,
     enableResizing: false,
-    size: 35,
+    size: 22,
   },
   {
     accessorKey: "name",
@@ -608,7 +608,7 @@ const dataTabelDemo = () => {
           </DropdownMenu>
         </div>
       </div>
-      <div className="px-5">
+      <div className="px-3">
         <Table
           className="w-full table-fixed min-w-full"
           style={{
@@ -704,7 +704,7 @@ const dataTabelDemo = () => {
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="truncate">
+                    <TableCell key={cell.id}>
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()

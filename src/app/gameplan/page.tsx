@@ -132,7 +132,7 @@ export const columns: ColumnDef<DealItem>[] = [
     enableSorting: false,
     enableHiding: false,
     enableResizing: false,
-    size: 35,
+    size: 25,
   },
   {
     accessorKey: "task_title",
@@ -375,7 +375,7 @@ const driveTabelDemo = () => {
                 data-state={row.getIsSelected() && "selected"}
               >
                 {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id} className="truncate">
+                  <TableCell key={cell.id}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
                 ))}

@@ -398,7 +398,7 @@ export const columns: ColumnDef<Ticket>[] = [
     enableSorting: false,
     enableHiding: false,
     enableResizing: false,
-    size: 35,
+    size: 25,
   },
   {
     accessorKey: "id",
@@ -620,7 +620,7 @@ const helpDeskTabelDemo = () => {
           </Select>
         </div>
       </div>
-      <div className="px-5">
+      <div className="px-3">
         <Table className="w-full table-fixed min-w-0">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -713,7 +713,7 @@ const helpDeskTabelDemo = () => {
                   {row.getVisibleCells().map((cell) => (
                     <TableCell
                       key={cell.id}
-                      className="truncate last:text-right [&:last-child>*]:justify-end"
+                      className=" last:text-right [&:last-child>*]:justify-end"
                     >
                       {flexRender(
                         cell.column.columnDef.cell,

@@ -471,7 +471,7 @@ const MailTableDemo = () => {
       </div>
 
       <div className="w-full overflow-x-hidden min-w-0">
-        <Table className="w-full table-fixed min-w-0">
+        <Table noPadding className="w-full table-fixed min-w-0  ">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
@@ -481,14 +481,6 @@ const MailTableDemo = () => {
                       key={header.id}
                       className="p-0"
                       colSpan={header.colSpan}
-                      style={{
-                        width:
-                          header.column.id === "select"
-                            ? "20%"
-                            : header.column.id === "date"
-                              ? "15%"
-                              : "65%",
-                      }}
                     >
                       {header.isPlaceholder ? null : (
                         <div
@@ -533,7 +525,7 @@ const MailTableDemo = () => {
                   {row.getVisibleCells().map((cell) => (
                     <TableCell
                       key={cell.id}
-                      className="overflow-hidden align-top [&:last-child>*]:pr-3 [&:first-child>*]:pl-3"
+                      className=" align-top [&:last-child>*]:pr-3 [&:first-child>*]:pl-3"
                     >
                       {flexRender(
                         cell.column.columnDef.cell,

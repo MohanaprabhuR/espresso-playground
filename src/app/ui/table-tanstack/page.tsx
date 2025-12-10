@@ -576,7 +576,7 @@ const dataTabelDemo = () => {
           >
             <TableHeader>
               {table.getHeaderGroups().map((headerGroups) => (
-                <TableRow key={headerGroups.id} className="bg-muted/50">
+                <TableRow key={headerGroups.id}>
                   {headerGroups.headers.map((header) => {
                     return (
                       <TableHead
@@ -666,8 +666,8 @@ const dataTabelDemo = () => {
                     data-state={row.getIsSelected() && "selected"}
                   >
                     {row.getVisibleCells().map((cell) => (
-                      <TableCell key={cell.id} className="truncate">
-                        <span className="truncate">
+                      <TableCell key={cell.id}>
+                        <span>
                           {flexRender(
                             cell.column.columnDef.cell,
                             cell.getContext()
@@ -704,7 +704,7 @@ const dataTabelDemo = () => {
           >
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (
-                <TableRow key={headerGroup.id} className="bg-muted/50">
+                <TableRow key={headerGroup.id}>
                   {headerGroup.headers.map((header) => {
                     const { column } = header;
                     const isPinned = column.getIsPinned();
@@ -819,7 +819,7 @@ const dataTabelDemo = () => {
                       return (
                         <TableCell
                           key={cell.id}
-                          className="truncate data-pinned:bg-background/90 data-pinned:backdrop-blur-xs [&[data-pinned=left][data-last-col=left]]:border-r [&[data-pinned=right][data-last-col=right]]:border-l [&[data-pinned][data-last-col]]:border-border"
+                          className=" data-pinned:bg-background/90 data-pinned:backdrop-blur-xs [&[data-pinned=left][data-last-col=left]]:border-r [&[data-pinned=right][data-last-col=right]]:border-l [&[data-pinned][data-last-col]]:border-border"
                           style={{ ...getPinningStyles(column) }}
                           data-pinned={isPinned || undefined}
                           data-last-col={
