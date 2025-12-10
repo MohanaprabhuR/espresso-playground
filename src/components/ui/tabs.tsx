@@ -156,7 +156,7 @@ function TabsList({
           updateIndicator();
           timeoutId = setTimeout(() => {
             updateIndicator();
-          }, 50);
+          }, 100);
         });
       });
     };
