@@ -477,7 +477,7 @@ const MailTableDemo = () => {
                   return (
                     <TableHead
                       key={header.id}
-                      className="p-0"
+                      className="p-0 "
                       colSpan={header.colSpan}
                       style={{
                         width:
@@ -531,7 +531,7 @@ const MailTableDemo = () => {
                   {row.getVisibleCells().map((cell) => (
                     <TableCell
                       key={cell.id}
-                      className=" align-top [&:last-child>*]:pr-3 [&:first-child>*]:pl-3"
+                      className=" align-top [&:last-child>*]:pr-3 [&:first-child>*]:pl-6 "
                     >
                       {flexRender(
                         cell.column.columnDef.cell,
