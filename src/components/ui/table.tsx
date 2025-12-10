@@ -100,10 +100,10 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
       data-slot="table-cell"
       className={cn(
         "first:before:content-[''] first:before:absolute first:before:w-3 first:before:h-full first:before:bg-card first:before:opacity-0 first:before:top-0 first:before:-left-3  first:before:rounded-l-lg group-hover:first:before:opacity-100 ",
-        "group-data-[state=selected]:first:before:bg-secondary group-data-[state=selected]:first:before:opacity-100 ",
+        "group-data-[state=selected]:first:before:bg-secondary group-data-[state=selected]:first:before:rounded-none group-data-[state=selected]:first:before:opacity-100 group-data-[state=selected]:first:before:border-b group-data-[state=selected]:first:before:border-border group-data-[state=selected]:first:before:h-11.25 ",
 
         "last:after:content-[''] last:after:absolute last:after:w-3 last:after:h-full last:after:bg-card last:after:opacity-0 last:after:top-0 last:after:-right-3 last:after:rounded-r-lg group-hover:last:after:opacity-100",
-        "group-data-[state=selected]:last:after:bg-secondary group-data-[state=selected]:last:after:opacity-100",
+        "group-data-[state=selected]:last:after:bg-secondary group-data-[state=selected]:last:after:opacity-100 group-data-[state=selected]:last:before:rounded-none",
         "relative text-secondary-foreground text-base  px-2 py-3.5 tracking-4 leading-tight font-normal  align-middle whitespace-nowrap [&:has([role=checkbox])]:px-1.5  [&:has([role=checkbox])]:w-[28px] [&:has([role=checkbox])]:py-3  [&>[role=checkbox]]:translate-y-[2px] [&:has([data-slot=avatar])]:py-3 [&:has(button)]:py-0 [&_strong]:text-accent-foreground [&_strong]:font-medium",
         className
       )}
