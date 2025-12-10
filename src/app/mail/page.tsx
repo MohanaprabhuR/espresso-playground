@@ -294,8 +294,7 @@ const AttachmentIcon = ({ type }: { type: Attachment["type"] }) => {
 export const columns: ColumnDef<MailItem>[] = [
   {
     id: "select",
-    minSize: 200,
-    maxSize: 300,
+    size: 200,
     cell: ({ row }) => {
       const avatars = row.original.avatar;
 
@@ -361,7 +360,7 @@ export const columns: ColumnDef<MailItem>[] = [
         )}
       </div>
     ),
-    minSize: 400,
+    size: 754,
   },
   {
     accessorKey: "date",
@@ -369,8 +368,7 @@ export const columns: ColumnDef<MailItem>[] = [
     cell: ({ row }) => (
       <span className="truncate text-right w-full">{row.original.date}</span>
     ),
-    minSize: 120,
-    maxSize: 150,
+    size: 120,
   },
 ];
 
@@ -481,6 +479,14 @@ const MailTableDemo = () => {
                       key={header.id}
                       className="p-0"
                       colSpan={header.colSpan}
+                      style={{
+                        width:
+                          header.column.id === "select"
+                            ? "20%"
+                            : header.column.id === "date"
+                              ? "15%"
+                              : "65%",
+                      }}
                     >
                       {header.isPlaceholder ? null : (
                         <div
