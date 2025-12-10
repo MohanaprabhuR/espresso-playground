@@ -56,6 +56,7 @@ export default function RootLayout({
                       <BreadcrumbItem>
                         <Select defaultValue="list">
                           <SelectTrigger
+                            size="sm"
                             variant="ghost"
                             icon={<ChevronDown />}
                             className="font-medium"

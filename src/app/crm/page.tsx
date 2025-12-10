@@ -21,6 +21,7 @@ import {
 } from "@tanstack/react-table";
 import {
   ArrowDownUp,
+  ChevronDown,
   ChevronDownIcon,
   ChevronUpIcon,
   Ellipsis,
@@ -41,6 +42,14 @@ import {
 import { Kbd, KbdGroup } from "@/components/ui/kbd";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import Image from "next/image";
 
 interface DealItem {
   name: string;
@@ -333,7 +342,7 @@ export const columns: ColumnDef<DealItem>[] = [
   },
   {
     accessorKey: "phone",
-    header: "EmailMobile no.",
+    header: "Mobile no.",
     cell: ({ row }) => (
       <>
         <figure className="size-4">
@@ -384,53 +393,193 @@ const dataTabelDemo = () => {
   return (
     <div className="flex flex-col mx-auto gap-y-4.5 w-full  h-[calc(100vh-50px)]  relative pb-11 pt-2.5 overflow-scroll">
       <div className="flex justify-between items-center w-full px-5">
-        <ButtonGroup destructive className="gap-x-2">
+        <div className="gap-x-2 flex">
           <Button variant="secondary">Lead Owner</Button>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="secondary">
-                Organization <ChevronDownIcon className="size-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem>Gumroad</DropdownMenuItem>
-              <DropdownMenuItem>Attentive</DropdownMenuItem>
-              <DropdownMenuItem>Evergreen</DropdownMenuItem>
-              <DropdownMenuItem>Dropbox</DropdownMenuItem>
-              <DropdownMenuItem>Hourglass</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="secondary">
-                Status <ChevronDownIcon className="size-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem>Open</DropdownMenuItem>
-              <DropdownMenuItem>Contacted</DropdownMenuItem>
-              <DropdownMenuItem>Nurture</DropdownMenuItem>
-              <DropdownMenuItem>Qualified</DropdownMenuItem>
-              <DropdownMenuItem>Unqualified</DropdownMenuItem>
-              <DropdownMenuItem>Junk</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </ButtonGroup>
+          <Select defaultValue="gumroad">
+            <SelectTrigger size="sm" icon={<ChevronDown />}>
+              <SelectValue placeholder="List View" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="gumroad">
+                <Image
+                  src="/images/svg/gumroad.svg"
+                  alt="gumroad"
+                  width="20"
+                  height="20"
+                />
+                Gumroad
+              </SelectItem>
+              <SelectItem value="attentive">
+                <Image
+                  src="/images/svg/attentive.svg"
+                  alt="Attentive"
+                  width="20"
+                  height="20"
+                />
+                Attentive
+              </SelectItem>
+              <SelectItem value="evergreen">
+                <Image
+                  src="/images/svg/evergreen.svg"
+                  alt="Evergreen"
+                  width="20"
+                  height="20"
+                />
+                Evergreen
+              </SelectItem>
+              <SelectItem value="dropbox">
+                <Image
+                  src="/images/svg/dropbox.svg"
+                  alt="Dropbox"
+                  width="20"
+                  height="20"
+                />
+                Dropbox
+              </SelectItem>
+              <SelectItem value="hourglass">
+                <Image
+                  src="/images/svg/hourglass.svg"
+                  alt="Hourglass"
+                  width="20"
+                  height="20"
+                />
+                Hourglass
+              </SelectItem>
+            </SelectContent>
+          </Select>
+
+          <Select defaultValue="open">
+            <SelectTrigger icon={<ChevronDown />} size="sm">
+              <SelectValue placeholder="Status" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="open">
+                <Image
+                  src="/images/svg/open.svg"
+                  alt="Open"
+                  width="16"
+                  height="16"
+                />
+                Open
+              </SelectItem>
+              <SelectItem value="contacted">
+                <Image
+                  src="/images/svg/contacted.svg"
+                  alt="Contacted"
+                  width="16"
+                  height="16"
+                />
+                Contacted
+              </SelectItem>
+              <SelectItem value="nurture">
+                <Image
+                  src="/images/svg/nurture.svg"
+                  alt="Nurture"
+                  width="16"
+                  height="16"
+                />
+                Nurture
+              </SelectItem>
+              <SelectItem value="qualified">
+                <Image
+                  src="/images/svg/qualified.svg"
+                  alt="Qualified"
+                  width="16"
+                  height="16"
+                />
+                Qualified
+              </SelectItem>
+              <SelectItem value="unqualified">
+                <Image
+                  src="/images/svg/unqualified.svg"
+                  alt="Unqualified"
+                  width="16"
+                  height="16"
+                />
+                Unqualified
+              </SelectItem>
+              <SelectItem value="junk">
+                <Image
+                  src="/images/svg/junk.svg"
+                  alt="Junk"
+                  width="16"
+                  height="16"
+                />
+                Junk
+              </SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
         <div className="flex gap-x-2 items-center">
-          <ButtonGroup destructive className="gap-x-2">
+          <div className="flex gap-x-2">
+            <Select>
+              <SelectTrigger icon={<ChevronDown />}>
+                <EyeOff />
+                <SelectValue placeholder="Columns" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="name">Name</SelectItem>
+                <SelectItem value="organisation">Organisation</SelectItem>
+                <SelectItem value="start-date">Start Date</SelectItem>
+                <SelectItem value="status">Status</SelectItem>
+                <SelectItem value="email">Email</SelectItem>
+                <SelectItem value="mobile-no">Mobile No</SelectItem>
+                <SelectItem value="assigned-to">Assigned To</SelectItem>
+                <SelectItem value="last-modified">Last Modified</SelectItem>
+              </SelectContent>
+            </Select>
             <Button variant="secondary">
-              <EyeOff className="size-4" /> Columns
+              <Logs /> Group
             </Button>
-            <Button variant="secondary">
-              <Logs className="size-4" /> Group
-            </Button>
-            <Button variant="secondary">
-              <ListFilter className="size-4" /> Filter
-            </Button>
-            <Button variant="secondary">
-              <ArrowDownUp className="size-4" /> Sort
-            </Button>
-          </ButtonGroup>
+            <Select>
+              <SelectTrigger icon={<ChevronDown />}>
+                <ListFilter />
+                <SelectValue placeholder="Filter" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="title">Title</SelectItem>
+                <SelectItem value="priority">Priority</SelectItem>
+                <SelectItem value="start-date">Start Date</SelectItem>
+                <SelectItem value="reference-document-type">
+                  Reference Document Type
+                </SelectItem>
+                <SelectItem value="reference-doc">Reference Doc</SelectItem>
+                <SelectItem value="assigned-to">Assigned To</SelectItem>
+                <SelectItem value="status">Status</SelectItem>
+                <SelectItem value="due-date">Due Date</SelectItem>
+                <SelectItem value="name">Name</SelectItem>
+                <SelectItem value="description">Description</SelectItem>
+                <SelectItem value="created-on">Created On</SelectItem>
+                <SelectItem value="last-modified">Last Modified</SelectItem>
+                <SelectItem value="modified-by">Modified By</SelectItem>
+                <SelectItem value="owner">Owner</SelectItem>
+              </SelectContent>
+            </Select>
+            <Select>
+              <SelectTrigger icon={<ChevronDown />}>
+                <ArrowDownUp />
+                <SelectValue placeholder="Sort" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="title">Title</SelectItem>
+                <SelectItem value="priority">Priority</SelectItem>
+                <SelectItem value="start-date">Start Date</SelectItem>
+                <SelectItem value="reference-document-type">
+                  Reference Document Type
+                </SelectItem>
+                <SelectItem value="reference-doc">Reference Doc</SelectItem>
+                <SelectItem value="assigned-to">Assigned To</SelectItem>
+                <SelectItem value="status">Status</SelectItem>
+                <SelectItem value="due-date">Due Date</SelectItem>
+                <SelectItem value="name">Name</SelectItem>
+                <SelectItem value="description">Description</SelectItem>
+                <SelectItem value="created-on">Created On</SelectItem>
+                <SelectItem value="last-modified">Last Modified</SelectItem>
+                <SelectItem value="modified-by">Modified By</SelectItem>
+                <SelectItem value="owner">Owner</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -460,7 +609,12 @@ const dataTabelDemo = () => {
         </div>
       </div>
       <div className="px-5">
-        <Table className="w-full table-fixed min-w-0">
+        <Table
+          className="w-full table-fixed min-w-full"
+          style={{
+            width: table.getCenterTotalSize(),
+          }}
+        >
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>

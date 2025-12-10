@@ -24,6 +24,7 @@ import {
   ChevronDownIcon,
   ChevronUpIcon,
   Columns2,
+  EyeOff,
   ListFilter,
   RefreshCcw,
   SignalMedium,
@@ -38,6 +39,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Rating, RatingButton } from "@/components/ui/shadcn-io/rating";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface Ticket {
   id: string;
@@ -549,20 +557,68 @@ const helpDeskTabelDemo = () => {
           placeholder="Try “first due” or ticket type"
           prefix={<Sparkles />}
         />
-        <ButtonGroup destructive>
+        <div className="flex gap-x-2">
           <Button variant="secondary" iconOnly>
             <RefreshCcw className="size-4" />
           </Button>
-          <Button variant="secondary">
-            <ListFilter className="size-4" /> Filter
-          </Button>
-          <Button variant="secondary">
-            Last modified <ChevronDown className="size-4" />
-          </Button>
-          <Button variant="secondary">
-            <Columns2 className="size-4" /> Column
-          </Button>
-        </ButtonGroup>
+          <Select>
+            <SelectTrigger icon={<ChevronDown />}>
+              <ListFilter />
+              <SelectValue placeholder="Filter" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="title">Title</SelectItem>
+              <SelectItem value="priority">Priority</SelectItem>
+              <SelectItem value="start-date">Start Date</SelectItem>
+              <SelectItem value="reference-document-type">
+                Reference Document Type
+              </SelectItem>
+              <SelectItem value="reference-doc">Reference Doc</SelectItem>
+              <SelectItem value="assigned-to">Assigned To</SelectItem>
+              <SelectItem value="status">Status</SelectItem>
+              <SelectItem value="due-date">Due Date</SelectItem>
+              <SelectItem value="name">Name</SelectItem>
+              <SelectItem value="description">Description</SelectItem>
+              <SelectItem value="created-on">Created On</SelectItem>
+              <SelectItem value="last-modified">Last Modified</SelectItem>
+              <SelectItem value="modified-by">Modified By</SelectItem>
+              <SelectItem value="owner">Owner</SelectItem>
+            </SelectContent>
+          </Select>
+
+          <Select>
+            <SelectTrigger icon={<ChevronDown />}>
+              <SelectValue placeholder="Last modified" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="name">Name</SelectItem>
+              <SelectItem value="organisation">Organisation</SelectItem>
+              <SelectItem value="start-date">Start Date</SelectItem>
+              <SelectItem value="status">Status</SelectItem>
+              <SelectItem value="email">Email</SelectItem>
+              <SelectItem value="mobile-no">Mobile No</SelectItem>
+              <SelectItem value="assigned-to">Assigned To</SelectItem>
+              <SelectItem value="last-modified">Last Modified</SelectItem>
+            </SelectContent>
+          </Select>
+
+          <Select>
+            <SelectTrigger icon={<ChevronDown />}>
+              <EyeOff />
+              <SelectValue placeholder="Columns" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="name">Name</SelectItem>
+              <SelectItem value="organisation">Organisation</SelectItem>
+              <SelectItem value="start-date">Start Date</SelectItem>
+              <SelectItem value="status">Status</SelectItem>
+              <SelectItem value="email">Email</SelectItem>
+              <SelectItem value="mobile-no">Mobile No</SelectItem>
+              <SelectItem value="assigned-to">Assigned To</SelectItem>
+              <SelectItem value="last-modified">Last Modified</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
       <div className="px-5">
         <Table className="w-full table-fixed min-w-0">

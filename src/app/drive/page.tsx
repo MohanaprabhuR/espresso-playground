@@ -20,6 +20,7 @@ import {
 } from "@tanstack/react-table";
 import {
   ArrowDownToLine,
+  ArrowDownUp,
   ChevronDown,
   ChevronDownIcon,
   ChevronUpIcon,
@@ -51,6 +52,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Image from "next/image";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface DealItem {
   name: string;
@@ -358,19 +366,17 @@ const driveTabelDemo = () => {
           All
         </p>
         <div className="flex gap-x-2">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="secondary">
-                <ListFilter className="size-4" /> Filter
-                <ChevronDown className="size-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem>Open</DropdownMenuItem>
-              <DropdownMenuItem>Close</DropdownMenuItem>
-              <DropdownMenuItem>Edit</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Select defaultValue="open">
+            <SelectTrigger icon={<ChevronDown />}>
+              <ArrowDownUp className="size-4" />
+              <SelectValue placeholder="Newest" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="open">Open</SelectItem>
+              <SelectItem value="close">Close</SelectItem>
+              <SelectItem value="edit">Edit</SelectItem>
+            </SelectContent>
+          </Select>
           <Tabs defaultValue="auto">
             <TabsList>
               <TabsTrigger value="auto">

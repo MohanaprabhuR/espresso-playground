@@ -29,6 +29,13 @@ import {
 import { Check, FileArchive, FileText, ImageIcon, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface Attachment {
   name: string;
@@ -403,18 +410,57 @@ const MailTableDemo = () => {
               Image
             </Button>
             <Button variant="outline">PDF</Button>
-            <Button variant="outline">
-              From
-              <ChevronDown />
-            </Button>
-            <Button variant="outline">
-              Any time
-              <ChevronDown />
-            </Button>
-            <Button variant="outline">
-              To
-              <ChevronDown />
-            </Button>
+
+            <Select>
+              <SelectTrigger variant="outline" icon={<ChevronDown />}>
+                <SelectValue placeholder=" From" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="form">Form</SelectItem>
+                <SelectItem value="name">Name</SelectItem>
+                <SelectItem value="organisation">Organisation</SelectItem>
+                <SelectItem value="start-date">Start Date</SelectItem>
+                <SelectItem value="status">Status</SelectItem>
+                <SelectItem value="email">Email</SelectItem>
+                <SelectItem value="mobile-no">Mobile No</SelectItem>
+                <SelectItem value="assigned-to">Assigned To</SelectItem>
+                <SelectItem value="last-modified">Last Modified</SelectItem>
+              </SelectContent>
+            </Select>
+
+            <Select>
+              <SelectTrigger variant="outline" icon={<ChevronDown />}>
+                <SelectValue placeholder=" Any time" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="any-time">Any time</SelectItem>
+                <SelectItem value="name">Name</SelectItem>
+                <SelectItem value="organisation">Organisation</SelectItem>
+                <SelectItem value="start-date">Start Date</SelectItem>
+                <SelectItem value="status">Status</SelectItem>
+                <SelectItem value="email">Email</SelectItem>
+                <SelectItem value="mobile-no">Mobile No</SelectItem>
+                <SelectItem value="assigned-to">Assigned To</SelectItem>
+                <SelectItem value="last-modified">Last Modified</SelectItem>
+              </SelectContent>
+            </Select>
+
+            <Select>
+              <SelectTrigger variant="outline" icon={<ChevronDown />}>
+                <SelectValue placeholder="To" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="to">to</SelectItem>
+                <SelectItem value="name">Name</SelectItem>
+                <SelectItem value="organisation">Organisation</SelectItem>
+                <SelectItem value="start-date">Start Date</SelectItem>
+                <SelectItem value="status">Status</SelectItem>
+                <SelectItem value="email">Email</SelectItem>
+                <SelectItem value="mobile-no">Mobile No</SelectItem>
+                <SelectItem value="assigned-to">Assigned To</SelectItem>
+                <SelectItem value="last-modified">Last Modified</SelectItem>
+              </SelectContent>
+            </Select>
             <Button variant="outline">Is unread</Button>
             <Button variant="ghost">Advanced search</Button>
           </div>

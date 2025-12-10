@@ -40,6 +40,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Badge, BadgeGroup } from "@/components/ui/badge";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface DealItem {
   task_title: string;
@@ -300,19 +307,17 @@ const driveTabelDemo = () => {
         <span className="text-lg font-semibold tracking-4 leading-tight text-foreground">
           Tasks
         </span>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="secondary">
-              <ArrowDownUp className="size-4" /> Newest
-              <ChevronDown className="size-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem>Open</DropdownMenuItem>
-            <DropdownMenuItem>Close</DropdownMenuItem>
-            <DropdownMenuItem>Edit</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <Select defaultValue="open">
+          <SelectTrigger icon={<ChevronDown />}>
+            <ArrowDownUp />
+            <SelectValue placeholder="Newest" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="open">Open</SelectItem>
+            <SelectItem value="close">Close</SelectItem>
+            <SelectItem value="edit">Edit</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
       <Table className="table-fixed w-full mx-auto max-w-[900px]">
         <TableHeader>
