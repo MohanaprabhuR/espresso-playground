@@ -365,6 +365,14 @@ export function TeamSwitcher({
                         CRM
                       </DropdownMenuItem>
                     </Link>
+                    <Link href="/crm-data-grid">
+                      <DropdownMenuItem>
+                        <div className="bg-[#DB4EE0] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
+                          <LogoCrm />
+                        </div>
+                        CRM Data Grid
+                      </DropdownMenuItem>
+                    </Link>
                     <Link href="/helpdesk">
                       <DropdownMenuItem>
                         <div className="bg-[#7D42FB] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
