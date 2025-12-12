@@ -384,10 +384,8 @@ function generateContacts(): Contact[] {
         ...status,
         value: status.label,
       },
-
       email: email,
       mobile: mobile,
-
       assigned: {
         ...assigned,
         value: assigned.label,
@@ -548,6 +546,11 @@ const DataTableDemo = () => {
         id: "email",
         accessorKey: "email",
         header: "Email",
+        meta: {
+          cell: {
+            variant: "short-text",
+          },
+        },
         minSize: 216,
       },
 
@@ -555,12 +558,11 @@ const DataTableDemo = () => {
         id: "mobile",
         accessorKey: "mobile",
         header: "Mobile no.",
-        cell: ({ row }) => (
-          <div className="flex items-center gap-1">
-            <Phone className="h-4 w-4 text-muted-foreground" />
-            {row.original.mobile}
-          </div>
-        ),
+        meta: {
+          cell: {
+            variant: "short-text",
+          },
+        },
         minSize: 184,
       },
 
