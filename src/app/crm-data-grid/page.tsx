@@ -586,6 +586,11 @@ const DataTableDemo = () => {
         id: "lastModified",
         accessorFn: (row) => row.lastModified,
         header: "Last Modified",
+        meta: {
+          cell: {
+            variant: "short-text",
+          },
+        },
         minSize: 128,
       },
     ],
