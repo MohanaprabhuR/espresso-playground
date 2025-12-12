@@ -609,12 +609,7 @@ const dataTabelDemo = () => {
         </div>
       </div>
       <div className="px-3">
-        <Table
-          className="w-full table-fixed min-w-full"
-          style={{
-            width: table.getCenterTotalSize(),
-          }}
-        >
+        <Table className="table-fixed w-full ">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>

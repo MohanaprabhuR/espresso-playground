@@ -4,16 +4,16 @@ import React from "react";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
 import * as Icons from "lucide-react";
-
+import { LogoIcon } from "../../../public/images/svg/logo-game-plan";
+import { LogoCrm } from "../../../public/images/svg/logo-crm";
+import { LogoHelpDesk } from "../../../public/images/svg/logo-help-desk";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
@@ -21,11 +21,7 @@ import {
   SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -38,12 +34,14 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { LogoIcon } from "../../../public/images/svg/logo-game-plan";
+
 import { Button } from "@/components/ui/button";
 import {
   AlertCircleIcon,
   AppWindow,
+  ArrowRight,
   ArrowRightFromLine,
+  ChartPie,
   ChevronDown,
   ChevronRight,
   Component,
@@ -58,186 +56,62 @@ import {
   Zap,
 } from "lucide-react";
 import Link from "next/link";
-import { LogoCrm } from "../../../public/images/svg/logo-crm";
-import { LogoHelpDesk } from "../../../public/images/svg/logo-help-desk";
-import { LogoDrive } from "../../../public/images/svg/logo-deive-table";
 import { LogoMail } from "../../../public/images/svg/logo-mail";
+import { LogoDrive } from "../../../public/images/svg/logo-deive-table";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardTitle,
+} from "@/components/ui/card";
 
 const menuConfig = {
-  mainMenu: [
-    { label: "Search", icon: "Search", href: "#", badge: "⌘ K" },
+  quickActions: [
+    { label: "Search", icon: "Search", href: "#" },
     { label: "Notifications", icon: "Bell", href: "#" },
-    { label: "Inbox", icon: "Inbox", href: "#" },
-    { label: "Home", icon: "House", href: "/gameplan", badge: "23" },
-    { label: "Drafts", icon: "CircleCheckBig", href: "#" },
-    { label: "Tasks", icon: "Settings", href: "#" },
-    { label: "Pages", icon: "Files", href: "#" },
+  ],
+  mainMenu: [
+    { label: "Dashboard", icon: "LayoutDashboard", href: "#" },
+    { label: "Tasks", icon: "CircleCheck", href: "#" },
+    { label: "Notes", icon: "NotebookPen", href: "#" },
+    { label: "Emails", icon: "Mail", href: "#" },
+    { label: "Leads", icon: "Weight", href: "#" },
+    { label: "Deals", icon: "Handshake", href: "/crm" },
+    { label: "Organization", icon: "Building2", href: "#" },
+    { label: "Calendar", icon: "Calendar", href: "#" },
+    { label: "Contacts", icon: "SquareUser", href: "#" },
+    { label: "Call & Event Logs", icon: "Phone", href: "#" },
   ],
   teams: [
     {
-      label: "Product",
-      icon: "Fan",
-      badge: 43,
+      label: "Saved views",
+      icon: "ChevronRight",
       items: [
-        { label: "General", href: "#" },
-        { label: "Standups", href: "#" },
-        { label: "Training", href: "#" },
-        { label: "Update", href: "#" },
-      ],
-    },
-    {
-      label: "Operations",
-      icon: "KeyRound",
-      badge: 26,
-      items: [
-        { label: "General", href: "#" },
-        { label: "Standups", href: "#" },
-        { label: "Training", href: "#" },
-        { label: "Update", href: "#" },
-      ],
-    },
-    {
-      label: "Open FLC",
-      icon: "SquareArrowOutUpRight",
-      badge: 13,
-      items: [
-        { label: "General", href: "#" },
-        { label: "Standups", href: "#" },
-        { label: "Training", href: "#" },
-        { label: "Update", href: "#" },
-      ],
-    },
-    {
-      label: "Delivery team",
-      icon: "Truck",
-      badge: 8,
-      items: [
-        { label: "General", href: "#" },
-        { label: "Standups", href: "#" },
-        { label: "Training", href: "#" },
-        { label: "Update", href: "#" },
-      ],
-    },
-    {
-      label: "Sales",
-      icon: "Percent",
-      badge: 26,
-      items: [
-        { label: "General", href: "#" },
-        { label: "Standups", href: "#" },
-        { label: "Training", href: "#" },
-        { label: "Update", href: "#" },
-      ],
-    },
-    {
-      label: "Framework",
-      icon: "Frame",
-      badge: 12,
-      items: [
-        { label: "General", href: "#" },
-        { label: "Standups", href: "#" },
-        { label: "Training", href: "#" },
-        { label: "Update", href: "#" },
-      ],
-    },
-    {
-      label: "Team coffee",
-      icon: "Vault",
-      badge: 9,
-      items: [
-        { label: "General", href: "#" },
-        { label: "Standups", href: "#" },
-        { label: "Training", href: "#" },
-        { label: "Update", href: "#" },
-      ],
-    },
-    {
-      label: "Vacation",
-      icon: "TicketsPlane",
-      badge: 24,
-      items: [
-        { label: "General", href: "#" },
-        { label: "Standups", href: "#" },
-        { label: "Training", href: "#" },
-        { label: "Update", href: "#" },
-      ],
-    },
-    {
-      label: "Frappe analytics",
-      icon: "ChartPie",
-      badge: 17,
-      items: [
-        { label: "General", href: "#" },
-        { label: "Standups", href: "#" },
-        { label: "Training", href: "#" },
-        { label: "Update", href: "#" },
-      ],
-    },
-    {
-      label: "Goals",
-      icon: "Goal",
-      badge: 9,
-      items: [
-        { label: "General", href: "#" },
-        { label: "Standups", href: "#" },
-        { label: "Training", href: "#" },
-        { label: "Update", href: "#" },
-      ],
-    },
-    {
-      label: "Quality",
-      icon: "Infinity",
-      badge: 3,
-      items: [
-        { label: "General", href: "#" },
-        { label: "Standups", href: "#" },
-        { label: "Training", href: "#" },
-        { label: "Update", href: "#" },
-      ],
-    },
-    {
-      label: "Team out",
-      icon: "ShieldHalf",
-      items: [
-        { label: "General", href: "#" },
-        { label: "Standups", href: "#" },
-        { label: "Training", href: "#" },
-        { label: "Update", href: "#" },
-      ],
-    },
-    {
-      label: "Adventure",
-      icon: "Kayak",
-      items: [
-        { label: "General", href: "#" },
-        { label: "Standups", href: "#" },
-        { label: "Training", href: "#" },
-        { label: "Update", href: "#" },
-      ],
-    },
-    {
-      label: "DevOps",
-      icon: "FileScan",
-      items: [
-        { label: "General", href: "#" },
-        { label: "Standups", href: "#" },
-        { label: "Training", href: "#" },
-        { label: "Update", href: "#" },
+        { label: "My leads", icon: "Headset", href: "#" },
+        { label: "Deals flow", icon: "HeartHandshake", href: "#" },
+        {
+          label: "Qualified Deals",
+          icon: "ShieldCheck",
+          href: "#",
+        },
       ],
     },
   ],
 };
 
-const GamePlanSidebar = () => {
+const CrmSidebar = () => {
   const { theme, setTheme } = useTheme();
-
   const { openMobile, setOpenMobile, isMobile } = useSidebar();
-
   const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
   const pathname = usePathname();
   const { state } = useSidebar();
   const isCollapsed = state === "collapsed";
-
   return (
     <>
       {isMobile && (
@@ -254,14 +128,14 @@ const GamePlanSidebar = () => {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button className="w-full" variant="ghost">
-                    <div className="bg-[#FF8F26] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
-                      <LogoIcon />
+                    <div className="bg-[#DB4EE0] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
+                      <LogoCrm />
                     </div>
                     {!isCollapsed && (
                       <>
                         <div className="flex flex-col flex-1 text-left gap-y-0.75">
                           <span className="truncate font-medium text-base tracking-4 leading-tight text-foreground">
-                            Gameplan
+                            CRM
                           </span>
                           <span className="truncate text-sm text-muted-foreground tracking-4 leading-tight font-normal">
                             James fenimore
@@ -275,12 +149,12 @@ const GamePlanSidebar = () => {
 
                 <DropdownMenuContent align="start" className="w-[220px]">
                   <DropdownMenuLabel className="flex items-center gap-2">
-                    <div className="bg-[#FF8F26] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
-                      <LogoIcon />
+                    <div className="bg-[#DB4EE0] flex aspect-square size-8 items-center justify-center rounded-lg min-w-0 shrink-0">
+                      <LogoCrm />
                     </div>
                     <div className="flex flex-col flex-1 text-left gap-y-0.75">
                       <span className="truncate font-medium text-base tracking-4 leading-tight text-foreground">
-                        Gameplan
+                        CRM
                       </span>
                       <span className="truncate text-sm text-muted-foreground tracking-4 leading-tight font-normal">
                         James fenimore
@@ -304,6 +178,14 @@ const GamePlanSidebar = () => {
                               <LogoCrm />
                             </div>
                             CRM
+                          </DropdownMenuItem>
+                        </Link>
+                        <Link href="/crm-data-grid">
+                          <DropdownMenuItem>
+                            <div className="bg-[#DB4EE0] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
+                              <LogoCrm />
+                            </div>
+                            CRM Data Grid
                           </DropdownMenuItem>
                         </Link>
                         <Link href="/helpdesk">
@@ -388,6 +270,18 @@ const GamePlanSidebar = () => {
 
         <SidebarContent>
           <SidebarGroup>
+            {menuConfig.quickActions.map((item, idx) => {
+              const Icon = Icons[item.icon];
+              return (
+                <SidebarMenuButton key={idx} tooltip={item.label}>
+                  <Icon className="size-4" />
+                  <span className="flex-1 truncate">{item.label}</span>
+                </SidebarMenuButton>
+              );
+            })}
+          </SidebarGroup>
+
+          <SidebarGroup>
             {menuConfig.mainMenu.map((item, idx) => {
               const Icon = Icons[item.icon];
               return (
@@ -395,82 +289,105 @@ const GamePlanSidebar = () => {
                   key={idx}
                   tooltip={item.label}
                   isActive={pathname === item.href}
-                  asChild={item.href !== "#"}
+                  asChild
                 >
-                  {item.href !== "#" ? (
-                    <Link href={item.href} className="flex items-center gap-2">
-                      <Icon className="size-4" />
-                      <span className="flex-1 truncate">{item.label}</span>
-                      {item.badge && (
-                        <SidebarMenuBadge>{item.badge}</SidebarMenuBadge>
-                      )}
-                    </Link>
-                  ) : (
-                    <>
-                      <Icon className="size-4" />
-                      <span className="flex-1 truncate">{item.label}</span>
-                      {item.badge && (
-                        <SidebarMenuBadge>{item.badge}</SidebarMenuBadge>
-                      )}
-                    </>
-                  )}
+                  <Link href={item.href} className="flex items-center gap-2">
+                    <Icon className="size-4" />
+                    <span className="flex-1 truncate">{item.label}</span>
+                  </Link>
                 </SidebarMenuButton>
               );
             })}
           </SidebarGroup>
 
           <SidebarGroup>
-            <SidebarGroupLabel>
-              <span className="flex-1 truncate">Teams</span>
-              <SidebarMenuButton className="w-auto">
-                <Plus className="size-4" />
-              </SidebarMenuButton>
-            </SidebarGroupLabel>
-            {menuConfig.teams.map((menu, idx) => {
-              const Icon = Icons[menu.icon];
-
+            {menuConfig.teams.map((team, idx) => {
               return (
                 <Collapsible key={idx} className="group/collapsible">
                   <SidebarMenuItem>
                     <CollapsibleTrigger asChild>
-                      <SidebarMenuButton tooltip={menu.label}>
+                      <SidebarMenuButton
+                        className="flex items-center gap-2 w-full text-muted-foreground"
+                        tooltip={team.label}
+                      >
                         {!isCollapsed && (
-                          <ChevronRight className="w-4 h-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                          <>
+                            <ChevronRight className="w-4 h-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                            <span className="flex-1">{team.label}</span>
+                          </>
                         )}
 
-                        <div className="flex items-center gap-2 flex-1">
-                          {Icon ? <Icon className="size-4" /> : null}
-                          <span className="truncate">{menu.label}</span>
-                        </div>
-
-                        {menu.badge && (
-                          <SidebarMenuBadge className="ml-auto">
-                            {menu.badge}
-                          </SidebarMenuBadge>
-                        )}
+                        <Plus className="size-4 ml-auto " />
                       </SidebarMenuButton>
                     </CollapsibleTrigger>
 
-                    <CollapsibleContent className="ml-6 mt-1 flex flex-col gap-1">
-                      <SidebarMenuSub className="gap-1">
-                        {menu.items.map((item, i) => (
-                          <SidebarMenuSubButton key={i} asChild>
-                            <Link href={item.href}>{item.label}</Link>
-                          </SidebarMenuSubButton>
-                        ))}
+                    <CollapsibleContent>
+                      <SidebarMenuSub>
+                        {team.items.map((item, i) => {
+                          const Icon = Icons[item.icon];
+
+                          return (
+                            <SidebarMenuSubButton key={i} asChild>
+                              <Link
+                                href={item.href}
+                                className="flex items-center gap-2"
+                              >
+                                {Icon && <Icon className="size-4" />}
+                                <span className="flex-1 truncate">
+                                  {item.label}
+                                </span>
+                              </Link>
+                            </SidebarMenuSubButton>
+                          );
+                        })}
                       </SidebarMenuSub>
                     </CollapsibleContent>
                   </SidebarMenuItem>
                 </Collapsible>
               );
             })}
-            <SidebarMenuButton>More archived teams</SidebarMenuButton>
           </SidebarGroup>
         </SidebarContent>
         <SidebarFooter>
           <SidebarMenuItem className="gap-2.5 flex flex-col">
             {!isCollapsed && (
               <>
+                {/* <Card className="bg-background ">
+                  <CardContent className="flex gap-x-2 ">
+                    <div className="py-1">
+                      <ChartPie className="size-4" />
+                    </div>
+                    <div className="flex flex-col gap-y-0.5">
+                      <CardTitle>Getting Started</CardTitle>
+                      <CardDescription className="text-secondary-foreground">
+                        0/4
+                      </CardDescription>
+                    </div>
+                  </CardContent>
+                  <CardFooter>
+                    <Button variant="secondary" className="w-full">
+                      Contuine <ArrowRight className="size-4" />
+                    </Button>
+                  </CardFooter>
+                </Card> */}
+                <div className="px-3 py-2.5 rounded-2xl border bg-background">
+                  <div className="flex gap-x-2 pb-3.5">
+                    <div className="py-1">
+                      <ChartPie className="size-4" />
+                    </div>
+                    <div className="flex flex-col gap-y-0.5">
+                      <p className="text-sm tracking-4 leading-normal font-medium text-foreground">
+                        Getting Started
+                      </p>
+                      <span className="text-xs tracking-4 leading-normal font-medium text-secondary-foreground">
+                        0/4
+                      </span>
+                    </div>
+                  </div>
+                  <Button variant="secondary" className="w-full">
+                    Contuine <ArrowRight className="size-4" />
+                  </Button>
+                </div>
                 <div className="flex gap-1 justify-between w-full">
                   <div className="flex items-center gap-1">
                     <SidebarMenuButton>
@@ -480,6 +397,7 @@ const GamePlanSidebar = () => {
                       <MessageCircleQuestionMark className="size-4" />
                     </SidebarMenuButton>
                   </div>
+
                   <SidebarMenuButton asChild className="w-auto">
                     <SidebarTrigger
                       icon={isCollapsed ? ArrowRightFromLine : PanelLeft}
@@ -503,4 +421,4 @@ const GamePlanSidebar = () => {
   );
 };
 
-export default GamePlanSidebar;
+export default CrmSidebar;

@@ -621,7 +621,7 @@ const helpDeskTabelDemo = () => {
         </div>
       </div>
       <div className="px-3">
-        <Table className="w-full table-fixed min-w-0">
+        <Table className="w-full table-fixed ">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>

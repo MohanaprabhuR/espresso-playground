@@ -360,7 +360,7 @@ export const columns: ColumnDef<MailItem>[] = [
         )}
       </div>
     ),
-    size: 754,
+    size: 700,
   },
   {
     accessorKey: "date",
@@ -467,93 +467,84 @@ const MailTableDemo = () => {
           1-50 of {data.length.toLocaleString()}
         </div>
       </div>
-
-      <div className="w-full overflow-x-hidden min-w-0">
-        <Table noPadding className="w-full table-fixed min-w-0  ">
-          <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => {
-                  return (
-                    <TableHead
-                      key={header.id}
-                      className="p-0 "
-                      colSpan={header.colSpan}
-                      style={{
-                        width:
-                          header.column.id === "select"
-                            ? "20%"
-                            : header.column.id === "date"
-                              ? "15%"
-                              : "65%",
-                      }}
-                    >
-                      {header.isPlaceholder ? null : (
-                        <div
-                          className={cn(
-                            header.column.getCanSort() &&
-                              "flex h-full cursor-pointer items-center justify-between gap-2 select-none"
+      <Table noPadding className="table-fixed w-full">
+        <TableHeader>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <TableRow key={headerGroup.id}>
+              {headerGroup.headers.map((header) => {
+                return (
+                  <TableHead
+                    key={header.id}
+                    className="p-0 "
+                    colSpan={header.colSpan}
+                    style={{
+                      width:
+                        header.column.id === "select"
+                          ? "20%"
+                          : header.column.id === "date"
+                            ? "15%"
+                            : "65%",
+                    }}
+                  >
+                    {header.isPlaceholder ? null : (
+                      <div
+                        className={cn(
+                          header.column.getCanSort() &&
+                            "flex h-full cursor-pointer items-center justify-between gap-2 select-none"
+                        )}
+                      >
+                        <span className="truncate">
+                          {flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
                           )}
-                        >
-                          <span className="truncate">
-                            {flexRender(
-                              header.column.columnDef.header,
-                              header.getContext()
-                            )}
-                          </span>
-                        </div>
-                      )}
-                      {header.column.getCanResize() && (
-                        <div
-                          {...{
-                            onDoubleClick: () => header.column.resetSize(),
-                            onMouseDown: header.getResizeHandler(),
-                            onTouchStart: header.getResizeHandler(),
-                            className:
-                              "absolute top-1/2 -translate-y-2/4  group-hover:before:opacity-100 h-6  w-4 cursor-col-resize user-select-none touch-none -right-1.5 z-10 flex justify-center before:absolute  before:w-0.5 before:rounded-sm before:opacity-0 before:inset-y-0 before:bg-border before:translate-x-px",
-                          }}
-                        />
-                      )}
-                    </TableHead>
-                  );
-                })}
-              </TableRow>
-            ))}
-          </TableHeader>
+                        </span>
+                      </div>
+                    )}
+                    {header.column.getCanResize() && (
+                      <div
+                        {...{
+                          onDoubleClick: () => header.column.resetSize(),
+                          onMouseDown: header.getResizeHandler(),
+                          onTouchStart: header.getResizeHandler(),
+                          className:
+                            "absolute top-1/2 -translate-y-2/4  group-hover:before:opacity-100 h-6  w-4 cursor-col-resize user-select-none touch-none -right-1.5 z-10 flex justify-center before:absolute  before:w-0.5 before:rounded-sm before:opacity-0 before:inset-y-0 before:bg-border before:translate-x-px",
+                        }}
+                      />
+                    )}
+                  </TableHead>
+                );
+              })}
+            </TableRow>
+          ))}
+        </TableHeader>
 
-          <TableBody>
-            {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell
-                      key={cell.id}
-                      className=" align-top [&:last-child>*]:pr-3 [&:first-child>*]:pl-6 "
-                    >
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center "
-                >
-                  No results.
-                </TableCell>
+        <TableBody>
+          {table.getRowModel().rows?.length ? (
+            table.getRowModel().rows.map((row) => (
+              <TableRow
+                key={row.id}
+                data-state={row.getIsSelected() && "selected"}
+              >
+                {row.getVisibleCells().map((cell) => (
+                  <TableCell
+                    key={cell.id}
+                    className=" align-top [&:last-child>*]:pr-3 [&:first-child>*]:pl-6 "
+                  >
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
+                ))}
               </TableRow>
-            )}
-          </TableBody>
-        </Table>
-      </div>
+            ))
+          ) : (
+            <TableRow>
+              <TableCell colSpan={columns.length} className="h-24 text-center ">
+                No results.
+              </TableCell>
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
     </div>
   );
 };
