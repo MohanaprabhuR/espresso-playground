@@ -151,7 +151,7 @@ export function DataGrid<TData>({
                     data-slot="grid-header-cell"
                     tabIndex={-1}
                     className={cn(
-                      "relative",
+                      "relative outline-none",
                       {
                         grow: stretchColumns && header.column.id !== "select",
                         "border-b": header.column.id !== "select",
