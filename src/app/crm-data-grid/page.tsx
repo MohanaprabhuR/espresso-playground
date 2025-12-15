@@ -857,7 +857,7 @@ const DataTableDemo = () => {
       </div>
       <div className="px-3 w-full">
         <DataGridKeyboardShortcuts enableSearch={!!dataGridProps.searchState} />
-        <DataGrid {...dataGridProps} table={table} />
+        <DataGrid {...dataGridProps} table={table} stretchColumns={true} />
       </div>
       <div className="fixed bottom-0 left-0 right-0 md:left-[var(--sidebar-width)] md:right-0 border-t px-2 py-1.5 flex items-center justify-between bg-background">
         <Tabs defaultValue="20">
