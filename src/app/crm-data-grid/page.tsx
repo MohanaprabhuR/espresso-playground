@@ -501,6 +501,8 @@ const DataTableDemo = () => {
             aria-label="Select row"
           />
         ),
+        size: 25,
+        enableResizing: false,
         minSize: 25,
         maxSize: 25,
       },
@@ -518,7 +520,7 @@ const DataTableDemo = () => {
             })),
           },
         },
-        minSize: 170,
+        minSize: 250,
       },
 
       {
@@ -535,7 +537,7 @@ const DataTableDemo = () => {
             })),
           },
         },
-        minSize: 144,
+        minSize: 244,
       },
       {
         id: "status",
@@ -575,7 +577,7 @@ const DataTableDemo = () => {
             variant: "short-text",
           },
         },
-        minSize: 184,
+        minSize: 150,
       },
 
       {
@@ -592,7 +594,7 @@ const DataTableDemo = () => {
             })),
           },
         },
-        minSize: 168,
+        minSize: 200,
       },
       {
         id: "lastModified",
@@ -603,7 +605,7 @@ const DataTableDemo = () => {
             variant: "short-text",
           },
         },
-        minSize: 128,
+        minSize: 150,
       },
     ],
     []
