@@ -194,6 +194,7 @@ export interface DataGridCellProps<TData> {
   tableMeta: TableMeta<TData>;
   rowIndex: number;
   columnId: string;
+  isPrimaryColumn?: boolean;
   isEditing: boolean;
   isFocused: boolean;
   isSelected: boolean;

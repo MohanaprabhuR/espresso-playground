@@ -180,6 +180,13 @@ function DataGridRowImpl<TData>({
     () => row.getVisibleCells(),
     [row, columnVisibility, columnPinning]
   );
+  const hasCheckboxColumn = React.useMemo(
+    () =>
+      visibleCells.some(
+        (cell) => cell.column.id === "checkbox" || cell.column.id === "select"
+      ),
+    [visibleCells]
+  );
 
   return (
     <div
@@ -207,6 +214,9 @@ function DataGridRowImpl<TData>({
     >
       {visibleCells.map((cell, colIndex) => {
         const columnId = cell.column.id;
+        const isPrimaryColumn = hasCheckboxColumn
+          ? colIndex === 1
+          : colIndex === 0;
 
         const isCellFocused =
           focusedCell?.rowIndex === virtualRowIndex &&
@@ -262,6 +272,7 @@ function DataGridRowImpl<TData>({
                 tableMeta={tableMeta}
                 rowIndex={virtualRowIndex}
                 columnId={columnId}
+                isPrimaryColumn={isPrimaryColumn}
                 isFocused={isCellFocused}
                 isEditing={isCellEditing}
                 isSelected={isCellSelected}

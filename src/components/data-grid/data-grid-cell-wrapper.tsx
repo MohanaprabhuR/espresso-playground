@@ -13,6 +13,7 @@ export function DataGridCellWrapper<TData>({
   tableMeta,
   rowIndex,
   columnId,
+  isPrimaryColumn = false,
   isEditing,
   isFocused,
   isSelected,
@@ -169,7 +170,8 @@ export function DataGridCellWrapper<TData>({
       ref={composedRef}
       className={cn(
         // "has-data-[slot=checkbox]:pt-2.5",
-        "size-full px-2 py-1.5 text-start text-sm text-secondary-foreground  tracking-4 leading-tight outline-none  flex items-center",
+        "size-full px-2 py-1.5 text-start text-sm tracking-4 leading-tight outline-none flex items-center",
+        isPrimaryColumn ? "text-foreground" : "text-secondary-foreground",
         // {
         //   "ring-1 ring-ring ring-inset": isFocused,
         //   "bg-yellow-100 dark:bg-yellow-900/30":
