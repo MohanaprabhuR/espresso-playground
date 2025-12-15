@@ -599,7 +599,7 @@ const DataTableDemo = () => {
       {
         id: "lastModified",
         accessorFn: (row) => row.lastModified,
-        header: "Last Modified",
+        header: "Last modified/Created",
         meta: {
           cell: {
             variant: "short-text",
