@@ -30,6 +30,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
 import Image from "next/image";
 import {
   DropdownMenu,
@@ -483,14 +484,25 @@ const DataTableDemo = () => {
       {
         id: "checkbox",
         accessorKey: "",
-        header: "",
-        meta: {
-          cell: {
-            variant: "checkbox",
-          },
-        },
-        minSize: 40,
-        maxSize: 40,
+        header: ({ table }) => (
+          <Checkbox
+            checked={
+              table.getIsAllRowsSelected() ||
+              (table.getIsSomeRowsSelected() && "indeterminate")
+            }
+            onCheckedChange={(value) => table.toggleAllRowsSelected(!!value)}
+            aria-label="Select all rows"
+          />
+        ),
+        cell: ({ row }) => (
+          <Checkbox
+            checked={row.getIsSelected()}
+            onCheckedChange={(value) => row.toggleSelected(!!value)}
+            aria-label="Select row"
+          />
+        ),
+        minSize: 25,
+        maxSize: 25,
       },
       {
         id: "name",
@@ -843,7 +855,7 @@ const DataTableDemo = () => {
           </DropdownMenu>
         </div>
       </div>
-      <div className="px-3">
+      <div className="px-3 w-full">
         <DataGridKeyboardShortcuts enableSearch={!!dataGridProps.searchState} />
         <DataGrid {...dataGridProps} table={table} />
       </div>

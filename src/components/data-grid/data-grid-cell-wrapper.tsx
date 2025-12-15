@@ -168,23 +168,24 @@ export function DataGridCellWrapper<TData>({
       {...props}
       ref={composedRef}
       className={cn(
-        "size-full px-2 py-1.5 text-start text-sm outline-none has-data-[slot=checkbox]:pt-2.5",
-        {
-          "ring-1 ring-ring ring-inset": isFocused,
-          "bg-yellow-100 dark:bg-yellow-900/30":
-            isSearchMatch && !isActiveSearchMatch,
-          "bg-orange-200 dark:bg-orange-900/50": isActiveSearchMatch,
-          "bg-primary/10": isSelected && !isEditing,
-          "cursor-default": !isEditing,
-          "**:data-[slot=grid-cell-content]:line-clamp-1":
-            !isEditing && rowHeight === "short",
-          "**:data-[slot=grid-cell-content]:line-clamp-2":
-            !isEditing && rowHeight === "medium",
-          "**:data-[slot=grid-cell-content]:line-clamp-3":
-            !isEditing && rowHeight === "tall",
-          "**:data-[slot=grid-cell-content]:line-clamp-4":
-            !isEditing && rowHeight === "extra-tall",
-        },
+        // "has-data-[slot=checkbox]:pt-2.5",
+        "size-full px-2 py-1.5 text-start text-sm text-secondary-foreground  tracking-4 leading-tight outline-none  flex items-center",
+        // {
+        //   "ring-1 ring-ring ring-inset": isFocused,
+        //   "bg-yellow-100 dark:bg-yellow-900/30":
+        //     isSearchMatch && !isActiveSearchMatch,
+        //   "bg-orange-200 dark:bg-orange-900/50": isActiveSearchMatch,
+        //   "bg-primary/10": isSelected && !isEditing,
+        //   "cursor-default": !isEditing,
+        //   "**:data-[slot=grid-cell-content]:line-clamp-1":
+        //     !isEditing && rowHeight === "short",
+        //   "**:data-[slot=grid-cell-content]:line-clamp-2":
+        //     !isEditing && rowHeight === "medium",
+        //   "**:data-[slot=grid-cell-content]:line-clamp-3":
+        //     !isEditing && rowHeight === "tall",
+        //   "**:data-[slot=grid-cell-content]:line-clamp-4":
+        //     !isEditing && rowHeight === "extra-tall",
+        // },
         className
       )}
       onClick={onClick}

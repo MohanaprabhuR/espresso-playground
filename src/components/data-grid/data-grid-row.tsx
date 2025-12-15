@@ -193,7 +193,10 @@ function DataGridRowImpl<TData>({
       {...props}
       ref={rowRef}
       className={cn(
-        "absolute flex w-full border-b will-change-transform",
+        "absolute flex w-full  will-change-transform hover:bg-card px-3 rounded-lg",
+        {
+          "bg-secondary rounded-none border-b": isRowSelected,
+        },
         className
       )}
       style={{
@@ -218,6 +221,9 @@ function DataGridRowImpl<TData>({
         const isSearchMatch = searchMatchColumns?.has(columnId) ?? false;
         const isActiveSearchMatch = activeSearchMatch?.columnId === columnId;
 
+        const isFirstCell = colIndex === 0;
+        const isLastCell = colIndex === visibleCells.length - 1;
+
         return (
           <div
             key={cell.id}
@@ -226,10 +232,17 @@ function DataGridRowImpl<TData>({
             data-highlighted={isCellFocused ? "" : undefined}
             data-slot="grid-cell"
             tabIndex={-1}
-            className={cn({
-              grow: stretchColumns && columnId !== "select",
-              "border-e": columnId !== "select",
-            })}
+            className={cn(
+              {
+                grow: stretchColumns && columnId !== "select",
+                "border-b borer-border": columnId !== "select",
+              },
+              {
+                "border-none": isRowSelected,
+              },
+              isFirstCell && "[&_[data-slot=grid-cell-wrapper]]:pl-0",
+              isLastCell && "[&_[data-slot=grid-cell-wrapper]]:pr-0"
+            )}
             style={{
               ...getCommonPinningStyles({ column: cell.column, dir }),
               width: `calc(var(--col-${columnId}-size) * 1px)`,
@@ -237,8 +250,8 @@ function DataGridRowImpl<TData>({
           >
             {typeof cell.column.columnDef.header === "function" ? (
               <div
-                className={cn("size-full px-3 py-1.5", {
-                  "bg-primary/10": isRowSelected,
+                className={cn("size-full py-1.5 flex", {
+                  "bg-transparent": isRowSelected,
                 })}
               >
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}

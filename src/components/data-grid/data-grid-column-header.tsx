@@ -159,8 +159,9 @@ export function DataGridColumnHeader<TData, TValue>({
     <>
       <DropdownMenu>
         <DropdownMenuTrigger
+          data-slot="grid-header-cell-content"
           className={cn(
-            "flex size-full items-center justify-between gap-2 p-2 text-sm hover:bg-accent/40 data-[state=open]:bg-accent/40 [&_svg]:size-4",
+            "flex size-full items-center justify-between gap-2 px-2 py-[8.5px] text-muted-foreground  tracking-4 leading-tight font-normal text-sm  [&_svg]:size-4",
             isAnyColumnResizing && "pointer-events-none",
             className
           )}
@@ -168,17 +169,17 @@ export function DataGridColumnHeader<TData, TValue>({
           {...props}
         >
           <div className="flex min-w-0 flex-1 items-center gap-1.5">
-            {columnVariant && (
+            {/* {columnVariant && (
               <Tooltip delayDuration={100}>
                 <TooltipTrigger asChild>
-                  <columnVariant.icon className="size-3.5 shrink-0 text-muted-foreground" />
+                  <columnVariant.icon className="size-4 shrink-0 text-muted-foreground" />
                 </TooltipTrigger>
                 <TooltipContent side="top">
                   <p>{columnVariant.label}</p>
                 </TooltipContent>
               </Tooltip>
-            )}
-            <span className="truncate">{label}</span>
+            )} */}
+            <span className="truncate ">{label}</span>
           </div>
           <ChevronDownIcon className="shrink-0 text-muted-foreground" />
         </DropdownMenuTrigger>
@@ -317,9 +318,9 @@ function DataGridColumnResizerImpl<TData, TValue>({
       aria-valuemax={defaultColumnDef.maxSize}
       tabIndex={0}
       className={cn(
-        "after:-translate-x-1/2 -end-px absolute top-0 z-50 h-full w-0.5 cursor-ew-resize touch-none select-none bg-border transition-opacity after:absolute after:inset-y-0 after:start-1/2 after:h-full after:w-[18px] after:content-[''] hover:bg-primary focus:bg-primary focus:outline-none",
+        "after:-translate-x-1/2 -end-px absolute top-0 z-50 h-full w-0.5 cursor-ew-resize touch-none select-none bg-border transition-opacity after:absolute after:inset-y-0 after:start-1/2 after:h-full after:w-[18px] after:content-[''] hover:bg-muted focus:bg-muted focus:outline-none",
         header.column.getIsResizing()
-          ? "bg-primary"
+          ? "bg-muted"
           : "opacity-0 hover:opacity-100"
       )}
       onDoubleClick={onDoubleClick}

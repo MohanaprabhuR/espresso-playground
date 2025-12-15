@@ -196,7 +196,7 @@ export function ShortTextCell<TData>({
         onBlur={onBlur}
         onInput={onInput}
         suppressContentEditableWarning
-        className={cn("size-full overflow-hidden outline-none", {
+        className={cn("size-full overflow-hidden outline-none h-auto", {
           "whitespace-nowrap **:inline **:whitespace-nowrap [&_br]:hidden":
             isEditing,
         })}
@@ -707,10 +707,13 @@ export function UrlCell<TData>({
           onBlur={onBlur}
           onInput={onInput}
           suppressContentEditableWarning
-          className={cn("size-full overflow-hidden outline-none", {
-            "whitespace-nowrap **:inline **:whitespace-nowrap [&_br]:hidden":
-              isEditing,
-          })}
+          className={cn(
+            "size-full overflow-hidden outline-none flex items-center",
+            {
+              "whitespace-nowrap **:inline **:whitespace-nowrap [&_br]:hidden":
+                isEditing,
+            }
+          )}
         >
           {displayValue}
         </div>
@@ -964,7 +967,7 @@ export function SelectCell<TData>({
         >
           <SelectTrigger
             size="sm"
-            className="size-full items-start border-none p-0 shadow-none focus-visible:ring-0 dark:bg-transparent [&_svg]:hidden"
+            className="size-full items-center border-none p-0 shadow-none focus-visible:ring-0 dark:bg-transparent [&_svg]:hidden bg-transparent focus:bg-transparent focus-visible:bg-transparent text-sm data-[state=open]:bg-transparent"
           >
             {selectedOption ? (
               <div className="flex items-center gap-2 min-w-0 w-full">

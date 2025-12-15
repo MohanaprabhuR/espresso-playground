@@ -52,7 +52,7 @@ export function DataGrid<TData>({
   contextMenu,
   pasteDialog,
   onRowAdd,
-  height = 600,
+  height,
   stretchColumns = false,
   className,
   ...props
@@ -86,7 +86,7 @@ export function DataGrid<TData>({
       data-slot="grid-wrapper"
       dir={dir}
       {...props}
-      className={cn("relative flex w-full flex-col", className)}
+      className={cn("relative flex flex-col", className)}
     >
       {searchState && <DataGridSearch {...searchState} />}
       <DataGridContextMenu
@@ -103,10 +103,10 @@ export function DataGrid<TData>({
         data-slot="grid"
         tabIndex={0}
         ref={dataGridRef}
-        className="relative grid select-none overflow-auto rounded-md border focus:outline-none"
+        className="relative grid select-none overflow-auto focus:outline-none"
         style={{
           ...columnSizeVars,
-          maxHeight: `${height}px`,
+          ...(height ? { maxHeight: `${height}px` } : { height: "auto" }),
         }}
         onContextMenu={onDataGridContextMenu}
       >
@@ -114,7 +114,7 @@ export function DataGrid<TData>({
           role="rowgroup"
           data-slot="grid-header"
           ref={headerRef}
-          className="sticky top-0 z-10 grid border-b bg-background"
+          className="sticky top-0 z-10 grid  bg-background px-3"
         >
           {table.getHeaderGroups().map((headerGroup, rowIndex) => (
             <div
@@ -131,6 +131,8 @@ export function DataGrid<TData>({
                   (sort) => sort.id === header.column.id
                 );
                 const isSortable = header.column.getCanSort();
+                const isFirst = colIndex === 0;
+                const isLast = colIndex === headerGroup.headers.length - 1;
 
                 return (
                   <div
@@ -148,10 +150,16 @@ export function DataGrid<TData>({
                     }
                     data-slot="grid-header-cell"
                     tabIndex={-1}
-                    className={cn("relative", {
-                      grow: stretchColumns && header.column.id !== "select",
-                      "border-e": header.column.id !== "select",
-                    })}
+                    className={cn(
+                      "relative",
+                      {
+                        grow: stretchColumns && header.column.id !== "select",
+                        "border-b": header.column.id !== "select",
+                      },
+                      isFirst &&
+                        "[&_[data-slot=grid-header-cell-content]]:pl-0",
+                      isLast && "[&_[data-slot=grid-header-cell-content]]:pr-0"
+                    )}
                     style={{
                       ...getCommonPinningStyles({ column: header.column, dir }),
                       width: `calc(var(--header-${header.id}-size) * 1px)`,
@@ -159,7 +167,10 @@ export function DataGrid<TData>({
                   >
                     {header.isPlaceholder ? null : typeof header.column
                         .columnDef.header === "function" ? (
-                      <div className="size-full px-3 py-1.5">
+                      <div
+                        data-slot="grid-header-cell-content"
+                        className="size-full  py-1.5 flex"
+                      >
                         {flexRender(
                           header.column.columnDef.header,
                           header.getContext()
