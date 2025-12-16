@@ -642,18 +642,18 @@ const DataTableDemo = () => {
     []
   );
 
-  const onRowAdd = React.useCallback(() => {
-    setData((prev) => [...prev, createEmptyContact()]);
-    return {
-      rowIndex: data.length,
-    };
-  }, [data.length]);
+  // const onRowAdd = React.useCallback(() => {
+  //   setData((prev) => [...prev, createEmptyContact()]);
+  //   return {
+  //     rowIndex: data.length,
+  //   };
+  // }, [data.length]);
 
   const { table, ...dataGridProps } = useDataGrid({
     columns,
     data,
     onDataChange: handleDataChange,
-    onRowAdd,
+    // onRowAdd,
     getRowId: (row) => row.id,
     enableSearch: true,
     initialState: {
