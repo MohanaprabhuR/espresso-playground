@@ -337,6 +337,34 @@ const dataLists = {
   ],
 } as const;
 
+function createEmptyContact(): Contact {
+  return {
+    id: faker.string.nanoid(),
+    name: {
+      label: "",
+      image: "",
+      value: "",
+    },
+    organisation: {
+      label: "",
+      image: "",
+      value: "",
+    },
+    status: {
+      label: "",
+      image: "",
+      value: "",
+    },
+    email: "",
+    mobile: "",
+    assigned: {
+      label: "",
+      image: "",
+      value: "",
+    },
+    lastModified: "Just now",
+  };
+}
 // Extract individual lists for backward compatibility
 const nameList = dataLists.names;
 const organisationList = dataLists.organisations;
@@ -614,10 +642,18 @@ const DataTableDemo = () => {
     []
   );
 
+  const onRowAdd = React.useCallback(() => {
+    setData((prev) => [...prev, createEmptyContact()]);
+    return {
+      rowIndex: data.length,
+    };
+  }, [data.length]);
+
   const { table, ...dataGridProps } = useDataGrid({
     columns,
     data,
     onDataChange: handleDataChange,
+    onRowAdd,
     getRowId: (row) => row.id,
     enableSearch: true,
     initialState: {
