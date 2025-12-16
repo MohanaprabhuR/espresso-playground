@@ -187,7 +187,7 @@ export function DataGridColumnHeader<TData, TValue>({
           {column.getCanSort() && (
             <>
               <DropdownMenuCheckboxItem
-                className="relative ltr:pr-8 ltr:pl-2 rtl:pr-2 rtl:pl-8 [&>span:first-child]:ltr:right-2 [&>span:first-child]:ltr:left-auto [&>span:first-child]:rtl:right-auto [&>span:first-child]:rtl:left-2 [&_svg]:text-muted-foreground"
+                className="relative ltr:pr-8 ltr:pl-2 rtl:pr-2 rtl:pl-8 [&>span:first-child]:ltr:right-2 [&>span:first-child]:ltr:left-auto [&>span:first-child]:rtl:right-auto [&>span:first-child]:rtl:left-2  "
                 checked={column.getIsSorted() === "asc"}
                 onClick={() => onSortingChange("asc")}
               >
@@ -195,7 +195,7 @@ export function DataGridColumnHeader<TData, TValue>({
                 Sort asc
               </DropdownMenuCheckboxItem>
               <DropdownMenuCheckboxItem
-                className="relative ltr:pr-8 ltr:pl-2 rtl:pr-2 rtl:pl-8 [&>span:first-child]:ltr:right-2 [&>span:first-child]:ltr:left-auto [&>span:first-child]:rtl:right-auto [&>span:first-child]:rtl:left-2 [&_svg]:text-muted-foreground"
+                className="relative ltr:pr-8 ltr:pl-2 rtl:pr-2 rtl:pl-8 [&>span:first-child]:ltr:right-2 [&>span:first-child]:ltr:left-auto [&>span:first-child]:rtl:right-auto [&>span:first-child]:rtl:left-2  "
                 checked={column.getIsSorted() === "desc"}
                 onClick={() => onSortingChange("desc")}
               >
