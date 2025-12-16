@@ -362,7 +362,7 @@ function createEmptyContact(): Contact {
       image: "",
       value: "",
     },
-    lastModified: "Just now",
+    lastModified: "",
   };
 }
 // Extract individual lists for backward compatibility
