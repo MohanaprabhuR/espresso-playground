@@ -115,7 +115,7 @@ export function getCommonPinningStyles<TData>(params: {
     right: isRtl ? leftPosition : rightPosition,
     opacity: isPinned ? 0.97 : 1,
     position: isPinned ? "sticky" : "relative",
-    background: isPinned ? "var(--transparent)" : "var(--transparent)",
+    background: isPinned ? "var(--background)" : "var(--background)",
     width: column.getSize(),
     zIndex: isPinned ? 1 : undefined,
   };

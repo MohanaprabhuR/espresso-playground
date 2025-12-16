@@ -2405,6 +2405,30 @@ function useDataGrid<TData>({
 
       if (!currentState.focusedCell) return;
 
+      // Handle Space/Enter for checkbox columns
+      if (
+        (key === " " || key === "Enter") &&
+        !isCtrlPressed &&
+        !shiftKey &&
+        !altKey &&
+        !propsRef.current.readOnly
+      ) {
+        const focusedColumnId = currentState.focusedCell.columnId;
+        
+        // Check if the focused column is a checkbox column
+        if (focusedColumnId === "checkbox" || focusedColumnId === "select") {
+          const focusedRowIndex = currentState.focusedCell.rowIndex;
+          const currentTable = tableRef.current;
+          const focusedRow = currentTable?.getRowModel().rows[focusedRowIndex];
+          if (focusedRow) {
+            event.preventDefault();
+            event.stopPropagation();
+            focusedRow.toggleSelected(!focusedRow.getIsSelected());
+            return;
+          }
+        }
+      }
+
       let direction: NavigationDirection | null = null;
 
       if (isCtrlPressed && !shiftKey && key === "a") {

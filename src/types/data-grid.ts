@@ -28,10 +28,14 @@ export type CellOpts =
   | {
       variant: "select";
       options: CellSelectOption[];
+      className?: string;
+      imageSize?: string;
     }
   | {
       variant: "multi-select";
       options: CellSelectOption[];
+      className?: string;
+      imageSize?: string;
     }
   | {
       variant: "checkbox";

@@ -200,7 +200,8 @@ function DataGridRowImpl<TData>({
       {...props}
       ref={rowRef}
       className={cn(
-        "absolute flex w-full  will-change-transform hover:bg-card px-3 rounded-lg",
+        "absolute flex w-full  will-change-transform hover:bg-card px-3 rounded-lg group",
+        isRowSelected && "hover:bg-secondary",
         {
           "bg-secondary rounded-none border-b": isRowSelected,
         },
@@ -246,6 +247,7 @@ function DataGridRowImpl<TData>({
               {
                 grow: stretchColumns && columnId !== "select",
                 "border-b borer-border": columnId !== "select",
+                "group-hover:!bg-card": columnId !== "select",
               },
               {
                 "border-none": isRowSelected,
@@ -261,7 +263,7 @@ function DataGridRowImpl<TData>({
             {typeof cell.column.columnDef.header === "function" ? (
               <div
                 className={cn("size-full py-1.5 flex", {
-                  "bg-transparent": isRowSelected,
+                  "bg-secondary": isRowSelected,
                 })}
               >
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}

@@ -198,27 +198,27 @@ const dataLists = {
   statuses: [
     {
       label: "Open",
-      image: `/images/svg/open.svg`,
+      image: `/images/svg/new.svg`,
     },
     {
       label: "Contacted",
-      image: `/images/svg/contacted.svg`,
+      image: `/images/svg/resolved.svg`,
     },
     {
       label: "Nurture",
-      image: `/images/svg/nurture.svg`,
+      image: `/images/svg/waiting.svg`,
     },
     {
       label: "Qualified",
-      image: `/images/svg/qualified.svg`,
+      image: `/images/svg/waiting-closed.svg`,
     },
     {
       label: "Unqualified",
-      image: `/images/svg/unqualified.svg`,
+      image: `/images/svg/waiting.svg`,
     },
     {
       label: "Junk",
-      image: `/images/svg/junk.svg`,
+      image: `/images/svg/status.svg`,
     },
   ],
   emails: [
@@ -494,6 +494,7 @@ const DataTableDemo = () => {
             aria-label="Select all rows"
           />
         ),
+
         cell: ({ row }) => (
           <Checkbox
             checked={row.getIsSelected()}
@@ -546,6 +547,8 @@ const DataTableDemo = () => {
         meta: {
           cell: {
             variant: "select",
+            className: "gap-1.5",
+            imageSize: "h-4 w-4",
             options: statusList.map((item) => ({
               label: item.label,
               value: item.label,
@@ -617,6 +620,11 @@ const DataTableDemo = () => {
     onDataChange: handleDataChange,
     getRowId: (row) => row.id,
     enableSearch: true,
+    initialState: {
+      columnPinning: {
+        left: ["checkbox"],
+      },
+    },
   });
 
   return (

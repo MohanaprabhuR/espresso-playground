@@ -187,7 +187,7 @@ export function DataGridColumnHeader<TData, TValue>({
           {column.getCanSort() && (
             <>
               <DropdownMenuCheckboxItem
-                className="relative ltr:pr-8 ltr:pl-2 rtl:pr-2 rtl:pl-8 [&>span:first-child]:ltr:right-2 [&>span:first-child]:ltr:left-auto [&>span:first-child]:rtl:right-auto [&>span:first-child]:rtl:left-2  "
+                className="relative tracking-4 leading-tight ltr:pr-8 ltr:pl-2 rtl:pr-2 rtl:pl-8 [&>span:first-child]:ltr:right-2 [&>span:first-child]:ltr:left-auto [&>span:first-child]:rtl:right-auto [&>span:first-child]:rtl:left-2  "
                 checked={column.getIsSorted() === "asc"}
                 onClick={() => onSortingChange("asc")}
               >
@@ -195,7 +195,7 @@ export function DataGridColumnHeader<TData, TValue>({
                 Sort asc
               </DropdownMenuCheckboxItem>
               <DropdownMenuCheckboxItem
-                className="relative ltr:pr-8 ltr:pl-2 rtl:pr-2 rtl:pl-8 [&>span:first-child]:ltr:right-2 [&>span:first-child]:ltr:left-auto [&>span:first-child]:rtl:right-auto [&>span:first-child]:rtl:left-2  "
+                className="relative tracking-4 leading-tight  ltr:pr-8 ltr:pl-2 rtl:pr-2 rtl:pl-8 [&>span:first-child]:ltr:right-2 [&>span:first-child]:ltr:left-auto [&>span:first-child]:rtl:right-auto [&>span:first-child]:rtl:left-2  "
                 checked={column.getIsSorted() === "desc"}
                 onClick={() => onSortingChange("desc")}
               >
@@ -216,16 +216,16 @@ export function DataGridColumnHeader<TData, TValue>({
 
               {isPinnedLeft ? (
                 <DropdownMenuItem
-                  className="[&_svg]:text-muted-foreground"
                   onClick={onUnpin}
+                  className="tracking-4 leading-tight"
                 >
                   <PinOffIcon />
                   Unpin from left
                 </DropdownMenuItem>
               ) : (
                 <DropdownMenuItem
-                  className="[&_svg]:text-muted-foreground"
                   onClick={onLeftPin}
+                  className="tracking-4 leading-tight"
                 >
                   <PinIcon />
                   Pin to left
@@ -233,16 +233,16 @@ export function DataGridColumnHeader<TData, TValue>({
               )}
               {isPinnedRight ? (
                 <DropdownMenuItem
-                  className="[&_svg]:text-muted-foreground"
                   onClick={onUnpin}
+                  className="tracking-4 leading-tight"
                 >
                   <PinOffIcon />
                   Unpin from right
                 </DropdownMenuItem>
               ) : (
                 <DropdownMenuItem
-                  className="[&_svg]:text-muted-foreground"
                   onClick={onRightPin}
+                  className="tracking-4 leading-tight"
                 >
                   <PinIcon />
                   Pin to right
@@ -254,8 +254,8 @@ export function DataGridColumnHeader<TData, TValue>({
             <>
               <DropdownMenuSeparator />
               <DropdownMenuItem
-                className="[&_svg]:text-muted-foreground"
                 onClick={() => column.toggleVisibility(false)}
+                className="tracking-4 leading-tight"
               >
                 <EyeOffIcon />
                 Hide column
@@ -318,10 +318,10 @@ function DataGridColumnResizerImpl<TData, TValue>({
       aria-valuemax={defaultColumnDef.maxSize}
       tabIndex={0}
       className={cn(
-        "after:-translate-x-1/2 -end-px absolute top-0 z-50 h-full w-0.5 cursor-ew-resize touch-none select-none bg-border transition-opacity after:absolute after:inset-y-0 after:start-1/2 after:h-full after:w-[18px] after:content-[''] hover:bg-muted focus:bg-muted focus:outline-none",
+        "after:-translate-x-1/2 -end-px absolute top-1 rounded-lg -translate-x-1/2 z-50 h-3/4 w-0.5 cursor-ew-resize touch-none select-none bg-border transition-opacity after:absolute after:inset-y-0 after:start-1/2 after:h-full after:w-[18px] after:content-[''] hover:bg-muted focus:bg-muted focus:outline-none",
         header.column.getIsResizing()
           ? "bg-muted"
-          : "opacity-0 hover:opacity-100"
+          : "opacity-0 group-hover:opacity-100"
       )}
       onDoubleClick={onDoubleClick}
       onMouseDown={header.getResizeHandler()}

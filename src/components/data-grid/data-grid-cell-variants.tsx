@@ -514,6 +514,7 @@ export function UrlCell<TData>({
   tableMeta,
   rowIndex,
   columnId,
+  isPrimaryColumn = false,
   isEditing,
   isFocused,
   isSelected,
@@ -872,6 +873,15 @@ export function SelectCell<TData>({
   const [value, setValue] = React.useState(initialValue);
   const containerRef = React.useRef<HTMLDivElement>(null);
   const cellOpts = cell.column.columnDef.meta?.cell;
+  const cellClassName =
+    cellOpts?.variant === "select" || cellOpts?.variant === "multi-select"
+      ? cellOpts.className
+      : undefined;
+  const imageSize =
+    cellOpts?.variant === "select" || cellOpts?.variant === "multi-select"
+      ? cellOpts.imageSize
+      : undefined;
+  const imageSizeClass = imageSize || "h-5 w-5";
   const options = (
     cellOpts?.variant === "select" ? cellOpts.options : []
   ) as Array<{
@@ -976,19 +986,24 @@ export function SelectCell<TData>({
         >
           <SelectTrigger
             size="sm"
-            className="size-full items-center border-none p-0 shadow-none focus-visible:ring-0 dark:bg-transparent [&_svg]:hidden bg-transparent focus:bg-transparent focus-visible:bg-transparent text-sm data-[state=open]:bg-transparent"
+            className="size-full items-center border-none p-0 shadow-none focus-visible:ring-0 dark:bg-transparent [&_svg]:hidden bg-transparent focus:bg-transparent focus-visible:bg-transparent text-base tracking-4 leading-tight data-[state=open]:bg-transparent"
           >
             {selectedOption ? (
-              <div className="flex items-center gap-2 min-w-0 w-full">
+              <div
+                className={cn(
+                  "flex items-center min-w-0 w-full",
+                  cellClassName || "gap-2"
+                )}
+              >
                 {selectedOption.images &&
                   (selectedOption.images.endsWith(".svg") ? (
                     <img
                       src={selectedOption.images}
                       alt={selectedOption?.label || ""}
-                      className="h-4 w-4 shrink-0"
+                      className={cn("shrink-0", imageSizeClass)}
                     />
                   ) : (
-                    <Avatar size="sm" className="shrink-0">
+                    <Avatar className={cn("shrink-0", imageSizeClass)}>
                       <AvatarImage
                         src={selectedOption.images}
                         alt={selectedOption?.label || ""}
@@ -999,7 +1014,9 @@ export function SelectCell<TData>({
                     </Avatar>
                   ))}
                 {selectedOption.icon && (
-                  <selectedOption.icon className="h-4 w-4 shrink-0" />
+                  <selectedOption.icon
+                    className={cn("shrink-0", imageSizeClass)}
+                  />
                 )}
                 <span className="truncate">{selectedOption.label}</span>
               </div>
@@ -1020,17 +1037,26 @@ export function SelectCell<TData>({
               };
               const imageUrl = optionWithImages.images;
               return (
-                <SelectItem key={option.value} value={option.value}>
-                  <div className="flex items-center gap-2">
+                <SelectItem
+                  key={option.value}
+                  value={option.value}
+                  className={cellClassName}
+                >
+                  <div
+                    className={cn(
+                      "flex items-center",
+                      cellClassName || "gap-2"
+                    )}
+                  >
                     {imageUrl &&
                       (imageUrl.endsWith(".svg") ? (
                         <img
                           src={imageUrl}
                           alt={option.label}
-                          className="h-4 w-4 shrink-0"
+                          className={cn("shrink-0", imageSizeClass)}
                         />
                       ) : (
-                        <Avatar size="sm" className="shrink-0">
+                        <Avatar className={cn("shrink-0", imageSizeClass)}>
                           <AvatarImage src={imageUrl} alt={option.label} />
                           <AvatarFallback>
                             {option.label.charAt(0)}
@@ -1038,7 +1064,7 @@ export function SelectCell<TData>({
                         </Avatar>
                       ))}
                     {option.icon && (
-                      <option.icon className="h-4 w-4 shrink-0" />
+                      <option.icon className={cn("shrink-0", imageSizeClass)} />
                     )}
                     <span className="truncate">{option.label}</span>
                   </div>
@@ -1048,16 +1074,18 @@ export function SelectCell<TData>({
           </SelectContent>
         </Select>
       ) : (
-        <div className="flex items-center gap-2 min-w-0">
+        <div
+          className={cn("flex items-center min-w-0", cellClassName || "gap-2")}
+        >
           {selectedOption?.images &&
             (selectedOption.images.endsWith(".svg") ? (
               <img
                 src={selectedOption.images}
                 alt={selectedOption?.label || ""}
-                className="h-4 w-4 shrink-0"
+                className={cn("shrink-0", imageSizeClass)}
               />
             ) : (
-              <Avatar size="sm" className="shrink-0">
+              <Avatar className={cn("shrink-0", imageSizeClass)}>
                 <AvatarImage
                   src={selectedOption.images}
                   alt={selectedOption?.label || ""}
@@ -1068,7 +1096,7 @@ export function SelectCell<TData>({
               </Avatar>
             ))}
           {selectedOption?.icon && (
-            <selectedOption.icon className="h-4 w-4 shrink-0" />
+            <selectedOption.icon className={cn("shrink-0", imageSizeClass)} />
           )}
           <span className="truncate">{displayLabel}</span>
         </div>

@@ -72,7 +72,7 @@ const data: DealItem[] = [
     organisation: "Gumroad",
     organisation_image: "/images/svg/gumroad.svg",
     status: "Open",
-    status_image: "/images/svg/open.svg",
+    status_image: "/images/svg/new.svg",
     email: "stacy@example.com",
     phone: "+91 9994445678",
     assigned_to: "Avinash Goel",
@@ -85,7 +85,7 @@ const data: DealItem[] = [
     organisation: "Attentive",
     organisation_image: "/images/svg/attentive.svg",
     status: "Contacted",
-    status_image: "/images/svg/contacted.svg",
+    status_image: "/images/svg/resolved.svg",
     email: "mariana@example.com",
     phone: "+91 8885556789",
     assigned_to: "Rahul Sharma",
@@ -98,7 +98,7 @@ const data: DealItem[] = [
     organisation: "Evergreen",
     organisation_image: "/images/svg/evergreen.svg",
     status: "Nurture",
-    status_image: "/images/svg/nurture.svg",
+    status_image: "/images/svg/waiting.svg",
     email: "sophie@example.com",
     phone: "+91 7777335678",
     assigned_to: "Elena Petrova",
@@ -111,7 +111,7 @@ const data: DealItem[] = [
     organisation: "Dropbox",
     organisation_image: "/images/svg/dropbox.svg",
     status: "Qualified",
-    status_image: "/images/svg/qualified.svg",
+    status_image: "/images/svg/waiting-closed.svg",
     email: "david@example.com",
     phone: "+91 6662225678",
     assigned_to: "Priya Patel",
@@ -124,7 +124,7 @@ const data: DealItem[] = [
     organisation: "Hourglass",
     organisation_image: "/images/svg/hourglass.svg",
     status: "Unqualified",
-    status_image: "/images/svg/unqualified.svg",
+    status_image: "/images/svg/waiting.svg",
     email: "maria@example.com",
     phone: "+91 5554445678",
     assigned_to: "James Smith",
@@ -137,7 +137,7 @@ const data: DealItem[] = [
     organisation: "Miro",
     organisation_image: "/images/svg/miro.svg",
     status: "Nurture",
-    status_image: "/images/svg/nurture.svg",
+    status_image: "/images/svg/waiting.svg",
     email: "anika@example.com",
     phone: "+91 4443335678",
     assigned_to: "Mark Johnson",
@@ -150,7 +150,7 @@ const data: DealItem[] = [
     organisation: "Zapier",
     organisation_image: "/images/svg/zapier.svg",
     status: "Junk",
-    status_image: "/images/svg/junk.svg",
+    status_image: "/images/svg/status.svg",
     email: "liam@example.com",
     phone: "+91 3332225678",
     assigned_to: "Olivia Martinez",
@@ -163,7 +163,7 @@ const data: DealItem[] = [
     organisation: "Figma",
     organisation_image: "/images/svg/figma.svg",
     status: "Contacted",
-    status_image: "/images/svg/contacted.svg",
+    status_image: "/images/svg/resolved.svg",
     email: "daniel@example.com",
     phone: "+91 2221115678",
     assigned_to: "Isabella Davis",
@@ -176,7 +176,7 @@ const data: DealItem[] = [
     organisation: "1password",
     organisation_image: "/images/svg/1password.svg",
     status: "Open",
-    status_image: "/images/svg/open.svg",
+    status_image: "/images/svg/new.svg",
     email: "nina@example.com",
     phone: "+91 1110005678",
     assigned_to: "Ethan Wilson",
@@ -189,7 +189,7 @@ const data: DealItem[] = [
     organisation: "Cooper",
     organisation_image: "/images/svg/cooper.svg",
     status: "Qualified",
-    status_image: "/images/svg/qualified.svg",
+    status_image: "/images/svg/waiting-closed.svg",
     email: "avery@example.com",
     phone: "+91 9998885678",
     assigned_to: "Mia Thompson",
@@ -202,7 +202,7 @@ const data: DealItem[] = [
     organisation: "ChatGpt",
     organisation_image: "/images/svg/chatGpt.svg",
     status: "Junk",
-    status_image: "/images/svg/junk.svg",
+    status_image: "/images/svg/status.svg",
     email: "lucas@example.com",
     phone: "+91 8887775678",
     assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/94.jpg",
@@ -215,7 +215,7 @@ const data: DealItem[] = [
     organisation: "Github",
     organisation_image: "/images/svg/github.svg",
     status: "Contacted",
-    status_image: "/images/svg/contacted.svg",
+    status_image: "/images/svg/resolved.svg",
     email: "chloe@example.com",
     phone: "+91 7776665678",
     assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/95.jpg",
@@ -228,7 +228,7 @@ const data: DealItem[] = [
     organisation: "Metalab",
     organisation_image: "/images/svg/metalab.svg",
     status: "Open",
-    status_image: "/images/svg/open.svg",
+    status_image: "/images/svg/new.svg",
     email: "evelyn@example.com",
     phone: "+91 6665555678",
     assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/96.jpg",
@@ -241,7 +241,7 @@ const data: DealItem[] = [
     organisation: "Adobe Express",
     organisation_image: "/images/svg/adobeexpress.svg",
     status: "Unqualified",
-    status_image: "/images/svg/unqualified.svg",
+    status_image: "/images/svg/waiting.svg",
     email: "nathan@example.com",
     phone: "+91 5554445678",
     assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/97.jpg",
@@ -254,7 +254,7 @@ const data: DealItem[] = [
     organisation: "Spotify",
     organisation_image: "/images/svg/spotify.svg",
     status: "Junk",
-    status_image: "/images/svg/junk.svg",
+    status_image: "/images/svg/status.svg",
     email: "grace@example.com",
     phone: "+91 4443335678",
     assigned_Avatar: "https://mockmind-api.uifaces.co/content/human/98.jpg",
@@ -455,7 +455,7 @@ const dataTabelDemo = () => {
             <SelectContent>
               <SelectItem value="open">
                 <Image
-                  src="/images/svg/open.svg"
+                  src="/images/svg/new.svg"
                   alt="Open"
                   width="16"
                   height="16"
@@ -464,7 +464,7 @@ const dataTabelDemo = () => {
               </SelectItem>
               <SelectItem value="contacted">
                 <Image
-                  src="/images/svg/contacted.svg"
+                  src="/images/svg/resolved.svg"
                   alt="Contacted"
                   width="16"
                   height="16"
@@ -473,7 +473,7 @@ const dataTabelDemo = () => {
               </SelectItem>
               <SelectItem value="nurture">
                 <Image
-                  src="/images/svg/nurture.svg"
+                  src="/images/svg/waiting.svg"
                   alt="Nurture"
                   width="16"
                   height="16"
@@ -482,7 +482,7 @@ const dataTabelDemo = () => {
               </SelectItem>
               <SelectItem value="qualified">
                 <Image
-                  src="/images/svg/qualified.svg"
+                  src="/images/svg/waiting-closed.svg"
                   alt="Qualified"
                   width="16"
                   height="16"
@@ -491,7 +491,7 @@ const dataTabelDemo = () => {
               </SelectItem>
               <SelectItem value="unqualified">
                 <Image
-                  src="/images/svg/unqualified.svg"
+                  src="/images/svg/waiting.svg"
                   alt="Unqualified"
                   width="16"
                   height="16"
@@ -500,7 +500,7 @@ const dataTabelDemo = () => {
               </SelectItem>
               <SelectItem value="junk">
                 <Image
-                  src="/images/svg/junk.svg"
+                  src="/images/svg/status.svg"
                   alt="Junk"
                   width="16"
                   height="16"
