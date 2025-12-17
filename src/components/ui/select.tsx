@@ -153,17 +153,13 @@ function SelectContent({
 
 function SelectLabel({
   className,
-  size = "md",
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Label> & {
-  size?: "sm" | "md" | "lg";
-}) {
+}: React.ComponentProps<typeof SelectPrimitive.Label> & {}) {
   return (
     <SelectPrimitive.Label
       data-slot="select-label"
-      data-size={size}
       className={cn(
-        "text-secondary-foreground leading-tight tracking-4 px-2 py-1.5 font-medium relative flex w-full cursor-default items-center",
+        "text-muted-foreground  text-sm  leading-tight tracking-4 px-2 py-1.5 font-medium relative flex w-full cursor-default items-center [&_svg]:size-4",
         className
       )}
       {...props}
@@ -228,12 +224,13 @@ function SelectScrollUpButton({
     <SelectPrimitive.ScrollUpButton
       data-slot="select-scroll-up-button"
       className={cn(
-        "flex cursor-default items-center justify-center py-1",
+        "flex cursor-default items-center absolute z-10 top-0 left-0 right-0 justify-center py-3",
+        "bg-[linear-gradient(to_bottom,rgba(0,0,0,0.20),transparent_100%)]",
         className
       )}
       {...props}
     >
-      <svg
+      {/* <svg
         width="16"
         height="16"
         viewBox="0 0 16 16"
@@ -246,7 +243,7 @@ function SelectScrollUpButton({
           d="M12.092 10.3648C11.8905 10.5536 11.5741 10.5434 11.3852 10.342L8 6.73106L4.61477 10.342C4.4259 10.5434 4.10948 10.5536 3.90803 10.3648C3.70657 10.1759 3.69636 9.85948 3.88523 9.65803L7.63523 5.65803C7.72975 5.5572 7.86179 5.5 8 5.5C8.1382 5.5 8.27024 5.5572 8.36477 5.65803L12.1148 9.65803C12.3036 9.85948 12.2934 10.1759 12.092 10.3648Z"
           fill="currentColor"
         />
-      </svg>
+      </svg> */}
     </SelectPrimitive.ScrollUpButton>
   );
 }
@@ -259,12 +256,13 @@ function SelectScrollDownButton({
     <SelectPrimitive.ScrollDownButton
       data-slot="select-scroll-down-button"
       className={cn(
-        "flex cursor-default items-center justify-center py-1",
+        "flex cursor-default absolute z-10 bottom-0 left-0 right-0  items-center justify-center py-3",
+        "bg-[linear-gradient(to_top,rgba(0,0,0,0.20),transparent_100%)]",
         className
       )}
       {...props}
     >
-      <svg
+      {/* <svg
         width="16"
         height="16"
         viewBox="0 0 16 16"
@@ -277,7 +275,7 @@ function SelectScrollDownButton({
           d="M3.90803 5.63523C4.10949 5.44637 4.42591 5.45657 4.61477 5.65803L8 9.26894L11.3852 5.65803C11.5741 5.45658 11.8905 5.44637 12.092 5.63523C12.2934 5.8241 12.3036 6.14052 12.1148 6.34197L8.36477 10.342C8.27025 10.4428 8.13821 10.5 8 10.5C7.8618 10.5 7.72976 10.4428 7.63523 10.342L3.88523 6.34197C3.69637 6.14052 3.70657 5.8241 3.90803 5.63523Z"
           fill="currentColor"
         />
-      </svg>
+      </svg> */}
     </SelectPrimitive.ScrollDownButton>
   );
 }
