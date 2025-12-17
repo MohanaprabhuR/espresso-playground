@@ -235,7 +235,7 @@ export function DataGrid<TData>({
             role="rowgroup"
             data-slot="grid-footer"
             ref={footerRef}
-            className="sticky bottom-0 z-10 grid border-t bg-background"
+            className="sticky bottom-0 z-10 grid  bg-card rounded-lg overflow-hidden"
           >
             <div
               role="row"
@@ -247,7 +247,7 @@ export function DataGrid<TData>({
               <div
                 role="gridcell"
                 tabIndex={0}
-                className="relative flex h-9 grow items-center bg-muted/30 transition-colors hover:bg-muted/50 focus:bg-muted/50 focus:outline-none"
+                className="relative flex h-9 grow items-center bg-card transition-colors hover:bg-secondary focus:bg-secondary focus:outline-none"
                 style={{
                   width: table.getTotalSize(),
                   minWidth: table.getTotalSize(),
@@ -255,8 +255,8 @@ export function DataGrid<TData>({
                 onClick={onRowAdd}
                 onKeyDown={onAddRowKeyDown}
               >
-                <div className="sticky start-0 flex items-center gap-2 px-3 text-muted-foreground">
-                  <Plus className="size-3.5" />
+                <div className="sticky start-0 flex items-center gap-2 px-3 text-foreground tracking-4 leading-tight">
+                  <Plus className="size-4" />
                   <span className="text-sm">Add row</span>
                 </div>
               </div>
