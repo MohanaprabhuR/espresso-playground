@@ -245,7 +245,10 @@ function DataGridRowImpl<TData>({
             tabIndex={-1}
             className={cn(
               {
-                grow: stretchColumns && columnId !== "select",
+                grow:
+                  stretchColumns &&
+                  columnId !== "select" &&
+                  columnId !== "checkbox",
                 "border-b borer-border": columnId !== "select",
                 "group-hover:!bg-card": columnId !== "select",
               },

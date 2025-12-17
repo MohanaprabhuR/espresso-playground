@@ -399,7 +399,19 @@ const dataTabelDemo = () => {
     <div className="flex flex-col mx-auto gap-y-4.5 w-full  h-[calc(100vh-50px)]  relative pb-11 pt-2.5 overflow-scroll">
       <div className="flex justify-between items-center w-full px-5">
         <div className="gap-x-2 flex">
-          <Button variant="secondary">Lead Owner</Button>
+          <Select defaultValue="lead-owner">
+            <SelectTrigger size="sm" icon={<ChevronDown />}>
+              <SelectValue placeholder="Lead Owner" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="lead-owner">Lead Owner</SelectItem>
+              <SelectItem value="jenny-wilson">Jenny Wilson</SelectItem>
+              <SelectItem value="mariana">Mariana Rodriguez</SelectItem>
+              <SelectItem value="sophie-chen ">Sophie Chen </SelectItem>
+              <SelectItem value="david-lee">David Lee</SelectItem>
+              <SelectItem value="nina-lee">Nina Lee</SelectItem>
+            </SelectContent>
+          </Select>
           <Select defaultValue="gumroad">
             <SelectTrigger size="sm" icon={<ChevronDown />}>
               <SelectValue placeholder="List View" />
@@ -458,7 +470,7 @@ const dataTabelDemo = () => {
               <SelectValue placeholder="Status" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="open">
+              <SelectItem value="open" className="gap-x-1.5">
                 <Image
                   src="/images/svg/new.svg"
                   alt="Open"
@@ -467,7 +479,7 @@ const dataTabelDemo = () => {
                 />
                 Open
               </SelectItem>
-              <SelectItem value="contacted">
+              <SelectItem value="contacted" className="gap-x-1.5">
                 <Image
                   src="/images/svg/resolved.svg"
                   alt="Contacted"
@@ -476,7 +488,7 @@ const dataTabelDemo = () => {
                 />
                 Contacted
               </SelectItem>
-              <SelectItem value="nurture">
+              <SelectItem value="nurture" className="gap-x-1.5">
                 <Image
                   src="/images/svg/waiting.svg"
                   alt="Nurture"
@@ -485,7 +497,7 @@ const dataTabelDemo = () => {
                 />
                 Nurture
               </SelectItem>
-              <SelectItem value="qualified">
+              <SelectItem value="qualified" className="gap-x-1.5">
                 <Image
                   src="/images/svg/waiting-closed.svg"
                   alt="Qualified"
@@ -494,7 +506,7 @@ const dataTabelDemo = () => {
                 />
                 Qualified
               </SelectItem>
-              <SelectItem value="unqualified">
+              <SelectItem value="unqualified" className="gap-x-1.5">
                 <Image
                   src="/images/svg/waiting.svg"
                   alt="Unqualified"
@@ -503,7 +515,7 @@ const dataTabelDemo = () => {
                 />
                 Unqualified
               </SelectItem>
-              <SelectItem value="junk">
+              <SelectItem value="junk" className="gap-x-1.5">
                 <Image
                   src="/images/svg/status.svg"
                   alt="Junk"
@@ -517,12 +529,13 @@ const dataTabelDemo = () => {
         </div>
         <div className="flex gap-x-2 items-center">
           <div className="flex gap-x-2">
-            <Select>
+            <Select defaultValue="column">
               <SelectTrigger icon={<ChevronDown />}>
                 <EyeOff />
                 <SelectValue placeholder="Columns" />
               </SelectTrigger>
               <SelectContent>
+                <SelectItem value="column">Column</SelectItem>
                 <SelectItem value="name">Name</SelectItem>
                 <SelectItem value="organisation">Organisation</SelectItem>
                 <SelectItem value="start-date">Start Date</SelectItem>
@@ -533,15 +546,26 @@ const dataTabelDemo = () => {
                 <SelectItem value="last-modified">Last Modified</SelectItem>
               </SelectContent>
             </Select>
-            <Button variant="secondary">
-              <Logs /> Group
-            </Button>
-            <Select>
+
+            <Select defaultValue="group">
+              <SelectTrigger size="sm" icon={<ChevronDown />}>
+                <Logs />
+                <SelectValue placeholder="Group" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="group">Group</SelectItem>
+                <SelectItem value="options1">Options</SelectItem>
+                <SelectItem value="options2">Options</SelectItem>
+                <SelectItem value="options3">Options</SelectItem>
+              </SelectContent>
+            </Select>
+            <Select defaultValue="filter">
               <SelectTrigger icon={<ChevronDown />}>
                 <ListFilter />
                 <SelectValue placeholder="Filter" />
               </SelectTrigger>
               <SelectContent>
+                <SelectItem value="filter">Filter</SelectItem>
                 <SelectItem value="title">Title</SelectItem>
                 <SelectItem value="priority">Priority</SelectItem>
                 <SelectItem value="start-date">Start Date</SelectItem>
@@ -560,12 +584,13 @@ const dataTabelDemo = () => {
                 <SelectItem value="owner">Owner</SelectItem>
               </SelectContent>
             </Select>
-            <Select>
+            <Select defaultValue="short">
               <SelectTrigger icon={<ChevronDown />}>
                 <ArrowDownUp />
                 <SelectValue placeholder="Sort" />
               </SelectTrigger>
               <SelectContent>
+                <SelectItem value="short">Short</SelectItem>
                 <SelectItem value="title">Title</SelectItem>
                 <SelectItem value="priority">Priority</SelectItem>
                 <SelectItem value="start-date">Start Date</SelectItem>

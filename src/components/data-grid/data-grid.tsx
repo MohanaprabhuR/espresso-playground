@@ -153,7 +153,10 @@ export function DataGrid<TData>({
                     className={cn(
                       "relative outline-none group",
                       {
-                        grow: stretchColumns && header.column.id !== "select",
+                        grow:
+                          stretchColumns &&
+                          header.column.id !== "select" &&
+                          header.column.id !== "checkbox",
                         "border-b": header.column.id !== "select",
                       },
                       isFirst &&

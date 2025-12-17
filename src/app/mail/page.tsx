@@ -409,7 +409,7 @@ const MailTableDemo = () => {
             </Button>
             <Button variant="outline">PDF</Button>
 
-            <Select>
+            <Select defaultValue="from">
               <SelectTrigger variant="outline" icon={<ChevronDown />}>
                 <SelectValue placeholder=" From" />
               </SelectTrigger>
@@ -426,7 +426,7 @@ const MailTableDemo = () => {
               </SelectContent>
             </Select>
 
-            <Select>
+            <Select defaultValue="any-time">
               <SelectTrigger variant="outline" icon={<ChevronDown />}>
                 <SelectValue placeholder=" Any time" />
               </SelectTrigger>
@@ -443,7 +443,7 @@ const MailTableDemo = () => {
               </SelectContent>
             </Select>
 
-            <Select>
+            <Select defaultValue="to">
               <SelectTrigger variant="outline" icon={<ChevronDown />}>
                 <SelectValue placeholder="To" />
               </SelectTrigger>

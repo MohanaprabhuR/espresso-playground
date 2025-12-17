@@ -565,7 +565,7 @@ const helpDeskTabelDemo = () => {
           <Button variant="secondary" iconOnly>
             <RefreshCcw className="size-4" />
           </Button>
-          <Select>
+          <Select defaultValue="title">
             <SelectTrigger icon={<ChevronDown />}>
               <ListFilter />
               <SelectValue placeholder="Filter" />
@@ -590,7 +590,7 @@ const helpDeskTabelDemo = () => {
             </SelectContent>
           </Select>
 
-          <Select>
+          <Select defaultValue="name">
             <SelectTrigger icon={<ChevronDown />}>
               <SelectValue placeholder="Last modified" />
             </SelectTrigger>
@@ -606,12 +606,13 @@ const helpDeskTabelDemo = () => {
             </SelectContent>
           </Select>
 
-          <Select>
+          <Select defaultValue="column">
             <SelectTrigger icon={<ChevronDown />}>
               <EyeOff />
               <SelectValue placeholder="Columns" />
             </SelectTrigger>
             <SelectContent>
+              <SelectItem value="column">Column</SelectItem>
               <SelectItem value="name">Name</SelectItem>
               <SelectItem value="organisation">Organisation</SelectItem>
               <SelectItem value="start-date">Start Date</SelectItem>
