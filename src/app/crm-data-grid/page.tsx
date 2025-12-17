@@ -339,7 +339,7 @@ const dataLists = {
 
 function createEmptyContact(): Contact {
   return {
-    id: faker.string.nanoid(),
+    id: `contact-new-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
     name: {
       label: "",
       image: "",
@@ -429,6 +429,7 @@ function generateContacts(): Contact[] {
 const DataTableDemo = () => {
   const [data, setData] = React.useState<Contact[]>(generateContacts());
   const dataRef = React.useRef(data);
+  const [rowSelection, setRowSelection] = React.useState({});
 
   React.useEffect(() => {
     dataRef.current = data;
@@ -642,20 +643,27 @@ const DataTableDemo = () => {
     []
   );
 
-  // const onRowAdd = React.useCallback(() => {
-  //   setData((prev) => [...prev, createEmptyContact()]);
-  //   return {
-  //     rowIndex: data.length,
-  //   };
-  // }, [data.length]);
+  const onRowAdd = React.useCallback(() => {
+    setRowSelection({});
+    setData((prev) => [...prev, createEmptyContact()]);
+    return {
+      rowIndex: data.length,
+    };
+  }, [data.length]);
 
   const { table, ...dataGridProps } = useDataGrid({
     columns,
     data,
     onDataChange: handleDataChange,
-    // onRowAdd,
+    onRowAdd,
     getRowId: (row) => row.id,
     enableSearch: true,
+
+    state: {
+      rowSelection,
+    },
+    onRowSelectionChange: setRowSelection,
+
     initialState: {
       columnPinning: {
         left: ["checkbox"],
