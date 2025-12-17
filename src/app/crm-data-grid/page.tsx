@@ -339,7 +339,7 @@ const dataLists = {
 
 function createEmptyContact(): Contact {
   return {
-    id: `contact-new-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+    id: `contact-new-${crypto.randomUUID()}`,
     name: {
       label: "",
       image: "",
