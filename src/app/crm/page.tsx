@@ -307,10 +307,13 @@ export const columns: ColumnDef<DealItem>[] = [
     header: "Organisation",
     cell: ({ row }) => (
       <>
-        <Avatar shape="square">
-          <AvatarImage src={row.original.organisation_image} />
-          <AvatarFallback>{row.original.organisation[0]}</AvatarFallback>
-        </Avatar>
+        <Image
+          src={row.original.organisation_image}
+          alt={row.original.organisation}
+          width={20}
+          height={20}
+        />
+
         <span className="truncate">{row.original.organisation}</span>
       </>
     ),
@@ -321,10 +324,12 @@ export const columns: ColumnDef<DealItem>[] = [
     header: "Status",
     cell: ({ row }) => (
       <>
-        <Avatar size="xs">
-          <AvatarImage src={row.original.status_image} />
-          <AvatarFallback>{row.original.status[0]}</AvatarFallback>
-        </Avatar>
+        <Image
+          src={row.original.status_image}
+          alt={row.original.status}
+          width={16}
+          height={16}
+        />
         <span className="truncate">{row.original.status}</span>
       </>
     ),

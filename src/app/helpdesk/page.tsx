@@ -9,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import Image from "next/image";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -428,10 +429,13 @@ export const columns: ColumnDef<Ticket>[] = [
     header: "Status",
     cell: ({ row }) => (
       <>
-        <Avatar size="xs">
-          <AvatarImage src={row.original.status_image}></AvatarImage>
-          <AvatarFallback>{row.original.status}</AvatarFallback>
-        </Avatar>
+        <Image
+          src={row.original.status_image}
+          alt={row.original.status}
+          width={16}
+          height={16}
+        />
+
         <span className="truncate">{row.original.status}</span>
       </>
     ),
