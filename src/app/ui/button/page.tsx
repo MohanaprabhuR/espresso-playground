@@ -11,6 +11,33 @@ const ButtonDemo = () => {
         </h1>
         <div className="flex flex-col gap-[30px_0]">
           <div className="flex flex-col justify-center items-center gap-[10px_0]">
+            <div className="flex items-start gap-[0_20px] p-4 rounded-lg  bg-card">
+              <Button variant="shadow" size="sm">
+                <Diamond />
+                Discover
+                <Diamond />
+              </Button>
+              <Button variant="shadow" size="md">
+                <Diamond />
+                Discover
+                <Diamond />
+              </Button>
+              <Button variant="shadow" size="lg">
+                <Diamond />
+                Discover
+                <Diamond />
+              </Button>
+              <Button variant="shadow" size="xl">
+                <Diamond />
+                Discover
+                <Diamond />
+              </Button>
+              <Button variant="shadow" size="2xl">
+                <Diamond />
+                Discover
+                <Diamond />
+              </Button>
+            </div>
             <div className="flex gap-[0_20px]">
               <Button variant="primary" size="sm">
                 <Diamond />

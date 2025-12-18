@@ -397,7 +397,7 @@ const dataTabelDemo = () => {
   });
   return (
     <div className="flex flex-col mx-auto gap-y-4.5 w-full  h-[calc(100vh-50px)]  relative pb-11 pt-2.5 overflow-scroll">
-      <div className="flex justify-between px-5 gap-2 ">
+      <div className="flex justify-start lg:justify-between px-5 gap-2  ">
         <div className="gap-x-2 flex">
           <Select defaultValue="lead-owner">
             <SelectTrigger size="sm" icon={<ChevronDown />}>

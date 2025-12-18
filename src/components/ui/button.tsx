@@ -20,6 +20,8 @@ const buttonVariants = cva(
           "bg-destructive text-white/99  focus:ring-destructive/20 hover:bg-destructive/85 active:bg-destructive/90 disabled:bg-destructive/25 disabled:text-destructive/50",
         ghost:
           "bg-transparent hover:bg-accent  text-accent-foreground  active:bg-primary/12 focus:bg-secondary focus-visible:bg-secondary  disabled:bg-transparent disabled:text-primary/42",
+        shadow:
+          "bg-background hover:bg-accent shadow-lg text-accent-foreground  active:bg-primary/12 focus:bg-secondary focus-visible:bg-secondary  disabled:bg-transparent disabled:text-primary/42",
       },
       size: {
         sm: " rounded-lg text-base font-normal tracking-4 leading-tight [&_svg]:size-4",
@@ -59,7 +61,8 @@ const buttonVariants = cva(
 );
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   children?: React.ReactNode;
