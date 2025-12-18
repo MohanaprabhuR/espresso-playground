@@ -28,6 +28,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { SlashIcon } from "../../../public/images/svg/slashIcon";
 
 export default function RootLayout({
   children,
@@ -48,14 +49,16 @@ export default function RootLayout({
                       <BreadcrumbItem>
                         <BreadcrumbLink href="#">Leads</BreadcrumbLink>
                       </BreadcrumbItem>
-                      <BreadcrumbSeparator type="slash" />
+                      <BreadcrumbSeparator>
+                        <SlashIcon />
+                      </BreadcrumbSeparator>
                       <BreadcrumbItem>
                         <Select defaultValue="list">
                           <SelectTrigger
                             size="sm"
                             variant="ghost"
                             icon={<ChevronDown />}
-                            className="font-medium px-1.25"
+                            className="font-medium px-1.25 text-lg leading-none"
                           >
                             <SelectValue placeholder="List View" />
                           </SelectTrigger>

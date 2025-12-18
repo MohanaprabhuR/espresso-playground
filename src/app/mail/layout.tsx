@@ -4,7 +4,6 @@ import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "next-themes";
 import MailTableSidebar from "./mail-table-sidebar";
 import { Header } from "@/components/ui/header";
-import { LogoStart } from "../../../public/images/svg/logo-star";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -70,9 +69,7 @@ export default function RootLayout({
                     <Button iconOnly variant="ghost">
                       <Grip />
                     </Button>
-                    <Button iconOnly variant="ghost">
-                      <LogoStart />
-                    </Button>
+
                     <Button>
                       <Pencil /> Compose
                     </Button>

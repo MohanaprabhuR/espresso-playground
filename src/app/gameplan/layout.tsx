@@ -30,6 +30,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { SlashIcon } from "../../../public/images/svg/slashIcon";
 
 export default function RootLayout({
   children,
@@ -53,11 +54,15 @@ export default function RootLayout({
                           Products
                         </BreadcrumbLink>
                       </BreadcrumbItem>
-                      <BreadcrumbSeparator type="slash" />
+                      <BreadcrumbSeparator>
+                        <SlashIcon />
+                      </BreadcrumbSeparator>
                       <BreadcrumbItem>
                         <BreadcrumbLink href="#">General</BreadcrumbLink>
                       </BreadcrumbItem>
-                      <BreadcrumbSeparator type="slash" />
+                      <BreadcrumbSeparator>
+                        <SlashIcon />
+                      </BreadcrumbSeparator>
                       <BreadcrumbItem>
                         <BreadcrumbPage>Task</BreadcrumbPage>
                       </BreadcrumbItem>

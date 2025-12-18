@@ -36,6 +36,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Rating, RatingButton } from "@/components/ui/shadcn-io/rating";
 
 interface Attachment {
   name: string;
@@ -306,7 +307,11 @@ export const columns: ColumnDef<MailItem>[] = [
             aria-label="Select row"
           />
 
-          <Star className="size-4 shrink-0" />
+          <Rating>
+            {Array.from({ length: 1 }).map((_, index) => (
+              <RatingButton key={index} className="p-0" />
+            ))}
+          </Rating>
 
           {avatars.length > 1 ? (
             <AvatarGroup>

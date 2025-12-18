@@ -2,7 +2,7 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { ChevronIcon } from "../../../public/images/svg/chevronIcon";
-import { SlashIcon } from "../../../public/images/svg/slashIcon";
+
 import { BreadcrumbEllipsisIcon } from "../../../public/images/svg/breadcrumbEllipsisIcon";
 
 import { cn } from "@/lib/utils";
@@ -112,24 +112,19 @@ function BreadcrumbPage({
 }
 
 function BreadcrumbSeparator({
-  type = "chevron",
   children,
   className,
   ...props
-}: React.ComponentProps<"li"> & {
-  type?: SeparatorType;
-}) {
-  const Icon = type === "slash" ? SlashIcon : ChevronIcon;
-
+}: React.ComponentProps<"li">) {
   return (
     <li
       data-slot="breadcrumb-separator"
       role="presentation"
       aria-hidden="true"
-      className={cn("-ml-0.5", className)}
+      className={cn("", className)}
       {...props}
     >
-      {children ?? <Icon />}
+      {children ?? <ChevronIcon />}
     </li>
   );
 }
