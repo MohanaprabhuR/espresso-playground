@@ -397,7 +397,7 @@ const dataTabelDemo = () => {
   });
   return (
     <div className="flex flex-col mx-auto gap-y-4.5 w-full  h-[calc(100vh-50px)]  relative pb-11 pt-2.5 overflow-scroll">
-      <div className="flex justify-between items-center w-full px-5">
+      <div className="flex justify-between px-5 gap-2 ">
         <div className="gap-x-2 flex">
           <Select defaultValue="lead-owner">
             <SelectTrigger size="sm" icon={<ChevronDown />}>
@@ -528,89 +528,85 @@ const dataTabelDemo = () => {
           </Select>
         </div>
         <div className="flex gap-x-2 items-center">
-          <div className="flex gap-x-2">
-            <Select defaultValue="column">
-              <SelectTrigger icon={<ChevronDown />}>
-                <EyeOff />
-                <SelectValue placeholder="Columns" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="column">Column</SelectItem>
-                <SelectItem value="name">Name</SelectItem>
-                <SelectItem value="organisation">Organisation</SelectItem>
-                <SelectItem value="start-date">Start Date</SelectItem>
-                <SelectItem value="status">Status</SelectItem>
-                <SelectItem value="email">Email</SelectItem>
-                <SelectItem value="mobile-no">Mobile No</SelectItem>
-                <SelectItem value="assigned-to">Assigned To</SelectItem>
-                <SelectItem value="last-modified">Last Modified</SelectItem>
-              </SelectContent>
-            </Select>
-
-            <Select defaultValue="group">
-              <SelectTrigger size="sm" icon={<ChevronDown />}>
-                <Logs />
-                <SelectValue placeholder="Group" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="group">Group</SelectItem>
-                <SelectItem value="options1">Options</SelectItem>
-                <SelectItem value="options2">Options</SelectItem>
-                <SelectItem value="options3">Options</SelectItem>
-              </SelectContent>
-            </Select>
-            <Select defaultValue="filter">
-              <SelectTrigger icon={<ChevronDown />}>
-                <ListFilter />
-                <SelectValue placeholder="Filter" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="filter">Filter</SelectItem>
-                <SelectItem value="title">Title</SelectItem>
-                <SelectItem value="priority">Priority</SelectItem>
-                <SelectItem value="start-date">Start Date</SelectItem>
-                <SelectItem value="reference-document-type">
-                  Reference Document Type
-                </SelectItem>
-                <SelectItem value="reference-doc">Reference Doc</SelectItem>
-                <SelectItem value="assigned-to">Assigned To</SelectItem>
-                <SelectItem value="status">Status</SelectItem>
-                <SelectItem value="due-date">Due Date</SelectItem>
-                <SelectItem value="name">Name</SelectItem>
-                <SelectItem value="description">Description</SelectItem>
-                <SelectItem value="created-on">Created On</SelectItem>
-                <SelectItem value="last-modified">Last Modified</SelectItem>
-                <SelectItem value="modified-by">Modified By</SelectItem>
-                <SelectItem value="owner">Owner</SelectItem>
-              </SelectContent>
-            </Select>
-            <Select defaultValue="short">
-              <SelectTrigger icon={<ChevronDown />}>
-                <ArrowDownUp />
-                <SelectValue placeholder="Sort" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="short">Short</SelectItem>
-                <SelectItem value="title">Title</SelectItem>
-                <SelectItem value="priority">Priority</SelectItem>
-                <SelectItem value="start-date">Start Date</SelectItem>
-                <SelectItem value="reference-document-type">
-                  Reference Document Type
-                </SelectItem>
-                <SelectItem value="reference-doc">Reference Doc</SelectItem>
-                <SelectItem value="assigned-to">Assigned To</SelectItem>
-                <SelectItem value="status">Status</SelectItem>
-                <SelectItem value="due-date">Due Date</SelectItem>
-                <SelectItem value="name">Name</SelectItem>
-                <SelectItem value="description">Description</SelectItem>
-                <SelectItem value="created-on">Created On</SelectItem>
-                <SelectItem value="last-modified">Last Modified</SelectItem>
-                <SelectItem value="modified-by">Modified By</SelectItem>
-                <SelectItem value="owner">Owner</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
+          <Select defaultValue="column">
+            <SelectTrigger icon={<ChevronDown />}>
+              <EyeOff />
+              <SelectValue placeholder="Columns" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="column">Column</SelectItem>
+              <SelectItem value="name">Name</SelectItem>
+              <SelectItem value="organisation">Organisation</SelectItem>
+              <SelectItem value="start-date">Start Date</SelectItem>
+              <SelectItem value="status">Status</SelectItem>
+              <SelectItem value="email">Email</SelectItem>
+              <SelectItem value="mobile-no">Mobile No</SelectItem>
+              <SelectItem value="assigned-to">Assigned To</SelectItem>
+              <SelectItem value="last-modified">Last Modified</SelectItem>
+            </SelectContent>
+          </Select>
+          <Select defaultValue="group">
+            <SelectTrigger size="sm" icon={<ChevronDown />}>
+              <Logs />
+              <SelectValue placeholder="Group" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="group">Group</SelectItem>
+              <SelectItem value="options1">Options</SelectItem>
+              <SelectItem value="options2">Options</SelectItem>
+              <SelectItem value="options3">Options</SelectItem>
+            </SelectContent>
+          </Select>
+          <Select defaultValue="filter">
+            <SelectTrigger icon={<ChevronDown />}>
+              <ListFilter />
+              <SelectValue placeholder="Filter" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="filter">Filter</SelectItem>
+              <SelectItem value="title">Title</SelectItem>
+              <SelectItem value="priority">Priority</SelectItem>
+              <SelectItem value="start-date">Start Date</SelectItem>
+              <SelectItem value="reference-document-type">
+                Reference Document Type
+              </SelectItem>
+              <SelectItem value="reference-doc">Reference Doc</SelectItem>
+              <SelectItem value="assigned-to">Assigned To</SelectItem>
+              <SelectItem value="status">Status</SelectItem>
+              <SelectItem value="due-date">Due Date</SelectItem>
+              <SelectItem value="name">Name</SelectItem>
+              <SelectItem value="description">Description</SelectItem>
+              <SelectItem value="created-on">Created On</SelectItem>
+              <SelectItem value="last-modified">Last Modified</SelectItem>
+              <SelectItem value="modified-by">Modified By</SelectItem>
+              <SelectItem value="owner">Owner</SelectItem>
+            </SelectContent>
+          </Select>
+          <Select defaultValue="short">
+            <SelectTrigger icon={<ChevronDown />}>
+              <ArrowDownUp />
+              <SelectValue placeholder="Sort" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="short">Short</SelectItem>
+              <SelectItem value="title">Title</SelectItem>
+              <SelectItem value="priority">Priority</SelectItem>
+              <SelectItem value="start-date">Start Date</SelectItem>
+              <SelectItem value="reference-document-type">
+                Reference Document Type
+              </SelectItem>
+              <SelectItem value="reference-doc">Reference Doc</SelectItem>
+              <SelectItem value="assigned-to">Assigned To</SelectItem>
+              <SelectItem value="status">Status</SelectItem>
+              <SelectItem value="due-date">Due Date</SelectItem>
+              <SelectItem value="name">Name</SelectItem>
+              <SelectItem value="description">Description</SelectItem>
+              <SelectItem value="created-on">Created On</SelectItem>
+              <SelectItem value="last-modified">Last Modified</SelectItem>
+              <SelectItem value="modified-by">Modified By</SelectItem>
+              <SelectItem value="owner">Owner</SelectItem>
+            </SelectContent>
+          </Select>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="secondary" iconOnly>

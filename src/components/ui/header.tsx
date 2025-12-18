@@ -12,7 +12,7 @@ function Header({
   return (
     <header
       className={cn(
-        "w-full border-b bg-background py-2.5 px-5 flex items-center justify-between",
+        "w-full border-b bg-background py-2.5 ms:px-5 px-3 pl-2 flex items-center justify-between",
         className
       )}
     >

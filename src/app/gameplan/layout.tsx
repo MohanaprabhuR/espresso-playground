@@ -1,5 +1,6 @@
+"use client";
 import "@/app/globals.css";
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider, useSidebar } from "@/components/ui/sidebar";
 import { Toaster } from "@/components/ui/sonner";
 import GamePlanSidebar from "./game-table-sidebar";
 import { Header } from "@/components/ui/header";
@@ -17,6 +18,7 @@ import {
   FileArchive,
   Files,
   List,
+  PanelLeftIcon,
   Plane,
   Plus,
   SquareCheckBig,
@@ -31,6 +33,22 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { SlashIcon } from "../../../public/images/svg/slashIcon";
 
+function SidebarTriggerWithTitle() {
+  const { toggleSidebar } = useSidebar();
+  return (
+    <>
+      <Button
+        variant="ghost"
+        onClick={toggleSidebar}
+        className="md:hidden"
+        iconOnly
+      >
+        <PanelLeftIcon />
+      </Button>
+    </>
+  );
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -42,28 +60,31 @@ export default function RootLayout({
         <GamePlanSidebar />
         <div className="w-full min-w-0">
           <Header className="pr-2.5">
-            <Breadcrumb>
-              <BreadcrumbList size="md">
-                <BreadcrumbItem>
-                  <BreadcrumbLink href="#">
-                    <Plane />
-                    Products
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator>
-                  <SlashIcon />
-                </BreadcrumbSeparator>
-                <BreadcrumbItem>
-                  <BreadcrumbLink href="#">General</BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator>
-                  <SlashIcon />
-                </BreadcrumbSeparator>
-                <BreadcrumbItem>
-                  <BreadcrumbPage>Task</BreadcrumbPage>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb>
+            <div className="flex items-center gap-1">
+              <SidebarTriggerWithTitle />
+              <Breadcrumb>
+                <BreadcrumbList size="md">
+                  <BreadcrumbItem>
+                    <BreadcrumbLink href="#">
+                      <Plane />
+                      Products
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator>
+                    <SlashIcon />
+                  </BreadcrumbSeparator>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink href="#">General</BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator>
+                    <SlashIcon />
+                  </BreadcrumbSeparator>
+                  <BreadcrumbItem>
+                    <BreadcrumbPage>Task</BreadcrumbPage>
+                  </BreadcrumbItem>
+                </BreadcrumbList>
+              </Breadcrumb>
+            </div>
             <div className="flex items-center gap-x-2">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>

@@ -231,8 +231,6 @@ const menuConfig = {
 const GamePlanSidebar = () => {
   const { theme, setTheme } = useTheme();
 
-  const { openMobile, setOpenMobile, isMobile } = useSidebar();
-
   const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
   const pathname = usePathname();
   const { state } = useSidebar();
@@ -240,13 +238,6 @@ const GamePlanSidebar = () => {
 
   return (
     <>
-      {isMobile && (
-        <div className="fixed top-4 left-4 z-50 md:hidden">
-          <Button variant="ghost" onClick={() => setOpenMobile(true)}>
-            <PanelLeftIcon className="size-4" />
-          </Button>
-        </div>
-      )}
       <Sidebar collapsible="icon">
         <SidebarHeader>
           <SidebarMenu>

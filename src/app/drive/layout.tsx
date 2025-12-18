@@ -1,5 +1,6 @@
+"use client";
 import "@/app/globals.css";
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider, useSidebar } from "@/components/ui/sidebar";
 import { Toaster } from "@/components/ui/sonner";
 import DriveTableSidebar from "./drive-table-sidebar";
 import { Header } from "@/components/ui/header";
@@ -10,9 +11,24 @@ import {
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
-import { ArrowUpToLine, ChevronDown, Plus } from "lucide-react";
+import { ArrowUpToLine, ChevronDown, PanelLeftIcon, Plus } from "lucide-react";
 import RightDriveTableSidebar from "./rigth-sidebar";
 
+function SidebarTriggerWithTitle() {
+  const { toggleSidebar } = useSidebar();
+  return (
+    <>
+      <Button
+        variant="ghost"
+        onClick={toggleSidebar}
+        className="md:hidden"
+        iconOnly
+      >
+        <PanelLeftIcon />
+      </Button>
+    </>
+  );
+}
 export default function RootLayout({
   children,
 }: {
@@ -25,13 +41,16 @@ export default function RootLayout({
         <div className="w-full min-w-0">
           <div>
             <Header>
-              <Breadcrumb>
-                <BreadcrumbList size="md">
-                  <BreadcrumbItem>
-                    <BreadcrumbPage>My drive</BreadcrumbPage>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb>
+              <div className="flex items-center gap-1">
+                <SidebarTriggerWithTitle />
+                <Breadcrumb>
+                  <BreadcrumbList size="md">
+                    <BreadcrumbItem>
+                      <BreadcrumbPage>My drive</BreadcrumbPage>
+                    </BreadcrumbItem>
+                  </BreadcrumbList>
+                </Breadcrumb>
+              </div>
               <Button>
                 <ArrowUpToLine /> Upload
                 <ChevronDown />

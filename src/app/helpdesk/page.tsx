@@ -555,9 +555,9 @@ const helpDeskTabelDemo = () => {
   });
   return (
     <div className="flex flex-col mx-auto gap-y-4.5 w-full  h-[calc(100vh-60px)]  relative pb-11 pt-2.5 overflow-scroll">
-      <div className="flex justify-between items-center w-full px-5">
+      <div className="flex justify-between lg:items-center flex-col lg:flex-row w-full lg:px-5 px-3  gap-2 ">
         <Input
-          className="max-w-[280px]"
+          className="md:max-w-[280px]"
           placeholder="Try “first due” or ticket type"
           prefix={<Sparkles />}
         />
