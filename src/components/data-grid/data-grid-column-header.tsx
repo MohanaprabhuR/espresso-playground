@@ -10,6 +10,7 @@ import type {
 import {
   BaselineIcon,
   CalendarIcon,
+  CheckIcon,
   CheckSquareIcon,
   ChevronDownIcon,
   ChevronUpIcon,
@@ -186,22 +187,35 @@ export function DataGridColumnHeader<TData, TValue>({
         <DropdownMenuContent align="start" sideOffset={0} className="">
           {column.getCanSort() && (
             <>
-              <DropdownMenuCheckboxItem
+              {/* <DropdownMenuCheckboxItem
                 className="relative tracking-4 leading-tight ltr:pr-8 ltr:pl-2 rtl:pr-2 rtl:pl-8 [&>span:first-child]:ltr:right-2 [&>span:first-child]:ltr:left-auto [&>span:first-child]:rtl:right-auto [&>span:first-child]:rtl:left-2  "
                 checked={column.getIsSorted() === "asc"}
                 onClick={() => onSortingChange("asc")}
               >
                 <ChevronUpIcon />
                 Sort asc
-              </DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem
+              </DropdownMenuCheckboxItem> */}
+
+              <DropdownMenuItem
+                onClick={() => onSortingChange("asc")}
                 className="relative tracking-4 leading-tight  ltr:pr-8 ltr:pl-2 rtl:pr-2 rtl:pl-8 [&>span:first-child]:ltr:right-2 [&>span:first-child]:ltr:left-auto [&>span:first-child]:rtl:right-auto [&>span:first-child]:rtl:left-2  "
-                checked={column.getIsSorted() === "desc"}
-                onClick={() => onSortingChange("desc")}
               >
+                {column.getIsSorted() === "asc" && (
+                  <CheckIcon className="absolute right-2" />
+                )}
+                <ChevronUpIcon />
+                Sort asc
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={() => onSortingChange("desc")}
+                className="relative tracking-4 leading-tight  ltr:pr-8 ltr:pl-2 rtl:pr-2 rtl:pl-8 [&>span:first-child]:ltr:right-2 [&>span:first-child]:ltr:left-auto [&>span:first-child]:rtl:right-auto [&>span:first-child]:rtl:left-2  "
+              >
+                {column.getIsSorted() === "desc" && (
+                  <CheckIcon className="absolute right-2" />
+                )}
                 <ChevronDownIcon />
                 Sort desc
-              </DropdownMenuCheckboxItem>
+              </DropdownMenuItem>
               {column.getIsSorted() && (
                 <DropdownMenuItem onClick={onSortRemove}>
                   <XIcon />
