@@ -35,13 +35,13 @@ import { Input } from "@/components/ui/input";
 const TabsDemo = () => {
   return (
     <div>
-      <div className="pt-10 text-center">
-        <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
+      <div className="pt-10 md:text-center">
+        <h1 className="text-xl text-primary font-bold pb-10 md:text-center tracking-4 leading-normal">
           Tab Component
         </h1>
-        <div className="flex flex-col  mx-auto gap-[50px] items-center">
+        <div className="flex flex-col  mx-auto gap-[50px] md:items-center">
           <div className="flex flex-col  space-y-4.5 w-full max-w-[280px]">
-            <div className=" flex justify-between items-center w-full max-w-[280px]">
+            <div className=" flex justify-between md:items-center w-full max-w-[280px]">
               <p className="text-base text-secondary-foreground">Direction</p>
               <Tabs defaultValue="auto">
                 <TabsList>
@@ -219,7 +219,7 @@ const TabsDemo = () => {
               </TabsTrigger>
             </TabsList>
           </Tabs>
-          <div className="flex gap-[50px]">
+          <div className="flex flex-col md:flex-row gap-[30px]">
             <Tabs defaultValue="tab1">
               <TabsList>
                 <TabsTrigger value="tab1">Tab 1</TabsTrigger>
@@ -263,7 +263,7 @@ const TabsDemo = () => {
               <TabsContent value="tab5">Tab 5 Content</TabsContent>
             </Tabs>
           </div>
-          <div className="flex gap-[50px]">
+          <div className="flex flex-col md:flex-row gap-[30px]">
             <Tabs defaultValue="tab1" variant="outline">
               <TabsList>
                 <TabsTrigger value="tab1">Tab 1</TabsTrigger>
@@ -312,7 +312,7 @@ const TabsDemo = () => {
               <TabsContent value="tab5">Tab 5 Content</TabsContent>
             </Tabs>
           </div>
-          <div className="flex gap-[50px]">
+          <div className="flex flex-col md:flex-row gap-[30px]">
             <Tabs defaultValue="tab1" variant="underline">
               <TabsList>
                 <TabsTrigger value="tab1">Tab 1</TabsTrigger>
@@ -361,7 +361,7 @@ const TabsDemo = () => {
               <TabsContent value="tab5">Tab 5 Content</TabsContent>
             </Tabs>
           </div>
-          <div className="flex gap-[50px]">
+          <div className="flex flex-col md:flex-row gap-[30px]">
             <Tabs defaultValue="tab1" variant="ghost">
               <TabsList>
                 <TabsTrigger value="tab1">Tab 1</TabsTrigger>
@@ -410,7 +410,7 @@ const TabsDemo = () => {
               <TabsContent value="tab5">Tab 5 Content</TabsContent>
             </Tabs>
           </div>
-          <div className="flex gap-[50px]">
+          <div className="flex flex-col md:flex-row gap-[30px]">
             <Tabs defaultValue="tab1" variant="browser">
               <TabsList>
                 <TabsTrigger value="tab1">Tab 1</TabsTrigger>

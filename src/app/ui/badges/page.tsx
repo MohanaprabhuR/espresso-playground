@@ -4,13 +4,13 @@ import { Check, CircleCheck, Flag } from "lucide-react";
 
 const Badges = () => {
   return (
-    <div className="pt-10 text-center">
-      <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
+    <div className="pt-10">
+      <h1 className="text-xl text-primary font-bold pb-10 text-center tracking-4 leading-normal">
         Badge Component
       </h1>
       <div className="flex flex-col gap-16">
         <div className="flex flex-col gap-y-6">
-          <div className="flex justify-center  ">
+          <div className="flex ">
             <BadgeGroup>
               <Badge variant="outline">Dark</Badge>
               <Badge theme="blue">On schedule</Badge>
@@ -32,7 +32,7 @@ const Badges = () => {
               <Badge theme="violet">Design</Badge>
             </BadgeGroup>
           </div>
-          <div className="flex justify-center  ">
+          <div className="flex ">
             <BadgeGroup>
               <Badge variant="outline" size="md">
                 Dark
@@ -58,7 +58,7 @@ const Badges = () => {
               </Badge>
             </BadgeGroup>
           </div>
-          <div className="flex justify-center  ">
+          <div className="flex ">
             <BadgeGroup>
               <Badge variant="outline" size="lg">
                 Dark
@@ -86,7 +86,7 @@ const Badges = () => {
           </div>
         </div>
         <div className="flex flex-col gap-y-6">
-          <div className="flex justify-center  gap-[0px_50px]">
+          <div className="flex gap-[0px_50px]">
             <div className="flex   items-center gap-[10px_10px]">
               <Badge variant="default" size="sm">
                 Gamma
@@ -130,7 +130,7 @@ const Badges = () => {
               </Badge>
             </div>
           </div>
-          <div className="flex justify-center  gap-[0px_50px]">
+          <div className="flex gap-[0px_50px]">
             <div className="flex   items-center gap-[10px_10px]">
               <Badge theme="blue" variant="default" size="sm">
                 Gamma
@@ -174,7 +174,7 @@ const Badges = () => {
               </Badge>
             </div>
           </div>
-          <div className="flex justify-center  gap-[0px_50px]">
+          <div className="flex gap-[0px_50px]">
             <div className="flex   items-center gap-[10px_10px]">
               <Badge theme="green" variant="default" size="sm">
                 Gamma
@@ -218,7 +218,7 @@ const Badges = () => {
               </Badge>
             </div>
           </div>
-          <div className="flex justify-center  gap-[0px_50px]">
+          <div className="flex gap-[0px_50px]">
             <div className="flex   items-center gap-[10px_10px]">
               <Badge theme="amber" variant="default" size="sm">
                 Gamma
@@ -262,7 +262,7 @@ const Badges = () => {
               </Badge>
             </div>
           </div>
-          <div className="flex justify-center  gap-[0px_50px]">
+          <div className="flex gap-[0px_50px]">
             <div className="flex   items-center gap-[10px_10px]">
               <Badge theme="red" variant="default" size="sm">
                 Gamma
@@ -306,7 +306,7 @@ const Badges = () => {
               </Badge>
             </div>
           </div>
-          <div className="flex justify-center  gap-[0px_50px]">
+          <div className="flex gap-[0px_50px]">
             <div className="flex   items-center gap-[10px_10px]">
               <Badge theme="violet" variant="default" size="sm">
                 Gamma
@@ -350,7 +350,7 @@ const Badges = () => {
               </Badge>
             </div>
           </div>
-          <div className="flex justify-center  gap-[0px_50px]">
+          <div className="flex gap-[0px_50px]">
             <div className="flex   items-center gap-[10px_10px]">
               <Badge variant="default" size="sm">
                 <CommandIcon fill="currentColor" />
@@ -418,7 +418,7 @@ const Badges = () => {
               </Badge>
             </div>
           </div>
-          <div className="flex justify-center  gap-[0px_50px]">
+          <div className="flex gap-[0px_50px]">
             <div className="flex   items-center gap-[10px_10px]">
               <Badge showIcon theme="blue" variant="default" size="sm">
                 <CommandIcon fill="currentColor" />
@@ -484,7 +484,7 @@ const Badges = () => {
               </Badge>
             </div>
           </div>
-          <div className="flex justify-center  gap-[0px_50px]">
+          <div className="flex gap-[0px_50px]">
             <div className="flex   items-center gap-[10px_10px]">
               <Badge showIcon theme="green" variant="default" size="sm">
                 <CommandIcon fill="currentColor" />
@@ -549,7 +549,7 @@ const Badges = () => {
               </Badge>
             </div>
           </div>
-          <div className="flex justify-center  gap-[0px_50px]">
+          <div className="flex gap-[0px_50px]">
             <div className="flex   items-center gap-[10px_10px]">
               <Badge showIcon theme="amber" variant="default" size="sm">
                 <CommandIcon fill="currentColor" />
@@ -613,7 +613,7 @@ const Badges = () => {
               </Badge>
             </div>
           </div>
-          <div className="flex justify-center  gap-[0px_50px]">
+          <div className="flex gap-[0px_50px]">
             <div className="flex   items-center gap-[10px_10px]">
               <Badge showIcon theme="red" variant="default" size="sm">
                 <CommandIcon fill="currentColor" /> Badge
@@ -676,7 +676,7 @@ const Badges = () => {
               </Badge>
             </div>
           </div>
-          <div className="flex justify-center  gap-[0px_50px]">
+          <div className="flex gap-[0px_50px]">
             <div className="flex   items-center gap-[10px_10px]">
               <Badge showIcon theme="violet" variant="default" size="sm">
                 <CommandIcon fill="currentColor" />

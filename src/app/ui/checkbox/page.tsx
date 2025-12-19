@@ -4,11 +4,11 @@ import { Checkbox } from "@/components/ui/checkbox";
 const CheckboxDemo = () => {
   return (
     <div>
-      <div className="pt-10 text-center">
-        <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
+      <div className="pt-10 lg:text-center">
+        <h1 className="text-xl text-primary font-bold pb-10 lg:text-center tracking-4 leading-normal">
           Checkbox Component
         </h1>
-        <div className="flex flex-col items-center gap-[30px_0]">
+        <div className="flex flex-col lg:items-center gap-[30px_0]">
           <div className="flex gap-[0_10px]">
             <Checkbox size="sm" />
             <Checkbox checked={true} size="sm" />

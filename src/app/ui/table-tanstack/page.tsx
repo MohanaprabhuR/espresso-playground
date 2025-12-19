@@ -366,7 +366,7 @@ const dataTabelDemo = () => {
   });
   return (
     <div className="pt-10 ">
-      <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
+      <h1 className="text-xl text-primary font-bold pb-10 text-center tracking-4 leading-normal">
         Data Table with Tanstack Component
       </h1>
 

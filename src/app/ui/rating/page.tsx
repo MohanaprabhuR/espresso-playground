@@ -4,7 +4,7 @@ const SpacerDemo = () => {
   return (
     <div>
       <div className="pt-10 text-center">
-        <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
+        <h1 className="text-xl text-primary font-bold pb-10 text-center tracking-4 leading-normal">
           Rating Component
         </h1>
         <div className="flex flex-col justify-center items-center   mx-auto gap-[50px]">

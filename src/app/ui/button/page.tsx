@@ -5,13 +5,13 @@ import { Diamond } from "lucide-react";
 const ButtonDemo = () => {
   return (
     <div>
-      <div className="pt-10 text-center">
-        <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
+      <div className="pt-10 md:text-center">
+        <h1 className="text-xl text-primary font-bold pb-10 md:text-center tracking-4 leading-normal">
           Button Component
         </h1>
         <div className="flex flex-col gap-[30px_0]">
-          <div className="flex flex-col justify-center items-center gap-[10px_0]">
-            <div className="flex items-start gap-[0_20px] p-4 rounded-lg  bg-card">
+          <div className="flex flex-col md:justify-center md:items-center gap-[10px_0]">
+            <div className="flex items-start gap-5 p-4 rounded-lg  bg-card flex-wrap">
               <Button variant="shadow" size="sm">
                 <Diamond />
                 Discover
@@ -124,7 +124,7 @@ const ButtonDemo = () => {
               </Button>
             </div>
           </div>
-          <div className="flex flex-col justify-center items-center gap-[10px_0]">
+          <div className="flex flex-col justify-center md:items-center gap-[10px_0]">
             <div className="flex gap-[0_20px]">
               <Button variant="primary" size="md">
                 <Diamond className="size-4.5" />
@@ -211,7 +211,7 @@ const ButtonDemo = () => {
               </Button>
             </div>
           </div>
-          <div className="flex flex-col justify-center items-center gap-[10px_0]">
+          <div className="flex flex-col justify-center md:items-center gap-[10px_0]">
             <div className="flex gap-[0_20px]">
               <Button variant="primary" size="lg">
                 <Diamond />
@@ -298,7 +298,7 @@ const ButtonDemo = () => {
               </Button>
             </div>
           </div>
-          <div className="flex flex-col justify-center items-center gap-[10px_0]">
+          <div className="flex flex-col justify-center md:items-center gap-[10px_0]">
             <div className="flex gap-[0_20px]">
               <Button variant="primary" size="xl">
                 <Diamond />
@@ -385,7 +385,7 @@ const ButtonDemo = () => {
               </Button>
             </div>
           </div>
-          <div className="flex flex-col justify-center items-center gap-[10px_0]">
+          <div className="flex flex-col justify-center md:items-center gap-[10px_0]">
             <div className="flex gap-[0_20px]">
               <Button variant="primary" size="2xl">
                 <Diamond />

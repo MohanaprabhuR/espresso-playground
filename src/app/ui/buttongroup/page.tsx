@@ -48,22 +48,12 @@ const ButtonGroupDemo = () => {
   const [label, setLabel] = React.useState("personal");
   return (
     <div>
-      <div className="pt-10 text-center">
-        <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
+      <div className="pt-10 lg:text-center">
+        <h1 className="text-xl text-primary font-bold pb-10 lg:text-center tracking-4 leading-normal">
           ButtonGroup Component
         </h1>
 
-        <div className="flex flex-col  gap-10 items-center">
-          <ButtonGroup>
-            <ButtonGroupText asChild>
-              <Label htmlFor="name">Text</Label>
-            </ButtonGroupText>
-            <Input
-              placeholder="Type something here..."
-              id="name"
-              className="rounded-l-none"
-            />
-          </ButtonGroup>
+        <div className="flex flex-col  gap-10 lg:items-center">
           <div className="flex flex-col gap-4">
             <ButtonGroup destructive>
               <Button>Button</Button>

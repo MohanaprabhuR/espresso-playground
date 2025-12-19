@@ -35,7 +35,7 @@ import {
 const InputGroupDemo = () => {
   return (
     <div className="pt-10 text-center">
-      <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
+      <h1 className="text-xl text-primary font-bold pb-10 text-center tracking-4 leading-normal">
         InputGroup Component
       </h1>
       <div className="grid w-full gap-6 justify-center">

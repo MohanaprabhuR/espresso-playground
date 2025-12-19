@@ -3,8 +3,8 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 const RadioDemo = () => {
   return (
     <div>
-      <div className="pt-10 text-center">
-        <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
+      <div className="pt-10 md:text-center">
+        <h1 className="text-xl md:text-primary font-bold pb-10 text-center tracking-4 leading-normal">
           Radio Component
         </h1>
         <div className="flex flex-col mx-auto  max-w-[500px] gap-[50px]">
@@ -30,7 +30,7 @@ const RadioDemo = () => {
               />
             </RadioGroup>
           </div>
-          <div className="flex mwx-w-[300px] mx-auto gap-[50px] items-start">
+          <div className="flex flex-col md:flex-row  mwx-w-[300px] mx-auto gap-[50px] items-start">
             <RadioGroup defaultValue="option1">
               <RadioGroupItem id="opt1" value="option1" label="Option 1" />
               <RadioGroupItem id="opt2" value="option2" label="Option 2" />

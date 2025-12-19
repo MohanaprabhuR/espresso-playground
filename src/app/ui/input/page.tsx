@@ -7,11 +7,11 @@ import { Spinner } from "@/components/ui/spinner";
 const InputDemo = () => {
   return (
     <div>
-      <div className="pt-10 text-center">
-        <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
+      <div className="pt-10 md:text-center">
+        <h1 className="text-xl text-primary font-bold pb-10 md:text-center tracking-4 leading-normal">
           Input Component
         </h1>
-        <div className="flex justify-center flex-col gap-[30px]  mx-auto">
+        <div className="flex md:justify-center flex-col gap-[30px]  mx-auto">
           <div className="flex  gap-[30px] ">
             <Input type="text" placeholder="Text" />
             <Input type="text" size="md" placeholder="Text" />

@@ -8,13 +8,13 @@ import {
 const AvatarDemo = () => {
   return (
     <>
-      <div className="flex flex-col justify-center items-center py-10 ">
-        <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
+      <div className="flex flex-col  md:items-center py-10 ">
+        <h1 className="text-xl text-primary font-bold pb-10 md:text-center tracking-4 leading-normal">
           Avatar Component
         </h1>
 
-        <div className="flex flex-col justify-center items-center gap-y-[50px]">
-          <div className="flex flex-col gap-y-[20px] justify-center">
+        <div className="flex flex-col  md:items-center gap-y-[50px]">
+          <div className="flex flex-col gap-y-[20px] ">
             <div className="flex gap-[0_20px] items-start">
               <Avatar size="xs">
                 <AvatarImage src="https://mockmind-api.uifaces.co/content/human/80.jpg" />

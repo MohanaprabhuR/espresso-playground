@@ -15,12 +15,12 @@ import { Diamond } from "lucide-react";
 const SelectDemo = () => {
   return (
     <div>
-      <div className="pt-10 text-center">
-        <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
+      <div className="pt-10 md:text-center">
+        <h1 className="text-xl text-primary font-bold pb-10 md:text-center tracking-4 leading-normal">
           Select Component
         </h1>
-        <div className="flex  flex-col justify-center gap-[50px]">
-          <div className="flex  items-start justify-center gap-[50px]">
+        <div className="flex  flex-col md:justify-center gap-[50px]">
+          <div className="flex   md:justify-center gap-[50px]">
             <div className="flex flex-col gap-[30px_0]">
               <Select>
                 <SelectTrigger>
@@ -433,7 +433,7 @@ const SelectDemo = () => {
               </Select>
             </div>
           </div>
-          <div className="flex  items-start justify-center gap-[50px]">
+          <div className="flex   md:justify-center gap-[50px]">
             <div className="flex flex-col gap-[30px_0]">
               <Select>
                 <SelectTrigger variant="outline">
@@ -846,7 +846,7 @@ const SelectDemo = () => {
               </Select>
             </div>
           </div>
-          <div className="flex  items-start justify-center gap-[50px]">
+          <div className="flex   md:justify-center gap-[50px]">
             <div className="flex flex-col gap-[30px_0]">
               <Select>
                 <SelectTrigger variant="ghost">
@@ -1259,7 +1259,7 @@ const SelectDemo = () => {
               </Select>
             </div>
           </div>
-          <div className="flex justify-center flex-1">
+          <div className="flex md:justify-center flex-1">
             <Select>
               <SelectTrigger className="w-[280px]">
                 <SelectValue placeholder="Select a timezone" />

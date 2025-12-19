@@ -7,7 +7,7 @@ const ProgressDemo = () => {
   return (
     <div>
       <div className="pt-10 text-center">
-        <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
+        <h1 className="text-xl text-primary font-bold pb-10 text-center tracking-4 leading-normal">
           Progress Component
         </h1>
 
@@ -20,7 +20,7 @@ const ProgressDemo = () => {
               <Progress value={40} size="lg" />
             </div>
           </div>
-          <div className="flex gap-[30px]">
+          <div className="flex flex-col md:flex-row gap-[30px]">
             <div className="flex flex-col gap-[20px] w-full">
               <Progress value={40} intervals={6} size="xs" />
               <Progress value={40} intervals={6} size="sm" />
@@ -34,7 +34,7 @@ const ProgressDemo = () => {
               <Progress value={40} intervals={6} size="lg" square />
             </div>
           </div>
-          <div className="flex gap-[30px]">
+          <div className="flex flex-col md:flex-row gap-[30px]">
             <div className="flex flex-col gap-[20px] w-full">
               <Progress
                 value={40}
@@ -94,7 +94,7 @@ const ProgressDemo = () => {
               ></Progress>
             </div>
           </div>
-          <div className="flex gap-[30px]">
+          <div className="flex flex-col md:flex-row gap-[30px]">
             <div className="flex flex-col gap-[20px] w-full">
               <Progress
                 value={40}
