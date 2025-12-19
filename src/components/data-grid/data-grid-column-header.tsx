@@ -182,7 +182,12 @@ export function DataGridColumnHeader<TData, TValue>({
             )} */}
             <span className="truncate ">{label}</span>
           </div>
-          <ChevronDownIcon className="shrink-0 text-muted-foreground" />
+          {(column.getIsSorted() || pinnedPosition) &&
+            (column.getIsSorted() === "asc" ? (
+              <ChevronUpIcon className="shrink-0 text-muted-foreground" />
+            ) : (
+              <ChevronDownIcon className="shrink-0 text-muted-foreground" />
+            ))}
         </DropdownMenuTrigger>
         <DropdownMenuContent align="start" sideOffset={0} className="">
           {column.getCanSort() && (
