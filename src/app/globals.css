@@ -866,6 +866,17 @@
   }
 }
 
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+}
+
 @keyframes scroll-shadow-mask {
   0% {
     mask-image: linear-gradient(

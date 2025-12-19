@@ -61,7 +61,7 @@ function SelectWithResponsiveSize() {
         size={isMobile ? "md" : "sm"}
         variant="ghost"
         icon={<ChevronDown />}
-        className="px-1.5 text-lg font-medium leading-none"
+        className="px-1.25 py-1 text-lg font-medium leading-none"
       >
         <SelectValue placeholder="List View" />
       </SelectTrigger>
@@ -123,15 +123,16 @@ export default function RootLayout({
               <div className="flex items-center gap-1">
                 <SidebarTriggerWithTitle />
                 <Breadcrumb>
-                  <BreadcrumbList size="md" className="items-start">
+                  <BreadcrumbList size="md">
                     <BreadcrumbItem>
-                      <BreadcrumbLink href="#">Leads</BreadcrumbLink>
+                      <BreadcrumbLink href="#" className="p-1.25">
+                        Leads
+                      </BreadcrumbLink>
                     </BreadcrumbItem>
 
                     <BreadcrumbSeparator>
                       <SlashIcon />
                     </BreadcrumbSeparator>
-
                     <BreadcrumbItem>
                       <SelectWithResponsiveSize />
                     </BreadcrumbItem>

@@ -555,13 +555,15 @@ const helpDeskTabelDemo = () => {
   });
   return (
     <div className="flex flex-col mx-auto gap-y-4.5 w-full  h-[calc(100vh-60px)]  relative pb-11 pt-2.5 overflow-scroll">
-      <div className="flex justify-between lg:items-center flex-col lg:flex-row w-full lg:px-5 px-3  gap-2 ">
-        <Input
-          className="md:max-w-[280px]"
-          placeholder="Try “first due” or ticket type"
-          prefix={<Sparkles />}
-        />
-        <div className="flex gap-x-2">
+      <div className="flex justify-between lg:items-center flex-col lg:flex-row w-full lg:px-5   gap-2 ">
+        <div className="px-3 lg:px-0 w-full">
+          <Input
+            className="sm:max-w-[280px]"
+            placeholder="Try “first due” or ticket type"
+            prefix={<Sparkles />}
+          />
+        </div>
+        <div className="flex gap-x-2 px-3 lg:px-0 overflow-scroll scrollbar-hide w-full lg:justify-end [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           <Button variant="secondary" iconOnly>
             <RefreshCcw className="size-4" />
           </Button>
@@ -625,7 +627,7 @@ const helpDeskTabelDemo = () => {
           </Select>
         </div>
       </div>
-      <div className="px-3">
+      <div className="lg:px-3 px-1">
         <Table className="w-full table-fixed ">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

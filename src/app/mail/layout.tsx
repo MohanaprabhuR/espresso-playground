@@ -41,7 +41,7 @@ export default function RootLayout({
       <div className="flex min-h-screen w-full">
         <MailTableSidebar />
         <div className="w-full min-w-0">
-          <Header className="py-0">
+          <Header className="lg:py-0 py-2.5">
             <div className="flex items-center gap-1">
               <SidebarTriggerWithTitle />
               <Breadcrumb>
@@ -53,7 +53,7 @@ export default function RootLayout({
               </Breadcrumb>
             </div>
 
-            <div className="flex gap-x-4 ">
+            <div className="gap-x-4 hidden lg:flex">
               {[
                 { label: "Primary", badge: 24 },
                 { label: "Updates" },
@@ -75,7 +75,7 @@ export default function RootLayout({
               ))}
             </div>
 
-            <div className="flex gap-x-2">
+            <div className="flex lg:gap-x-2 gap-x-1.5">
               <Button iconOnly variant="ghost">
                 <Search />
               </Button>

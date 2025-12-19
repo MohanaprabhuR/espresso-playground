@@ -62,7 +62,7 @@ export default function RootLayout({
           <Header className="pr-2.5">
             <div className="flex items-center gap-1">
               <SidebarTriggerWithTitle />
-              <Breadcrumb>
+              <Breadcrumb className="hidden sm:block">
                 <BreadcrumbList size="md">
                   <BreadcrumbItem>
                     <BreadcrumbLink href="#">

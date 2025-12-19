@@ -4,6 +4,7 @@ import { SidebarProvider, useSidebar } from "@/components/ui/sidebar";
 import { Toaster } from "@/components/ui/sonner";
 import CrmSidebar from "./crm-sidebar";
 import { Header } from "@/components/ui/header";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 import {
   Breadcrumb,
@@ -52,6 +53,61 @@ function SidebarTriggerWithTitle() {
   );
 }
 
+function SelectWithResponsiveSize() {
+  const isMobile = useIsMobile();
+  return (
+    <Select defaultValue="list">
+      <SelectTrigger
+        size={isMobile ? "md" : "sm"}
+        variant="ghost"
+        icon={<ChevronDown />}
+        className="px-1.25 py-1 text-lg font-medium leading-none"
+      >
+        <SelectValue placeholder="List View" />
+      </SelectTrigger>
+
+      <SelectContent>
+        <SelectItem value="list">
+          <Menu className="size-4" />
+          List view
+        </SelectItem>
+
+        <SelectItem value="kanban">
+          <Columns2 className="size-4" />
+          Kanban view
+        </SelectItem>
+
+        <SelectItem value="calendar">
+          <Calendar className="size-4" />
+          Calendar
+        </SelectItem>
+
+        <SelectSeparator />
+
+        <SelectItem value="product">
+          <span>🔆</span>
+          Product - sales
+        </SelectItem>
+
+        <SelectItem value="support">
+          <span>⚓</span>
+          Support
+        </SelectItem>
+
+        <SelectItem value="board">
+          <span>📌</span>
+          Board - highest sales
+        </SelectItem>
+
+        <SelectItem value="pinned">
+          <MapPin className="size-4" />
+          Board pinned
+        </SelectItem>
+      </SelectContent>
+    </Select>
+  );
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -67,65 +123,18 @@ export default function RootLayout({
               <div className="flex items-center gap-1">
                 <SidebarTriggerWithTitle />
                 <Breadcrumb>
-                  <BreadcrumbList size="md" className="items-start">
+                  <BreadcrumbList size="md">
                     <BreadcrumbItem>
-                      <BreadcrumbLink href="#">Leads</BreadcrumbLink>
+                      <BreadcrumbLink href="#" className="p-1.25">
+                        Leads
+                      </BreadcrumbLink>
                     </BreadcrumbItem>
 
                     <BreadcrumbSeparator>
                       <SlashIcon />
                     </BreadcrumbSeparator>
-
                     <BreadcrumbItem>
-                      <Select defaultValue="list">
-                        <SelectTrigger
-                          size="sm"
-                          variant="ghost"
-                          icon={<ChevronDown />}
-                          className="px-1.5 text-lg font-medium leading-none"
-                        >
-                          <SelectValue placeholder="List View" />
-                        </SelectTrigger>
-
-                        <SelectContent>
-                          <SelectItem value="list">
-                            <Menu className="size-4" />
-                            List view
-                          </SelectItem>
-
-                          <SelectItem value="kanban">
-                            <Columns2 className="size-4" />
-                            Kanban view
-                          </SelectItem>
-
-                          <SelectItem value="calendar">
-                            <Calendar className="size-4" />
-                            Calendar
-                          </SelectItem>
-
-                          <SelectSeparator />
-
-                          <SelectItem value="product">
-                            <span>🔆</span>
-                            Product - sales
-                          </SelectItem>
-
-                          <SelectItem value="support">
-                            <span>⚓</span>
-                            Support
-                          </SelectItem>
-
-                          <SelectItem value="board">
-                            <span>📌</span>
-                            Board - highest sales
-                          </SelectItem>
-
-                          <SelectItem value="pinned">
-                            <MapPin className="size-4" />
-                            Board pinned
-                          </SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <SelectWithResponsiveSize />
                     </BreadcrumbItem>
                   </BreadcrumbList>
                 </Breadcrumb>

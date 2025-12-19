@@ -158,6 +158,12 @@ export function DataGridCellWrapper<TData>({
 
   const rowHeight = tableMeta?.rowHeight ?? "short";
 
+  // Check if this is a column selection (single or multi-column)
+  // Column selections start at row 0, indicating entire columns are selected
+  const selectionRange = tableMeta?.selectionState?.selectionRange;
+  const isColumnSelection =
+    isSelected && selectionRange && selectionRange.start.rowIndex === 0;
+
   return (
     <div
       role="button"
@@ -177,7 +183,9 @@ export function DataGridCellWrapper<TData>({
           "bg-yellow-100 dark:bg-yellow-900/30":
             isSearchMatch && !isActiveSearchMatch,
           "bg-orange-200 dark:bg-orange-900/50": isActiveSearchMatch,
-          "bg-secondary": isSelected && !isEditing,
+          "bg-secondary border-border border-l-1 border-r-1":
+            isColumnSelection && !isEditing,
+          "bg-secondary": isSelected && !isColumnSelection && !isEditing,
           "cursor-default": !isEditing,
           "**:data-[slot=grid-cell-content]:line-clamp-1":
             !isEditing && rowHeight === "short",

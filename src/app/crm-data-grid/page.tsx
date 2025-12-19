@@ -672,8 +672,8 @@ const DataTableDemo = () => {
   });
 
   return (
-    <div className="flex flex-col mx-auto gap-y-4.5 w-full h-[calc(100vh-50px)] relative pb-11 pt-2.5 overflow-scroll">
-      <div className="flex justify-between px-5 gap-2 ">
+    <div className="flex flex-col mx-auto  w-full h-[calc(100vh-50px)] relative pb-11  overflow-scroll">
+      <div className="flex pt-2.5 pb-4.5 justify-start lg:justify-between px-3 lg:px-5 gap-2 overflow-scroll scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         <div className="gap-x-2 flex">
           <Select defaultValue="lead-owner">
             <SelectTrigger size="sm" icon={<ChevronDown />}>
@@ -697,8 +697,8 @@ const DataTableDemo = () => {
                 <Image
                   src="/images/svg/gumroad.svg"
                   alt="gumroad"
-                  width="20"
-                  height="20"
+                  width="16"
+                  height="16"
                 />
                 Gumroad
               </SelectItem>
@@ -706,8 +706,8 @@ const DataTableDemo = () => {
                 <Image
                   src="/images/svg/attentive.svg"
                   alt="Attentive"
-                  width="20"
-                  height="20"
+                  width="16"
+                  height="16"
                 />
                 Attentive
               </SelectItem>
@@ -715,8 +715,8 @@ const DataTableDemo = () => {
                 <Image
                   src="/images/svg/evergreen.svg"
                   alt="Evergreen"
-                  width="20"
-                  height="20"
+                  width="16"
+                  height="16"
                 />
                 Evergreen
               </SelectItem>
@@ -724,8 +724,8 @@ const DataTableDemo = () => {
                 <Image
                   src="/images/svg/dropbox.svg"
                   alt="Dropbox"
-                  width="20"
-                  height="20"
+                  width="16"
+                  height="16"
                 />
                 Dropbox
               </SelectItem>
@@ -733,8 +733,8 @@ const DataTableDemo = () => {
                 <Image
                   src="/images/svg/hourglass.svg"
                   alt="Hourglass"
-                  width="20"
-                  height="20"
+                  width="16"
+                  height="16"
                 />
                 Hourglass
               </SelectItem>
@@ -910,7 +910,7 @@ const DataTableDemo = () => {
           </DropdownMenu>
         </div>
       </div>
-      <div className="px-3 w-full">
+      <div className="lg:px-3 px-1 w-full">
         <DataGridKeyboardShortcuts enableSearch={!!dataGridProps.searchState} />
         <DataGrid {...dataGridProps} table={table} stretchColumns={true} />
       </div>
