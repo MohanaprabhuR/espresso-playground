@@ -559,8 +559,7 @@
   --color-ring-color: rgba(201, 201, 201, 0.5);
 
   /* Box Shadow */
-  --shadow-2xs: 0px 1px 4px rgba(0, 0, 0, 0.1);
-  --shadow-xs: 0px 0px 0px 2px #ffffff;
+  --shadow-xs: 0px 1px 4px rgba(0, 0, 0, 0.1);
   --shadow-xss: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
   --shadow-sm: 0 0 1.5px rgba(0, 0, 0, 0.16), 0 2px 5px rgba(0, 0, 0, 0.14);
   --shadow-md:
