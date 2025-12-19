@@ -37,6 +37,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Rating, RatingButton } from "@/components/ui/shadcn-io/rating";
+import { Label } from "@/components/ui/label";
 
 interface Attachment {
   name: string;
@@ -296,8 +297,8 @@ export const columns: ColumnDef<MailItem>[] = [
   {
     id: "select",
     size: 200,
-    minSize: 200,
-    maxSize: 200,
+    minSize: 300,
+    maxSize: 300,
     cell: ({ row }) => {
       const avatars = row.original.avatar;
 
@@ -336,10 +337,6 @@ export const columns: ColumnDef<MailItem>[] = [
         </div>
       );
     },
-
-    enableSorting: false,
-    enableHiding: false,
-    enableResizing: false,
   },
 
   {
@@ -387,15 +384,16 @@ const MailTableDemo = () => {
   const table = useReactTable({
     data,
     columns,
+    enableColumnResizing: true,
+    columnResizeMode: "onChange",
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
   });
-
   return (
-    <div className="flex flex-col mx-auto w-full h-[calc(100vh-50px)] overflow-y-auto overflow-x-hidden">
-      <div className="flex items-center justify-between px-6 py-3 min-w-0 shrink-0">
-        <div className="flex items-center gap-2 min-w-0 flex-1">
+    <div className="flex flex-col mx-auto  w-full  h-[calc(100vh-60px)]  relative pb-1 pt-2.5 overflow-y-auto overflow-x-hidden">
+      <div className="flex items-center justify-between  min-w-0 shrink-0">
+        <div className="flex items-center gap-2 min-w-0 lg:px-6 px-3 py-3 flex-1 overflow-scroll scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           <Checkbox
             checked={
               table.getIsAllPageRowsSelected() ||
@@ -409,7 +407,7 @@ const MailTableDemo = () => {
           <Button variant="ghost" iconOnly>
             <ChevronDown />
           </Button>
-          <div className="flex items-center gap-1 flex-wrap min-w-0">
+          <div className="flex items-center gap-1 min-w-0">
             <Button variant="outline">
               <Check />
               Has attachment
@@ -474,88 +472,94 @@ const MailTableDemo = () => {
             <Button variant="ghost">Advanced search</Button>
           </div>
         </div>
-        <div className="text-sm text-muted-foreground">
+        <Label className="text-sm text-muted-foreground hidden lg:block">
           1-50 of {data.length.toLocaleString()}
-        </div>
+        </Label>
       </div>
-      <Table noPadding className="table-fixed w-full">
-        <TableHeader>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => {
-                return (
-                  <TableHead
-                    key={header.id}
-                    className="p-0 "
-                    colSpan={header.colSpan}
-                    style={{
-                      width:
-                        header.column.id === "select"
-                          ? "20%"
-                          : header.column.id === "date"
-                            ? "15%"
-                            : "65%",
-                    }}
-                  >
-                    {header.isPlaceholder ? null : (
-                      <div
-                        className={cn(
-                          header.column.getCanSort() &&
-                            "flex h-full cursor-pointer items-center justify-between gap-2 select-none"
-                        )}
-                      >
-                        <span className="truncate">
-                          {flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
+      <div className="w-full overflow-x-hidden md:overflow-x-visible">
+        <Table noPadding className="table-fixed w-full">
+          <TableHeader>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id}>
+                {headerGroup.headers.map((header) => {
+                  return (
+                    <TableHead
+                      key={header.id}
+                      className="p-0 "
+                      colSpan={header.colSpan}
+                      style={{
+                        width: header.getSize(),
+                      }}
+                    >
+                      {header.isPlaceholder ? null : (
+                        <div
+                          className={cn(
+                            header.column.getCanSort() &&
+                              "flex h-full cursor-pointer items-center justify-between gap-2 select-none"
                           )}
-                        </span>
-                      </div>
-                    )}
-                    {header.column.getCanResize() && (
-                      <div
-                        {...{
-                          onDoubleClick: () => header.column.resetSize(),
-                          onMouseDown: header.getResizeHandler(),
-                          onTouchStart: header.getResizeHandler(),
-                          className:
-                            "absolute top-1/2 -translate-y-2/4  group-hover:before:opacity-100 h-6  w-4 cursor-col-resize user-select-none touch-none -right-1.5 z-10 flex justify-center before:absolute  before:w-0.5 before:rounded-sm before:opacity-0 before:inset-y-0 before:bg-border before:translate-x-px",
-                        }}
-                      />
-                    )}
-                  </TableHead>
-                );
-              })}
-            </TableRow>
-          ))}
-        </TableHeader>
-
-        <TableBody>
-          {table.getRowModel().rows?.length ? (
-            table.getRowModel().rows.map((row) => (
-              <TableRow
-                key={row.id}
-                data-state={row.getIsSelected() && "selected"}
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell
-                    key={cell.id}
-                    className=" align-top [&:last-child>*]:pr-3 [&:first-child>*]:pl-6 "
-                  >
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TableCell>
-                ))}
+                        >
+                          <span className="truncate">
+                            {flexRender(
+                              header.column.columnDef.header,
+                              header.getContext()
+                            )}
+                          </span>
+                        </div>
+                      )}
+                      {header.column.getCanResize() && (
+                        <div
+                          {...{
+                            onDoubleClick: () => header.column.resetSize(),
+                            onMouseDown: header.getResizeHandler(),
+                            onTouchStart: header.getResizeHandler(),
+                            className:
+                              "absolute top-1/2 -translate-y-2/4  group-hover:before:opacity-100 h-6  w-4 cursor-col-resize user-select-none touch-none -right-1.5 z-10 flex justify-center before:absolute  before:w-0.5 before:rounded-sm before:opacity-0 before:inset-y-0 before:bg-border before:translate-x-px",
+                          }}
+                        />
+                      )}
+                    </TableHead>
+                  );
+                })}
               </TableRow>
-            ))
-          ) : (
-            <TableRow>
-              <TableCell colSpan={columns.length} className="h-24 text-center ">
-                No results.
-              </TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
+            ))}
+          </TableHeader>
+
+          <TableBody>
+            {table.getRowModel().rows?.length ? (
+              table.getRowModel().rows.map((row) => (
+                <TableRow
+                  key={row.id}
+                  data-state={row.getIsSelected() && "selected"}
+                >
+                  {row.getVisibleCells().map((cell) => (
+                    <TableCell
+                      key={cell.id}
+                      className=" align-top [&:last-child>*]:pr-3 lg:[&:first-child>*]:pl-6 [&:first-child>*]:pl-3 "
+                      style={{
+                        width: cell.column.getSize(),
+                      }}
+                    >
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))
+            ) : (
+              <TableRow>
+                <TableCell
+                  colSpan={columns.length}
+                  className="h-24 text-center "
+                >
+                  No results.
+                </TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </div>
     </div>
   );
 };
