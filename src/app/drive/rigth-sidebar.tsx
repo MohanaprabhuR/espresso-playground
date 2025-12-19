@@ -6,7 +6,7 @@ import { CircleAlert, Clock, MessageCircle } from "lucide-react";
 
 const RightDriveTableSidebar = () => {
   return (
-    <div className="px-2.5 py-3.5 border-l h-[calc(100vh-50px)]">
+    <div className="px-2.5 py-3.5 border-l h-[calc(100vh-50px)] hidden lg:block">
       <ButtonGroup orientation="vertical" destructive>
         <Button iconOnly variant="ghost">
           <CircleAlert />
