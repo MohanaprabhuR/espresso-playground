@@ -180,7 +180,8 @@ const AvatarSizeContext = React.createContext<{
 });
 
 interface AvatarProps
-  extends React.ComponentProps<typeof AvatarPrimitive.Root>,
+  extends
+    React.ComponentProps<typeof AvatarPrimitive.Root>,
     VariantProps<typeof avatarVariants> {
   shape?: Shape;
   status?: Status;
@@ -212,7 +213,7 @@ export function Avatar({
         {status && (
           <span
             className={cn(
-              "absolute bottom-0 right-0 flex items-center justify-center rounded-full bg-background ring-1 ring-[var(--background)] shadow-xs)]",
+              "absolute bottom-0 right-0 flex items-center justify-center rounded-full bg-background ring-1 ring-[var(--background)]",
               {
                 "bg-[var(--color-light-green-600)] p-[2px]":
                   status === "checked",

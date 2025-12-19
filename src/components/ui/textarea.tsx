@@ -8,11 +8,11 @@ const textareaVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-secondary text-accent-foreground outline outline-1 -outline-offset-1 outline-transparent hover:bg-accent active:outline active:outline-primary/50 active:placeholder:text-accent-foreground active:text-accent-foreground focus:bg-transparent focus:outline focus:shadow-2xs focus:outline-primary/50 focus-visible:ring-2 focus-visible:ring-ring",
+          "bg-secondary text-accent-foreground outline outline-1 -outline-offset-1 outline-transparent hover:bg-accent active:outline active:outline-primary/50 active:placeholder:text-accent-foreground active:text-accent-foreground focus:bg-transparent focus:outline active:shadow-2xs focus:outline-primary/50 focus-visible:ring-2 focus-visible:ring-ring focus:ring-2 focus:ring-ring",
         outline:
-          "outline-input outline-1  -outline-offset-1 hover:outline-primary/20 active:outline-primary/50 active:placeholder:text-accent-foreground active:text-accent-foreground bg-transparent text-accent-foreground focus:outline focus:shadow-2xs focus:outline-primary/50 focus-visible:ring-2 focus-visible:ring-ring",
+          "outline-input outline-1  -outline-offset-1 hover:outline-primary/20 active:outline-primary/50 active:placeholder:text-accent-foreground active:text-accent-foreground bg-transparent text-accent-foreground focus:outline active:shadow-2xs focus:outline-primary/50 focus-visible:ring-2 focus-visible:ring-ring focus:ring-2 focus:ring-ring",
         ghost:
-          "bg-transparent outline outline-1 -outline-offset-1 outline-transparent text-accent-foreground active:text-accent-foreground active:placeholder:text-accent-foreground focus:outline focus:shadow-2xs focus:outline-primary/50 focus-visible:ring-2 focus-visible:ring-ring",
+          "bg-transparent outline outline-1 -outline-offset-1 outline-transparent text-accent-foreground active:text-accent-foreground active:placeholder:text-accent-foreground focus:outline active:shadow-2xs focus:outline-primary/50 focus-visible:ring-2 focus-visible:ring-ring focus:ring-2 focus:ring-ring",
       },
       size: {
         sm: "min-h-[72px] h-full px-2 py-1.5 text-base leading-normal tracking-4",
@@ -72,7 +72,8 @@ const textareaVariants = cva(
 );
 
 export interface TextareaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+  extends
+    React.TextareaHTMLAttributes<HTMLTextAreaElement>,
     VariantProps<typeof textareaVariants> {}
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(

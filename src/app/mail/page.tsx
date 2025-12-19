@@ -296,6 +296,8 @@ export const columns: ColumnDef<MailItem>[] = [
   {
     id: "select",
     size: 200,
+    minSize: 200,
+    maxSize: 200,
     cell: ({ row }) => {
       const avatars = row.original.avatar;
 
@@ -366,6 +368,8 @@ export const columns: ColumnDef<MailItem>[] = [
       </div>
     ),
     size: 700,
+    minSize: 700,
+    maxSize: 700,
   },
   {
     accessorKey: "date",
@@ -374,6 +378,8 @@ export const columns: ColumnDef<MailItem>[] = [
       <span className="truncate text-right w-full">{row.original.date}</span>
     ),
     size: 120,
+    minSize: 120,
+    maxSize: 120,
   },
 ];
 
@@ -419,7 +425,7 @@ const MailTableDemo = () => {
                 <SelectValue placeholder=" From" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="form">Form</SelectItem>
+                <SelectItem value="from">Form</SelectItem>
                 <SelectItem value="name">Name</SelectItem>
                 <SelectItem value="organisation">Organisation</SelectItem>
                 <SelectItem value="start-date">Start Date</SelectItem>

@@ -25,6 +25,7 @@ const BreadcrumbDemo = () => {
         <h1 className="text-xl font-semibold text-gray-900 dark:text-white pb-10 text-center tracking-4 leading-normal">
           Breadcrumb Component
         </h1>
+
         <div className="gap-[30px_0] flex flex-col">
           <div className="flex flex-col justify-center items-center gap-[10px_0]">
             <Breadcrumb>

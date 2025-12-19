@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import {
   ButtonGroup,
   ButtonGroupSeparator,
+  ButtonGroupText,
 } from "@/components/ui/button-group";
 import {
   AlertTriangleIcon,
@@ -41,6 +42,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 const ButtonGroupDemo = () => {
   const [label, setLabel] = React.useState("personal");
@@ -52,6 +54,16 @@ const ButtonGroupDemo = () => {
         </h1>
 
         <div className="flex flex-col  gap-10 items-center">
+          <ButtonGroup>
+            <ButtonGroupText asChild>
+              <Label htmlFor="name">Text</Label>
+            </ButtonGroupText>
+            <Input
+              placeholder="Type something here..."
+              id="name"
+              className="rounded-l-none"
+            />
+          </ButtonGroup>
           <div className="flex flex-col gap-4">
             <ButtonGroup destructive>
               <Button>Button</Button>
