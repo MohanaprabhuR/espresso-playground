@@ -7,6 +7,7 @@ import { DataGrid } from "@/components/data-grid/data-grid";
 import { DataGridKeyboardShortcuts } from "@/components/data-grid/data-grid-keyboard-shortcuts";
 import { useDataGrid } from "@/hooks/use-data-grid";
 import { DirectionProvider } from "@radix-ui/react-direction";
+import type { RowHeightValue } from "@/types/data-grid";
 
 import { cn } from "@/lib/utils";
 
@@ -20,6 +21,9 @@ import {
   Phone,
   Square,
   CheckSquare2,
+  Minus,
+  Equal,
+  X,
 } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
@@ -432,6 +436,7 @@ const DataTableDemo = () => {
   const dataRef = React.useRef(data);
   const [rowSelection, setRowSelection] = React.useState({});
   const [direction, setDirection] = React.useState<"ltr" | "rtl">("ltr");
+  const [rowHeight, setRowHeight] = React.useState<RowHeightValue>("short");
 
   React.useEffect(() => {
     dataRef.current = data;
@@ -662,6 +667,7 @@ const DataTableDemo = () => {
     getRowId: (row) => row.id,
     enableSearch: true,
     dir: direction,
+    rowHeight,
     state: {
       rowSelection,
     },
@@ -673,6 +679,17 @@ const DataTableDemo = () => {
       },
     },
   });
+
+  // Sync rowHeight prop changes with internal state
+  React.useEffect(() => {
+    const currentRowHeight = dataGridProps.tableMeta?.rowHeight;
+    if (
+      dataGridProps.tableMeta?.onRowHeightChange &&
+      currentRowHeight !== rowHeight
+    ) {
+      dataGridProps.tableMeta.onRowHeightChange(rowHeight);
+    }
+  }, [rowHeight, dataGridProps.tableMeta]);
 
   return (
     <div className="flex flex-col mx-auto  w-full h-[calc(100vh-50px)] relative pb-11  overflow-scroll">
@@ -817,7 +834,7 @@ const DataTableDemo = () => {
           </Button>
         </div>
         <div className="flex gap-x-2 items-center">
-          <Select defaultValue="column">
+          {/* <Select defaultValue="column">
             <SelectTrigger icon={<ChevronDown />}>
               <EyeOff />
               <SelectValue placeholder="Columns" />
@@ -833,7 +850,7 @@ const DataTableDemo = () => {
               <SelectItem value="assigned-to">Assigned To</SelectItem>
               <SelectItem value="last-modified">Last Modified</SelectItem>
             </SelectContent>
-          </Select>
+          </Select> */}
           <Select defaultValue="group">
             <SelectTrigger size="sm" icon={<ChevronDown />}>
               <Logs />
@@ -871,29 +888,47 @@ const DataTableDemo = () => {
               <SelectItem value="owner">Owner</SelectItem>
             </SelectContent>
           </Select>
-          <Select defaultValue="short">
+          <Select
+            value={rowHeight}
+            onValueChange={(value) => setRowHeight(value as RowHeightValue)}
+          >
             <SelectTrigger icon={<ChevronDown />}>
-              <ArrowDownUp />
-              <SelectValue placeholder="Sort" />
+              {rowHeight === "short" && <Minus className="size-4" />}
+              {rowHeight === "medium" && <Equal className="size-4" />}
+              {rowHeight === "tall" && <ArrowDownUp className="size-4" />}
+              {rowHeight === "extra-tall" && <X className="size-4" />}
+              <SelectValue placeholder="Row Height">
+                {rowHeight === "short" && "Short"}
+                {rowHeight === "medium" && "Medium"}
+                {rowHeight === "tall" && "Tall"}
+                {rowHeight === "extra-tall" && "Extra Tall"}
+              </SelectValue>
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="short">Short</SelectItem>
-              <SelectItem value="title">Title</SelectItem>
-              <SelectItem value="priority">Priority</SelectItem>
-              <SelectItem value="start-date">Start Date</SelectItem>
-              <SelectItem value="reference-document-type">
-                Reference Document Type
+              <SelectItem value="short">
+                <div className="flex items-center gap-2">
+                  <Minus className="size-4" />
+                  <span>Short</span>
+                </div>
               </SelectItem>
-              <SelectItem value="reference-doc">Reference Doc</SelectItem>
-              <SelectItem value="assigned-to">Assigned To</SelectItem>
-              <SelectItem value="status">Status</SelectItem>
-              <SelectItem value="due-date">Due Date</SelectItem>
-              <SelectItem value="name">Name</SelectItem>
-              <SelectItem value="description">Description</SelectItem>
-              <SelectItem value="created-on">Created On</SelectItem>
-              <SelectItem value="last-modified">Last Modified</SelectItem>
-              <SelectItem value="modified-by">Modified By</SelectItem>
-              <SelectItem value="owner">Owner</SelectItem>
+              <SelectItem value="medium">
+                <div className="flex items-center gap-2">
+                  <Equal className="size-4" />
+                  <span>Medium</span>
+                </div>
+              </SelectItem>
+              <SelectItem value="tall">
+                <div className="flex items-center gap-2">
+                  <ArrowDownUp className="size-4" />
+                  <span>Tall</span>
+                </div>
+              </SelectItem>
+              <SelectItem value="extra-tall">
+                <div className="flex items-center gap-2">
+                  <X className="size-4" />
+                  <span>Extra Tall</span>
+                </div>
+              </SelectItem>
             </SelectContent>
           </Select>
           <DropdownMenu>
