@@ -57,8 +57,9 @@ const REMOVE_FILTER_SHORTCUTS = ["backspace", "delete"];
 const FILTER_DEBOUNCE_MS = 300;
 const OPERATORS_WITHOUT_VALUE = ["isEmpty", "isNotEmpty", "isTrue", "isFalse"];
 
-interface DataGridFilterMenuProps<TData>
-  extends React.ComponentProps<typeof PopoverContent> {
+interface DataGridFilterMenuProps<TData> extends React.ComponentProps<
+  typeof PopoverContent
+> {
   table: Table<TData>;
   disabled?: boolean;
 }
@@ -129,20 +130,20 @@ export function DataGridFilterMenu<TData>({
       table.setColumnFilters((prevFilters) => {
         if (!prevFilters) return prevFilters;
         return prevFilters.map((filter) =>
-          filter.id === filterId ? { ...filter, ...updates } : filter,
+          filter.id === filterId ? { ...filter, ...updates } : filter
         );
       });
     },
-    [table],
+    [table]
   );
 
   const onFilterRemove = React.useCallback(
     (filterId: string) => {
       table.setColumnFilters((prevFilters) =>
-        prevFilters.filter((item) => item.id !== filterId),
+        prevFilters.filter((item) => item.id !== filterId)
       );
     },
-    [table],
+    [table]
   );
 
   const onFiltersReset = React.useCallback(() => {
@@ -184,7 +185,7 @@ export function DataGridFilterMenu<TData>({
         onFiltersReset();
       }
     },
-    [columnFilters.length, onFiltersReset],
+    [columnFilters.length, onFiltersReset]
   );
 
   return (
@@ -206,12 +207,7 @@ export function DataGridFilterMenu<TData>({
             <ListFilter className="text-muted-foreground" />
             Filter
             {columnFilters.length > 0 && (
-              <Badge
-                variant="secondary"
-                className="h-[18.24px] rounded-[3.2px] px-[5.12px] font-mono font-normal text-[10.4px]"
-              >
-                {columnFilters.length}
-              </Badge>
+              <Badge variant="secondary">{columnFilters.length}</Badge>
             )}
           </Button>
         </PopoverTrigger>
@@ -221,19 +217,19 @@ export function DataGridFilterMenu<TData>({
           dir={dir}
           className={cn(
             "flex w-full max-w-(--radix-popover-content-available-width) flex-col gap-3.5 p-4 sm:min-w-[480px]",
-            className,
+            className
           )}
           {...props}
         >
           <div className="flex flex-col gap-1">
-            <h4 id={labelId} className="font-medium leading-none">
+            <h4 id={labelId} className="font-medium tracking-4 leading-normal">
               {columnFilters.length > 0 ? "Filter by" : "No filters applied"}
             </h4>
             <p
               id={descriptionId}
               className={cn(
-                "text-muted-foreground text-sm",
-                columnFilters.length > 0 && "sr-only",
+                "text-muted-foreground text-sm tracking-4 leading-normal ",
+                columnFilters.length > 0 && "sr-only"
               )}
             >
               {columnFilters.length > 0
@@ -268,7 +264,6 @@ export function DataGridFilterMenu<TData>({
           <div className="flex w-full items-center gap-2">
             <Button
               size="sm"
-              className="rounded"
               ref={addButtonRef}
               onClick={onFilterAdd}
               disabled={columns.length === 0}
@@ -276,12 +271,7 @@ export function DataGridFilterMenu<TData>({
               Add filter
             </Button>
             {columnFilters.length > 0 && (
-              <Button
-                variant="outline"
-                size="sm"
-                className="rounded"
-                onClick={onFiltersReset}
-              >
+              <Button variant="outline" size="sm" onClick={onFiltersReset}>
                 Reset filters
               </Button>
             )}
@@ -290,12 +280,12 @@ export function DataGridFilterMenu<TData>({
       </Popover>
       <SortableOverlay>
         <div dir={dir} className="flex items-center gap-2">
-          <div className="h-8 min-w-[72px] rounded-sm bg-primary/10" />
-          <div className="h-8 w-32 rounded-sm bg-primary/10" />
-          <div className="h-8 w-32 rounded-sm bg-primary/10" />
-          <div className="h-8 w-36 rounded-sm bg-primary/10" />
-          <div className="size-8 shrink-0 rounded-sm bg-primary/10" />
-          <div className="size-8 shrink-0 rounded-sm bg-primary/10" />
+          <div className=" min-w-[72px] rounded-lg bg-primary/10" />
+          <div className=" w-32 rounded-lg bg-primary/10" />
+          <div className=" w-32 rounded-lg bg-primary/10" />
+          <div className=" w-36 rounded-lg bg-primary/10" />
+          <div className="size-8 shrink-0 rounded-lg bg-primary/10" />
+          <div className="size-8 shrink-0 rounded-lg bg-primary/10" />
         </div>
       </SortableOverlay>
     </Sortable>
@@ -362,7 +352,7 @@ function DataGridFilterItem<TData>({
         onFilterRemove(filter.id);
       }
     },
-    [filter.id, showFieldSelector, showOperatorSelector, onFilterRemove],
+    [filter.id, showFieldSelector, showOperatorSelector, onFilterRemove]
   );
 
   const onOperatorChange = React.useCallback(
@@ -375,7 +365,7 @@ function DataGridFilterItem<TData>({
         },
       });
     },
-    [filter.id, filterValue?.value, filterValue?.endValue, onFilterUpdate],
+    [filter.id, filterValue?.value, filterValue?.endValue, onFilterUpdate]
   );
 
   const onValueChange = React.useCallback(
@@ -388,7 +378,7 @@ function DataGridFilterItem<TData>({
         },
       });
     },
-    [filter.id, operator, filterValue?.endValue, onFilterUpdate],
+    [filter.id, operator, filterValue?.endValue, onFilterUpdate]
   );
 
   const onEndValueChange = React.useCallback(
@@ -401,7 +391,7 @@ function DataGridFilterItem<TData>({
         },
       });
     },
-    [filter.id, operator, filterValue?.value, onFilterUpdate],
+    [filter.id, operator, filterValue?.value, onFilterUpdate]
   );
 
   return (
@@ -428,7 +418,7 @@ function DataGridFilterItem<TData>({
               dir={dir}
               variant="outline"
               size="sm"
-              className="w-32 justify-between rounded font-normal"
+              className="w-32 justify-between rounded-lg font-normal"
             >
               <span className="truncate">{columnLabels.get(filter.id)}</span>
               <ChevronsUpDown className="opacity-50" />
@@ -464,17 +454,21 @@ function DataGridFilterItem<TData>({
                                     value: "",
                                   },
                                 }
-                              : f,
-                          ),
+                              : f
+                          )
                         );
                         setShowFieldSelector(false);
                       }}
                     >
-                      <span className="truncate">{column.label}</span>
+                      <span className="truncate tracking-4 leading-tight">
+                        {column.label}
+                      </span>
                       <Check
                         className={cn(
                           "ms-auto",
-                          column.id === filter.id ? "opacity-100" : "opacity-0",
+                          column.id === filter.id
+                            ? "opacity-100"
+                            : "opacity-100"
                         )}
                       />
                     </CommandItem>
@@ -493,7 +487,7 @@ function DataGridFilterItem<TData>({
           <SelectTrigger
             aria-controls={operatorListboxId}
             size="sm"
-            className="w-32 rounded lowercase"
+            className="w-32 rounded-lg lowercase"
           >
             <div className="truncate">
               <SelectValue />
@@ -527,21 +521,20 @@ function DataGridFilterItem<TData>({
               role="status"
               aria-label={`${columnLabels.get(filter.id)} filter is empty`}
               aria-live="polite"
-              className="h-8 w-full rounded border bg-transparent dark:bg-input/30"
+              className="w-full rounded-lg border bg-transparent dark:bg-input/30"
             />
           )}
         </div>
         <Button
           aria-controls={filterItemId}
           variant="outline"
-          size="icon"
-          className="size-8 rounded"
+          iconOnly
           onClick={() => onFilterRemove(filter.id)}
         >
           <Trash2 />
         </Button>
         <SortableItemHandle asChild>
-          <Button variant="outline" size="icon" className="size-8 rounded">
+          <Button variant="outline" iconOnly>
             <GripVertical />
           </Button>
         </SortableItemHandle>
@@ -583,14 +576,14 @@ function DataGridFilterInput<TData>({
     (newValue: string | number | string[] | undefined) => {
       onValueChange(newValue);
     },
-    FILTER_DEBOUNCE_MS,
+    FILTER_DEBOUNCE_MS
   );
 
   const debouncedOnEndValueChange = useDebouncedCallback(
     (newValue: string | number | string[] | undefined) => {
       onEndValueChange?.(newValue);
     },
-    FILTER_DEBOUNCE_MS,
+    FILTER_DEBOUNCE_MS
   );
 
   const cellVariant = column.columnDef.meta?.cell;
@@ -620,7 +613,7 @@ function DataGridFilterInput<TData>({
               setLocalValue(newValue);
               debouncedOnChange(newValue);
             }}
-            className="h-8 w-full flex-1 rounded"
+            className="w-full flex-1 rounded-lg"
           />
           <Input
             id={`${inputId}-end`}
@@ -634,7 +627,7 @@ function DataGridFilterInput<TData>({
               setLocalEndValue(newValue);
               debouncedOnEndValueChange(newValue);
             }}
-            className="h-8 w-full flex-1 rounded"
+            className=" w-full flex-1 rounded-lg"
           />
         </div>
       );
@@ -653,7 +646,7 @@ function DataGridFilterInput<TData>({
           setLocalValue(newValue);
           debouncedOnChange(newValue);
         }}
-        className="h-8 w-full rounded"
+        className=" w-full rounded-lg"
       />
     );
   }
@@ -693,8 +686,8 @@ function DataGridFilterInput<TData>({
               variant="outline"
               size="sm"
               className={cn(
-                "h-8 w-full justify-start rounded font-normal",
-                !startDate && "text-muted-foreground",
+                "w-full justify-start rounded-lg font-normal",
+                !startDate && "text-muted-foreground"
               )}
             >
               <CalendarIcon />
@@ -749,8 +742,8 @@ function DataGridFilterInput<TData>({
             variant="outline"
             size="sm"
             className={cn(
-              "h-8 w-full justify-start rounded font-normal",
-              !dateValue && "text-muted-foreground",
+              " w-full justify-start rounded-lg font-normal",
+              !dateValue && "text-muted-foreground"
             )}
           >
             <CalendarIcon />
@@ -794,11 +787,11 @@ function DataGridFilterInput<TData>({
     if (isMultiValueOperator) {
       const selectedValues = Array.isArray(value) ? value : [];
       const selectedOptions = selectOptions.filter((option) =>
-        selectedValues.includes(option.value),
+        selectedValues.includes(option.value)
       );
 
       const selectedOptionsWithIcons = selectedOptions.filter(
-        (selectedOption) => selectedOption.icon,
+        (selectedOption) => selectedOption.icon
       );
 
       return (
@@ -810,7 +803,7 @@ function DataGridFilterInput<TData>({
               dir={dir}
               variant="outline"
               size="sm"
-              className="h-8 w-full justify-start rounded font-normal"
+              className=" w-full justify-start rounded-lg font-normal"
             >
               {selectedOptions.length === 0 ? (
                 <span className="text-muted-foreground">{placeholder}</span>
@@ -827,7 +820,7 @@ function DataGridFilterInput<TData>({
                             >
                               <selectedOption.icon className="size-3.5" />
                             </div>
-                          ),
+                          )
                       )}
                     </div>
                   )}
@@ -862,7 +855,7 @@ function DataGridFilterInput<TData>({
                             ? selectedValues.filter((v) => v !== option.value)
                             : [...selectedValues, option.value];
                           onValueChange(
-                            newValues.length > 0 ? newValues : undefined,
+                            newValues.length > 0 ? newValues : undefined
                           );
                         }}
                       >
@@ -876,7 +869,7 @@ function DataGridFilterInput<TData>({
                         <Check
                           className={cn(
                             "ms-auto",
-                            isSelected ? "opacity-100" : "opacity-0",
+                            isSelected ? "opacity-100" : "opacity-0"
                           )}
                         />
                       </CommandItem>
@@ -891,7 +884,7 @@ function DataGridFilterInput<TData>({
     }
 
     const selectedOption = selectOptions.find(
-      (opt) => opt.value === (value as string),
+      (opt) => opt.value === (value as string)
     );
 
     return (
@@ -903,7 +896,7 @@ function DataGridFilterInput<TData>({
             dir={dir}
             variant="outline"
             size="sm"
-            className="h-8 w-full justify-start rounded font-normal"
+            className="w-full justify-start rounded-lg font-normal"
           >
             {selectedOption ? (
               <>
@@ -945,7 +938,7 @@ function DataGridFilterInput<TData>({
                     <Check
                       className={cn(
                         "ms-auto",
-                        value === option.value ? "opacity-100" : "opacity-0",
+                        value === option.value ? "opacity-100" : "opacity-0"
                       )}
                     />
                   </CommandItem>
@@ -965,7 +958,7 @@ function DataGridFilterInput<TData>({
           id={inputId}
           type="text"
           placeholder="Start"
-          className="h-8 w-full flex-1 rounded"
+          className=" w-full flex-1 rounded-lg"
           value={(localValue as string | undefined) ?? ""}
           onChange={(event) => {
             const val = event.target.value;
@@ -978,7 +971,7 @@ function DataGridFilterInput<TData>({
           id={`${inputId}-end`}
           type="text"
           placeholder="End"
-          className="h-8 w-full flex-1 rounded"
+          className=" w-full flex-1 rounded-lg"
           value={(localEndValue as string | undefined) ?? ""}
           onChange={(event) => {
             const val = event.target.value;
@@ -996,7 +989,7 @@ function DataGridFilterInput<TData>({
       id={inputId}
       type="text"
       placeholder={placeholder}
-      className="h-8 w-full rounded"
+      className=" w-full rounded-lg"
       value={(localValue as string | undefined) ?? ""}
       onChange={(event) => {
         const val = event.target.value;

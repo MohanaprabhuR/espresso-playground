@@ -49,8 +49,9 @@ const SORT_ORDERS = [
   { label: "Desc", value: "desc" },
 ];
 
-interface DataGridSortMenuProps<TData>
-  extends React.ComponentProps<typeof PopoverContent> {
+interface DataGridSortMenuProps<TData> extends React.ComponentProps<
+  typeof PopoverContent
+> {
   table: Table<TData>;
   disabled?: boolean;
 }
@@ -107,25 +108,25 @@ export function DataGridSortMenu<TData>({
       onSortingChange((prevSorting) => {
         if (!prevSorting) return prevSorting;
         return prevSorting.map((sort) =>
-          sort.id === sortId ? { ...sort, ...updates } : sort,
+          sort.id === sortId ? { ...sort, ...updates } : sort
         );
       });
     },
-    [onSortingChange],
+    [onSortingChange]
   );
 
   const onSortRemove = React.useCallback(
     (sortId: string) => {
       onSortingChange((prevSorting) =>
-        prevSorting.filter((item) => item.id !== sortId),
+        prevSorting.filter((item) => item.id !== sortId)
       );
     },
-    [onSortingChange],
+    [onSortingChange]
   );
 
   const onSortingReset = React.useCallback(
     () => onSortingChange(table.initialState.sorting),
-    [onSortingChange, table.initialState.sorting],
+    [onSortingChange, table.initialState.sorting]
   );
 
   React.useEffect(() => {
@@ -163,7 +164,7 @@ export function DataGridSortMenu<TData>({
         onSortingReset();
       }
     },
-    [sorting.length, onSortingReset],
+    [sorting.length, onSortingReset]
   );
 
   return (
@@ -185,12 +186,7 @@ export function DataGridSortMenu<TData>({
             <ArrowDownUp className="text-muted-foreground" />
             Sort
             {sorting.length > 0 && (
-              <Badge
-                variant="secondary"
-                className="h-[18.24px] rounded-[3.2px] px-[5.12px] font-mono font-normal text-[10.4px]"
-              >
-                {sorting.length}
-              </Badge>
+              <Badge variant="secondary">{sorting.length}</Badge>
             )}
           </Button>
         </PopoverTrigger>
@@ -202,14 +198,14 @@ export function DataGridSortMenu<TData>({
           {...props}
         >
           <div className="flex flex-col gap-1">
-            <h4 id={labelId} className="font-medium leading-none">
+            <h4 id={labelId} className="font-medium leading-normal tracking-4">
               {sorting.length > 0 ? "Sort by" : "No sorting applied"}
             </h4>
             <p
               id={descriptionId}
               className={cn(
-                "text-muted-foreground text-sm",
-                sorting.length > 0 && "sr-only",
+                "text-muted-foreground text-sm leading-normal tracking-4",
+                sorting.length > 0 && "sr-only"
               )}
             >
               {sorting.length > 0
@@ -241,7 +237,6 @@ export function DataGridSortMenu<TData>({
           <div className="flex w-full items-center gap-2">
             <Button
               size="sm"
-              className="rounded"
               ref={addButtonRef}
               onClick={onSortAdd}
               disabled={columns.length === 0}
@@ -249,12 +244,7 @@ export function DataGridSortMenu<TData>({
               Add sort
             </Button>
             {sorting.length > 0 && (
-              <Button
-                variant="outline"
-                size="sm"
-                className="rounded"
-                onClick={onSortingReset}
-              >
+              <Button variant="outline" size="sm" onClick={onSortingReset}>
                 Reset sorting
               </Button>
             )}
@@ -263,10 +253,10 @@ export function DataGridSortMenu<TData>({
       </Popover>
       <SortableOverlay>
         <div dir={dir} className="flex items-center gap-2">
-          <div className="h-8 w-44 rounded-sm bg-primary/10" />
-          <div className="h-8 w-24 rounded-sm bg-primary/10" />
-          <div className="size-8 shrink-0 rounded-sm bg-primary/10" />
-          <div className="size-8 shrink-0 rounded-sm bg-primary/10" />
+          <div className=" w-44 rounded-lg bg-primary/10" />
+          <div className=" w-24 rounded-lg bg-primary/10" />
+          <div className="size-8 shrink-0 rounded-lg bg-primary/10" />
+          <div className="size-8 shrink-0 rounded-lg bg-primary/10" />
         </div>
       </SortableOverlay>
     </Sortable>
@@ -318,7 +308,7 @@ function DataTableSortItem({
         onSortRemove(sort.id);
       }
     },
-    [sort.id, showFieldSelector, showDirectionSelector, onSortRemove],
+    [sort.id, showFieldSelector, showDirectionSelector, onSortRemove]
   );
 
   return (
@@ -337,7 +327,7 @@ function DataTableSortItem({
               aria-controls={fieldListboxId}
               variant="outline"
               size="sm"
-              className="w-44 justify-between rounded font-normal"
+              className="w-44 justify-between rounded-lg font-normal"
             >
               <span className="truncate">{columnLabels.get(sort.id)}</span>
               <ChevronsUpDown className="opacity-50" />
@@ -378,7 +368,7 @@ function DataTableSortItem({
           <SelectTrigger
             aria-controls={directionListboxId}
             size="sm"
-            className="w-24 rounded"
+            className="w-24 rounded-lg"
           >
             <SelectValue />
           </SelectTrigger>
@@ -396,18 +386,13 @@ function DataTableSortItem({
         <Button
           aria-controls={sortItemId}
           variant="outline"
-          size="icon"
-          className="size-8 shrink-0 rounded"
+          iconOnly
           onClick={() => onSortRemove(sort.id)}
         >
           <Trash2 />
         </Button>
         <SortableItemHandle asChild>
-          <Button
-            variant="outline"
-            size="icon"
-            className="size-8 shrink-0 rounded"
-          >
+          <Button variant="outline" iconOnly>
             <GripVertical />
           </Button>
         </SortableItemHandle>

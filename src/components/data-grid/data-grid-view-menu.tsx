@@ -87,11 +87,11 @@ export function DataGridViewMenu<TData>({
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[300px] p-0" align="end" {...props}>
-        <div className="p-2">
+        <div className="p-2 w-full">
           {/* Search Input */}
           <div className="relative mb-2">
-            <SearchIcon className="absolute left-2 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
             <Input
+              prefix={<SearchIcon />}
               placeholder="Search columns..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -109,7 +109,7 @@ export function DataGridViewMenu<TData>({
                 {...(someVisible && { "data-state": "indeterminate" as const })}
               />
               <label
-                className="text-sm font-medium cursor-pointer flex-1"
+                className="text-sm font-medium cursor-pointer flex-1 tracking-4 leading-normal text-secondary-foreground"
                 onClick={() => toggleAllColumns(!allVisible)}
               >
                 Select all
@@ -120,7 +120,7 @@ export function DataGridViewMenu<TData>({
           {/* Column List */}
           <div className="max-h-[300px] overflow-y-auto mt-2">
             {filteredColumns.length === 0 ? (
-              <div className="px-2 py-4 text-center text-sm text-muted-foreground">
+              <div className="px-2 py-4 text-center text-sm text-muted-foreground tracking-4 leading-normal">
                 No columns found
               </div>
             ) : (
@@ -137,8 +137,8 @@ export function DataGridViewMenu<TData>({
                     <div
                       key={column.id}
                       className={cn(
-                        "flex items-center space-x-2 px-2 py-1.5 rounded-md hover:bg-accent cursor-pointer",
-                        isVisible && "bg-accent/50"
+                        "flex items-center space-x-2 px-2 py-1.5 rounded-lg hover:bg-secondary cursor-pointer",
+                        isVisible && "bg-background"
                       )}
                       onClick={() => toggleColumn(column.id, !isVisible)}
                     >
@@ -147,10 +147,9 @@ export function DataGridViewMenu<TData>({
                         onCheckedChange={(checked) =>
                           toggleColumn(column.id, checked as boolean)
                         }
-                        className="h-4 w-4"
                         onClick={(e) => e.stopPropagation()}
                       />
-                      <label className="text-sm cursor-pointer flex-1">
+                      <label className="text-sm cursor-pointer flex-1 tracking-4 leading-normal text-secondary-foreground">
                         {headerText}
                       </label>
                       {isVisible && (
