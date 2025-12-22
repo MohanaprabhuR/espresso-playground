@@ -554,7 +554,7 @@ const helpDeskTabelDemo = () => {
     getFilteredRowModel: getFilteredRowModel(),
   });
   return (
-    <div className="flex flex-col mx-auto gap-y-4.5 w-full  h-[calc(100vh-60px)]  relative pb-11 pt-2.5 overflow-scroll">
+    <div className="flex flex-col mx-auto gap-y-4.5 w-full  relative pb-11 pt-2.5 overflow-scroll">
       <div className="flex justify-between lg:items-center flex-col lg:flex-row w-full lg:px-5   gap-2 ">
         <div className="px-3 lg:px-0 w-full">
           <Input
@@ -743,7 +743,7 @@ const helpDeskTabelDemo = () => {
           </TableBody>
         </Table>
       </div>
-      <div className="fixed bottom-0 left-0 right-0 md:left-[var(--sidebar-width)] md:right-0border-t px-2 py-1.5 flex items-center justify-between bg-background border-t">
+      <div className="fixed bottom-0 z-50 left-0 right-0 md:left-[var(--sidebar-width)] md:right-0border-t px-2 py-1.5 flex items-center justify-between bg-background border-t">
         <Tabs defaultValue="20">
           <TabsList>
             <TabsTrigger value="20">20</TabsTrigger>

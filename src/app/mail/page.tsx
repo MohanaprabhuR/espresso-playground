@@ -391,7 +391,7 @@ const MailTableDemo = () => {
     getFilteredRowModel: getFilteredRowModel(),
   });
   return (
-    <div className="flex flex-col mx-auto  w-full  h-[calc(100vh-60px)]  relative pb-1 pt-2.5 overflow-y-auto overflow-x-hidden">
+    <div className="flex flex-col mx-auto  w-full    relative pb-1 pt-2.5 overflow-y-auto overflow-x-hidden">
       <div className="flex items-center justify-between  min-w-0 shrink-0">
         <div className="flex items-center gap-2 min-w-0 lg:px-6 px-3 py-3 flex-1 overflow-scroll scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           <Checkbox

@@ -360,7 +360,7 @@ const driveTabelDemo = () => {
     getFilteredRowModel: getFilteredRowModel(),
   });
   return (
-    <div className="flex flex-col mx-auto gap-y-4.5 w-full relative pt-3 pb-1 lg:pt-6  h-[calc(100vh-50px)] overflow-y-auto">
+    <div className="flex flex-col mx-auto gap-y-4.5 w-full relative pt-3 pb-1 lg:pt-6  overflow-y-auto">
       <div className="flex justify-between items-center w-full lg:px-5 px-3">
         <p className="text-foreground text-lg font-medium tracking-4 leading-tight">
           All

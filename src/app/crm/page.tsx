@@ -396,7 +396,7 @@ const dataTabelDemo = () => {
     getFilteredRowModel: getFilteredRowModel(),
   });
   return (
-    <div className="flex flex-col mx-auto  w-full  h-[calc(100vh-50px)]  relative pb-11  overflow-scroll">
+    <div className="flex flex-col mx-auto  w-full   relative pb-11  overflow-scroll">
       <div className="flex pt-2.5 pb-4.5 justify-start lg:justify-between px-3 lg:px-5 gap-2 overflow-scroll scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         <div className="gap-x-2 flex items-center">
           <Select defaultValue="lead-owner">
@@ -747,7 +747,7 @@ const dataTabelDemo = () => {
           </TableBody>
         </Table>
       </div>
-      <div className="fixed bottom-0 left-0 right-0 md:left-[var(--sidebar-width)] md:right-0border-t px-2 py-1.5 flex items-center justify-between bg-background border-t">
+      <div className="fixed bottom-0 z-50 left-0 right-0 md:left-[var(--sidebar-width)] md:right-0border-t px-2 py-1.5 flex items-center justify-between bg-background border-t">
         <Tabs defaultValue="20">
           <TabsList>
             <TabsTrigger value="20">20</TabsTrigger>

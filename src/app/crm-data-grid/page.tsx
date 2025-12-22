@@ -5,9 +5,13 @@ import { faker } from "@faker-js/faker";
 import type { ColumnDef } from "@tanstack/react-table";
 import { DataGrid } from "@/components/data-grid/data-grid";
 import { DataGridKeyboardShortcuts } from "@/components/data-grid/data-grid-keyboard-shortcuts";
+import { DataGridViewMenu } from "@/components/data-grid/data-grid-view-menu";
+import { DataGridFilterMenu } from "@/components/data-grid/data-grid-filter-menu";
+import { DataGridSortMenu } from "@/components/data-grid/data-grid-sort-menu";
 import { useDataGrid } from "@/hooks/use-data-grid";
 import { DirectionProvider } from "@radix-ui/react-direction";
 import type { RowHeightValue } from "@/types/data-grid";
+import { getFilterFn } from "@/lib/data-grid-filters";
 
 import { cn } from "@/lib/utils";
 
@@ -24,6 +28,8 @@ import {
   Minus,
   Equal,
   X,
+  TextAlignStart,
+  TextAlignEnd,
 } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
@@ -45,6 +51,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Kbd, KbdGroup } from "@/components/ui/kbd";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { DataGridRowHeightMenu } from "@/components/data-grid/data-grid-row-height-menu";
 
 interface Contact {
   id: string;
@@ -437,6 +444,7 @@ const DataTableDemo = () => {
   const [rowSelection, setRowSelection] = React.useState({});
   const [direction, setDirection] = React.useState<"ltr" | "rtl">("ltr");
   const [rowHeight, setRowHeight] = React.useState<RowHeightValue>("short");
+  const filterFn = getFilterFn<Contact>();
 
   React.useEffect(() => {
     dataRef.current = data;
@@ -541,6 +549,7 @@ const DataTableDemo = () => {
         size: 25,
         enableResizing: false,
         enableColumnFilter: false,
+        enableSorting: false,
         minSize: 25,
         maxSize: 25,
       },
@@ -548,7 +557,10 @@ const DataTableDemo = () => {
         id: "name",
         accessorFn: (row) => row.name.value || row.name.label,
         header: "Name",
+        enableColumnFilter: true,
+        filterFn,
         meta: {
+          label: "Name",
           cell: {
             variant: "select",
             options: nameList.map((item) => ({
@@ -565,7 +577,10 @@ const DataTableDemo = () => {
         id: "organisation",
         accessorFn: (row) => row.organisation.value || row.organisation.label,
         header: "Organisation",
+        enableColumnFilter: true,
+        filterFn,
         meta: {
+          label: "Organisation",
           cell: {
             variant: "select",
             options: organisationList.map((item) => ({
@@ -581,7 +596,10 @@ const DataTableDemo = () => {
         id: "status",
         accessorFn: (row) => row.status.value || row.status.label,
         header: "Status",
+        enableColumnFilter: true,
+        filterFn,
         meta: {
+          label: "Status",
           cell: {
             variant: "select",
             className: "gap-1.5",
@@ -600,7 +618,10 @@ const DataTableDemo = () => {
         id: "email",
         accessorKey: "email",
         header: "Email",
+        enableColumnFilter: true,
+        filterFn,
         meta: {
+          label: "Email",
           cell: {
             variant: "short-text",
           },
@@ -612,7 +633,10 @@ const DataTableDemo = () => {
         id: "mobile",
         accessorKey: "mobile",
         header: "Mobile no.",
+        enableColumnFilter: true,
+        filterFn,
         meta: {
+          label: "Mobile no.",
           cell: {
             variant: "short-text",
           },
@@ -624,7 +648,10 @@ const DataTableDemo = () => {
         id: "assigned",
         accessorFn: (row) => row.assigned.value || row.assigned.label,
         header: "Assigned to",
+        enableColumnFilter: true,
+        filterFn,
         meta: {
+          label: "Assigned to",
           cell: {
             variant: "select",
             options: assinednameList.map((item) => ({
@@ -640,7 +667,10 @@ const DataTableDemo = () => {
         id: "lastModified",
         accessorFn: (row) => row.lastModified,
         header: "Last modified/Created",
+        enableColumnFilter: true,
+        filterFn,
         meta: {
+          label: "Last modified/Created",
           cell: {
             variant: "short-text",
           },
@@ -680,19 +710,27 @@ const DataTableDemo = () => {
     },
   });
 
-  // Sync rowHeight prop changes with internal state
+  // Sync local rowHeight to tableMeta on initial mount
   React.useEffect(() => {
-    const currentRowHeight = dataGridProps.tableMeta?.rowHeight;
-    if (
-      dataGridProps.tableMeta?.onRowHeightChange &&
-      currentRowHeight !== rowHeight
-    ) {
-      dataGridProps.tableMeta.onRowHeightChange(rowHeight);
+    if (dataGridProps.tableMeta?.onRowHeightChange) {
+      const currentRowHeight = dataGridProps.tableMeta?.rowHeight;
+      if (currentRowHeight !== rowHeight) {
+        dataGridProps.tableMeta.onRowHeightChange(rowHeight);
+      }
     }
-  }, [rowHeight, dataGridProps.tableMeta]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Only run on mount
+
+  // Sync tableMeta rowHeight changes back to local state (when menu changes it)
+  React.useEffect(() => {
+    const tableRowHeight = dataGridProps.tableMeta?.rowHeight;
+    if (tableRowHeight && tableRowHeight !== rowHeight) {
+      setRowHeight(tableRowHeight);
+    }
+  }, [dataGridProps.tableMeta?.rowHeight]);
 
   return (
-    <div className="flex flex-col mx-auto  w-full h-[calc(100vh-50px)] relative pb-11  overflow-scroll">
+    <div className="flex flex-col mx-auto  w-full relative pb-11  overflow-scroll">
       <div className="flex pt-5.5 lg:pt-2.5 pb-4.5 justify-start lg:justify-between px-3 lg:px-5 gap-2 overflow-scroll scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         <div className="gap-x-2 flex items-center">
           <Select defaultValue="lead-owner">
@@ -829,133 +867,26 @@ const DataTableDemo = () => {
             onClick={() =>
               setDirection((prev) => (prev === "ltr" ? "rtl" : "ltr"))
             }
+            className="gap-2"
           >
-            {direction.toUpperCase()}
+            {direction === "ltr" ? (
+              <>
+                <TextAlignStart className="size-4" />
+                LTR
+              </>
+            ) : (
+              <>
+                <TextAlignEnd className="size-4" />
+                RTL
+              </>
+            )}
           </Button>
         </div>
         <div className="flex gap-x-2 items-center">
-          {/* <Select defaultValue="column">
-            <SelectTrigger icon={<ChevronDown />}>
-              <EyeOff />
-              <SelectValue placeholder="Columns" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="column">Column</SelectItem>
-              <SelectItem value="name">Name</SelectItem>
-              <SelectItem value="organisation">Organisation</SelectItem>
-              <SelectItem value="start-date">Start Date</SelectItem>
-              <SelectItem value="status">Status</SelectItem>
-              <SelectItem value="email">Email</SelectItem>
-              <SelectItem value="mobile-no">Mobile No</SelectItem>
-              <SelectItem value="assigned-to">Assigned To</SelectItem>
-              <SelectItem value="last-modified">Last Modified</SelectItem>
-            </SelectContent>
-          </Select> */}
-          <Select defaultValue="group">
-            <SelectTrigger size="sm" icon={<ChevronDown />}>
-              <Logs />
-              <SelectValue placeholder="Group" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="group">Group</SelectItem>
-              <SelectItem value="options1">Options</SelectItem>
-              <SelectItem value="options2">Options</SelectItem>
-              <SelectItem value="options3">Options</SelectItem>
-            </SelectContent>
-          </Select>
-          <Select defaultValue="filter">
-            <SelectTrigger icon={<ChevronDown />}>
-              <ListFilter />
-              <SelectValue placeholder="Filter" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="filter">Filter</SelectItem>
-              <SelectItem value="title">Title</SelectItem>
-              <SelectItem value="priority">Priority</SelectItem>
-              <SelectItem value="start-date">Start Date</SelectItem>
-              <SelectItem value="reference-document-type">
-                Reference Document Type
-              </SelectItem>
-              <SelectItem value="reference-doc">Reference Doc</SelectItem>
-              <SelectItem value="assigned-to">Assigned To</SelectItem>
-              <SelectItem value="status">Status</SelectItem>
-              <SelectItem value="due-date">Due Date</SelectItem>
-              <SelectItem value="name">Name</SelectItem>
-              <SelectItem value="description">Description</SelectItem>
-              <SelectItem value="created-on">Created On</SelectItem>
-              <SelectItem value="last-modified">Last Modified</SelectItem>
-              <SelectItem value="modified-by">Modified By</SelectItem>
-              <SelectItem value="owner">Owner</SelectItem>
-            </SelectContent>
-          </Select>
-          <Select
-            value={rowHeight}
-            onValueChange={(value) => setRowHeight(value as RowHeightValue)}
-          >
-            <SelectTrigger icon={<ChevronDown />}>
-              {rowHeight === "short" && <Minus className="size-4" />}
-              {rowHeight === "medium" && <Equal className="size-4" />}
-              {rowHeight === "tall" && <ArrowDownUp className="size-4" />}
-              {rowHeight === "extra-tall" && <X className="size-4" />}
-              <SelectValue placeholder="Row Height">
-                {rowHeight === "short" && "Short"}
-                {rowHeight === "medium" && "Medium"}
-                {rowHeight === "tall" && "Tall"}
-                {rowHeight === "extra-tall" && "Extra Tall"}
-              </SelectValue>
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="short">
-                <div className="flex items-center gap-2">
-                  <Minus className="size-4" />
-                  <span>Short</span>
-                </div>
-              </SelectItem>
-              <SelectItem value="medium">
-                <div className="flex items-center gap-2">
-                  <Equal className="size-4" />
-                  <span>Medium</span>
-                </div>
-              </SelectItem>
-              <SelectItem value="tall">
-                <div className="flex items-center gap-2">
-                  <ArrowDownUp className="size-4" />
-                  <span>Tall</span>
-                </div>
-              </SelectItem>
-              <SelectItem value="extra-tall">
-                <div className="flex items-center gap-2">
-                  <X className="size-4" />
-                  <span>Extra Tall</span>
-                </div>
-              </SelectItem>
-            </SelectContent>
-          </Select>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="secondary" iconOnly>
-                <Ellipsis className="size-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem>Import</DropdownMenuItem>
-              <DropdownMenuItem>User Permissions</DropdownMenuItem>
-              <DropdownMenuItem>Role Permissions Manager</DropdownMenuItem>
-              <DropdownMenuItem>
-                Customize
-                <KbdGroup className="ml-auto">
-                  <Kbd>⌘+Y</Kbd>
-                </KbdGroup>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                Toggle Sidebar
-                <KbdGroup className="ml-auto">
-                  <Kbd>⌘+G</Kbd>
-                </KbdGroup>
-              </DropdownMenuItem>
-              <DropdownMenuItem>List Settings</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <DataGridViewMenu table={table} />
+          <DataGridFilterMenu table={table} />
+          <DataGridSortMenu table={table} />
+          <DataGridRowHeightMenu table={table} />
         </div>
       </div>
       <div className="lg:px-3 px-1 w-full">
@@ -974,7 +905,7 @@ const DataTableDemo = () => {
         {/* <DataGridKeyboardShortcuts enableSearch={!!dataGridProps.searchState} />
         <DataGrid {...dataGridProps} table={table} stretchColumns={true} /> */}
       </div>
-      <div className="fixed bottom-0 left-0 right-0 md:left-[var(--sidebar-width)] md:right-0 border-t px-2 py-1.5 flex items-center justify-between bg-background">
+      <div className="fixed bottom-0 z-50 left-0 right-0 md:left-[var(--sidebar-width)] md:right-0 border-t px-2 py-1.5 flex items-center justify-between bg-background">
         <Tabs defaultValue="20">
           <TabsList>
             <TabsTrigger value="20">20</TabsTrigger>
