@@ -6,6 +6,7 @@ import type { ColumnDef } from "@tanstack/react-table";
 import { DataGrid } from "@/components/data-grid/data-grid";
 import { DataGridKeyboardShortcuts } from "@/components/data-grid/data-grid-keyboard-shortcuts";
 import { useDataGrid } from "@/hooks/use-data-grid";
+import { DirectionProvider } from "@radix-ui/react-direction";
 
 import { cn } from "@/lib/utils";
 
@@ -430,6 +431,7 @@ const DataTableDemo = () => {
   const [data, setData] = React.useState<Contact[]>(generateContacts());
   const dataRef = React.useRef(data);
   const [rowSelection, setRowSelection] = React.useState({});
+  const [direction, setDirection] = React.useState<"ltr" | "rtl">("ltr");
 
   React.useEffect(() => {
     dataRef.current = data;
@@ -533,6 +535,7 @@ const DataTableDemo = () => {
         ),
         size: 25,
         enableResizing: false,
+        enableColumnFilter: false,
         minSize: 25,
         maxSize: 25,
       },
@@ -658,7 +661,7 @@ const DataTableDemo = () => {
     onRowAdd,
     getRowId: (row) => row.id,
     enableSearch: true,
-
+    dir: direction,
     state: {
       rowSelection,
     },
@@ -803,6 +806,16 @@ const DataTableDemo = () => {
             </SelectContent>
           </Select>
         </div>
+        <div className="flex gap-x-2 items-center justify-end w-full">
+          <Button
+            variant="outline"
+            onClick={() =>
+              setDirection((prev) => (prev === "ltr" ? "rtl" : "ltr"))
+            }
+          >
+            {direction.toUpperCase()}
+          </Button>
+        </div>
         <div className="flex gap-x-2 items-center">
           <Select defaultValue="column">
             <SelectTrigger icon={<ChevronDown />}>
@@ -911,8 +924,20 @@ const DataTableDemo = () => {
         </div>
       </div>
       <div className="lg:px-3 px-1 w-full">
-        <DataGridKeyboardShortcuts enableSearch={!!dataGridProps.searchState} />
-        <DataGrid {...dataGridProps} table={table} stretchColumns={true} />
+        <DirectionProvider dir={direction}>
+          <DataGridKeyboardShortcuts
+            enableSearch={!!dataGridProps.searchState}
+          />
+
+          <DataGrid
+            table={table}
+            {...dataGridProps}
+            dir={direction}
+            stretchColumns={true}
+          />
+        </DirectionProvider>
+        {/* <DataGridKeyboardShortcuts enableSearch={!!dataGridProps.searchState} />
+        <DataGrid {...dataGridProps} table={table} stretchColumns={true} /> */}
       </div>
       <div className="fixed bottom-0 left-0 right-0 md:left-[var(--sidebar-width)] md:right-0 border-t px-2 py-1.5 flex items-center justify-between bg-background">
         <Tabs defaultValue="20">
