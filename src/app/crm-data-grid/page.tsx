@@ -446,6 +446,133 @@ const DataTableDemo = () => {
   const [rowHeight, setRowHeight] = React.useState<RowHeightValue>("short");
   const filterFn = getFilterFn<Contact>();
 
+  // Pre-render dropdown content for immediate display
+  const organisationDropdownContent = React.useMemo(
+    () => (
+      <>
+        <SelectItem value="gumroad">
+          <Image
+            src="/images/svg/gumroad.svg"
+            alt="gumroad"
+            width="16"
+            height="16"
+            priority
+          />
+          Gumroad
+        </SelectItem>
+        <SelectItem value="attentive">
+          <Image
+            src="/images/svg/attentive.svg"
+            alt="Attentive"
+            width="16"
+            height="16"
+            priority
+          />
+          Attentive
+        </SelectItem>
+        <SelectItem value="evergreen">
+          <Image
+            src="/images/svg/evergreen.svg"
+            alt="Evergreen"
+            width="16"
+            height="16"
+            priority
+          />
+          Evergreen
+        </SelectItem>
+        <SelectItem value="dropbox">
+          <Image
+            src="/images/svg/dropbox.svg"
+            alt="Dropbox"
+            width="16"
+            height="16"
+            priority
+          />
+          Dropbox
+        </SelectItem>
+        <SelectItem value="hourglass">
+          <Image
+            src="/images/svg/hourglass.svg"
+            alt="Hourglass"
+            width="16"
+            height="16"
+            priority
+          />
+          Hourglass
+        </SelectItem>
+      </>
+    ),
+    []
+  );
+
+  const statusDropdownContent = React.useMemo(
+    () => (
+      <>
+        <SelectItem value="open" className="gap-x-1.5">
+          <Image
+            src="/images/svg/new.svg"
+            alt="Open"
+            width="16"
+            height="16"
+            priority
+          />
+          Open
+        </SelectItem>
+        <SelectItem value="contacted" className="gap-x-1.5">
+          <Image
+            src="/images/svg/resolved.svg"
+            alt="Contacted"
+            width="16"
+            height="16"
+            priority
+          />
+          Contacted
+        </SelectItem>
+        <SelectItem value="nurture" className="gap-x-1.5">
+          <Image
+            src="/images/svg/waiting.svg"
+            alt="Nurture"
+            width="16"
+            height="16"
+            priority
+          />
+          Nurture
+        </SelectItem>
+        <SelectItem value="qualified" className="gap-x-1.5">
+          <Image
+            src="/images/svg/waiting-closed.svg"
+            alt="Qualified"
+            width="16"
+            height="16"
+            priority
+          />
+          Qualified
+        </SelectItem>
+        <SelectItem value="unqualified" className="gap-x-1.5">
+          <Image
+            src="/images/svg/waiting.svg"
+            alt="Unqualified"
+            width="16"
+            height="16"
+            priority
+          />
+          Unqualified
+        </SelectItem>
+        <SelectItem value="junk" className="gap-x-1.5">
+          <Image
+            src="/images/svg/status.svg"
+            alt="Junk"
+            width="16"
+            height="16"
+            priority
+          />
+          Junk
+        </SelectItem>
+      </>
+    ),
+    []
+  );
+
   React.useEffect(() => {
     dataRef.current = data;
   }, [data]);
@@ -468,13 +595,14 @@ const DataTableDemo = () => {
     ];
 
     imagesToPreload.forEach((src) => {
+      // Preload using link tag
       const link = document.createElement("link");
       link.rel = "preload";
       link.as = "image";
       link.href = src;
       document.head.appendChild(link);
 
-      // Also preload using Image object for better browser support
+      // Also preload using Image object for immediate browser cache
       const img = new window.Image();
       img.src = src;
     });
@@ -757,126 +885,14 @@ const DataTableDemo = () => {
             <SelectTrigger size="sm" icon={<ChevronDown />}>
               <SelectValue placeholder="List View" />
             </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="gumroad">
-                <Image
-                  src="/images/svg/gumroad.svg"
-                  alt="gumroad"
-                  width="16"
-                  height="16"
-                  priority
-                />
-                Gumroad
-              </SelectItem>
-              <SelectItem value="attentive">
-                <Image
-                  src="/images/svg/attentive.svg"
-                  alt="Attentive"
-                  width="16"
-                  height="16"
-                  priority
-                />
-                Attentive
-              </SelectItem>
-              <SelectItem value="evergreen">
-                <Image
-                  src="/images/svg/evergreen.svg"
-                  alt="Evergreen"
-                  width="16"
-                  height="16"
-                  priority
-                />
-                Evergreen
-              </SelectItem>
-              <SelectItem value="dropbox">
-                <Image
-                  src="/images/svg/dropbox.svg"
-                  alt="Dropbox"
-                  width="16"
-                  height="16"
-                  priority
-                />
-                Dropbox
-              </SelectItem>
-              <SelectItem value="hourglass">
-                <Image
-                  src="/images/svg/hourglass.svg"
-                  alt="Hourglass"
-                  width="16"
-                  height="16"
-                  priority
-                />
-                Hourglass
-              </SelectItem>
-            </SelectContent>
+            <SelectContent>{organisationDropdownContent}</SelectContent>
           </Select>
 
           <Select defaultValue="open">
             <SelectTrigger icon={<ChevronDown />} size="sm">
               <SelectValue placeholder="Status" />
             </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="open" className="gap-x-1.5">
-                <Image
-                  src="/images/svg/new.svg"
-                  alt="Open"
-                  width="16"
-                  height="16"
-                  priority
-                />
-                Open
-              </SelectItem>
-              <SelectItem value="contacted" className="gap-x-1.5">
-                <Image
-                  src="/images/svg/resolved.svg"
-                  alt="Contacted"
-                  width="16"
-                  height="16"
-                  priority
-                />
-                Contacted
-              </SelectItem>
-              <SelectItem value="nurture" className="gap-x-1.5">
-                <Image
-                  src="/images/svg/waiting.svg"
-                  alt="Nurture"
-                  width="16"
-                  height="16"
-                  priority
-                />
-                Nurture
-              </SelectItem>
-              <SelectItem value="qualified" className="gap-x-1.5">
-                <Image
-                  src="/images/svg/waiting-closed.svg"
-                  alt="Qualified"
-                  width="16"
-                  height="16"
-                  priority
-                />
-                Qualified
-              </SelectItem>
-              <SelectItem value="unqualified" className="gap-x-1.5">
-                <Image
-                  src="/images/svg/waiting.svg"
-                  alt="Unqualified"
-                  width="16"
-                  height="16"
-                  priority
-                />
-                Unqualified
-              </SelectItem>
-              <SelectItem value="junk" className="gap-x-1.5">
-                <Image
-                  src="/images/svg/status.svg"
-                  alt="Junk"
-                  width="16"
-                  height="16"
-                  priority
-                />
-                Junk
-              </SelectItem>
-            </SelectContent>
+            <SelectContent>{statusDropdownContent}</SelectContent>
           </Select>
         </div>
         <div className="flex gap-x-2 items-center justify-end w-full">

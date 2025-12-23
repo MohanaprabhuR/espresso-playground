@@ -887,10 +887,50 @@ export function SelectCell<TData>({
   ) as Array<{
     label: string;
     value: string;
-    images?: string;
+    images?: string | React.ReactElement;
     icon?: React.FC<React.SVGProps<SVGSVGElement>>;
     count?: number;
   }>;
+
+  // Helper function to render images (string URL or React component)
+  const renderImage = (
+    images: string | React.ReactElement | undefined,
+    alt: string,
+    className: string
+  ) => {
+    if (!images) return null;
+
+    // If it's a React element, render it directly
+    if (React.isValidElement(images)) {
+      const existingClassName =
+        typeof images.props === "object" &&
+        images.props !== null &&
+        "className" in images.props
+          ? (images.props as { className?: string }).className
+          : undefined;
+      return React.cloneElement(images, {
+        className: cn("shrink-0", className, existingClassName),
+      } as React.HTMLAttributes<HTMLElement>);
+    }
+
+    // If it's a string, handle as URL
+    if (typeof images === "string") {
+      if (images.endsWith(".svg")) {
+        return (
+          <img src={images} alt={alt} className={cn("shrink-0", className)} />
+        );
+      } else {
+        return (
+          <Avatar className={cn("shrink-0", className)}>
+            <AvatarImage src={images} alt={alt} />
+            <AvatarFallback>{alt.charAt(0) || ""}</AvatarFallback>
+          </Avatar>
+        );
+      }
+    }
+
+    return null;
+  };
 
   const prevInitialValueRef = React.useRef(initialValue);
   if (initialValue !== prevInitialValueRef.current) {
@@ -958,7 +998,7 @@ export function SelectCell<TData>({
 
   // Get the selected option with images for display
   const selectedOption = matchedOption as typeof matchedOption & {
-    images?: string;
+    images?: string | React.ReactElement;
   };
 
   return (
@@ -995,24 +1035,11 @@ export function SelectCell<TData>({
                   cellClassName || "gap-2"
                 )}
               >
-                {selectedOption.images &&
-                  (selectedOption.images.endsWith(".svg") ? (
-                    <img
-                      src={selectedOption.images}
-                      alt={selectedOption?.label || ""}
-                      className={cn("shrink-0", imageSizeClass)}
-                    />
-                  ) : (
-                    <Avatar className={cn("shrink-0", imageSizeClass)}>
-                      <AvatarImage
-                        src={selectedOption.images}
-                        alt={selectedOption?.label || ""}
-                      />
-                      <AvatarFallback>
-                        {selectedOption?.label?.charAt(0) || ""}
-                      </AvatarFallback>
-                    </Avatar>
-                  ))}
+                {renderImage(
+                  selectedOption.images,
+                  selectedOption?.label || "",
+                  imageSizeClass
+                )}
                 {selectedOption.icon && (
                   <selectedOption.icon
                     className={cn("shrink-0", imageSizeClass)}
@@ -1033,9 +1060,8 @@ export function SelectCell<TData>({
           >
             {options.map((option) => {
               const optionWithImages = option as typeof option & {
-                images?: string;
+                images?: string | React.ReactElement;
               };
-              const imageUrl = optionWithImages.images;
               return (
                 <SelectItem
                   key={option.value}
@@ -1048,21 +1074,11 @@ export function SelectCell<TData>({
                       cellClassName || "gap-2"
                     )}
                   >
-                    {imageUrl &&
-                      (imageUrl.endsWith(".svg") ? (
-                        <img
-                          src={imageUrl}
-                          alt={option.label}
-                          className={cn("shrink-0", imageSizeClass)}
-                        />
-                      ) : (
-                        <Avatar className={cn("shrink-0", imageSizeClass)}>
-                          <AvatarImage src={imageUrl} alt={option.label} />
-                          <AvatarFallback>
-                            {option.label.charAt(0)}
-                          </AvatarFallback>
-                        </Avatar>
-                      ))}
+                    {renderImage(
+                      optionWithImages.images,
+                      option.label,
+                      imageSizeClass
+                    )}
                     {option.icon && (
                       <option.icon className={cn("shrink-0", imageSizeClass)} />
                     )}
@@ -1077,24 +1093,11 @@ export function SelectCell<TData>({
         <div
           className={cn("flex items-center min-w-0", cellClassName || "gap-2")}
         >
-          {selectedOption?.images &&
-            (selectedOption.images.endsWith(".svg") ? (
-              <img
-                src={selectedOption.images}
-                alt={selectedOption?.label || ""}
-                className={cn("shrink-0", imageSizeClass)}
-              />
-            ) : (
-              <Avatar className={cn("shrink-0", imageSizeClass)}>
-                <AvatarImage
-                  src={selectedOption.images}
-                  alt={selectedOption?.label || ""}
-                />
-                <AvatarFallback>
-                  {selectedOption?.label?.charAt(0) || ""}
-                </AvatarFallback>
-              </Avatar>
-            ))}
+          {renderImage(
+            selectedOption?.images,
+            selectedOption?.label || "",
+            imageSizeClass
+          )}
           {selectedOption?.icon && (
             <selectedOption.icon className={cn("shrink-0", imageSizeClass)} />
           )}

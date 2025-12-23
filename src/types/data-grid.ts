@@ -8,7 +8,7 @@ export interface CellSelectOption {
   label: string;
   value: string;
   icon?: React.FC<React.SVGProps<SVGSVGElement>>;
-  images?: string;
+  images?: string | React.ReactElement;
   count?: number;
 }
 
