@@ -450,6 +450,36 @@ const DataTableDemo = () => {
     dataRef.current = data;
   }, [data]);
 
+  // Preload dropdown images for immediate display
+  React.useEffect(() => {
+    const imagesToPreload = [
+      // Organisation images
+      "/images/svg/gumroad.svg",
+      "/images/svg/attentive.svg",
+      "/images/svg/evergreen.svg",
+      "/images/svg/dropbox.svg",
+      "/images/svg/hourglass.svg",
+      // Status images
+      "/images/svg/new.svg",
+      "/images/svg/resolved.svg",
+      "/images/svg/waiting.svg",
+      "/images/svg/waiting-closed.svg",
+      "/images/svg/status.svg",
+    ];
+
+    imagesToPreload.forEach((src) => {
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "image";
+      link.href = src;
+      document.head.appendChild(link);
+
+      // Also preload using Image object for better browser support
+      const img = new window.Image();
+      img.src = src;
+    });
+  }, []);
+
   const handleDataChange = React.useCallback((newData: Contact[]) => {
     // Handle nested property updates for the name and organisation columns
     const updatedData = newData.map((row) => {
@@ -734,6 +764,7 @@ const DataTableDemo = () => {
                   alt="gumroad"
                   width="16"
                   height="16"
+                  priority
                 />
                 Gumroad
               </SelectItem>
@@ -743,6 +774,7 @@ const DataTableDemo = () => {
                   alt="Attentive"
                   width="16"
                   height="16"
+                  priority
                 />
                 Attentive
               </SelectItem>
@@ -752,6 +784,7 @@ const DataTableDemo = () => {
                   alt="Evergreen"
                   width="16"
                   height="16"
+                  priority
                 />
                 Evergreen
               </SelectItem>
@@ -761,6 +794,7 @@ const DataTableDemo = () => {
                   alt="Dropbox"
                   width="16"
                   height="16"
+                  priority
                 />
                 Dropbox
               </SelectItem>
@@ -770,6 +804,7 @@ const DataTableDemo = () => {
                   alt="Hourglass"
                   width="16"
                   height="16"
+                  priority
                 />
                 Hourglass
               </SelectItem>
@@ -787,6 +822,7 @@ const DataTableDemo = () => {
                   alt="Open"
                   width="16"
                   height="16"
+                  priority
                 />
                 Open
               </SelectItem>
@@ -796,6 +832,7 @@ const DataTableDemo = () => {
                   alt="Contacted"
                   width="16"
                   height="16"
+                  priority
                 />
                 Contacted
               </SelectItem>
@@ -805,6 +842,7 @@ const DataTableDemo = () => {
                   alt="Nurture"
                   width="16"
                   height="16"
+                  priority
                 />
                 Nurture
               </SelectItem>
@@ -814,6 +852,7 @@ const DataTableDemo = () => {
                   alt="Qualified"
                   width="16"
                   height="16"
+                  priority
                 />
                 Qualified
               </SelectItem>
@@ -823,6 +862,7 @@ const DataTableDemo = () => {
                   alt="Unqualified"
                   width="16"
                   height="16"
+                  priority
                 />
                 Unqualified
               </SelectItem>
@@ -832,6 +872,7 @@ const DataTableDemo = () => {
                   alt="Junk"
                   width="16"
                   height="16"
+                  priority
                 />
                 Junk
               </SelectItem>
