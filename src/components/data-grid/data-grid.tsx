@@ -160,7 +160,7 @@ export function DataGrid<TData>({
                         "border-b": header.column.id !== "select",
                       },
                       isFirst &&
-                        "[&_[data-slot=grid-header-cell-content]]:pl-0",
+                        "[&_[data-slot=grid-header-cell-content]]:pl-0 border-b",
                       isLast && "[&_[data-slot=grid-header-cell-content]]:pr-0"
                     )}
                     style={{

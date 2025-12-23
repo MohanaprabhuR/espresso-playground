@@ -41,7 +41,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
 import Image from "next/image";
 import {
   DropdownMenu,
@@ -52,6 +51,7 @@ import {
 import { Kbd, KbdGroup } from "@/components/ui/kbd";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DataGridRowHeightMenu } from "@/components/data-grid/data-grid-row-height-menu";
+import { getDataGridSelectColumn } from "@/components/data-grid/data-grid-select-column";
 
 interface Contact {
   id: string;
@@ -525,34 +525,11 @@ const DataTableDemo = () => {
 
   const columns = React.useMemo<ColumnDef<Contact>[]>(
     () => [
-      {
-        id: "checkbox",
-        accessorKey: "",
-        header: ({ table }) => (
-          <Checkbox
-            checked={
-              table.getIsAllRowsSelected() ||
-              (table.getIsSomeRowsSelected() && "indeterminate")
-            }
-            onCheckedChange={(value) => table.toggleAllRowsSelected(!!value)}
-            aria-label="Select all rows"
-          />
-        ),
-
-        cell: ({ row }) => (
-          <Checkbox
-            checked={row.getIsSelected()}
-            onCheckedChange={(value) => row.toggleSelected(!!value)}
-            aria-label="Select row"
-          />
-        ),
-        size: 25,
-        enableResizing: false,
-        enableColumnFilter: false,
-        enableSorting: false,
-        minSize: 25,
-        maxSize: 25,
-      },
+      getDataGridSelectColumn<Contact>({
+        size: 26,
+        minSize: 26,
+        maxSize: 26,
+      }),
       {
         id: "name",
         accessorFn: (row) => row.name.value || row.name.label,
@@ -705,7 +682,7 @@ const DataTableDemo = () => {
 
     initialState: {
       columnPinning: {
-        left: ["checkbox"],
+        left: ["select"],
       },
     },
   });
@@ -902,8 +879,6 @@ const DataTableDemo = () => {
             stretchColumns={true}
           />
         </DirectionProvider>
-        {/* <DataGridKeyboardShortcuts enableSearch={!!dataGridProps.searchState} />
-        <DataGrid {...dataGridProps} table={table} stretchColumns={true} /> */}
       </div>
       <div className="fixed bottom-0 z-50 left-0 right-0 md:left-[var(--sidebar-width)] md:right-0 border-t px-2 py-1.5 flex items-center justify-between bg-background">
         <Tabs defaultValue="20">

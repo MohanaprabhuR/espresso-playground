@@ -172,6 +172,7 @@ function DataGridRowImpl<TData>({
   const rowRef = useComposedRefs(ref, onRowChange);
 
   const isRowSelected = row.getIsSelected();
+  const [isHovered, setIsHovered] = React.useState(false);
 
   // Memoize visible cells to avoid recreating cell array on every render
   // Though TanStack returns new Cell wrappers, memoizing the array helps React's reconciliation
@@ -188,6 +189,14 @@ function DataGridRowImpl<TData>({
     [visibleCells]
   );
 
+  const handleMouseEnter = React.useCallback(() => {
+    setIsHovered(true);
+  }, []);
+
+  const handleMouseLeave = React.useCallback(() => {
+    setIsHovered(false);
+  }, []);
+
   return (
     <div
       key={row.id}
@@ -199,6 +208,8 @@ function DataGridRowImpl<TData>({
       tabIndex={-1}
       {...props}
       ref={rowRef}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       className={cn(
         "absolute flex w-full  will-change-transform hover:bg-card px-3 rounded-lg group",
         isRowSelected && "hover:bg-secondary",
@@ -234,6 +245,7 @@ function DataGridRowImpl<TData>({
 
         const isFirstCell = colIndex === 0;
         const isLastCell = colIndex === visibleCells.length - 1;
+        const isPinned = cell.column.getIsPinned();
 
         return (
           <div
@@ -241,6 +253,7 @@ function DataGridRowImpl<TData>({
             role="gridcell"
             aria-colindex={colIndex + 1}
             data-highlighted={isCellFocused ? "" : undefined}
+            data-pinned={isPinned || undefined}
             data-slot="grid-cell"
             tabIndex={-1}
             className={cn(
@@ -250,17 +263,22 @@ function DataGridRowImpl<TData>({
                   columnId !== "select" &&
                   columnId !== "checkbox",
                 "border-b borer-border": columnId !== "select",
-                "group-hover:!bg-card": columnId !== "select",
+                "group-hover:!bg-card": columnId !== "select" && !isPinned,
               },
               {
                 "border-none": isRowSelected,
               },
-              isFirstCell && "[&_[data-slot=grid-cell-wrapper]]:pl-0",
+              isFirstCell && "[&_[data-slot=grid-cell-wrapper]]:pl-0 border-b",
               isLastCell && "[&_[data-slot=grid-cell-wrapper]]:pr-0"
             )}
             style={{
               ...getCommonPinningStyles({ column: cell.column, dir }),
               width: `calc(var(--col-${columnId}-size) * 1px)`,
+              ...(isPinned
+                ? {
+                    background: isHovered ? "var(--card)" : "var(--background)",
+                  }
+                : {}),
             }}
           >
             {typeof cell.column.columnDef.header === "function" ? (

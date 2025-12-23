@@ -12,8 +12,8 @@ function DataGridSelectCheckbox({
   return (
     <Checkbox
       className={cn(
-        "relative transition-[shadow,border] after:absolute after:-inset-2.5 after:content-[''] hover:border-primary/40",
-        className,
+        "relative transition-[shadow,border] after:absolute after:-inset-0.5 after:content-[''] hover:border-primary/40",
+        className
       )}
       {...props}
     />
@@ -23,7 +23,7 @@ function DataGridSelectCheckbox({
 function DataGridSelectHeader<TData>({ table }: { table: Table<TData> }) {
   const onCheckedChange = React.useCallback(
     (value: boolean) => table.toggleAllPageRowsSelected(value),
-    [table],
+    [table]
   );
 
   return (
@@ -52,7 +52,7 @@ function DataGridSelectCell<TData>({
         row.toggleSelected(value);
       }
     },
-    [onRowSelect, row],
+    [onRowSelect, row]
   );
 
   const onClick = React.useCallback(
@@ -62,7 +62,7 @@ function DataGridSelectCell<TData>({
         onRowSelect?.(row.index, !row.getIsSelected(), true);
       }
     },
-    [onRowSelect, row],
+    [onRowSelect, row]
   );
 
   return (
