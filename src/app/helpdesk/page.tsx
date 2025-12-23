@@ -554,16 +554,16 @@ const helpDeskTabelDemo = () => {
     getFilteredRowModel: getFilteredRowModel(),
   });
   return (
-    <div className="flex flex-col mx-auto gap-y-4.5 w-full  relative pb-11 pt-2.5 overflow-scroll">
-      <div className="flex justify-between lg:items-center flex-col lg:flex-row w-full lg:px-5   gap-2 ">
-        <div className="px-3 lg:px-0 w-full">
+    <div className="flex flex-col mx-auto  w-full  relative pb-11  overflow-scroll">
+      <div className="flex justify-between lg:items-center flex-col lg:flex-row w-full lg:px-5    gap-2 ">
+        <div className="px-3 lg:px-0 w-full pt-2.5 lg:pb-4.5">
           <Input
             className="sm:max-w-[280px]"
             placeholder="Try “first due” or ticket type"
             prefix={<Sparkles />}
           />
         </div>
-        <div className="flex gap-x-2 px-3 lg:px-0 overflow-scroll scrollbar-hide w-full lg:justify-end [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <div className="flex pt-2.5 gap-x-2 px-3 pb-4.5 lg:px-0 overflow-scroll md:overflow-visible scrollbar-hide w-full lg:justify-end [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           <Button variant="secondary" iconOnly>
             <RefreshCcw className="size-4" />
           </Button>
