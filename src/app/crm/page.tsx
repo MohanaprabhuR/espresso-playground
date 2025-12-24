@@ -42,6 +42,7 @@ import {
 import { Kbd, KbdGroup } from "@/components/ui/kbd";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
+import { useSidebar } from "@/components/ui/sidebar";
 import {
   Select,
   SelectContent,
@@ -385,6 +386,8 @@ export const columns: ColumnDef<DealItem>[] = [
 ];
 
 const dataTabelDemo = () => {
+  const { state } = useSidebar();
+  const isCollapsed = state === "collapsed";
   // Pre-render dropdown content for immediate display
   const organisationDropdownContent = React.useMemo(
     () => (
@@ -804,7 +807,14 @@ const dataTabelDemo = () => {
           </TableBody>
         </Table>
       </div>
-      <div className="fixed bottom-0 z-50 left-0 right-0 md:left-[var(--sidebar-width)] md:right-0border-t px-2 py-1.5 flex items-center justify-between bg-background border-t">
+      <div
+        className={cn(
+          "fixed bottom-0 z-50 left-0 right-0 border-t px-2 py-1.5 flex items-center justify-between bg-background transition-[left] duration-200 ease-linear",
+          isCollapsed
+            ? "md:left-[var(--sidebar-width-icon)]"
+            : "md:left-[var(--sidebar-width)]"
+        )}
+      >
         <Tabs defaultValue="20">
           <TabsList>
             <TabsTrigger value="20">20</TabsTrigger>

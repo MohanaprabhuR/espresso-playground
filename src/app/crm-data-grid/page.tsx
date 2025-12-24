@@ -52,6 +52,7 @@ import { Kbd, KbdGroup } from "@/components/ui/kbd";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DataGridRowHeightMenu } from "@/components/data-grid/data-grid-row-height-menu";
 import { getDataGridSelectColumn } from "@/components/data-grid/data-grid-select-column";
+import { useSidebar } from "@/components/ui/sidebar";
 
 interface Contact {
   id: string;
@@ -444,6 +445,8 @@ const DataTableDemo = () => {
   const [rowSelection, setRowSelection] = React.useState({});
   const [direction, setDirection] = React.useState<"ltr" | "rtl">("ltr");
   const [rowHeight, setRowHeight] = React.useState<RowHeightValue>("short");
+  const { state } = useSidebar();
+  const isCollapsed = state === "collapsed";
   const filterFn = getFilterFn<Contact>();
 
   // Pre-render dropdown content for immediate display
@@ -937,7 +940,14 @@ const DataTableDemo = () => {
           />
         </DirectionProvider>
       </div>
-      <div className="fixed bottom-0 z-50 left-0 right-0 md:left-[var(--sidebar-width)] md:right-0 border-t px-2 py-1.5 flex items-center justify-between bg-background">
+      <div
+        className={cn(
+          "fixed bottom-0 z-50 right-0 border-t px-2 py-1.5 flex items-center justify-between bg-background transition-[left] duration-200 ease-linear",
+          isCollapsed
+            ? "left-[var(--sidebar-width-icon)]"
+            : "left-[var(--sidebar-width)]"
+        )}
+      >
         <Tabs defaultValue="20">
           <TabsList>
             <TabsTrigger value="20">20</TabsTrigger>
