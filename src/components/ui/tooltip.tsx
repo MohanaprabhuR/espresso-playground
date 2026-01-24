@@ -84,6 +84,7 @@ function TooltipContent({
               viewBox="0 0 5 12"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
             >
               <path d="M5 0.853444C5 -4.38012 5 16.3808 5 11.1463C5 9.2166 1.53071e-07 7.4069 2.14575e-07 5.99985C-2.00758e-07 4.59281 5 2.76252 5 0.853444Z" />
             </svg>

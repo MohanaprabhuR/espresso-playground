@@ -103,7 +103,7 @@ function Switch({
           "inline-flex items-center select-none rounded-lg  transition-colors text-secondary-foreground font-medium ",
           wrapper,
           !props.disabled &&
-            "hover:bg-accent active:bg-primary/12 active:text-accent-foreground focus:bg-secondary focus:ring-ring focus:ring-2 focus:ring-offset-0 focus-visible:ring-ring focus-visible:ring-2 focus-visible:bg-secondary",
+            "hover:bg-accent active:bg-primary/12 active:text-accent-foreground focus-visible:ring-ring focus-visible:ring-2 focus-visible:bg-secondary",
           props.disabled &&
             "hover:bg-transparent cursor-not-allowed pointer-events-none text-primary/50"
         )}

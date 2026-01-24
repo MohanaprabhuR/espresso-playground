@@ -74,6 +74,7 @@ export function Spinner({
             height={svg}
             viewBox="0 0 12 12"
             fill="none"
+            aria-hidden="true"
           >
             <circle
               cx="6"
@@ -96,6 +97,7 @@ export function Spinner({
         viewBox="0 0 12 12"
         fill="none"
         className="absolute inset-0 animate-spin block dark:hidden"
+        aria-hidden="true"
       >
         <g
           clipPath="url(#paint0_angular_1246_2808_clip_path)"
@@ -137,6 +139,7 @@ export function Spinner({
         viewBox="0 0 12 12"
         fill="none"
         className="absolute inset-0 animate-spin hidden dark:block"
+        aria-hidden="true"
       >
         <g
           clipPath="url(#paint0_angular_1250_3176_clip_path)"
