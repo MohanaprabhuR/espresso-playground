@@ -5,6 +5,14 @@ import * as SelectPrimitive from "@radix-ui/react-select";
 
 import { cn } from "@/lib/utils";
 
+type PointerDownEvent = Parameters<
+  NonNullable<SelectPrimitive.SelectContentProps["onPointerDown"]>
+>[0];
+type PointerDownOutsideEvent = Parameters<
+  NonNullable<SelectPrimitive.SelectContentProps["onPointerDownOutside"]>
+>[0];
+type PointerUpEvent = React.PointerEvent<HTMLDivElement>;
+
 function Select({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Root>) {
@@ -116,23 +124,80 @@ function SelectTrigger({
   );
 }
 
+/**
+ * Custom focus behavior: suppresses auto-focus return to trigger on mouse close,
+ * preserves it for keyboard close (Escape/Tab). Prevents jarring focus ring on click.
+ */
 function SelectContent({
   className,
   children,
   position = "popper",
+  onPointerDown,
+  onPointerDownOutside,
+  onPointerUp,
+  onCloseAutoFocus,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Content>) {
+}: React.ComponentProps<typeof SelectPrimitive.Content> & {
+  onPointerUp?: React.PointerEventHandler<HTMLDivElement>;
+}) {
+  const isCloseFromMouse = React.useRef<boolean>(false);
+
+  const handlePointerDown = React.useCallback(
+    (e: PointerDownEvent) => {
+      isCloseFromMouse.current = true;
+      onPointerDown?.(e);
+    },
+    [onPointerDown]
+  );
+
+  const handlePointerDownOutside = React.useCallback(
+    (e: PointerDownOutsideEvent) => {
+      isCloseFromMouse.current = true;
+      onPointerDownOutside?.(e);
+    },
+    [onPointerDownOutside]
+  );
+
+  // Handles drag-to-select: pointer down on trigger, drag into menu, pointer up on item
+  const handlePointerUp = React.useCallback(
+    (e: PointerUpEvent) => {
+      isCloseFromMouse.current = true;
+      onPointerUp?.(e);
+    },
+    [onPointerUp]
+  );
+
+  const handleCloseAutoFocus = React.useCallback(
+    (e: Event) => {
+      if (onCloseAutoFocus) {
+        return onCloseAutoFocus(e);
+      }
+
+      if (!isCloseFromMouse.current) {
+        return;
+      }
+
+      e.preventDefault();
+      isCloseFromMouse.current = false;
+    },
+    [onCloseAutoFocus]
+  );
+
   return (
     <SelectPrimitive.Portal>
       <SelectPrimitive.Content
         data-slot="select-content"
         className={cn(
-          "focus:ring-offset-0 focus-visible:ring-2 focus-visible:ring-ring rounded-2xl bg-popover px-1 shadow-sm text-secondary-foreground leading-tight tracking-4 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-(--radix-select-content-available-height) min-w-[8rem] origin-(--radix-select-content-transform-origin) overflow-x-hidden overflow-y-auto",
+          "rounded-2xl bg-popover px-1 shadow-sm text-secondary-foreground leading-tight tracking-4 outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-(--radix-select-content-available-height) min-w-[8rem] origin-(--radix-select-content-transform-origin) overflow-x-hidden overflow-y-auto",
           position === "popper" &&
             "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
           className
         )}
         position={position}
+        onPointerDown={handlePointerDown}
+        onPointerDownOutside={handlePointerDownOutside}
+        onPointerUp={handlePointerUp}
+        onCloseAutoFocus={handleCloseAutoFocus}
         {...props}
       >
         <SelectScrollUpButton />
