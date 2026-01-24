@@ -724,6 +724,8 @@ const DataTableDemo = () => {
                             header.column.getCanSort() &&
                               "flex h-full cursor-pointer items-center justify-between gap-2 select-none"
                           )}
+                          role={header.column.getCanSort() ? "button" : undefined}
+                          aria-label={header.column.getCanSort() ? `Sort by ${header.column.columnDef.header}` : undefined}
                           onClick={header.column.getToggleSortingHandler()}
                           onKeyDown={(e) => {
                             if (
