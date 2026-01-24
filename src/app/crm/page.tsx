@@ -385,7 +385,7 @@ export const columns: ColumnDef<DealItem>[] = [
   },
 ];
 
-const dataTabelDemo = () => {
+const DataTableDemo = () => {
   const { state } = useSidebar();
   const isCollapsed = state === "collapsed";
   // Pre-render dropdown content for immediate display
@@ -669,7 +669,7 @@ const dataTabelDemo = () => {
           </Select>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="secondary" iconOnly>
+              <Button variant="secondary" iconOnly aria-label="More options">
                 <Ellipsis className="size-4" />
               </Button>
             </DropdownMenuTrigger>
@@ -828,4 +828,4 @@ const dataTabelDemo = () => {
   );
 };
 
-export default dataTabelDemo;
+export default DataTableDemo;
