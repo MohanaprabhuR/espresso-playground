@@ -41,6 +41,10 @@ function DropdownMenuTrigger({
   );
 }
 
+/**
+ * Custom focus behavior: suppresses auto-focus return to trigger on mouse close,
+ * preserves it for keyboard close (Escape/Tab). Prevents jarring focus ring on click.
+ */
 function DropdownMenuContent({
   className,
   sideOffset = 4,
