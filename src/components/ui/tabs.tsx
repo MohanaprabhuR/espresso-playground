@@ -108,105 +108,81 @@ function TabsList({
   const [indicatorStyle, setIndicatorStyle] =
     React.useState<React.CSSProperties>({});
 
+  // Track pending RAF to prevent multiple concurrent updates
+  const rafRef = React.useRef<number | null>(null);
+
   const updateIndicator = React.useCallback(() => {
-    if (!listRef.current) return;
-
-    const activeElement = listRef.current.querySelector(
-      `[data-state="active"]`
-    ) as HTMLElement;
-
-    if (!activeElement) {
-      setIndicatorStyle({});
-      return;
+    // Cancel any pending update
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
     }
 
-    const listRect = listRef.current.getBoundingClientRect();
-    const activeRect = activeElement.getBoundingClientRect();
+    // Schedule update in next frame to batch with other layout reads
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = null;
 
-    // Ensure element has actual dimensions before calculating
-    if (activeRect.width === 0 || activeRect.height === 0) {
-      return;
-    }
+      if (!listRef.current) return;
 
-    const exactHeight = activeElement.clientHeight;
-    const exactWidth = activeRect.width;
+      const activeElement = listRef.current.querySelector(
+        `[data-state="active"]`
+      ) as HTMLElement;
 
-    if (orientation === "horizontal") {
-      setIndicatorStyle({
-        left: `${activeRect.left - listRect.left}px`,
-        width: `${exactWidth}px`,
-        height: variant === "underline" ? "1px" : `${exactHeight}px`,
-      });
-    } else {
-      setIndicatorStyle({
-        top: `${activeRect.top - listRect.top}px`,
-        width: variant === "underline" ? "1px" : `${exactWidth}px`,
-        height: `${exactHeight}px`,
-      });
-    }
+      if (!activeElement) {
+        setIndicatorStyle({});
+        return;
+      }
+
+      // Batch layout reads together
+      const listRect = listRef.current.getBoundingClientRect();
+      const activeRect = activeElement.getBoundingClientRect();
+
+      // Ensure element has actual dimensions before calculating
+      if (activeRect.width === 0 || activeRect.height === 0) {
+        return;
+      }
+
+      const exactHeight = activeElement.clientHeight;
+      const exactWidth = activeRect.width;
+
+      if (orientation === "horizontal") {
+        setIndicatorStyle({
+          left: `${activeRect.left - listRect.left}px`,
+          width: `${exactWidth}px`,
+          height: variant === "underline" ? "1px" : `${exactHeight}px`,
+        });
+      } else {
+        setIndicatorStyle({
+          top: `${activeRect.top - listRect.top}px`,
+          width: variant === "underline" ? "1px" : `${exactWidth}px`,
+          height: `${exactHeight}px`,
+        });
+      }
+    });
   }, [orientation, variant]);
 
+  // Update indicator on tab change and handle resize
   React.useLayoutEffect(() => {
-    let rafId: number;
-    let timeoutId: NodeJS.Timeout;
+    updateIndicator();
 
-    const scheduleUpdate = () => {
-      rafId = requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          updateIndicator();
-          timeoutId = setTimeout(() => {
-            updateIndicator();
-          }, 100);
-        });
-      });
-    };
-
-    scheduleUpdate();
-
+    // Cleanup pending RAF on unmount
     return () => {
-      if (rafId) cancelAnimationFrame(rafId);
-      if (timeoutId) clearTimeout(timeoutId);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
     };
   }, [activeTab, updateIndicator]);
 
-  // Also update on resize to handle window/modal size changes
+  // Handle resize - separate effect to avoid recreating observer on tab change
   React.useEffect(() => {
     if (!listRef.current) return;
 
-    const resizeObserver = new ResizeObserver(() => {
-      // Use RAF to debounce resize updates
-      requestAnimationFrame(() => {
-        updateIndicator();
-      });
-    });
-
-    const mutationObserver = new MutationObserver(() => {
-      // Update when DOM attributes change (like data-state)
-      requestAnimationFrame(() => {
-        updateIndicator();
-      });
-    });
-
+    const resizeObserver = new ResizeObserver(updateIndicator);
     resizeObserver.observe(listRef.current);
-    mutationObserver.observe(listRef.current, {
-      attributes: true,
-      attributeFilter: ["data-state"],
-      subtree: true,
-    });
-
-    // Also observe the active element if it exists
-    const activeElement = listRef.current.querySelector(
-      `[data-state="active"]`
-    ) as HTMLElement;
-    if (activeElement) {
-      resizeObserver.observe(activeElement);
-    }
 
     return () => {
       resizeObserver.disconnect();
-      mutationObserver.disconnect();
     };
-  }, [updateIndicator, activeTab]);
+  }, [updateIndicator]);
 
   const baseOrientation =
     orientation === "horizontal" ? "flex flex-row " : "flex flex-col ";
