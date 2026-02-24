@@ -28,7 +28,7 @@ const CalendarDemo = () => {
   const [open, setOpen] = React.useState(false);
   const [dropdown, setDropdown] =
     React.useState<React.ComponentProps<typeof Calendar>["captionLayout"]>(
-      "dropdown"
+      "dropdown",
     );
 
   const today = new Date();
@@ -63,7 +63,7 @@ const CalendarDemo = () => {
 
   const handleCalendarChange = (
     _value: string | number,
-    _e: React.ChangeEventHandler<HTMLSelectElement>
+    _e: React.ChangeEventHandler<HTMLSelectElement>,
   ) => {
     const _event = {
       target: {
@@ -88,6 +88,7 @@ const CalendarDemo = () => {
           <Calendar mode="range" defaultMonth={date} numberOfMonths={3} />
 
           <div className="flex flex-col gap-4">
+            link
             <Calendar
               mode="single"
               defaultMonth={date}
@@ -192,7 +193,7 @@ const CalendarDemo = () => {
                   setDropdown(
                     value as React.ComponentProps<
                       typeof Calendar
-                    >["captionLayout"]
+                    >["captionLayout"],
                   )
                 }
               >
@@ -216,7 +217,7 @@ const CalendarDemo = () => {
             components={{
               DropdownNav: (props: DropdownNavProps) => {
                 const [monthDropdown, yearDropdown] = React.Children.toArray(
-                  props.children
+                  props.children,
                 );
 
                 return (
@@ -252,8 +253,8 @@ const CalendarDemo = () => {
                           }).format(
                             new Date(
                               date?.getFullYear() ?? 0,
-                              Number(option.value)
-                            )
+                              Number(option.value),
+                            ),
                           )}
                         </SelectItem>
                       ))}
