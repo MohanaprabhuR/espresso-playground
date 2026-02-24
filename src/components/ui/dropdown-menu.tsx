@@ -150,7 +150,7 @@ function DropdownMenuCheckboxItem({
       data-slot="dropdown-menu-checkbox-item"
       data-variant={variant}
       className={cn(
-        "focus:bg-accent [&_svg]:size-4 [&_[data-state=checked]>svg]:size-2.5 tracking-4 leading-tight focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-lg py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 data-[variant=destructive]:text-destructive-foreground data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/40 data-[variant=destructive]:focus:text-destructive-foreground data-[variant=destructive]_[&_svg]:text-destructive-foreground",
+        "focus:bg-accent [&_svg]:size-4 [&_[data-state=checked]>svg]:size-2.5 group tracking-4 leading-tight focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-lg py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 data-[variant=destructive]:text-destructive-foreground data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/40 data-[variant=destructive]:focus:text-destructive-foreground data-[variant=destructive]_[&_svg]:text-destructive-foreground",
         className,
       )}
       checked={checked}
@@ -190,12 +190,12 @@ function DropdownMenuRadioItem({
     <DropdownMenuPrimitive.RadioItem
       data-slot="dropdown-menu-radio-item"
       className={cn(
-        "focus:bg-accent [&_svg]:size-4 [&_[data-state=checked]>svg]:size-2.5 focus:text-accent-foreground tracking-4 leading-tight relative flex cursor-default items-center gap-2 rounded-lg py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "focus:bg-accent group [&_svg]:size-4 [&_[data-state=checked]>svg]:size-2.5 focus:text-accent-foreground tracking-4 leading-tight relative flex cursor-default items-center gap-2 rounded-lg py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className,
       )}
       {...props}
     >
-      <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center border rounded-full">
+      <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center border border-primary/44 rounded-full group-hover:border-primary/60 group-hover:shadow-lg group-active:border-primary/75 group-active:bg-secondary group-focus:border-primary/75 group-focus:bg-secondary">
         <DropdownMenuPrimitive.ItemIndicator>
           <CircleIcon className="size-2 fill-current" />
         </DropdownMenuPrimitive.ItemIndicator>
