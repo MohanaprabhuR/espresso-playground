@@ -4,7 +4,8 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { CommandIcon } from "../../../../public/images/svg/commandIcon";
+
+import { Diamond } from "lucide-react";
 
 const toolTipDemo = () => {
   return (
@@ -18,28 +19,28 @@ const toolTipDemo = () => {
             <TooltipTrigger>Hover</TooltipTrigger>
             <TooltipContent>
               <p>Open source by default</p>
-              <CommandIcon fill="currentColor" />
+              <Diamond />
             </TooltipContent>
           </Tooltip>
           <Tooltip>
             <TooltipTrigger>Hover left</TooltipTrigger>
             <TooltipContent side="left" align="center">
               <p>Open source by default</p>
-              <CommandIcon fill="currentColor" />
+              <Diamond />
             </TooltipContent>
           </Tooltip>
           <Tooltip>
             <TooltipTrigger>Hover right</TooltipTrigger>
             <TooltipContent side="right" align="center">
               <p>Open source by default</p>
-              <CommandIcon fill="currentColor" />
+              <Diamond />
             </TooltipContent>
           </Tooltip>
           <Tooltip>
             <TooltipTrigger>Hover bottom</TooltipTrigger>
             <TooltipContent side="bottom" align="center">
               <p>Open source by default</p>
-              <CommandIcon fill="currentColor" />
+              <Diamond />
             </TooltipContent>
           </Tooltip>
 
@@ -54,7 +55,7 @@ const toolTipDemo = () => {
             <TooltipTrigger>Hover me</TooltipTrigger>
             <TooltipContent resize={false} arrow={false}>
               Open source by default
-              <CommandIcon fill="currentColor" />
+              <Diamond />
             </TooltipContent>
           </Tooltip>
         </div>

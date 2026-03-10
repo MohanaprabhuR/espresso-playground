@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const alertVariants = cva(
-  "relative w-full  justify-between flex max-w-[384px]  gap-x-2.5 gap-y-0.5 [&>svg]:size-4 [&>svg]:text-current",
+  "relative w-full  justify-between flex max-w-[384px]  gap-x-2.5 gap-y-0.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:shrink-0 [&>svg]:text-current",
   {
     variants: {
       variant: {
@@ -18,7 +18,7 @@ const alertVariants = cva(
     defaultVariants: {
       variant: "default",
     },
-  }
+  },
 );
 
 function Alert({
@@ -53,7 +53,7 @@ function Alert({
         longText && "has-[>svg]:pr-3",
         "has-[>svg]:pl-3",
 
-        className
+        className,
       )}
       {...props}
     >
@@ -68,7 +68,7 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="alert-title"
       className={cn(
         "font-medium text-base tracking-4 leading-normal text-foreground w-full",
-        className
+        className,
       )}
       {...props}
     />
@@ -84,7 +84,7 @@ function AlertDescription({
       data-slot="alert-description"
       className={cn(
         "text-secondary-foreground font-normal tracking-4 grid justify-items-start gap-1 text-base leading-normal",
-        className
+        className,
       )}
       {...props}
     />

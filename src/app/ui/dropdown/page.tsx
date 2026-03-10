@@ -19,6 +19,7 @@ import {
   Share2Icon,
   TrashIcon,
   UserPenIcon,
+  Diamond,
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { CommandIcon } from "../../../../public/images/svg/commandIcon";
@@ -169,7 +170,7 @@ function DropdownDemo() {
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuGroup>
                 <DropdownMenuItem>
-                  <CommandIcon />
+                  <Diamond />
                   Profile
                 </DropdownMenuItem>
                 <DropdownMenuItem>
@@ -177,59 +178,59 @@ function DropdownDemo() {
                   Billing
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <CommandIcon />
+                  <Diamond />
                   Settings
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <CommandIcon />
+                  <Diamond />
                   Keyboard shortcuts
                 </DropdownMenuItem>
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
               <DropdownMenuGroup>
                 <DropdownMenuItem>
-                  <CommandIcon />
+                  <Diamond />
                   Team
                 </DropdownMenuItem>
                 <DropdownMenuSub>
                   <DropdownMenuSubTrigger>
-                    <CommandIcon />
+                    <Diamond />
                     Invite users
                   </DropdownMenuSubTrigger>
                   <DropdownMenuPortal>
                     <DropdownMenuSubContent>
                       <DropdownMenuItem>
-                        <CommandIcon />
+                        <Diamond />
                         Email
                       </DropdownMenuItem>
                       <DropdownMenuItem>
-                        <CommandIcon />
+                        <Diamond />
                         Message
                       </DropdownMenuItem>
                       <DropdownMenuSeparator />
                       <DropdownMenuItem>
-                        <CommandIcon />
+                        <Diamond />
                         More...
                       </DropdownMenuItem>
                     </DropdownMenuSubContent>
                   </DropdownMenuPortal>
                 </DropdownMenuSub>
                 <DropdownMenuItem>
-                  <CommandIcon />
+                  <Diamond />
                   New Team
                 </DropdownMenuItem>
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                <CommandIcon />
+                <Diamond />
                 GitHub
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <CommandIcon />
+                <Diamond />
                 Support
               </DropdownMenuItem>
               <DropdownMenuItem disabled>
-                <CommandIcon />
+                <Diamond />
                 API
               </DropdownMenuItem>
               <DropdownMenuSeparator />
@@ -258,7 +259,7 @@ function DropdownDemo() {
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                <CommandIcon />
+                <Diamond />
                 Log out
               </DropdownMenuItem>
             </DropdownMenuContent>

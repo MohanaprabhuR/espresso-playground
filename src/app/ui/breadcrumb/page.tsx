@@ -16,7 +16,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { CommandIcon } from "../../../../public/images/svg/commandIcon";
+import { Diamond } from "lucide-react";
 
 const BreadcrumbDemo = () => {
   return (
@@ -80,28 +80,28 @@ const BreadcrumbDemo = () => {
               <BreadcrumbList size="sm">
                 <BreadcrumbItem>
                   <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Home
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Link
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Components
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbPage>
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Breadcrumb
                   </BreadcrumbPage>
                 </BreadcrumbItem>
@@ -113,7 +113,7 @@ const BreadcrumbDemo = () => {
               <BreadcrumbList size="sm">
                 <BreadcrumbItem>
                   <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Home
                   </BreadcrumbLink>
                 </BreadcrumbItem>
@@ -122,7 +122,7 @@ const BreadcrumbDemo = () => {
                 </BreadcrumbSeparator>
                 <BreadcrumbItem>
                   <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Link
                   </BreadcrumbLink>
                 </BreadcrumbItem>
@@ -131,7 +131,7 @@ const BreadcrumbDemo = () => {
                 </BreadcrumbSeparator>
                 <BreadcrumbItem>
                   <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Components
                   </BreadcrumbLink>
                 </BreadcrumbItem>
@@ -140,7 +140,7 @@ const BreadcrumbDemo = () => {
                 </BreadcrumbSeparator>
                 <BreadcrumbItem>
                   <BreadcrumbPage>
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Breadcrumb
                   </BreadcrumbPage>
                 </BreadcrumbItem>
@@ -200,28 +200,28 @@ const BreadcrumbDemo = () => {
               <BreadcrumbList size="md">
                 <BreadcrumbItem>
                   <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Home
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Link
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Components
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbPage>
-                    <CommandIcon fill="currentColor" /> Breadcrumb
+                    <Diamond /> Breadcrumb
                   </BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
@@ -232,7 +232,7 @@ const BreadcrumbDemo = () => {
               <BreadcrumbList size="md">
                 <BreadcrumbItem>
                   <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Home
                   </BreadcrumbLink>
                 </BreadcrumbItem>
@@ -241,7 +241,7 @@ const BreadcrumbDemo = () => {
                 </BreadcrumbSeparator>
                 <BreadcrumbItem>
                   <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Link
                   </BreadcrumbLink>
                 </BreadcrumbItem>
@@ -250,7 +250,7 @@ const BreadcrumbDemo = () => {
                 </BreadcrumbSeparator>
                 <BreadcrumbItem>
                   <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Components
                   </BreadcrumbLink>
                 </BreadcrumbItem>
@@ -259,7 +259,7 @@ const BreadcrumbDemo = () => {
                 </BreadcrumbSeparator>
                 <BreadcrumbItem>
                   <BreadcrumbPage>
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Breadcrumb
                   </BreadcrumbPage>
                 </BreadcrumbItem>
@@ -415,7 +415,7 @@ const BreadcrumbDemo = () => {
               <BreadcrumbList size="sm">
                 <BreadcrumbItem>
                   <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Home
                   </BreadcrumbLink>
                 </BreadcrumbItem>
@@ -438,14 +438,14 @@ const BreadcrumbDemo = () => {
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Components
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbPage>
-                    <CommandIcon fill="currentColor" /> Breadcrumb
+                    <Diamond /> Breadcrumb
                   </BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
@@ -456,7 +456,7 @@ const BreadcrumbDemo = () => {
               <BreadcrumbList size="md">
                 <BreadcrumbItem>
                   <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Home
                   </BreadcrumbLink>
                 </BreadcrumbItem>
@@ -483,7 +483,7 @@ const BreadcrumbDemo = () => {
                 </BreadcrumbSeparator>
                 <BreadcrumbItem>
                   <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Components
                   </BreadcrumbLink>
                 </BreadcrumbItem>
@@ -492,7 +492,7 @@ const BreadcrumbDemo = () => {
                 </BreadcrumbSeparator>
                 <BreadcrumbItem>
                   <BreadcrumbPage>
-                    <CommandIcon fill="currentColor" /> Breadcrumb
+                    <Diamond /> Breadcrumb
                   </BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
@@ -519,7 +519,7 @@ const BreadcrumbDemo = () => {
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Home
                   </BreadcrumbLink>
                 </BreadcrumbItem>
@@ -527,14 +527,14 @@ const BreadcrumbDemo = () => {
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Components
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbPage>
-                    <CommandIcon fill="currentColor" /> Breadcrumb
+                    <Diamond /> Breadcrumb
                   </BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
@@ -563,7 +563,7 @@ const BreadcrumbDemo = () => {
                 </BreadcrumbSeparator>
                 <BreadcrumbItem>
                   <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Home
                   </BreadcrumbLink>
                 </BreadcrumbItem>
@@ -573,7 +573,7 @@ const BreadcrumbDemo = () => {
                 </BreadcrumbSeparator>
                 <BreadcrumbItem>
                   <BreadcrumbLink href="#">
-                    <CommandIcon fill="currentColor" />
+                    <Diamond />
                     Components
                   </BreadcrumbLink>
                 </BreadcrumbItem>
@@ -582,7 +582,7 @@ const BreadcrumbDemo = () => {
                 </BreadcrumbSeparator>
                 <BreadcrumbItem>
                   <BreadcrumbPage>
-                    <CommandIcon fill="currentColor" /> Breadcrumb
+                    <Diamond /> Breadcrumb
                   </BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>

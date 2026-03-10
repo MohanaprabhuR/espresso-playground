@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import { CloseIcon } from "../../../../public/images/svg/closeIcon";
-import { ExclamationIcon } from "../../../../public/images/svg/exclamationIcon";
+import { X, CircleAlert } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import {
   Alert,
@@ -25,20 +25,20 @@ const AlertDemo = () => {
               <AlertTitle>Your trial ends soon!</AlertTitle>
             </Alert>
             <Alert>
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertTitle>Your trial ends soon!</AlertTitle>
             </Alert>
             <Alert action>
               <AlertTitle>Your trial ends soon!</AlertTitle>
               <Button variant="ghost" iconOnly>
-                <CloseIcon className="size-4" />
+                <X />
               </Button>
             </Alert>
             <Alert action>
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertTitle>Your trial ends soon!</AlertTitle>
               <Button variant="ghost" iconOnly>
-                <CloseIcon className="size-4" />
+                <X />
               </Button>
             </Alert>
             <Alert action>
@@ -50,22 +50,22 @@ const AlertDemo = () => {
               <ButtonGroup destructive>
                 <Button variant="ghost">Update</Button>
                 <Button variant="ghost" iconOnly>
-                  <CloseIcon />
+                  <X />
                 </Button>
               </ButtonGroup>
             </Alert>
             <Alert action>
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertTitle>Your trial ends soon!</AlertTitle>
               <Button variant="ghost">Update</Button>
             </Alert>
             <Alert action>
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertTitle>Your trial ends soon!</AlertTitle>
               <ButtonGroup destructive>
                 <Button variant="ghost">Update</Button>
                 <Button variant="ghost" iconOnly>
-                  <CloseIcon />
+                  <X />
                 </Button>
               </ButtonGroup>
             </Alert>
@@ -87,11 +87,11 @@ const AlertDemo = () => {
                 </AlertDescription>
               </AlertContent>
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
             <Alert longText>
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertContent>
                 <AlertTitle>Your trial ends soon!</AlertTitle>
                 <AlertDescription>
@@ -101,7 +101,7 @@ const AlertDemo = () => {
               </AlertContent>
             </Alert>
             <Alert longText>
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertContent>
                 <AlertTitle>Your trial ends soon!</AlertTitle>
                 <AlertDescription>
@@ -111,7 +111,7 @@ const AlertDemo = () => {
               </AlertContent>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
 
@@ -146,11 +146,11 @@ const AlertDemo = () => {
               </AlertWrapper>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
             <Alert longText action>
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertWrapper>
                 <AlertContent>
                   <AlertTitle>Your trial ends soon!</AlertTitle>
@@ -166,7 +166,7 @@ const AlertDemo = () => {
               </AlertWrapper>
             </Alert>
             <Alert longText action>
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertWrapper>
                 <AlertContent>
                   <AlertTitle>Your trial ends soon!</AlertTitle>
@@ -182,7 +182,7 @@ const AlertDemo = () => {
               </AlertWrapper>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
           </div>
@@ -191,21 +191,21 @@ const AlertDemo = () => {
               <AlertTitle>Your trial ends soon!</AlertTitle>
             </Alert>
             <Alert variant="information">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertTitle>Your trial ends soon!</AlertTitle>
             </Alert>
             <Alert variant="information">
               <AlertTitle>Your trial ends soon!</AlertTitle>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
             <Alert variant="information">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertTitle>Your trial ends soon!</AlertTitle>
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
             <Alert action variant="information">
@@ -217,22 +217,22 @@ const AlertDemo = () => {
               <ButtonGroup destructive>
                 <Button variant="ghost">Update</Button>
                 <Button variant="ghost" iconOnly>
-                  <CloseIcon />
+                  <X />
                 </Button>
               </ButtonGroup>
             </Alert>
             <Alert action variant="information">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertTitle>Your trial ends soon!</AlertTitle>
               <Button variant="ghost">Update</Button>
             </Alert>
             <Alert action variant="information">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertTitle>Your trial ends soon!</AlertTitle>
               <ButtonGroup destructive>
                 <Button variant="ghost">Update</Button>
                 <Button variant="ghost" iconOnly>
-                  <CloseIcon />
+                  <X />
                 </Button>
               </ButtonGroup>
             </Alert>
@@ -255,11 +255,11 @@ const AlertDemo = () => {
               </AlertContent>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
             <Alert longText variant="information">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertContent>
                 <AlertTitle>Your trial ends soon!</AlertTitle>
                 <AlertDescription>
@@ -269,7 +269,7 @@ const AlertDemo = () => {
               </AlertContent>
             </Alert>
             <Alert longText variant="information">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertContent>
                 <AlertTitle>Your trial ends soon!</AlertTitle>
                 <AlertDescription>
@@ -278,7 +278,7 @@ const AlertDemo = () => {
                 </AlertDescription>
               </AlertContent>
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
 
@@ -313,11 +313,11 @@ const AlertDemo = () => {
               </AlertWrapper>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
             <Alert longText action variant="information">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertWrapper>
                 <AlertContent>
                   <AlertTitle>Your trial ends soon!</AlertTitle>
@@ -333,7 +333,7 @@ const AlertDemo = () => {
               </AlertWrapper>
             </Alert>
             <Alert longText action variant="information">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertWrapper>
                 <AlertContent>
                   <AlertTitle>Your trial ends soon!</AlertTitle>
@@ -349,7 +349,7 @@ const AlertDemo = () => {
               </AlertWrapper>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
           </div>
@@ -358,21 +358,21 @@ const AlertDemo = () => {
               <AlertTitle>Your trial ends soon!</AlertTitle>
             </Alert>
             <Alert variant="success">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertTitle>Your trial ends soon!</AlertTitle>
             </Alert>
             <Alert variant="success">
               <AlertTitle>Your trial ends soon!</AlertTitle>
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
             <Alert variant="success">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertTitle>Your trial ends soon!</AlertTitle>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
             <Alert action variant="success">
@@ -384,22 +384,22 @@ const AlertDemo = () => {
               <ButtonGroup destructive>
                 <Button variant="ghost">Update</Button>
                 <Button variant="ghost" iconOnly>
-                  <CloseIcon />
+                  <X />
                 </Button>
               </ButtonGroup>
             </Alert>
             <Alert action variant="success">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertTitle>Your trial ends soon!</AlertTitle>
               <Button variant="ghost">Update</Button>
             </Alert>
             <Alert action variant="success">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertTitle>Your trial ends soon!</AlertTitle>
               <ButtonGroup destructive>
                 <Button variant="ghost">Update</Button>
                 <Button variant="ghost" iconOnly>
-                  <CloseIcon />
+                  <X />
                 </Button>
               </ButtonGroup>
             </Alert>
@@ -422,11 +422,11 @@ const AlertDemo = () => {
               </AlertContent>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
             <Alert longText variant="success">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertContent>
                 <AlertTitle>Your trial ends soon!</AlertTitle>
                 <AlertDescription>
@@ -436,7 +436,7 @@ const AlertDemo = () => {
               </AlertContent>
             </Alert>
             <Alert longText variant="success">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertContent>
                 <AlertTitle>Your trial ends soon!</AlertTitle>
                 <AlertDescription>
@@ -446,7 +446,7 @@ const AlertDemo = () => {
               </AlertContent>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
 
@@ -481,11 +481,11 @@ const AlertDemo = () => {
               </AlertWrapper>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
             <Alert longText action variant="success">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertWrapper>
                 <AlertContent>
                   <AlertTitle>Your trial ends soon!</AlertTitle>
@@ -501,7 +501,7 @@ const AlertDemo = () => {
               </AlertWrapper>
             </Alert>
             <Alert longText action variant="success">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertWrapper>
                 <AlertContent>
                   <AlertTitle>Your trial ends soon!</AlertTitle>
@@ -517,7 +517,7 @@ const AlertDemo = () => {
               </AlertWrapper>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
           </div>
@@ -527,22 +527,22 @@ const AlertDemo = () => {
               <AlertTitle>Your trial ends soon!</AlertTitle>
             </Alert>
             <Alert variant="warning">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertTitle>Your trial ends soon!</AlertTitle>
             </Alert>
             <Alert variant="warning">
               <AlertTitle>Your trial ends soon!</AlertTitle>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
             <Alert variant="warning">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertTitle>Your trial ends soon!</AlertTitle>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
             <Alert action variant="warning">
@@ -554,22 +554,22 @@ const AlertDemo = () => {
               <ButtonGroup destructive>
                 <Button variant="ghost">Update</Button>
                 <Button variant="ghost" iconOnly>
-                  <CloseIcon />
+                  <X />
                 </Button>
               </ButtonGroup>
             </Alert>
             <Alert action variant="warning">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertTitle>Your trial ends soon!</AlertTitle>
               <Button variant="ghost">Update</Button>
             </Alert>
             <Alert action variant="warning">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertTitle>Your trial ends soon!</AlertTitle>
               <ButtonGroup destructive>
                 <Button variant="ghost">Update</Button>
                 <Button variant="ghost" iconOnly>
-                  <CloseIcon />
+                  <X />
                 </Button>
               </ButtonGroup>
             </Alert>
@@ -592,11 +592,11 @@ const AlertDemo = () => {
               </AlertContent>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
             <Alert longText variant="warning">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertContent>
                 <AlertTitle>Your trial ends soon!</AlertTitle>
                 <AlertDescription>
@@ -606,7 +606,7 @@ const AlertDemo = () => {
               </AlertContent>
             </Alert>
             <Alert longText variant="warning">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertContent>
                 <AlertTitle>Your trial ends soon!</AlertTitle>
                 <AlertDescription>
@@ -616,7 +616,7 @@ const AlertDemo = () => {
               </AlertContent>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
 
@@ -651,11 +651,11 @@ const AlertDemo = () => {
               </AlertWrapper>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
             <Alert longText action variant="warning">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertWrapper>
                 <AlertContent>
                   <AlertTitle>Your trial ends soon!</AlertTitle>
@@ -671,7 +671,7 @@ const AlertDemo = () => {
               </AlertWrapper>
             </Alert>
             <Alert longText action variant="warning">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertWrapper>
                 <AlertContent>
                   <AlertTitle>Your trial ends soon!</AlertTitle>
@@ -687,7 +687,7 @@ const AlertDemo = () => {
               </AlertWrapper>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
           </div>
@@ -697,22 +697,22 @@ const AlertDemo = () => {
               <AlertTitle>Your trial ends soon!</AlertTitle>
             </Alert>
             <Alert variant="error">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertTitle>Your trial ends soon!</AlertTitle>
             </Alert>
             <Alert variant="error">
               <AlertTitle>Your trial ends soon!</AlertTitle>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
             <Alert variant="error">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertTitle>Your trial ends soon!</AlertTitle>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
             <Alert action variant="error">
@@ -724,22 +724,22 @@ const AlertDemo = () => {
               <ButtonGroup destructive>
                 <Button variant="ghost">Update</Button>
                 <Button variant="ghost" iconOnly>
-                  <CloseIcon />
+                  <X />
                 </Button>
               </ButtonGroup>
             </Alert>
             <Alert action variant="error">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertTitle>Your trial ends soon!</AlertTitle>
               <Button variant="ghost">Update</Button>
             </Alert>
             <Alert action variant="error">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertTitle>Your trial ends soon!</AlertTitle>
               <ButtonGroup destructive>
                 <Button variant="ghost">Update</Button>
                 <Button variant="ghost" iconOnly>
-                  <CloseIcon />
+                  <X />
                 </Button>
               </ButtonGroup>
             </Alert>
@@ -762,11 +762,11 @@ const AlertDemo = () => {
               </AlertContent>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
             <Alert longText variant="error">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertContent>
                 <AlertTitle>Your trial ends soon!</AlertTitle>
                 <AlertDescription>
@@ -776,7 +776,7 @@ const AlertDemo = () => {
               </AlertContent>
             </Alert>
             <Alert longText variant="error">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertContent>
                 <AlertTitle>Your trial ends soon!</AlertTitle>
                 <AlertDescription>
@@ -786,7 +786,7 @@ const AlertDemo = () => {
               </AlertContent>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
 
@@ -821,11 +821,11 @@ const AlertDemo = () => {
               </AlertWrapper>
 
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
             <Alert longText action variant="error">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertWrapper>
                 <AlertContent>
                   <AlertTitle>Your trial ends soon!</AlertTitle>
@@ -841,7 +841,7 @@ const AlertDemo = () => {
               </AlertWrapper>
             </Alert>
             <Alert longText action variant="error">
-              <ExclamationIcon />
+              <CircleAlert />
               <AlertWrapper>
                 <AlertContent>
                   <AlertTitle>Your trial ends soon!</AlertTitle>
@@ -856,7 +856,7 @@ const AlertDemo = () => {
                 </ButtonGroup>
               </AlertWrapper>
               <Button iconOnly variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </Alert>
           </div>

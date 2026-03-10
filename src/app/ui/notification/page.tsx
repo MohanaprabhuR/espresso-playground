@@ -1,9 +1,8 @@
 "use client";
 import React from "react";
-import { CloseIcon } from "../../../../public/images/svg/closeIcon";
-import { ExclamationIcon } from "../../../../public/images/svg/exclamationIcon";
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
+import { X, CircleAlert } from "lucide-react";
 import {
   Notification,
   NotificationContent,
@@ -31,20 +30,20 @@ const AlertDemo = () => {
             <NotificationTitle>
               Update available. Get new features!
             </NotificationTitle>
-            <CloseIcon />
+            <X />
           </Notification>
           <Notification>
-            <ExclamationIcon />
+            <CircleAlert />
             <NotificationTitle>
               Update available. Get new features!
             </NotificationTitle>
           </Notification>
           <Notification>
-            <ExclamationIcon />
+            <CircleAlert />
             <NotificationTitle>
               Update available. Get new features!
             </NotificationTitle>
-            <CloseIcon />
+            <X />
           </Notification>
           <Notification action>
             <NotificationTitle>
@@ -59,26 +58,26 @@ const AlertDemo = () => {
             <ButtonGroup destructive>
               <Button variant="ghost">Update</Button>
               <Button variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </ButtonGroup>
           </Notification>
           <Notification action>
-            <ExclamationIcon />
+            <CircleAlert />
             <NotificationTitle>
               Update available. Get new features!
             </NotificationTitle>
             <Button variant="ghost">Update</Button>
           </Notification>
           <Notification action>
-            <ExclamationIcon />
+            <CircleAlert />
             <NotificationTitle>
               Update available. Get new features!
             </NotificationTitle>
             <ButtonGroup destructive>
               <Button variant="ghost">Update</Button>
               <Button variant="ghost">
-                <CloseIcon />
+                <X />
               </Button>
             </ButtonGroup>
           </Notification>
@@ -100,11 +99,11 @@ const AlertDemo = () => {
               </NotificationDescription>
             </NotificationContent>
             <Button variant="ghost">
-              <CloseIcon />
+              <X />
             </Button>
           </Notification>
           <Notification longText action>
-            <ExclamationIcon />
+            <CircleAlert />
             <NotificationContent>
               <NotificationTitle>System Update Available</NotificationTitle>
               <NotificationDescription>
@@ -114,7 +113,7 @@ const AlertDemo = () => {
             </NotificationContent>
           </Notification>
           <Notification longText action>
-            <ExclamationIcon />
+            <CircleAlert />
             <NotificationContent>
               <NotificationTitle>System Update Available</NotificationTitle>
               <NotificationDescription>
@@ -123,7 +122,7 @@ const AlertDemo = () => {
               </NotificationDescription>
             </NotificationContent>
             <Button variant="ghost">
-              <CloseIcon />
+              <X />
             </Button>
           </Notification>
           <Notification longText>
@@ -156,11 +155,11 @@ const AlertDemo = () => {
               </ButtonGroup>
             </NotificationWrapper>
             <Button variant="ghost">
-              <CloseIcon />
+              <X />
             </Button>
           </Notification>
           <Notification longText>
-            <ExclamationIcon />
+            <CircleAlert />
             <NotificationWrapper>
               <NotificationContent>
                 <NotificationTitle>System Update Available</NotificationTitle>
@@ -176,7 +175,7 @@ const AlertDemo = () => {
             </NotificationWrapper>
           </Notification>
           <Notification longText>
-            <ExclamationIcon />
+            <CircleAlert />
             <NotificationWrapper>
               <NotificationContent>
                 <NotificationTitle>System Update Available</NotificationTitle>
@@ -191,7 +190,7 @@ const AlertDemo = () => {
               </ButtonGroup>
             </NotificationWrapper>
             <Button variant="ghost">
-              <CloseIcon />
+              <X />
             </Button>
           </Notification>
           <Notification notificationPanel>
@@ -239,7 +238,7 @@ const AlertDemo = () => {
               <NotificationTimeStamp>28 min ago</NotificationTimeStamp>
             </NotificationContent>
             <Button variant="ghost">
-              <CloseIcon />
+              <X />
             </Button>
           </Notification>
           <Notification notificationPanel>
@@ -262,7 +261,7 @@ const AlertDemo = () => {
               </ButtonGroup>
             </NotificationWrapper>
             <Button variant="ghost">
-              <CloseIcon />
+              <X />
             </Button>
           </Notification>
           <Notification modal>

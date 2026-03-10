@@ -55,14 +55,14 @@ function TooltipContent({
         data-slot="tooltip-content"
         sideOffset={sideOffset}
         className={cn(
-          "group relative bg-primary text-primary-foreground shadow-sm animate-in fade-in-0 zoom-in-95  " +
+          "group relative bg-primary text-primary-foreground shadow-sm animate-in fade-in-0 zoom-in-95 [&_svg]:size-3 " +
             "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 " +
             "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 " +
             "data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 " +
             "z-50 origin-(--radix-tooltip-content-transform-origin) rounded-lg px-2 py-[5px] " +
             "text-base font-normal tracking-4 flex items-center gap-x-1.5 ",
           resize ? "w-full max-w-40 leading-normal" : "w-fit leading-normal",
-          className
+          className,
         )}
         {...props}
       >
@@ -75,7 +75,7 @@ function TooltipContent({
               "group-data-[side=top]:-bottom-[8px] group-data-[side=top]:left-1/2 group-data-[side=top]:-translate-x-1/2 group-data-[side=top]:-rotate-90",
               "group-data-[side=bottom]:-top-[8px] group-data-[side=bottom]:left-1/2 group-data-[side=bottom]:-translate-x-1/2 group-data-[side=bottom]:rotate-90",
               "group-data-[side=left]:-right-[4px] group-data-[side=left]:top-1/2 group-data-[side=left]:-translate-y-1/2 group-data-[side=left]:-rotate-180",
-              "group-data-[side=right]:-left-[4px] group-data-[side=right]:top-1/2 group-data-[side=right]:-translate-y-1/2 group-data-[side=right]:rotate-0"
+              "group-data-[side=right]:-left-[4px] group-data-[side=right]:top-1/2 group-data-[side=right]:-translate-y-1/2 group-data-[side=right]:rotate-0",
             )}
           >
             <svg
