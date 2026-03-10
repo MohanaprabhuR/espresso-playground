@@ -208,7 +208,7 @@ export function Avatar({
 
   return (
     <AvatarSizeContext.Provider value={{ size, shape }}>
-      <div className="relative ">
+      <div className="relative w-fit">
         <AvatarPrimitive.Root
           data-slot="avatar"
           className={cn(avatarVariants({ size }), radiusClass, className)}
@@ -232,7 +232,7 @@ export function Avatar({
                 "size-[8px]": size === "lg" || size === "xl",
                 "size-[10px]": size === "2xl",
                 "size-[12px]": size === "3xl",
-              }
+              },
             )}
           >
             {statusIcon}
@@ -244,14 +244,14 @@ export function Avatar({
 }
 
 export function AvatarImage(
-  props: React.ComponentProps<typeof AvatarPrimitive.Image>
+  props: React.ComponentProps<typeof AvatarPrimitive.Image>,
 ) {
   return (
     <AvatarPrimitive.Image
       data-slot="avatar-image"
       className={cn(
         "aspect-square w-full h-full object-cover ",
-        props.className
+        props.className,
       )}
       {...props}
     />
@@ -282,7 +282,7 @@ export function AvatarFallback({
         avatarVariants({ size }),
         radiusClass,
         textSizeMap[size ?? "sm"],
-        className
+        className,
       )}
       {...props}
     >
@@ -351,7 +351,7 @@ export function AvatarGroup({
           className={cn(
             "relative",
             radiusClass,
-            label && max === 3 && "ring-1 ring-[var(--background)]"
+            label && max === 3 && "ring-1 ring-[var(--background)]",
           )}
         >
           {child}
@@ -366,7 +366,7 @@ export function AvatarGroup({
         "flex items-center justify-center bg-muted text-muted-foreground font-medium border-background ring-1 ring-[var(--background)] relative",
         radiusClass,
         avatarVariants({ size }),
-        textSizeMap[size ?? "sm"]
+        textSizeMap[size ?? "sm"],
       )}
     >
       {remainingCount}
@@ -377,7 +377,7 @@ export function AvatarGroup({
     <p
       className={cn(
         "text-muted-foreground mr-2 font-normal",
-        textSizeMap[size ?? "sm"]
+        textSizeMap[size ?? "sm"],
       )}
     >
       {remainingCount} member{remainingCount > 1 ? "s" : ""}
