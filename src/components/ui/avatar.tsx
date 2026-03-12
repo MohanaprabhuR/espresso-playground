@@ -194,7 +194,7 @@ interface AvatarProps
   status?: Status;
 }
 
-export function Avatar({
+function Avatar({
   size = "sm",
   shape = "circle",
   status = null,
@@ -243,7 +243,7 @@ export function Avatar({
   );
 }
 
-export function AvatarImage(
+function AvatarImage(
   props: React.ComponentProps<typeof AvatarPrimitive.Image>,
 ) {
   return (
@@ -262,7 +262,7 @@ type AvatarFallbackProps = React.ComponentProps<
   typeof AvatarPrimitive.Fallback
 >;
 
-export function AvatarFallback({
+function AvatarFallback({
   className,
   children,
   ...props
@@ -317,7 +317,7 @@ interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   label?: boolean;
 }
 
-export function AvatarGroup({
+function AvatarGroup({
   children,
   className,
   max,
@@ -398,3 +398,5 @@ export function AvatarGroup({
     </AvatarSizeContext.Provider>
   );
 }
+
+export { Avatar, AvatarImage, AvatarFallback, AvatarGroup };
