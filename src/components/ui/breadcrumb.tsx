@@ -34,7 +34,7 @@ function BreadcrumbList({
         className={cn(
           "text-muted-foreground flex flex-wrap items-center  break-words",
           breadcrumbSizeMap[size],
-          className
+          className,
         )}
         {...props}
       />
@@ -68,10 +68,10 @@ function BreadcrumbLink({
     <Comp
       data-slot="breadcrumb-link"
       className={cn(
-        "transition-colors flex items-center gap-x-1 tracking-4 leading-tight rounded-lg hover:bg-accent hover:text-accent-foreground focus:bg-secondary focus:text-accent-foreground focus:shadow-shadow active:bg-transparent active:text-foreground",
+        "transition-colors flex items-center gap-x-1 tracking-4 leading-tight rounded-lg hover:bg-accent hover:text-accent-foreground focus:bg-secondary outline-none  focus:text-accent-foreground focus-visible:bg-secondary focus-visible:ring-2 focus-visible:ring-ring active:bg-transparent active:text-foreground",
         svgSizeClass,
         paddingSizeClass,
-        className
+        className,
       )}
       {...props}
     >
@@ -102,7 +102,7 @@ function BreadcrumbPage({
         "text-foreground leading-tight tracking-4  inline-flex items-center gap-x-1 px-2 py-1.5",
         svgSizeClass,
         paddingSizeClass,
-        className
+        className,
       )}
       {...props}
     >
@@ -140,7 +140,7 @@ function BreadcrumbEllipsis({
       aria-hidden="true"
       className={cn(
         "flex size-5 items-center justify-center mt-0.75",
-        className
+        className,
       )}
       {...props}
     >
