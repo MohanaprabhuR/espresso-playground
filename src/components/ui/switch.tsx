@@ -6,8 +6,9 @@ import { cn } from "@/lib/utils";
 
 type SwitchSize = "sm" | "md";
 
-interface SwitchProps
-  extends React.ComponentProps<typeof SwitchPrimitive.Root> {
+interface SwitchProps extends React.ComponentProps<
+  typeof SwitchPrimitive.Root
+> {
   size?: SwitchSize;
   label?: React.ReactNode;
   description?: React.ReactNode;
@@ -24,7 +25,7 @@ function Switch({
   ...props
 }: SwitchProps) {
   const [internalChecked, setInternalChecked] = React.useState(
-    defaultChecked ?? false
+    defaultChecked ?? false,
   );
 
   const isControlled = checked !== undefined;
@@ -70,7 +71,7 @@ function Switch({
         root,
         !label &&
           "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0",
-        className
+        className,
       )}
       checked={currentChecked}
       onCheckedChange={handleChange}
@@ -81,7 +82,7 @@ function Switch({
         data-slot="switch-thumb"
         className={cn(
           "bg-background shadow-4xl pointer-events-none block rounded-full transition-transform",
-          thumb
+          thumb,
         )}
       />
     </SwitchPrimitive.Root>
@@ -100,12 +101,12 @@ function Switch({
           }
         }}
         className={cn(
-          "inline-flex items-center select-none rounded-lg  transition-colors text-secondary-foreground font-medium ",
+          "inline-flex items-center outline-none select-none rounded-lg  transition-colors text-secondary-foreground font-medium ",
           wrapper,
           !props.disabled &&
             "hover:bg-accent active:bg-primary/12 active:text-accent-foreground focus-visible:ring-ring focus-visible:ring-2 focus-visible:bg-secondary",
           props.disabled &&
-            "hover:bg-transparent cursor-not-allowed pointer-events-none text-primary/50"
+            "hover:bg-transparent cursor-not-allowed pointer-events-none text-primary/50",
         )}
       >
         {switchControl}
@@ -117,7 +118,7 @@ function Switch({
               className={cn(
                 "text-secondary-foreground font-normal pt-1 ",
                 descriptionSize,
-                props.disabled && "text-primary/50"
+                props.disabled && "text-primary/50",
               )}
             >
               {description}
