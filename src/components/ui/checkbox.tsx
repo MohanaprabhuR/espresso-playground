@@ -4,8 +4,9 @@ import * as React from "react";
 import { Checkbox as CheckboxPrimitive } from "radix-ui";
 import { cn } from "@/lib/utils";
 
-export interface CheckboxProps
-  extends React.ComponentProps<typeof CheckboxPrimitive.Root> {
+export interface CheckboxProps extends React.ComponentProps<
+  typeof CheckboxPrimitive.Root
+> {
   id?: string;
   label?: string;
   size?: "sm" | "md";
@@ -46,7 +47,7 @@ function Checkbox({
         withLabel
           ? "focus-visible:data-[state=checked]:ring-0  focus-visible:data-[state=indeterminate]:ring-0 "
           : "focus-visible:data-[state=checked]:ring-2  focus-visible:data-[state=indeterminate]:ring-2",
-        className
+        className,
       )}
       {...props}
     >
@@ -92,11 +93,11 @@ function Checkbox({
       <label
         htmlFor={checkboxId}
         className={cn(
-          "inline-flex items-center text-secondary-foreground font-medium  tracking-4 rounded-lg bg-transparent gap-x-2 hover:bg-accent active:bg-primary/12 focus:bg-primary/5 focus-visible:bg-primary/5 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 active:text-accent-foreground focus:text-accent-foreground ",
+          "inline-flex items-center text-secondary-foreground font-medium outline-none  tracking-4 rounded-lg bg-transparent gap-x-2 hover:bg-accent active:bg-primary/12 focus:bg-primary/5 focus:ring-ring focus:ring-2 focus:ring-offset-0 focus-visible:bg-primary/5 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 active:text-accent-foreground focus:text-accent-foreground ",
           labelStyle,
           isDisabled &&
             "pointer-events-none cursor-not-allowed gap-x-2 text-primary/42",
-          className
+          className,
         )}
       >
         {checkboxElement}
