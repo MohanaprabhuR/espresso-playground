@@ -220,7 +220,7 @@ function Avatar({
         {status && (
           <span
             className={cn(
-              "absolute bottom-0 right-0 flex items-center justify-center rounded-full bg-background ring-1 ring-[var(--background)]",
+              "absolute bottom-0 right-0 flex items-center justify-center rounded-full bg-background ring-2 ring-[var(--background)]",
               {
                 "bg-[var(--color-light-green-600)] p-[2px]":
                   status === "checked",
@@ -340,7 +340,7 @@ function AvatarGroup({
   const radiusClass =
     shape === "square"
       ? radiusMap[size ?? "sm"]
-      : "rounded-full ring-1 ring-[var(--background)]";
+      : "rounded-full ring-2 ring-[var(--background)]";
 
   const AvatarList = (
     <>
@@ -351,7 +351,7 @@ function AvatarGroup({
           className={cn(
             "relative",
             radiusClass,
-            label && max === 3 && "ring-1 ring-[var(--background)]",
+            label && max === 3 && "ring-2 ring-[var(--background)]",
           )}
         >
           {child}
