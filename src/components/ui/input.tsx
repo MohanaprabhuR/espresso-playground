@@ -21,9 +21,9 @@ const baseStyles =
 
 const variantBaseMap: Record<VariantType, string> = {
   default:
-    "bg-secondary outline outline-0 outline-input -outline-offset-1  hover:bg-accent text-secondary-foreground active:bg-transparent active:shadow-lg active:outline-primary/50 active:text-accent-foreground focus:outline focus:outline-primary/50 focus:shadow-lg focus:bg-transparent focus-visible:outline-primary/50 focus:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 focus-visible:bg-transparent",
+    "bg-secondary outline outline-0 outline-input -outline-offset-1  hover:bg-accent text-accent-foreground active:bg-transparent active:shadow-lg active:outline-primary/50 active:text-accent-foreground focus:outline focus:outline-primary/50 focus:shadow-lg focus:bg-transparent focus-visible:outline-primary/50 focus:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 focus-visible:bg-transparent",
   outline:
-    "outline outline-1 outline-input -outline-offset-1 bg-transparent text-secondary-foreground hover:outline-primary/25 active:outline-primary/50 active:bg-transparent active:shadow-lg focus-outline focus:outline-primary/50 focus:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 focus-visible:outline-primary/50 focus-visible:bg-transparent",
+    "outline outline-1 outline-input -outline-offset-1 bg-transparent text-accent-foreground hover:outline-primary/25 active:outline-primary/50 active:bg-transparent active:shadow-lg focus-outline focus:outline-primary/50 focus:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 focus-visible:outline-primary/50 focus-visible:bg-transparent",
 };
 
 const statusMap: Record<VariantType, Record<StatusType, string>> = {
@@ -96,7 +96,7 @@ function Input({
   ...props
 }: InputProps) {
   const [hasValue, setHasValue] = React.useState(
-    Boolean(props.value ?? props.defaultValue)
+    Boolean(props.value ?? props.defaultValue),
   );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -120,7 +120,7 @@ function Input({
             "flex items-center absolute left-2 pointer-events-none transition-colors duration-200",
             iconSize,
             iconColor,
-            iconOffset.split(" ")[0]
+            iconOffset.split(" ")[0],
           )}
         >
           {prefix}
@@ -138,7 +138,7 @@ function Input({
           sizeMap[size].input,
           prefix && sizeMap[size].prefix,
           suffix && sizeMap[size].suffix,
-          className
+          className,
         )}
         onChange={handleChange}
         {...props}
@@ -150,7 +150,7 @@ function Input({
             "flex items-center absolute right-2 pointer-events-none transition-colors duration-200",
             iconSize,
             iconColor,
-            iconOffset.split(" ")[1]
+            iconOffset.split(" ")[1],
           )}
         >
           {suffix}

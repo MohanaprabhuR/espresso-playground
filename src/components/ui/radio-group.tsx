@@ -66,8 +66,8 @@ function RadioGroupItem({
     : defaultLabelMap[size];
 
   const labelFontMap: Record<RadioSize, string> = {
-    sm: "text-base leading-tight tracking-4",
-    md: "text-lg leading-tight tracking-4",
+    sm: "text-base font-normal leading-tight tracking-4",
+    md: "text-lg font-medium leading-tight tracking-4",
   };
 
   const radio = (
@@ -103,7 +103,7 @@ function RadioGroupItem({
       <label
         htmlFor={id}
         className={cn(
-          "flex items-center gap-x-2 cursor-pointer  text-accent-foreground outline-none rounded-lg hover:bg-accent active:bg-primary/12 w-fit focus:bg-secondary  focus:ring-ring focus:ring-2 focus:ring-offset-0 focus-visible:ring-ring focus-visible:ring-2 focus-visible:bg-secondary ",
+          "flex items-center gap-x-2 cursor-pointer text-accent-foreground outline-none rounded-lg hover:bg-accent active:bg-primary/12 w-fit focus:bg-secondary  focus:ring-ring focus:ring-2 focus:ring-offset-0 focus-visible:ring-ring focus-visible:ring-2 focus-visible:bg-secondary ",
           finalLabelClass,
           labelClassName,
           disabled &&
@@ -111,7 +111,7 @@ function RadioGroupItem({
         )}
       >
         {radio}
-        <span className={cn("font-medium", labelFontMap[size])}>{label}</span>
+        <span className={cn(labelFontMap[size])}>{label}</span>
       </label>
     );
   }
