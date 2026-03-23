@@ -19,7 +19,7 @@ interface TabsContextValue {
 }
 
 const TabsContext = React.createContext<TabsContextValue | undefined>(
-  undefined
+  undefined,
 );
 
 interface TabsProps extends React.ComponentProps<typeof TabsPrimitive.Root> {
@@ -50,14 +50,14 @@ function Tabs({
       setActiveTab(newValue);
       onValueChange?.(newValue);
     },
-    [onValueChange]
+    [onValueChange],
   );
 
   const registerTab = React.useCallback(
     (tabValue: string, element: HTMLElement) => {
       tabRefs.current.set(tabValue, element);
     },
-    []
+    [],
   );
 
   const unregisterTab = React.useCallback((tabValue: string) => {
@@ -82,7 +82,7 @@ function Tabs({
           orientation === "horizontal"
             ? "flex flex-col"
             : "flex flex-row items-center",
-          className
+          className,
         )}
         orientation={orientation}
         value={value}
@@ -124,7 +124,7 @@ function TabsList({
       if (!listRef.current) return;
 
       const activeElement = listRef.current.querySelector(
-        `[data-state="active"]`
+        `[data-state="active"]`,
       ) as HTMLElement;
 
       if (!activeElement) {
@@ -190,26 +190,26 @@ function TabsList({
   const variantClasses: Record<TabVariant, string> = {
     subtle: cn(
       "bg-secondary text-muted-foreground  p-px gap-1 flex overflow-hidden",
-      baseOrientation
+      baseOrientation,
     ),
     outline: cn(
       " bg-background ring ring-1 ring-border text-muted-foreground p-px gap-1 flex overflow-hidden",
-      baseOrientation
+      baseOrientation,
     ),
     underline: cn(
       "bg-background text-muted-foreground p-px flex border-b border-accent gap-1 w-fit ",
-      orientation === "vertical" && "flex-col border-b-0 border-r"
+      orientation === "vertical" && "flex-col border-b-0 border-r",
     ),
     ghost: cn(
       "bg-background text-muted-foreground  p-px gap-1 flex ",
-      baseOrientation
+      baseOrientation,
     ),
     browser: cn(
       "bg-background text-muted-foreground gap-1  relative border-accent flex relative overflow-hidden",
       baseOrientation,
       orientation === "horizontal"
         ? "rounded-t-lg after:absolute after:bottom-px after:left-0 after:right-0 after:h-px after:w-full after:bg-border py-px"
-        : "rounded-l-lg after:absolute after:top-0 after:bottom-0 after:right-px after:w-px after:h-full after:bg-border px-px"
+        : "rounded-l-lg after:absolute after:top-0 after:bottom-0 after:right-px after:w-px after:h-full after:bg-border px-px",
     ),
   };
 
@@ -236,7 +236,7 @@ function TabsList({
         variantClasses[variant],
         "w-fit relative",
         radiusClasses,
-        className
+        className,
       )}
       style={{}}
       {...props}
@@ -248,10 +248,10 @@ function TabsList({
             size === "md"
               ? variant === "browser"
                 ? "rounded-none"
-                : "rounded-xlg"
+                : "rounded-lg-plus"
               : variant === "browser"
                 ? "rounded-none"
-                : "rounded-xmd",
+                : "rounded-md-plus",
             variant === "subtle" &&
               "bg-background text-card-foreground dark:bg-accent shadow-sm",
             variant === "outline" &&
@@ -262,16 +262,16 @@ function TabsList({
                 "bg-background border",
                 orientation === "horizontal"
                   ? size === "md"
-                    ? "rounded-none rounded-t-xlg border-b-transparent"
-                    : "rounded-none rounded-t-xmd border-b-transparent"
+                    ? "rounded-none rounded-t-lg-plus border-b-transparent"
+                    : "rounded-none rounded-t-md-plus border-b-transparent"
                   : size === "md"
-                    ? "rounded-none rounded-l-xlg"
-                    : "rounded-none rounded-l-xmd"
+                    ? "rounded-none rounded-l-lg-plus"
+                    : "rounded-none rounded-l-md-plus",
               ),
             variant === "underline" &&
               cn(
                 "bg-foreground",
-                orientation === "horizontal" ? "h-px" : "w-px"
+                orientation === "horizontal" ? "h-px" : "w-px",
               ),
             orientation === "horizontal"
               ? variant === "underline"
@@ -279,7 +279,7 @@ function TabsList({
                 : "h-full"
               : variant === "underline"
                 ? "-right-px"
-                : "w-full top-0"
+                : "w-full top-0",
           )}
           style={indicatorStyle}
         />
@@ -313,7 +313,7 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
     outline:
       " data-[state=active]:text-card-foreground transition-colors relative z-10",
     underline: cn(
-      "data-[state=active]:text-foreground transition-colors relative z-10"
+      "data-[state=active]:text-foreground transition-colors relative z-10",
     ),
     ghost:
       "data-[state=active]:text-card-foreground transition-colors  relative z-10",
@@ -321,13 +321,13 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
       "relative  data-[state=active]:text-card-foreground transition-colors z-10 after:transition-all after:duration-300 after:ease-out",
       orientation === "horizontal"
         ? " data-[state=active]:border-b-transparent after:absolute after:left-0 after:right-0 after:bottom-0 after:h-px data-[state=active]:after:bg-background data-[state=active]:after:w-[96%] data-[state=active]:after:left-px"
-        : " data-[state=active]:border-r-transparent after:absolute after:top-0 after:bottom-0 after:right-0 after:w-px data-[state=active]:after:bg-background data-[state=active]:after:h-[96%] data-[state=active]:after:top-px"
+        : " data-[state=active]:border-r-transparent after:absolute after:top-0 after:bottom-0 after:right-0 after:w-px data-[state=active]:after:bg-background data-[state=active]:after:h-[96%] data-[state=active]:after:top-px",
     ),
   };
 
   const sizeClasses: Record<TabSize, string> = {
-    sm: "px-2 py-[5px]",
-    md: "px-2.5 py-1.5",
+    sm: "px-2 py-[5px] font-normal",
+    md: "px-2.5 py-1.5 font-medium",
   };
 
   return (
@@ -335,10 +335,10 @@ function TabsTrigger({ className, ...props }: TabsTriggerProps) {
       ref={ref}
       data-slot="tabs-trigger"
       className={cn(
-        "focus-visible:outline-none text-base  inline-flex tracking-4 font-normal leading-tight items-center justify-center gap-2 whitespace-nowrap disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "focus-visible:outline-none text-base  inline-flex tracking-4  leading-tight items-center justify-center gap-2 whitespace-nowrap disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         variantClasses[variant],
         sizeClasses[size],
-        className
+        className,
       )}
       {...props}
     />
@@ -365,7 +365,7 @@ function TabsContent({
       className={cn(
         "flex-1 outline-none text-left font-normal text-sm tracking-4 leading-tight",
         sizeClasses[size],
-        className
+        className,
       )}
       {...props}
     />
