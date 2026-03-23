@@ -75,7 +75,7 @@ const statusIconMap: Record<Status, React.ReactNode> = {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      <circle cx="8.5" cy="8" r="8" fill="var(--color-light-green-700)" />
+      <circle cx="8.5" cy="8" r="8" fill="var(--color-green-700)" />
     </svg>
   ),
   away: (
@@ -222,10 +222,9 @@ function Avatar({
             className={cn(
               "absolute bottom-0 right-0 flex items-center justify-center rounded-full bg-background ring-2 ring-[var(--background)]",
               {
-                "bg-[var(--color-light-green-600)] p-[2px]":
-                  status === "checked",
-                "bg-[var(--color-light-red-500)] p-[2px]": status === "close",
-                "bg-[var(--color-light-cyan-500)] p-[1px]": status === "pin",
+                "bg-[var(--color-green-600)]  p-[2px]": status === "checked",
+                "bg-[var(--color-red-500)] p-[2px]": status === "close",
+                "bg-[var(--color-cyan-500)] p-[1px]": status === "pin",
                 "size-[4px]": size === "xs",
                 "size-[5px]": size === "sm",
                 "size-[7px]": size === "md",
