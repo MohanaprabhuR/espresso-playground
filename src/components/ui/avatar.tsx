@@ -91,7 +91,7 @@ const statusIconMap: Record<Status, React.ReactNode> = {
         fillRule="evenodd"
         clipRule="evenodd"
         d="M8.5 16C12.9183 16 16.5 12.4183 16.5 8C16.5 3.58172 12.9183 0 8.5 0C4.08172 0 0.5 3.58172 0.5 8C0.5 12.4183 4.08172 16 8.5 16ZM8.5 13C11.2614 13 13.5 10.7614 13.5 8C13.5 5.23858 11.2614 3 8.5 3C5.73858 3 3.5 5.23858 3.5 8C3.5 10.7614 5.73858 13 8.5 13Z"
-        fill="#7C7C7C"
+        fill="currentColor"
       />
     </svg>
   ),
@@ -106,7 +106,7 @@ const statusIconMap: Record<Status, React.ReactNode> = {
     >
       <path
         d="M16.4819 8.71993C16.4899 8.63114 16.3851 8.57883 16.3161 8.63536C15.2802 9.48479 13.9551 9.99457 12.5109 9.99457C9.19415 9.99457 6.50543 7.30585 6.50543 3.98914C6.50543 2.54495 7.01521 1.21982 7.86464 0.183882C7.92117 0.114945 7.86886 0.0101007 7.78008 0.0180934C3.69856 0.385505 0.5 3.8156 0.5 7.99276C0.5 12.415 4.08496 16 8.50724 16C12.6844 16 16.1145 12.8014 16.4819 8.71993Z"
-        fill="#7C7C7C"
+        fill="currentColor"
       />
     </svg>
   ),
@@ -153,7 +153,7 @@ const statusIconMap: Record<Status, React.ReactNode> = {
     >
       <path
         d="M15.6265 5.75851L10.7414 0.873414C10.2097 0.341675 9.94381 0.0758058 9.66329 0.0189383C9.41797 -0.0307914 9.16294 0.0183228 8.95364 0.155604C5.68535 2.29929 7.19133 4.8215 2.15218 5.82933C0.322067 6.19535 -0.062262 6.95627 1.37562 8.39415L3.8794 10.898L1.66331 13.114C1.27278 13.5046 1.27278 14.1377 1.66331 14.5283L2.04011 14.9051C2.43064 15.2956 3.06379 15.2956 3.45432 14.9051L5.67043 12.689L8.10585 15.1244C9.54373 16.5623 10.3047 16.1779 10.6707 14.3478C11.6785 9.30867 14.2007 10.8146 16.3443 7.54629C16.4816 7.33699 16.5307 7.08196 16.481 6.83665C16.4241 6.55612 16.1583 6.29025 15.6265 5.75851Z"
-        fill="#7C7C7C"
+        fill="currentColor"
       />
     </svg>
   ),
@@ -197,7 +197,7 @@ interface AvatarProps
 function Avatar({
   size = "sm",
   shape = "circle",
-  status = null,
+  status = "null",
   className,
   children,
   ...props
@@ -217,14 +217,20 @@ function Avatar({
           {children}
         </AvatarPrimitive.Root>
 
-        {status && (
+        {status && status !== "null" && (
           <span
             className={cn(
               "absolute bottom-0 right-0 flex items-center justify-center rounded-full bg-background ring-2 ring-[var(--background)]",
               {
                 "bg-[var(--color-green-600)]  p-[2px]": status === "checked",
                 "bg-[var(--color-red-500)] p-[2px]": status === "close",
-                "bg-[var(--color-cyan-500)] p-[1px]": status === "pin",
+                "bg-[var(--color-cyan-500)] p-[1px] ": status === "pin",
+                "text-[var(--color-green-700)] ": status === "active",
+                "text-[var(--color-gray-600)] dark:text-[var(--color-gray-300)]":
+                  status === "away" ||
+                  status === "sleep" ||
+                  status === "pinned",
+
                 "size-[4px]": size === "xs",
                 "size-[5px]": size === "sm",
                 "size-[7px]": size === "md",
