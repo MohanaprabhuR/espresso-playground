@@ -239,7 +239,7 @@
   --green-primary: var(--color-green-500);
   --green-primary-foreground: var(--color-white);
   --green-secondary: var(--color-green-900);
-  --green-secondary-foreground: var(--color--green-300);
+  --green-secondary-foreground: var(--color-green-300);
   --green-border: var(--color-green-800);
 
   /* Badge Styles - Amber */
