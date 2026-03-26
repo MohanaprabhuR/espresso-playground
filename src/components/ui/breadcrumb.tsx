@@ -2,10 +2,8 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { ChevronIcon } from "../../../public/images/svg/chevronIcon";
-
-import { BreadcrumbEllipsisIcon } from "../../../public/images/svg/breadcrumbEllipsisIcon";
-
 import { cn } from "@/lib/utils";
+import { Ellipsis } from "lucide-react";
 type BreadcrumbSize = "sm" | "md";
 type SeparatorType = "chevron" | "slash";
 
@@ -139,12 +137,12 @@ function BreadcrumbEllipsis({
       role="presentation"
       aria-hidden="true"
       className={cn(
-        "flex size-5 items-center justify-center mt-0.75",
+        "flex size-5 items-center justify-center mt-0.75 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0 ",
         className,
       )}
       {...props}
     >
-      <BreadcrumbEllipsisIcon />
+      <Ellipsis />
       <span className="sr-only">More</span>
     </span>
   );
