@@ -10,9 +10,9 @@ const buttonGroupVariants = cva(
     variants: {
       orientation: {
         horizontal:
-          "flex-row [&>*:not(:first-child)]:rounded-l-none [&>*:not(:last-child)]:rounded-r-none",
+          "flex-row  [&>*:not(:first-child)]:-ml-px [&>*:not(:first-child)]:rounded-l-none [&>*:not(:last-child)]:rounded-r-none",
         vertical:
-          "flex-col [&>*:not(:first-child):not(:last-child)]:rounded-none [&>*:not(:first-child)]:rounded-t-none [&>*:not(:last-child)]:rounded-b-none",
+          "flex-col [&>*:not(:first-child)]:-mt-px  [&>*:not(:first-child):not(:last-child)]:rounded-none [&>*:not(:first-child)]:rounded-t-none [&>*:not(:last-child)]:rounded-b-none",
       },
       variant: {
         default: "",
@@ -57,16 +57,6 @@ const buttonGroupVariants = cva(
         size: "lg",
         className: "gap-1.5",
       },
-      {
-        orientation: "horizontal",
-        variant: "outline",
-        className: "[&>*:not(:first-child)]:-ml-px",
-      },
-      {
-        orientation: "vertical",
-        variant: "outline",
-        className: "[&>*:not(:first-child)]:-mt-px",
-      },
     ],
 
     defaultVariants: {
@@ -76,11 +66,12 @@ const buttonGroupVariants = cva(
       variant: "default",
       size: "sm",
     },
-  }
+  },
 );
 
 interface ButtonGroupProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof buttonGroupVariants> {
   children?: React.ReactNode;
 }
@@ -107,7 +98,7 @@ function ButtonGroup({
           wrapLayout,
           size,
         }),
-        className
+        className,
       )}
       {...props}
     />
@@ -125,7 +116,7 @@ function ButtonGroupText({
     <Comp
       className={cn(
         "bg-muted flex items-center gap-2 rounded-md border px-4 text-sm font-medium shadow-xs [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4",
-        className
+        className,
       )}
       {...props}
     />
@@ -143,7 +134,7 @@ function ButtonGroupSeparator({
       orientation={orientation}
       className={cn(
         "bg-input relative !m-0 self-stretch data-[orientation=vertical]:h-auto",
-        className
+        className,
       )}
       {...props}
     />
