@@ -54,7 +54,11 @@ export function ComponentNav({
   return (
     <div className="mt-16 flex items-center justify-between gap-4 border-t pt-6">
       {prev ? (
-        <Button variant="ghost" asChild className="h-auto flex-col items-start gap-1 px-0">
+        <Button
+          variant="ghost"
+          asChild
+          className="h-auto flex-col items-start gap-1 px-0"
+        >
           <Link href={`/playground/${prev.slug}`}>
             <span className="flex items-center gap-1 text-xs text-muted-foreground">
               <ChevronLeft className="size-3.5" />
@@ -123,7 +127,7 @@ export function PreviewBox({
   return (
     <div
       className={cn(
-        "rounded-xl border bg-[radial-gradient(circle,_var(--border)_1px,_transparent_1px)] [background-size:16px_16px] bg-muted/20 p-10 flex items-center justify-center min-h-[140px]",
+        "rounded-xl border  [background-size:16px_16px] bg-muted/20 p-10 flex items-center justify-center min-h-[140px]",
         className,
       )}
     >
@@ -137,11 +141,7 @@ export function PlaygroundControls({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <div className="divide-y rounded-xl border">
-      {children}
-    </div>
-  );
+  return <div className="divide-y rounded-xl border">{children}</div>;
 }
 
 export function PlaygroundControlRow({
@@ -191,8 +191,10 @@ export function SegmentedControl<T extends string>({
   return (
     <div
       className={cn(
-        "flex gap-1.5",
-        wrap ? "flex-wrap items-start" : "inline-flex rounded-lg border p-0.5",
+        "flex",
+        wrap
+          ? "flex-wrap items-start gap-1"
+          : "inline-flex gap-1.5 rounded-lg border p-0.5",
         pills && "w-full",
       )}
     >
@@ -202,16 +204,16 @@ export function SegmentedControl<T extends string>({
           type="button"
           onClick={() => onChange(option)}
           className={cn(
-            "text-xs font-medium capitalize transition-colors",
+            "font-medium  transition-colors",
             pills || wrap
               ? cn(
-                  "rounded-full border px-2.5 py-1",
+                  "min-h-6 rounded-full border px-2 py-0.5 text-[11px] leading-tight",
                   value === option
                     ? "border-foreground bg-foreground text-background"
                     : "border-border bg-background text-muted-foreground hover:text-foreground",
                 )
               : cn(
-                  "rounded-md px-2.5 py-1",
+                  "rounded-md px-2.5 py-1 text-xs",
                   value === option
                     ? "bg-background text-foreground shadow-sm"
                     : "text-muted-foreground hover:text-foreground",
