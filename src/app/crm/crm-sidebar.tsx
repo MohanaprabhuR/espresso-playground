@@ -212,12 +212,12 @@ const CrmSidebar = () => {
                             Gameplan
                           </DropdownMenuItem>
                         </Link>
-                        <Link href="/ui/avatar">
+                        <Link href="/playground">
                           <DropdownMenuItem>
                             <div className="bg-[#84B346] flex aspect-square size-7 items-center justify-center rounded-lg min-w-0 shrink-0">
                               <Component className="size-4 text-white" />
                             </div>
-                            UI
+                            Playground
                           </DropdownMenuItem>
                         </Link>
                       </DropdownMenuSubContent>
